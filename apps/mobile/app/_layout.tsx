@@ -13,6 +13,7 @@ import { useFonts, DMSans_900Black, DMSans_700Bold, DMSans_400Regular } from '@e
 import { useAppStore } from '../src/stores/app-store';
 import { Text, View, ScrollView } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
+import Qonversion, { QonversionConfigBuilder, LaunchMode } from 'react-native-qonversion';
 
 SplashScreen.preventAutoHideAsync().catch(() => {});
 
@@ -37,6 +38,26 @@ export default function RootLayout() {
 
   useEffect(() => {
     seedDatabase().catch(console.error);
+
+    // Initialize Qonversion
+    try {
+      const config = new QonversionConfigBuilder(
+        'e9kuA9PFmsWUmZ1OGJcXjGE2RRc3AOdJ',
+        LaunchMode.SUBSCRIPTION_MANAGEMENT
+      ).build();
+      Qonversion.initialize(config);
+
+      // Check entitlements on load
+      Qonversion.getSharedInstance().checkEntitlements()
+        .then(entitlements => {
+          const premium = entitlements.get('premium_access');
+          const isPremium = !!(premium && premium.isActive);
+          useAppStore.getState().updateSettings({ isPremium });
+        })
+        .catch(err => console.error('Qonversion entitlement check error:', err));
+    } catch (err) {
+      console.error('Failed to initialize Qonversion:', err);
+    }
     
     // Subscribe to network state changes to refresh exchange rates
     const unsubscribeNetInfo = NetInfo.addEventListener(state => {

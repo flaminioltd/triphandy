@@ -129,6 +129,9 @@ importers:
       react-native-paper-dates:
         specifier: ^0.23.9
         version: 0.23.9(react-native-paper@5.15.3(react-native-safe-area-context@4.12.0(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1))(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1))(react-native-safe-area-context@4.12.0(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1))(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1)
+      react-native-qonversion:
+        specifier: ^9.0.3
+        version: 9.0.3(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1)
       react-native-safe-area-context:
         specifier: ~4.12.0
         version: 4.12.0(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1)
@@ -4963,6 +4966,12 @@ packages:
       react: '*'
       react-native: '*'
       react-native-safe-area-context: '*'
+
+  react-native-qonversion@9.0.3:
+    resolution: {integrity: sha512-60QbZMIDFuLCDS8ocUtWf6LEvW65v8FuUgwqpnDOPcZdcmeNh8+ZhKZkz9iHFRqbGgy+AlbkO9GWmWjr6LuRyQ==}
+    peerDependencies:
+      react: ^16.8.1 || ^17.0.0 || ^18.0.0
+      react-native: '>=0.60.0-rc.0 <1.0.x'
 
   react-native-safe-area-context@4.12.0:
     resolution: {integrity: sha512-ukk5PxcF4p3yu6qMZcmeiZgowhb5AsKRnil54YFUUAXVIS7PJcMHGGC+q44fCiBg44/1AJk5njGMez1m9H0BVQ==}
@@ -11806,6 +11815,11 @@ snapshots:
       react-native: 0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1)
       react-native-safe-area-context: 4.12.0(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1)
       use-latest-callback: 0.2.6(react@18.3.1)
+
+  react-native-qonversion@9.0.3(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-native: 0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1)
 
   react-native-safe-area-context@4.12.0(react-native@0.76.9(@babel/core@7.29.7)(@babel/preset-env@7.29.7(@babel/core@7.29.7))(@react-native-community/cli@13.6.6)(@types/react@18.3.31)(react@18.3.1))(react@18.3.1):
     dependencies:

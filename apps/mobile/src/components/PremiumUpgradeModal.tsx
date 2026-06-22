@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { FINANCE_MODULES, ESSENTIALS_MODULES } from '../lib/modules';
 import { useTripStore } from '../stores/trip-store';
 import TripSelectionModal from './TripSelectionModal';
+import { useAppStore } from '../stores/app-store';
+import Qonversion from 'react-native-qonversion';
 
 interface PremiumUpgradeModalProps {
   visible: boolean;
@@ -29,9 +31,40 @@ export default function PremiumUpgradeModal({ visible, onDismiss, isEligibleForT
   
   const [tripSelectionVisible, setTripSelectionVisible] = React.useState(false);
 
-  const handleUpgrade = () => {
-    // Placeholder for actual App Store/Google Play purchase logic
-    console.log('Initiating purchase for Premium Tier...');
+  const handleUpgrade = async () => {
+    try {
+      const products = await Qonversion.getSharedInstance().products();
+      const productId = isEligibleForTrial ? 'triphandy_yearly_499_promo' : 'triphandy_yearly_799';
+      
+      const product = products.get(productId);
+      if (!product) {
+        console.error('Product not found in Qonversion:', productId);
+        return;
+      }
+      
+      const entitlements = await Qonversion.getSharedInstance().purchaseProduct(product);
+      const premium = entitlements.get('premium_access');
+      
+      if (premium && premium.isActive) {
+        useAppStore.getState().updateSettings({ isPremium: true });
+        onDismiss();
+      }
+    } catch (e) {
+      console.error('Purchase failed:', e);
+    }
+  };
+
+  const handleRestore = async () => {
+    try {
+      const entitlements = await Qonversion.getSharedInstance().restore();
+      const premium = entitlements.get('premium_access');
+      if (premium && premium.isActive) {
+        useAppStore.getState().updateSettings({ isPremium: true });
+        onDismiss();
+      }
+    } catch (e) {
+      console.error('Restore failed:', e);
+    }
   };
 
   const allModules = [...FINANCE_MODULES, ...ESSENTIALS_MODULES];
@@ -183,6 +216,12 @@ export default function PremiumUpgradeModal({ visible, onDismiss, isEligibleForT
               >
                 <Text style={{ color: '#8A61FF', fontSize: 14, fontWeight: 'bold' }} numberOfLines={1} adjustsFontSizeToFit>
                   {t('modals.premium.continueFree', 'Continue with Free')}
+                </Text>
+              </Pressable>
+
+              <Pressable onPress={handleRestore} style={{ marginTop: 8 }}>
+                <Text style={{ color: theme.colors.onSurfaceVariant, fontSize: 12, textAlign: 'center', textDecorationLine: 'underline' }}>
+                  {t('modals.premium.restorePurchases', 'Restore Purchases')}
                 </Text>
               </Pressable>
             </View>

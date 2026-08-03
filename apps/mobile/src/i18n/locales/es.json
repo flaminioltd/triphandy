@@ -527,9 +527,9 @@
       "close": "Cerrar"
     },
     "premium": {
-      "title": "triphandy Premium",
+      "title": "triphandy Pro",
       "freeTier": "Gratis",
-      "premiumTier": "Premium",
+      "premiumTier": "Pro",
       "features": {
         "basicPhrasesLite": "Frases Básicas Lite",
         "max2Trips": "Máx. 2 Viajes",
@@ -537,7 +537,7 @@
         "unlimitedTrips": "Viajes Ilimitados"
       },
       "price": "$19.99 / año",
-      "upgradeBtn": "Actualizar a Premium",
+      "upgradeBtn": "Actualizar a Pro",
       "continueBtn": "Continuar con Gratis",
       "allFreeModulesPlus": "Todo lo de la versión gratuita, más:"
     },

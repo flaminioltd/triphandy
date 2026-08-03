@@ -10,8 +10,8 @@ import { COUNTRIES } from '../../src/lib/countries';
 import { PHRASES_DATA, getLanguageForCountry, getSpeechLanguageCode } from '../../src/lib/basic-phrases-data';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useAppStore } from '../../src/stores/app-store';
-import PremiumUpgradeModal from '../../src/components/PremiumUpgradeModal';
-import PremiumIcon from '../../src/components/PremiumIcon';
+import ProUpgradeModal from '../../src/components/ProUpgradeModal';
+import ProIcon from '../../src/components/ProIcon';
 export default function BasicPhrasesScreen() {
   const theme = useTheme();
   const { activeTrip } = useTripStore();
@@ -115,7 +115,7 @@ export default function BasicPhrasesScreen() {
                       }}>
                         {t(`phrases.categories.${tab.category}`)}
                       </Text>
-                      {isLocked && <PremiumIcon size={16} />}
+                      {isLocked && <ProIcon size={16} />}
                     </View>
                   </Pressable>
                 );
@@ -162,7 +162,7 @@ export default function BasicPhrasesScreen() {
         </>
       )}
 
-      <PremiumUpgradeModal 
+      <ProUpgradeModal 
         visible={isPremiumModalVisible} 
         onDismiss={() => setPremiumModalVisible(false)} 
       />

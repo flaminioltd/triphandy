@@ -9,13 +9,17 @@ import { useTripStore } from '../../src/stores/trip-store';
 import { useAppStore } from '../../src/stores/app-store';
 import { FLAG_IMAGES } from '../../src/lib/assets';
 import AddTripModal from '../../src/components/AddTripModal';
-import PremiumUpgradeModal from '../../src/components/PremiumUpgradeModal';
-import PremiumIcon from '../../src/components/PremiumIcon';
+import ProUpgradeModal from '../../src/components/ProUpgradeModal';
+import ProIcon from '../../src/components/ProIcon';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../src/i18n';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { FINANCE_MODULES, ESSENTIALS_MODULES, RedesignModuleProps } from '../../src/lib/modules';
+import { ALL_MODULES, DEFAULT_MODULE_ORDER, RedesignModuleProps } from '../../src/lib/modules';
+import { DragSortableView } from 'react-native-drag-sort';
+import { Dimensions } from 'react-native';
+
+const { width: screenWidth } = Dimensions.get('window');
 
 import { COUNTRIES } from '../../src/lib/countries';
 
@@ -31,7 +35,23 @@ export default function HomeScreen() {
   const theme = useTheme();
   const router = useRouter();
   const { trips, activeTrip, setActiveTrip, loadTrips } = useTripStore();
-  const { loadSettings, settings } = useAppStore();
+  const { loadSettings, settings, updateSettings } = useAppStore();
+  const [isReordering, setIsReordering] = useState(false);
+  const [moduleOrder, setModuleOrder] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (settings?.moduleOrder) {
+      try {
+        setModuleOrder(JSON.parse(settings.moduleOrder));
+      } catch {
+        setModuleOrder(DEFAULT_MODULE_ORDER);
+      }
+    } else {
+      setModuleOrder(DEFAULT_MODULE_ORDER);
+    }
+  }, [settings?.moduleOrder]);
+
+  const sortedModules = moduleOrder.map(id => ALL_MODULES.find(m => m.id === id)).filter(Boolean) as RedesignModuleProps[];
   const { t } = useTranslation();
   const [menuVisible, setMenuVisible] = useState(false);
   const [activeCountryCode, setActiveCountryCode] = useState<string | null>(null);
@@ -80,11 +100,12 @@ export default function HomeScreen() {
     return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
   });
 
-  const renderModuleCard = (mod: RedesignModuleProps, idx: number) => {
+  const renderModuleCard = (mod: RedesignModuleProps, idx: number, reordering: boolean = false) => {
     const isFullWidth = mod.colSpan === 2;
     return (
       <Pressable
         key={idx}
+        disabled={reordering}
         onPress={() => {
           if (mod.isPremium && !settings?.isPremium) {
             setPremiumModalVisible(true);
@@ -95,8 +116,15 @@ export default function HomeScreen() {
           }
         }}
         style={({ pressed }) => [
-          { width: isFullWidth ? '100%' : '50%', paddingHorizontal: 1, marginBottom: 2 },
-          pressed && styles.cardPressed
+          reordering ? {
+            width: screenWidth / 2 - 2,
+            height: 140,
+          } : { 
+            width: isFullWidth ? '100%' : '50%', 
+            paddingHorizontal: 1, 
+            marginBottom: 2 
+          },
+          pressed && !reordering && styles.cardPressed
         ]}
       >
         <View
@@ -112,32 +140,44 @@ export default function HomeScreen() {
           ]}
         >
           <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-            <Text style={{ 
-              fontSize: 11, 
-              fontFamily: 'DMSans_400Regular',
-               
-              color: 'rgba(0,0,0,0.4)', 
-              textTransform: 'capitalize', 
-              letterSpacing: 0.5,
-              flex: 1,
-              paddingRight: 8,
-              paddingTop: 4
-            }}>
-              {t(`categories.${mod.category}`, mod.category)}
-            </Text>
+            <View style={{ flexDirection: 'row', flex: 1, paddingRight: 8 }}>
+              <Text style={{ 
+                fontSize: 11, 
+                fontFamily: 'DMSans_700Bold',
+                 
+                color: '#FFFFFF', 
+                textTransform: 'capitalize', 
+                letterSpacing: 0.5,
+                flexShrink: 1,
+                paddingTop: 4
+              }}>
+                {t(`categories.${mod.category}`, mod.category)}
+              </Text>
+            </View>
             
-            <View style={{ marginRight: -4, marginTop: -4 }}>
+            <View style={{ 
+              marginRight: -4, 
+              marginTop: -4,
+              backgroundColor: mod.iconShapeColor,
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
               {mod.CustomIcon ? (
-                <mod.CustomIcon size={48} />
+                <mod.CustomIcon size={26} color="#FFFFFF" />
               ) : (
-                <MaterialIcons name={mod.fallbackIcon} size={48} color={mod.color} />
+                <MaterialIcons name={mod.fallbackIcon} size={26} color="#FFFFFF" />
               )}
             </View>
           </View>
 
-          {mod.isPremium && !settings?.isPremium && (
-            <View style={{ position: 'absolute', bottom: 12, right: 12 }}>
-              <PremiumIcon size={16} />
+
+          
+          {reordering && (
+            <View style={{ position: 'absolute', bottom: 8, right: 8 }}>
+              <MaterialCommunityIcons name="drag" size={24} color="rgba(0,0,0,0.3)" />
             </View>
           )}
 
@@ -148,14 +188,17 @@ export default function HomeScreen() {
               minimumFontScale={0.5}
               style={{ 
                 fontSize: 18,
-                fontFamily: 'DMSans_400Regular',
+                fontFamily: 'DMSans_700Bold',
                  
-                color: 'rgba(0,0,0,0.7)', 
+                color: '#FFFFFF', 
                 textAlign: 'left',
                 lineHeight: 22
               }}
             >
               {t(`homeScreen.modules.${mod.id}.title`, mod.title).replace(' ', '\n')}
+              {mod.isPremium && !settings?.isPremium && (
+                <Text> <ProIcon size={16} color="#FFFFFF" /></Text>
+              )}
             </Text>
           </View>
         </View>
@@ -165,13 +208,14 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView edges={['bottom', 'left', 'right']} style={{ flex: 1, backgroundColor: theme.colors.background }}>
-      <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]} contentContainerStyle={styles.content}>
+      <ScrollView scrollEnabled={!isReordering} style={[styles.container, { backgroundColor: theme.colors.background }]} contentContainerStyle={styles.content}>
         
         {/* Active Trip Strip */}
-        <View style={[styles.tripStripContainer, { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 14, marginTop: 12, gap: 12 }]}>
-          <Text style={{ fontSize: 13, fontFamily: 'DMSans_400Regular',  color: theme.colors.onSurfaceVariant, textTransform: 'capitalize', letterSpacing: 0.5 }}>
-            {t('tripsScreen.activeTripLabel', 'Active Trip').toLowerCase()}:
-          </Text>
+        <View style={[styles.tripStripContainer, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 14, marginTop: 12, width: '100%' }]}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Text style={{ fontSize: 13, fontFamily: 'DMSans_400Regular',  color: theme.colors.onSurfaceVariant, textTransform: 'capitalize', letterSpacing: 0.5 }}>
+              {t('tripsScreen.activeTripLabel', 'Active Trip').toLowerCase()}:
+            </Text>
           <Menu
             visible={menuVisible}
             onDismiss={() => setMenuVisible(false)}
@@ -266,13 +310,49 @@ export default function HomeScreen() {
               leadingIcon="plus"
             />
           </Menu>
+          </View>
+          <Pressable 
+            onPress={() => {
+              if (isReordering) {
+                updateSettings({ moduleOrder: JSON.stringify(moduleOrder) });
+                setIsReordering(false);
+              } else {
+                setIsReordering(true);
+              }
+            }}
+            style={{ padding: 8, backgroundColor: isReordering ? theme.colors.primaryContainer : 'transparent', borderRadius: 8, marginLeft: 'auto' }}
+          >
+            <MaterialIcons name={isReordering ? "check" : "grid-view"} size={20} color={isReordering ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant} />
+          </Pressable>
         </View>
 
         {/* Modules Grid */}
         <View style={{ marginBottom: 0 }}>
-          <View style={styles.grid}>
-            {[...FINANCE_MODULES, ...ESSENTIALS_MODULES].map((mod, idx) => renderModuleCard(mod, idx))}
-          </View>
+          {isReordering ? (
+            <View style={{ marginHorizontal: -1, width: screenWidth }}>
+              <DragSortableView
+                dataSource={sortedModules}
+                parentWidth={screenWidth}
+                childrenWidth={screenWidth / 2 - 2}
+                childrenHeight={140}
+                marginChildrenTop={0}
+                marginChildrenBottom={2}
+                marginChildrenLeft={1}
+                marginChildrenRight={1}
+                onDataChange={(data) => {
+                  setModuleOrder(data.map((d: any) => d.id));
+                }}
+                keyExtractor={(item) => item.id}
+                onClickItem={() => {}}
+                renderItem={(item, index) => renderModuleCard(item, index, true)}
+                sortable={true}
+              />
+            </View>
+          ) : (
+            <View style={styles.grid}>
+              {sortedModules.map((mod, idx) => renderModuleCard(mod, idx, false))}
+            </View>
+          )}
         </View>
 
       </ScrollView>
@@ -314,7 +394,7 @@ export default function HomeScreen() {
         onDismiss={() => setAddTripVisible(false)} 
       />
       
-      <PremiumUpgradeModal 
+      <ProUpgradeModal 
         visible={isPremiumModalVisible} 
         onDismiss={() => setPremiumModalVisible(false)} 
       />

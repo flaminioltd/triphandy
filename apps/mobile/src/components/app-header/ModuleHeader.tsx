@@ -9,8 +9,8 @@ import { FLAG_IMAGES } from '../../lib/assets';
 import { FINANCE_MODULES, ESSENTIALS_MODULES } from '../../lib/modules';
 import { useTranslation } from 'react-i18next';
 import { useAppStore } from '../../stores/app-store';
-import PremiumUpgradeModal from '../PremiumUpgradeModal';
-import PremiumIcon from '../PremiumIcon';
+import ProUpgradeModal from '../ProUpgradeModal';
+import ProIcon from '../ProIcon';
 const formatDateRange = (start: Date | null | undefined, end: Date | null | undefined, locale: string = 'en-US', tbdStr: string = 'TBD') => {
   if (!start || !end) return tbdStr;
   const s = new Date(start);
@@ -176,12 +176,12 @@ export default function ModuleHeader({ title }: Props) {
                 title={
                   <Text>
                     {t(`homeScreen.modules.${mod.id}.title`, mod.title)}
-                    {isLocked && <Text> <PremiumIcon size={16} /></Text>}
+                    {isLocked && <Text> <ProIcon size={16} /></Text>}
                   </Text>
                 }
                 leadingIcon={({ size }) => (
                   <View style={{ backgroundColor: mod.backgroundColor, borderRadius: 16, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
-                    {mod.CustomIcon ? <mod.CustomIcon size={18} /> : <MaterialIcons name={mod.fallbackIcon} size={18} color="#4A4C50" />}
+                    {mod.CustomIcon ? <mod.CustomIcon size={18} color="#FFFFFF" /> : <MaterialIcons name={mod.fallbackIcon} size={18} color="#FFFFFF" />}
                   </View>
                 )} 
               />
@@ -205,12 +205,12 @@ export default function ModuleHeader({ title }: Props) {
                 title={
                   <Text>
                     {t(`homeScreen.modules.${mod.id}.title`, mod.title)}
-                    {isLocked && <Text> <PremiumIcon size={16} /></Text>}
+                    {isLocked && <Text> <ProIcon size={16} /></Text>}
                   </Text>
                 }
                 leadingIcon={({ size }) => (
                   <View style={{ backgroundColor: mod.backgroundColor, borderRadius: 16, width: 32, height: 32, alignItems: 'center', justifyContent: 'center' }}>
-                    {mod.CustomIcon ? <mod.CustomIcon size={18} /> : <MaterialIcons name={mod.fallbackIcon} size={18} color="#4A4C50" />}
+                    {mod.CustomIcon ? <mod.CustomIcon size={18} color="#FFFFFF" /> : <MaterialIcons name={mod.fallbackIcon} size={18} color="#FFFFFF" />}
                   </View>
                 )} 
               />
@@ -218,7 +218,7 @@ export default function ModuleHeader({ title }: Props) {
           })}
         </Menu>
 
-        <PremiumUpgradeModal 
+        <ProUpgradeModal 
           visible={premiumModalVisible} 
           onDismiss={() => setPremiumModalVisible(false)} 
         />

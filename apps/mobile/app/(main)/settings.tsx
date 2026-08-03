@@ -114,6 +114,18 @@ export default function SettingsScreen() {
           right={props => <List.Icon {...props} icon="chevron-right" />}
           onPress={() => setSyncModalVisible(true)}
         />
+        <List.Item
+          title="Pro Mode (Test)"
+          description="Enable to test Pro features"
+          left={props => <List.Icon {...props} icon="star" />}
+          right={props => (
+            <Switch
+              value={!!settings?.isPremium}
+              onValueChange={(val) => updateSettings({ isPremium: val })}
+              color={theme.colors.primary}
+            />
+          )}
+        />
       </View>
 
       <View style={{ marginTop: 'auto', width: '100%', alignItems: 'center' }}>

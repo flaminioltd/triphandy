@@ -11,8 +11,8 @@ import { COUNTRIES } from '../../src/lib/countries';
 import { COVER_IMAGES } from '../../src/lib/assets';
 import AddTripModal from '../../src/components/AddTripModal';
 import PastTripSummaryModal from '../../src/components/PastTripSummaryModal';
-import PremiumUpgradeModal from '../../src/components/PremiumUpgradeModal';
-import PremiumIcon from '../../src/components/PremiumIcon';
+import ProUpgradeModal from '../../src/components/ProUpgradeModal';
+import ProIcon from '../../src/components/ProIcon';
 import { useTranslation } from 'react-i18next';
 
 export default function TripsScreen() {
@@ -316,7 +316,7 @@ export default function TripsScreen() {
                         router.push('/modules/budget-tracker');
                       }
                     }}
-                    icon={!settings?.isPremium ? () => <PremiumIcon size={14} /> : undefined}
+                    icon={!settings?.isPremium ? () => <ProIcon size={14} /> : undefined}
                     contentStyle={[miniButtonContentStyle, !settings?.isPremium && { flexDirection: 'row-reverse' }]}
                     labelStyle={miniButtonLabelStyle}
                   >
@@ -581,7 +581,7 @@ export default function TripsScreen() {
       onDismiss={() => setIsSummaryVisible(false)} 
     />
     
-    <PremiumUpgradeModal 
+    <ProUpgradeModal 
       visible={isPremiumModalVisible} 
       onDismiss={() => setPremiumModalVisible(false)} 
     />

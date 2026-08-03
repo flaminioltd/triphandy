@@ -94,9 +94,9 @@ export default function MainAppHeader() {
     ]}>
       <View style={styles.content}>
         {settings?.isPremium ? (
-          <Image source={require('../../../assets/full-logo-premium.png')} style={{ height: 28, width: 90, resizeMode: 'contain', marginLeft: 8 }} />
+          <Image source={require('../../../assets/full-logo-pro.png')} style={{ height: 36, width: 115, resizeMode: 'contain', marginLeft: 8 }} />
         ) : (
-          <Image source={require('../../../assets/images/Logo.png')} style={{ height: 28, width: 90, resizeMode: 'contain', marginLeft: 8 }} />
+          <Image source={require('../../../assets/images/Logo.png')} style={{ height: 36, width: 115, resizeMode: 'contain', marginLeft: 8 }} />
         )}
 
         <View style={styles.nav}>

@@ -15,7 +15,7 @@ interface AddTripModalProps {
   onDismiss: () => void;
 }
 
-import PremiumUpgradeModal from './PremiumUpgradeModal';
+import ProUpgradeModal from './ProUpgradeModal';
 import { useAppStore } from '../stores/app-store';
 
 export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) {
@@ -139,7 +139,7 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
   };
 
   if (isLimitReached) {
-    return <PremiumUpgradeModal visible={visible} onDismiss={onDismiss} />;
+    return <ProUpgradeModal visible={visible} onDismiss={onDismiss} />;
   }
 
   return (

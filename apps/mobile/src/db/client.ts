@@ -44,6 +44,7 @@ try {
     system_language TEXT,
     exchange_rate_sync_preference TEXT DEFAULT 'wifi_only',
     is_premium INTEGER NOT NULL DEFAULT 0,
+    module_order TEXT,
     updated_at INTEGER
   );
 
@@ -130,6 +131,9 @@ try {
 } catch (e) {}
 try {
   sqliteClient?.execSync("ALTER TABLE settings ADD COLUMN is_premium INTEGER DEFAULT 0 NOT NULL;");
+} catch (e) {}
+try {
+  sqliteClient?.execSync("ALTER TABLE settings ADD COLUMN module_order TEXT;");
 } catch (e) {}
 
 try {

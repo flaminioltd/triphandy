@@ -35,13 +35,19 @@ export async function seedDatabase() {
       await db.insert(countries).values(countriesToInsert);
       console.log('Database seeded with countries.');
     } else {
-      // Update existing entries to ensure new tipping and VAT columns are populated
-      for (const c of countriesToInsert) {
-        await db.update(countries)
-          .set({ tippingStandard: c.tippingStandard, tippingType: c.tippingType, vatRate: c.vatRate })
-          .where(eq(countries.code, c.code));
+      // Check if we need to update tipping/VAT data by checking the first country
+      const firstCountry = countRes[0];
+      if (firstCountry.tippingStandard === null && firstCountry.vatRate === null) {
+        // Wrap in transaction so it executes instantly instead of blocking the DB queue for seconds
+        await db.transaction(async (tx) => {
+          for (const c of countriesToInsert) {
+            await tx.update(countries)
+              .set({ tippingStandard: c.tippingStandard, tippingType: c.tippingType, vatRate: c.vatRate })
+              .where(eq(countries.code, c.code));
+          }
+        });
+        console.log('Database updated with tipping and VAT data for countries.');
       }
-      console.log('Database updated with tipping and VAT data for countries.');
     }
   } catch (error) {
     console.error('Error seeding database:', error);

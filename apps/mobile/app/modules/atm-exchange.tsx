@@ -6,15 +6,16 @@ import { COUNTRIES } from '../../src/lib/countries';
 import { FLAG_IMAGES } from '../../src/lib/assets';
 import { useTripStore } from '../../src/stores/trip-store';
 import { View, Image, StyleSheet, ScrollView, Pressable, TextInput as NativeTextInput } from 'react-native';;
-import { Text, TextInput, Card, useTheme, IconButton, Divider, SegmentedButtons } from 'react-native-paper';
+import { Text, TextInput, Card, useTheme, IconButton, Divider } from 'react-native-paper';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { useTranslation } from 'react-i18next';
-import { compareAtmAndExchange } from '@tripkit/shared';
+import { compareAtmAndExchange } from '@triphandy/shared';
 import { db } from '../../src/db/client';
 import { exchangeRates, settings as dbSettings, countries } from '../../src/db/schema';
 import { eq } from 'drizzle-orm';
 import { MaterialIcons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥', 'AUD': 'A$', 'CAD': 'C$',
@@ -169,7 +170,7 @@ export default function AtmExchangeScreen() {
         <Card style={styles.card} mode="contained">
           <Card.Content>
             <Text variant="labelLarge" style={{ marginBottom: 8, color: theme.colors.onSurfaceVariant }}>{t("modules.atmExchange.targetAmount", "Target Amount")}</Text>
-            <SegmentedButtons
+            <CustomSegmentedControl
               value={baseCurrencyType}
               onValueChange={setBaseCurrencyType}
               buttons={[
@@ -181,7 +182,7 @@ export default function AtmExchangeScreen() {
             <View style={{ flexDirection: 'row', gap: 8 }}>
               <View style={{ flex: 1 }}>
                 <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.amount', 'Amount')} ({baseCurrencyType === 'home' ? homeSymbol : localSymbol})</Text>
-                <TextInput 
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
                   value={baseAmount} 
                   onChangeText={setBaseAmount} 
                   keyboardType="numeric" 
@@ -206,13 +207,13 @@ export default function AtmExchangeScreen() {
         {/* Option A: ATM */}
         <Card style={styles.card} mode="contained">
           <Card.Content>
-            <Text variant="titleMedium" style={{ marginBottom: 12, fontWeight: 'bold' }}>{t('modules.atmExchange.optionA', 'Option A: ATM Withdrawal')}</Text>
+            <Text variant="titleMedium" style={{ marginBottom: 12, }}>{t('modules.atmExchange.optionA', 'Option A: ATM Withdrawal')}</Text>
             <View style={{ flexDirection: 'row', gap: 8 }}>
               <View style={{ flex: 1, justifyContent: 'flex-end' }}>
                 <View style={{ flex: 1 }}>
                   <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.localFee', 'Local Fee')}</Text>
                 </View>
-                <TextInput 
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
                   value={atmLocalFeeLocal} 
                   onChangeText={setAtmLocalFeeLocal} 
                   keyboardType="numeric" 
@@ -225,7 +226,7 @@ export default function AtmExchangeScreen() {
                 <View style={{ flex: 1 }}>
                   <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bankFlatFee', 'Bank Flat Fee')}</Text>
                 </View>
-                <TextInput 
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
                   value={atmHomeBankFlatFeeHome} 
                   onChangeText={setAtmHomeBankFlatFeeHome} 
                   keyboardType="numeric" 
@@ -238,7 +239,7 @@ export default function AtmExchangeScreen() {
                 <View style={{ flex: 1 }}>
                   <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bankFxFee', 'Bank FX %')}</Text>
                 </View>
-                <TextInput 
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
                   value={atmHomeBankFxFeePercentage} 
                   onChangeText={setAtmHomeBankFxFeePercentage} 
                   keyboardType="numeric" 
@@ -254,10 +255,13 @@ export default function AtmExchangeScreen() {
         {/* Option B: Exchange Bureau */}
         <Card style={styles.card} mode="contained">
           <Card.Content>
-            <Text variant="titleMedium" style={{ marginBottom: 12, fontWeight: 'bold' }}>{t('modules.atmExchange.optionB', 'Option B: Cash Exchange')}</Text>
-            <View style={{ flexDirection: 'row', gap: 8, alignItems: 'flex-start' }}>
-              <View style={{ flex: 1.2 }}>
-                <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bureauRate', 'Bureau Rate')}</Text>
+            <Text variant="titleMedium" style={{ marginBottom: 12 }}>{t('modules.atmExchange.optionB', 'Option B: Cash Exchange')}</Text>
+            
+            <View style={{ flexDirection: 'row', gap: 8 }}>
+              <View style={{ flex: 1.2, justifyContent: 'flex-end' }}>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bureauRate', 'Bureau Rate')}</Text>
+                </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center', height: 48, borderRadius: 4, borderWidth: 1, borderColor: theme.colors.outline, paddingLeft: 12, paddingRight: 4, backgroundColor: theme.colors.surface, marginBottom: 8 }}>
                   <Text style={{ color: theme.colors.onSurfaceVariant, fontSize: 14, opacity: 0.5 }}>1 {leftCurrency} = </Text>
                   <NativeTextInput 
@@ -270,6 +274,23 @@ export default function AtmExchangeScreen() {
                   <View style={{ flex: 1 }} />
                   <IconButton icon="swap-vertical" size={20} onPress={handleSwapRateDirection} style={{ margin: 0 }} />
                 </View>
+              </View>
+              <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+                <View style={{ flex: 1 }}>
+                  <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bureauFee', 'Bureau Fee')}</Text>
+                </View>
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
+                  value={exchangeBureauFee} 
+                  onChangeText={setExchangeBureauFee} 
+                  keyboardType="numeric" 
+                  mode="outlined" 
+                  style={[styles.input, { height: 48, marginBottom: 8 }]} 
+                />
+              </View>
+            </View>
+
+            <View style={{ flexDirection: 'row', gap: 8, alignItems: 'center' }}>
+              <View style={{ flex: 1.2 }}>
                 <Slider
                   style={{ width: '100%', height: 32 }}
                   minimumValue={(parseFloat(midMarketRate) || 1) * 0.7}
@@ -283,38 +304,18 @@ export default function AtmExchangeScreen() {
                 />
               </View>
               <View style={{ flex: 1 }}>
-                <Text style={{ fontSize: 12, color: theme.colors.onSurfaceVariant, marginBottom: 4, marginLeft: 4 }}>{t('modules.atmExchange.bureauFee', 'Bureau Fee')}</Text>
-                <TextInput 
-                  value={exchangeBureauFee} 
-                  onChangeText={setExchangeBureauFee} 
-                  keyboardType="numeric" 
-                  mode="outlined" 
-                  style={[styles.input, { height: 48, marginBottom: 8 }]} 
+                <CustomSegmentedControl
+                  value={exchangeBureauFeeCurrency}
+                  onValueChange={setExchangeBureauFeeCurrency}
+                  buttons={[
+                    { value: 'home', label: homeSymbol, style: { flex: 1, paddingVertical: 2, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                    { value: 'local', label: localSymbol, style: { flex: 1, paddingVertical: 2, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                    { value: 'percentage', label: '%', style: { flex: 1, paddingVertical: 2, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                  ]}
                 />
-                <View style={{ flexDirection: 'row', height: 32, borderRadius: 16, borderWidth: 1, borderColor: theme.colors.outline, overflow: 'hidden' }}>
-                  <Pressable 
-                    onPress={() => setExchangeBureauFeeCurrency('home')}
-                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: exchangeBureauFeeCurrency === 'home' ? theme.colors.secondaryContainer : 'transparent' }}
-                  >
-                    <Text numberOfLines={1} adjustsFontSizeToFit style={{ fontSize: 12, color: exchangeBureauFeeCurrency === 'home' ? theme.colors.onSecondaryContainer : theme.colors.onSurface, paddingHorizontal: 2 }}>{homeSymbol}</Text>
-                  </Pressable>
-                  <View style={{ width: 1, backgroundColor: theme.colors.outline }} />
-                  <Pressable 
-                    onPress={() => setExchangeBureauFeeCurrency('local')}
-                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: exchangeBureauFeeCurrency === 'local' ? theme.colors.secondaryContainer : 'transparent' }}
-                  >
-                    <Text numberOfLines={1} adjustsFontSizeToFit style={{ fontSize: 12, color: exchangeBureauFeeCurrency === 'local' ? theme.colors.onSecondaryContainer : theme.colors.onSurface, paddingHorizontal: 2 }}>{localSymbol}</Text>
-                  </Pressable>
-                  <View style={{ width: 1, backgroundColor: theme.colors.outline }} />
-                  <Pressable 
-                    onPress={() => setExchangeBureauFeeCurrency('percentage')}
-                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: exchangeBureauFeeCurrency === 'percentage' ? theme.colors.secondaryContainer : 'transparent' }}
-                  >
-                    <Text numberOfLines={1} adjustsFontSizeToFit style={{ fontSize: 12, color: exchangeBureauFeeCurrency === 'percentage' ? theme.colors.onSecondaryContainer : theme.colors.onSurface, paddingHorizontal: 2 }}>%</Text>
-                  </Pressable>
-                </View>
               </View>
             </View>
+
           </Card.Content>
         </Card>
 
@@ -325,41 +326,41 @@ export default function AtmExchangeScreen() {
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', gap: 16 }}>
               {/* ATM Column */}
               <View style={{ flex: 1 }}>
-                <Text variant="titleSmall" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 8, fontWeight: 'bold' }}>{t('modules.atmExchange.atm', 'ATM')}</Text>
+                <Text variant="titleSmall" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 8, }}>{t('modules.atmExchange.atm', 'ATM')}</Text>
                 
                 <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('modules.atmExchange.cost', 'Cost')}</Text>
-                <Text variant="bodyMedium" style={{ fontWeight: 'bold', marginBottom: 2 }}>{homeSymbol}{result.atmHomeCost.toFixed(2)}</Text>
+                <Text variant="bodyMedium" style={{  marginBottom: 2 }}>{homeSymbol}{result.atmHomeCost.toFixed(2)}</Text>
                 
                 <Text variant="labelSmall" style={{ color: theme.colors.onSurfaceVariant, opacity: 0.6, marginBottom: 8 }}>
                   {t('modules.atmExchange.effectiveRate', 'Effective Rate:')} {result.atmEffectiveRate.toFixed(4)}
                 </Text>
                 
                 <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('modules.atmExchange.receive', 'Receive')}</Text>
-                <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.primary }}>{localSymbol}{result.atmLocalReceived.toFixed(2)}</Text>
+                <Text variant="titleMedium" style={{  color: theme.colors.primary }}>{localSymbol}{result.atmLocalReceived.toFixed(2)}</Text>
               </View>
 
               <View style={{ width: 1, backgroundColor: theme.colors.outlineVariant || theme.colors.outline }} />
 
               {/* Bureau Column */}
               <View style={{ flex: 1 }}>
-                <Text variant="titleSmall" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 8, fontWeight: 'bold' }}>{t('modules.atmExchange.exchangeBureau', 'Exchange Bureau')}</Text>
+                <Text variant="titleSmall" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 8, }}>{t('modules.atmExchange.exchangeBureau', 'Exchange Bureau')}</Text>
                 
                 <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('modules.atmExchange.cost', 'Cost')}</Text>
-                <Text variant="bodyMedium" style={{ fontWeight: 'bold', marginBottom: 2 }}>{homeSymbol}{result.bureauHomeCost.toFixed(2)}</Text>
+                <Text variant="bodyMedium" style={{  marginBottom: 2 }}>{homeSymbol}{result.bureauHomeCost.toFixed(2)}</Text>
                 
                 <Text variant="labelSmall" style={{ color: theme.colors.onSurfaceVariant, opacity: 0.6, marginBottom: 8 }}>
                   {t('modules.atmExchange.effectiveRate', 'Effective Rate:')} {result.bureauEffectiveRate.toFixed(4)}
                 </Text>
                 
                 <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('modules.atmExchange.receive', 'Receive')}</Text>
-                <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.primary }}>{localSymbol}{result.bureauLocalReceived.toFixed(2)}</Text>
+                <Text variant="titleMedium" style={{  color: theme.colors.primary }}>{localSymbol}{result.bureauLocalReceived.toFixed(2)}</Text>
               </View>
             </View>
 
             <Divider style={styles.divider} />
             
             <View style={styles.recommendationContainer}>
-              <Text variant="titleMedium" style={{ color: theme.colors.primary, textAlign: 'center', fontWeight: 'bold' }}>
+              <Text variant="titleMedium" style={{ color: theme.colors.primary, textAlign: 'center', }}>
                 {t('modules.atmExchange.recommendation', 'Recommendation:')} {t(`modules.atmExchange.recommendation${result.recommendation}`, result.recommendation)}
               </Text>
               {result.recommendation !== t('modules.atmExchange.recommendationEqual', 'Equal') && (
@@ -374,8 +375,8 @@ export default function AtmExchangeScreen() {
           </Card.Content>
         </Card>
         <View style={{ marginTop: 32, marginBottom: 40, paddingHorizontal: 16, alignItems: 'center' }}>
-          <Button variant="alternative" onPress={handleReset} style={{ width: 160 }}>
-            {t('modules.atmExchange.resetValues', 'Reset Values')}
+          <Button variant="alternative" onPress={handleReset} style={{ width: 160, paddingHorizontal: 8 }}>
+            {t('common.reset', 'Reset')}
           </Button>
         </View>
         <View style={{ height: 40 }} />

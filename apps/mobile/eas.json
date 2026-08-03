@@ -1,4 +1,4 @@
-﻿{
+{
   "cli": {
     "version": ">= 9.0.0"
   },
@@ -9,6 +9,21 @@
     },
     "preview": {
       "distribution": "internal"
+    },
+    "apk": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "apk-debug": {
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "env": {
+        "EXPO_DEBUG": "true",
+        "NODE_ENV": "development"
+      }
     },
     "production": {}
   },

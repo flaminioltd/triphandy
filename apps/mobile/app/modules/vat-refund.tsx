@@ -4,8 +4,9 @@ import ModuleHeader from '../../src/components/app-header/ModuleHeader';
 import React, { useState, useEffect } from 'react';
 import { COUNTRIES } from '../../src/lib/countries';
 import { FLAG_IMAGES } from '../../src/lib/assets';
-import { View, Image, StyleSheet, ScrollView, Pressable } from 'react-native';;
-import { Text, TextInput, Card, useTheme, IconButton, Portal, Dialog, SegmentedButtons } from 'react-native-paper';
+import { View, Image, StyleSheet, ScrollView, Pressable } from 'react-native';
+import { Text, TextInput, Card, useTheme, IconButton, Portal, Dialog } from 'react-native-paper';
+import { Svg, G, Path } from 'react-native-svg';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { useTripStore } from '../../src/stores/trip-store';
 import { db } from '../../src/db/client';
@@ -14,6 +15,7 @@ import { eq } from 'drizzle-orm';
 import * as Crypto from 'expo-crypto';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥', 'AUD': 'A$', 'CAD': 'C$',
@@ -32,6 +34,25 @@ const CATEGORIES = [
   { value: 'other', icon: 'dots-horizontal', label: 'Other' },
 ];
 
+const getCoordinatesForPercent = (percent: number) => {
+  const x = Math.cos(2 * Math.PI * percent - Math.PI / 2);
+  const y = Math.sin(2 * Math.PI * percent - Math.PI / 2);
+  return [x, y];
+};
+
+const getCategoryColor = (category: string, theme: any) => {
+  switch (category) {
+    case 'clothes': return '#dcb2c2';
+    case 'electronics': return '#94BBC9';
+    case 'jewelry': return '#acc4e2';
+    case 'accessories': return '#E2C2B8';
+    case 'gifts': return '#d1bbe6';
+    case 'other': return '#DAC7A7';
+    case 'refund': return '#A4DAC4';
+    default: return theme.colors.outline;
+  }
+};
+
 export default function VatRefundScreen() {
   const theme = useTheme();
   const { t } = useTranslation();
@@ -41,6 +62,9 @@ export default function VatRefundScreen() {
   
   const [activeCountry, setActiveCountry] = useState<any>(null);
   const [syncSuccess, setSyncSuccess] = useState(false);
+  
+  const [rates, setRates] = useState<Record<string, number>>({});
+  const [homeCurrencyState, setHomeCurrencyState] = useState('USD');
   
   // VAT and Admin fee states
   const [vatRate, setVatRate] = useState('0');
@@ -57,6 +81,11 @@ export default function VatRefundScreen() {
   const [modalCategory, setModalCategory] = useState('clothes');
   const [modalDetails, setModalDetails] = useState('');
   const [modalAmount, setModalAmount] = useState('');
+  const [modalInputCurrency, setModalInputCurrency] = useState<'local' | 'home'>('local');
+
+  // Pie Chart states
+  const [isPieChartVisible, setIsPieChartVisible] = useState(false);
+  const [showEstimatedRefund, setShowEstimatedRefund] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -64,6 +93,22 @@ export default function VatRefundScreen() {
         if (!activeTrip) return;
 
         try {
+          // Load settings from DB for accurate home currency
+          const settingsRes = await db.select().from(dbSettings).limit(1);
+          if (settingsRes.length > 0) {
+            let hc = settingsRes[0].homeCurrency;
+            if (!hc && settingsRes[0].homeCountry) {
+              const countryObj = COUNTRIES.find((c: any) => c.code === settingsRes[0].homeCountry || c.name === settingsRes[0].homeCountry);
+              if (countryObj) hc = countryObj.currencyCode;
+            }
+            if (hc) setHomeCurrencyState(hc);
+          }
+
+          const ratesRes = await db.select().from(exchangeRates);
+          const ratesMap: Record<string, number> = {};
+          ratesRes.forEach(r => ratesMap[r.currencyCode] = r.rate);
+          setRates(ratesMap);
+
           // Load active country and default VAT
           const targetCountryName = activeTrip.destinationCountry;
           const countryRes = await db.select().from(countries).where(eq(countries.name, targetCountryName)).limit(1);
@@ -87,13 +132,25 @@ export default function VatRefundScreen() {
 
   const currencyCode = activeCountry ? activeCountry.currencyCode : 'USD';
   const currencySymbol = CURRENCY_SYMBOLS[currencyCode] || currencyCode;
+  const homeSymbol = CURRENCY_SYMBOLS[homeCurrencyState] || homeCurrencyState;
+
+  const getConvertedAmount = (amount: number, fromCurrency: string, toCurrency: string) => {
+    if (fromCurrency === toCurrency) return amount;
+    const fromRate = rates[fromCurrency] || 1;
+    const toRate = rates[toCurrency] || 1;
+    return (amount / fromRate) * toRate;
+  };
 
   const handleSavePurchase = async () => {
     if (!activeTrip || !modalAmount) return;
 
     try {
-      const amountNum = parseFloat(modalAmount);
+      let amountNum = parseFloat(modalAmount.replace(/,/g, ''));
       if (isNaN(amountNum) || amountNum <= 0) return;
+
+      if (modalInputCurrency === 'home') {
+        amountNum = getConvertedAmount(amountNum, homeCurrencyState, currencyCode);
+      }
 
       if (editingPurchaseId) {
         // Update existing
@@ -139,6 +196,7 @@ export default function VatRefundScreen() {
     setModalCategory('clothes');
     setModalDetails('');
     setModalAmount('');
+    setModalInputCurrency('local');
     setIsModalVisible(true);
   };
 
@@ -146,8 +204,22 @@ export default function VatRefundScreen() {
     setEditingPurchaseId(purchase.id);
     setModalCategory(purchase.iconCategory);
     setModalDetails(purchase.details || '');
-    setModalAmount(purchase.amount.toString());
+    setModalAmount(purchase.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+    setModalInputCurrency('local');
     setIsModalVisible(true);
+  };
+
+  const handleToggleInputCurrency = (newValue: string) => {
+    if (newValue === modalInputCurrency) return;
+    const num = parseFloat(modalAmount.replace(/,/g, ''));
+    if (!isNaN(num) && num > 0) {
+      if (newValue === 'home') {
+        setModalAmount(getConvertedAmount(num, currencyCode, homeCurrencyState).toFixed(2));
+      } else {
+        setModalAmount(getConvertedAmount(num, homeCurrencyState, currencyCode).toFixed(2));
+      }
+    }
+    setModalInputCurrency(newValue as 'local' | 'home');
   };
 
   // Calculations
@@ -159,6 +231,80 @@ export default function VatRefundScreen() {
   const baseRefundRate = vatRateNum > 0 ? (vatRateNum / (100 + vatRateNum)) * 100 : 0;
   const effectiveRefundRate = Math.max(0, baseRefundRate - adminFeeNum);
   const estimatedRefund = grandTotal * (effectiveRefundRate / 100);
+
+  // Pie chart calculations
+  const pieChartData = React.useMemo(() => {
+    if (!isPieChartVisible) return [];
+    
+    const categoryTotals: Record<string, number> = {};
+    let totalPurchases = 0;
+    
+    purchases.forEach(p => {
+      if (!categoryTotals[p.iconCategory]) categoryTotals[p.iconCategory] = 0;
+      categoryTotals[p.iconCategory] += p.amount;
+      totalPurchases += p.amount;
+    });
+
+    if (totalPurchases === 0) return [];
+
+    let slicesList: { category: string, value: number, color: string, label: string }[] = Object.keys(categoryTotals).map(cat => {
+      const catObj = CATEGORIES.find(c => c.value === cat) || CATEGORIES[CATEGORIES.length - 1];
+      return {
+        category: cat,
+        value: categoryTotals[cat],
+        color: getCategoryColor(cat, theme),
+        label: t(`modules.vatRefund.cat${catObj.label}`, catObj.label)
+      };
+    });
+
+    slicesList.sort((a, b) => b.value - a.value);
+    
+    let slices: { category: string, value: number, color: string, label: string }[] = [];
+
+    if (showEstimatedRefund && estimatedRefund > 0) {
+      const refundRatio = estimatedRefund / totalPurchases;
+      
+      slicesList.forEach(s => {
+        slices.push({
+          ...s,
+          value: s.value - (s.value * refundRatio)
+        });
+      });
+
+      slices.push({
+        category: 'refund',
+        value: estimatedRefund,
+        color: getCategoryColor('refund', theme),
+        label: t('modules.vatRefund.estimatedRefund', 'Estimated Refund')
+      });
+    } else {
+      slices = slicesList;
+    }
+
+    const total = slices.reduce((acc, s) => acc + s.value, 0);
+    let cumulativePercent = 0;
+
+    return slices.map(slice => {
+      const percent = slice.value / total;
+      
+      let pathData = '';
+      if (percent === 1) {
+        pathData = `M 0 -1 A 1 1 0 1 1 0 1 A 1 1 0 1 1 0 -1 Z`;
+      } else if (percent > 0) {
+        const [startX, startY] = getCoordinatesForPercent(cumulativePercent);
+        cumulativePercent += percent;
+        const [endX, endY] = getCoordinatesForPercent(cumulativePercent);
+        const largeArcFlag = percent > 0.5 ? 1 : 0;
+        pathData = `M 0 0 L ${startX} ${startY} A 1 1 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
+      }
+        
+      return {
+        ...slice,
+        path: pathData,
+        percent
+      };
+    });
+  }, [isPieChartVisible, purchases, showEstimatedRefund, estimatedRefund, theme, t]);
 
   const handleSync = async () => {
     const finalAmount = Math.max(0, grandTotal - estimatedRefund);
@@ -235,7 +381,7 @@ export default function VatRefundScreen() {
                 <View style={{ flex: 1 }}>
                   <Text variant="labelMedium" style={{ marginBottom: 8 }}>{t("modules.vatRefund.standardVat", "Standard VAT Rate")}</Text>
                 </View>
-                <TextInput
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
                   value={vatRate}
                   onChangeText={setVatRate}
                   keyboardType="numeric"
@@ -256,7 +402,7 @@ export default function VatRefundScreen() {
                 <View style={{ flex: 1 }}>
                   <Text variant="labelMedium" style={{ marginBottom: 8 }}>{t("modules.vatRefund.adminFee", "Estimated Admin Fee")}</Text>
                 </View>
-                <TextInput
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
                   value={adminFee}
                   onChangeText={setAdminFee}
                   keyboardType="numeric"
@@ -276,8 +422,11 @@ export default function VatRefundScreen() {
           </Card.Content>
         </Card>
 
-        <View style={styles.sectionHeader}>
-          <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>{t("modules.vatRefund.purchases", "Purchases")}</Text>
+        <View style={[styles.sectionHeader, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }]}>
+          <Text variant="titleMedium" style={{ }}>{t("modules.vatRefund.purchases", "Purchases")}</Text>
+          {purchases.length > 0 && (
+            <IconButton icon="chart-pie" iconColor={theme.colors.primary} size={24} onPress={() => setIsPieChartVisible(true)} style={{ margin: 0 }} />
+          )}
         </View>
 
         <Pressable 
@@ -297,7 +446,7 @@ export default function VatRefundScreen() {
             <MaterialIcons name="add" size={24} color={theme.colors.primary} />
           </View>
           <View style={{ flex: 1 }}>
-            <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t("modules.vatRefund.addNew", "Add New")}</Text>
+            <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{t("modules.vatRefund.addNew", "Add New")}</Text>
             <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.vatRefund.addNewDesc", "Add an item to estimate your refund")}</Text>
           </View>
         </Pressable>
@@ -313,14 +462,18 @@ export default function VatRefundScreen() {
               <Card key={p.id} style={styles.purchaseCard} mode="elevated">
                 <View style={styles.purchaseRow}>
                   <View style={[styles.iconBox, { backgroundColor: theme.colors.surfaceVariant }]}>
-                    <IconButton icon={categoryObj.icon} size={24} iconColor={theme.colors.onSurfaceVariant} />
+                    <IconButton icon={categoryObj.icon} size={24} iconColor={getCategoryColor(p.iconCategory, theme)} />
                   </View>
                   <View style={styles.purchaseInfo}>
-                    <Text variant="titleMedium">{t(`modules.vatRefund.cat${categoryObj.label}`, categoryObj.label)}</Text>
-                    {p.details ? <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{p.details}</Text> : null}
+                    <Text variant="titleMedium">{p.details ? p.details : t(`modules.vatRefund.cat${categoryObj.label}`, categoryObj.label)}</Text>
                   </View>
-                  <View style={styles.purchaseAmount}>
-                    <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>{currencySymbol}{p.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+                  <View style={[styles.purchaseAmount, { alignItems: 'flex-end', justifyContent: 'center' }]}>
+                    <Text variant="titleMedium" style={{ }}>{currencySymbol}{p.amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+                    {homeCurrencyState !== currencyCode && (
+                      <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>
+                        {homeSymbol}{getConvertedAmount(p.amount, currencyCode, homeCurrencyState).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                      </Text>
+                    )}
                   </View>
                   <View style={styles.purchaseActions}>
                     <IconButton icon="pencil" size={20} onPress={() => openEditModal(p)} style={{ margin: 0 }} />
@@ -333,21 +486,37 @@ export default function VatRefundScreen() {
         )}
 
         <View style={styles.grandTotalRow}>
-          <Text variant="titleMedium" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.vatRefund.grandTotal", "Grand Total")}</Text>
-          <Text variant="titleLarge" style={{ fontWeight: 'bold' }}>{currencySymbol}{grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+          <View>
+            <Text variant="titleMedium" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.vatRefund.grandTotal", "Grand Total")}</Text>
+          </View>
+          <View style={{ alignItems: 'flex-end' }}>
+            <Text variant="titleLarge" style={{ }}>{currencySymbol}{grandTotal.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+            {homeCurrencyState !== currencyCode && grandTotal > 0 && (
+              <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>
+                {homeSymbol}{getConvertedAmount(grandTotal, currencyCode, homeCurrencyState).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              </Text>
+            )}
+          </View>
         </View>
 
         <Card style={[styles.resultCard, { backgroundColor: theme.colors.primaryContainer }]} mode="contained">
           <Card.Content style={styles.resultContent}>
             <View style={styles.resultRow}>
               <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.vatRefund.estimatedRefund", "Estimated Refund")}</Text>
-              <Text variant="headlineMedium" style={{ fontWeight: 'bold', color: theme.colors.primary }}>
-                {currencySymbol}{estimatedRefund > 0 ? estimatedRefund.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'}
-              </Text>
+              <View style={{ alignItems: 'flex-end' }}>
+                <Text variant="headlineMedium" style={{  color: theme.colors.primary }}>
+                  {currencySymbol}{estimatedRefund > 0 ? estimatedRefund.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : '0.00'}
+                </Text>
+                {homeCurrencyState !== currencyCode && estimatedRefund > 0 && (
+                  <Text variant="bodySmall" style={{ color: theme.colors.primary, opacity: 0.8 }}>
+                    {homeSymbol}{getConvertedAmount(estimatedRefund, currencyCode, homeCurrencyState).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </Text>
+                )}
+              </View>
             </View>
             <View style={styles.resultRow}>
               <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.vatRefund.effectiveRefundRate", "Effective Refund Rate")}</Text>
-              <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>
+              <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>
                 {effectiveRefundRate > 0 ? effectiveRefundRate.toFixed(1) : '0.0'}%
               </Text>
             </View>
@@ -356,7 +525,7 @@ export default function VatRefundScreen() {
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 16 }}>
           <Button mode="outlined" onPress={handleReset}>
-            Reset
+            {t('common.reset', 'Reset')}
           </Button>
           <Button mode="contained" onPress={handleSync} disabled={syncSuccess || purchases.length === 0}>
             {syncSuccess ? t("modules.tipCalculator.synced", "Synced!") : t("modules.tipCalculator.syncToBudget", "Sync to Budget")}
@@ -366,7 +535,7 @@ export default function VatRefundScreen() {
         {syncSuccess && (
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 12 }}>
             <MaterialIcons name="check-circle" size={20} color={theme.colors.primary} />
-            <Text style={{ marginLeft: 6, color: theme.colors.primary, fontWeight: '500' }}>{t("modules.tipCalculator.addedToExpenses", "Added to Expenses")}</Text>
+            <Text style={{ marginLeft: 6, color: theme.colors.primary, }}>{t("modules.tipCalculator.addedToExpenses", "Added to Expenses")}</Text>
           </View>
         )}
       </ScrollView>
@@ -381,27 +550,23 @@ export default function VatRefundScreen() {
                 <Pressable
                   key={cat.value}
                   onPress={() => setModalCategory(cat.value)}
-                  style={{
-                    paddingHorizontal: 12,
-                    paddingVertical: 8,
-                    borderRadius: 16,
-                    borderWidth: 1,
-                    borderColor: modalCategory === cat.value ? theme.colors.primary : theme.colors.outline,
-                    backgroundColor: modalCategory === cat.value ? theme.colors.primaryContainer : 'transparent',
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    gap: 4
-                  }}
+                  style={[
+                    styles.categoryChip,
+                    {
+                      borderColor: modalCategory === cat.value ? theme.colors.primary : theme.colors.outline,
+                      backgroundColor: modalCategory === cat.value ? theme.colors.primaryContainer : 'transparent',
+                    }
+                  ]}
                 >
-                  <IconButton icon={cat.icon} size={16} style={{ margin: 0, padding: 0, width: 16, height: 16 }} />
-                  <Text style={{ color: modalCategory === cat.value ? theme.colors.onPrimaryContainer : theme.colors.onSurface }}>
+                  <IconButton icon={cat.icon} iconColor={getCategoryColor(cat.value, theme)} size={16} style={{ margin: 0, width: 16, height: 16 }} />
+                  <Text style={{ color: modalCategory === cat.value ? theme.colors.onPrimaryContainer : theme.colors.onSurface, fontSize: 12 }}>
                     {t(`modules.vatRefund.cat${cat.label}`, cat.label)}
                   </Text>
                 </Pressable>
               ))}
             </View>
 
-            <TextInput
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
               label={t("modules.vatRefund.detailsOptional", "Details (Optional)")}
               value={modalDetails}
               onChangeText={setModalDetails}
@@ -409,19 +574,92 @@ export default function VatRefundScreen() {
               style={{ marginBottom: 12, backgroundColor: theme.colors.surface }}
             />
 
-            <TextInput
-              label={t("modules.vatRefund.purchaseAmountLabel", "Purchase Amount (in {{symbol}})", { symbol: currencySymbol })}
-              value={modalAmount}
-              onChangeText={setModalAmount}
-              keyboardType="numeric"
-              mode="outlined"
-              style={{ backgroundColor: theme.colors.surface }}
-            />
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
+                label={t("modules.vatRefund.amountLocal", "Amount ({{currency}})", { currency: modalInputCurrency === 'home' ? homeCurrencyState : currencyCode })}
+                value={modalAmount}
+                onChangeText={setModalAmount}
+                keyboardType="numeric"
+                mode="outlined"
+                style={{ flex: 1, backgroundColor: theme.colors.surface, marginRight: 8 }}
+              />
+              <CustomSegmentedControl
+                value={modalInputCurrency}
+                onValueChange={handleToggleInputCurrency}
+                style={{ width: 86, padding: 0, borderRadius: 18 }}
+                buttons={[
+                  { value: 'local', label: CURRENCY_SYMBOLS[currencyCode] || currencyCode, style: { borderRadius: 18, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                  { value: 'home', label: CURRENCY_SYMBOLS[homeCurrencyState] || homeCurrencyState, style: { borderRadius: 18, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                ]}
+              />
+            </View>
           </Dialog.Content>
           <Dialog.Actions style={{ flexDirection: 'row', gap: 12, paddingHorizontal: 16, justifyContent: 'center', paddingBottom: 16 }}>
             <Button variant="alternative" style={{ width: 130 }} onPress={() => setIsModalVisible(false)}>{t("modules.tipCalculator.cancel", "Cancel")}</Button>
             <Button variant="main" style={{ width: 130 }} onPress={handleSavePurchase}>{t("modules.vatRefund.save", "Save")}</Button>
           </Dialog.Actions>
+        </Dialog>
+
+        <Dialog visible={isPieChartVisible} onDismiss={() => setIsPieChartVisible(false)} style={{ backgroundColor: theme.colors.surface }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 12 }}>
+            <Dialog.Title style={{ color: theme.colors.onSurface, flex: 1, marginBottom: 0, marginTop: 0 }}>{t('modules.vatRefund.pieChartTitle', 'Purchases Breakdown')}</Dialog.Title>
+            <IconButton 
+              icon="close" 
+              size={20} 
+              onPress={() => setIsPieChartVisible(false)} 
+              style={{ margin: 0 }}
+            />
+          </View>
+          <Dialog.Content style={{ paddingTop: 16 }}>
+            {pieChartData.length > 0 ? (
+              <View style={{ alignItems: 'center' }}>
+                <Svg height="200" width="200" viewBox="-1.2 -1.2 2.4 2.4">
+                  {pieChartData.map((slice, index) => (
+                    <Path
+                      key={index}
+                      d={slice.path}
+                      fill={slice.color}
+                    />
+                  ))}
+                </Svg>
+              </View>
+            ) : (
+              <Text style={{ textAlign: 'center', marginTop: 20 }}>{t('modules.vatRefund.noData', 'No data available.')}</Text>
+            )}
+
+            <View style={{ marginTop: 24, paddingHorizontal: 8 }}>
+              {pieChartData.map((slice, index) => (
+                <View key={index} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
+                  <View style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: slice.color, marginRight: 8 }} />
+                  <Text variant="bodyMedium" style={{ flex: 1, color: theme.colors.onSurface }}>{slice.label}</Text>
+                  <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant, marginRight: 8 }}>
+                    {(slice.percent * 100).toFixed(0)}%
+                  </Text>
+                  <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant, fontWeight: 'bold' }}>
+                    {currencySymbol}{slice.value.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </Text>
+                </View>
+              ))}
+            </View>
+
+            {estimatedRefund > 0 && (
+              <Pressable 
+                style={{ flexDirection: 'row', alignItems: 'center', marginTop: 16, paddingTop: 16, borderTopWidth: 1, borderTopColor: theme.colors.outlineVariant }}
+                onPress={() => setShowEstimatedRefund(!showEstimatedRefund)}
+              >
+                <View pointerEvents="none" style={{ marginRight: 8 }}>
+                  <MaterialIcons 
+                    name={showEstimatedRefund ? 'check-circle' : 'radio-button-unchecked'} 
+                    size={24} 
+                    color={theme.colors.primary} 
+                  />
+                </View>
+                <Text variant="bodyMedium" style={{ color: theme.colors.onSurface, flex: 1 }}>
+                  {t('modules.vatRefund.showRefundToggle', 'Show Estimated Refund')}
+                </Text>
+              </Pressable>
+            )}
+          </Dialog.Content>
         </Dialog>
       </Portal>
     </SafeAreaView>
@@ -445,4 +683,5 @@ const styles = StyleSheet.create({
   resultCard: { elevation: 0, marginBottom: 16 },
   resultContent: { gap: 12 },
   resultRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  categoryChip: { paddingHorizontal: 8, paddingVertical: 6, borderRadius: 16, borderWidth: 1, flexDirection: 'row', alignItems: 'center', gap: 4 }
 });

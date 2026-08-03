@@ -19,7 +19,7 @@ export default function UpgradeScreen() {
 
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.hero}>
-          <Text variant="headlineMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface, textAlign: 'center' }}>
+          <Text variant="headlineMedium" style={{  color: theme.colors.onSurface, textAlign: 'center' }}>
             Unlock Everything
           </Text>
           <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant, textAlign: 'center', marginTop: 8 }}>
@@ -29,7 +29,7 @@ export default function UpgradeScreen() {
 
         <Card style={styles.card} mode="contained">
           <Card.Content>
-            <Text variant="titleMedium" style={{ fontWeight: 'bold', marginBottom: 16 }}>{t("access.upgrade.freeTitle", "What remains free:")}</Text>
+            <Text variant="titleMedium" style={{  marginBottom: 16 }}>{t("access.upgrade.freeTitle", "What remains free:")}</Text>
             <List.Item title={t("modules.tipCalculator.headerTitle", "Tip Calculator")} left={props => <List.Icon {...props} icon="calculator" color={theme.colors.onSurfaceVariant} />} style={styles.listItem} />
             <List.Item title={t("modules.sizeConverter.headerTitle", "Size Converter")} left={props => <List.Icon {...props} icon="tshirt-crew" color={theme.colors.onSurfaceVariant} />} style={styles.listItem} />
             <List.Item title={t("access.upgrade.freePlug", "Plug & Voltage")} left={props => <List.Icon {...props} icon="power-plug" color={theme.colors.onSurfaceVariant} />} style={styles.listItem} />
@@ -39,14 +39,14 @@ export default function UpgradeScreen() {
 
         <Card style={[styles.card, { backgroundColor: theme.colors.primaryContainer, borderColor: theme.colors.primary, borderWidth: 1 }]} mode="contained">
           <Card.Content>
-            <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.primary, marginBottom: 16 }}>{t("access.upgrade.unlockTitle", "Unlock Includes:")}</Text>
+            <Text variant="titleMedium" style={{  color: theme.colors.primary, marginBottom: 16 }}>{t("access.upgrade.unlockTitle", "Unlock Includes:")}</Text>
             <List.Item title={t("modules.budgetTracker.headerTitle", "Budget Tracker")} left={props => <List.Icon {...props} icon="wallet" color={theme.colors.primary} />} style={styles.listItem} />
             <List.Item title={t("modules.vatRefund.headerTitle", "VAT Refund")} left={props => <List.Icon {...props} icon="cash-refund" color={theme.colors.primary} />} style={styles.listItem} />
             <List.Item title={t("modules.atm.headerTitle", "ATM Exchange")} left={props => <List.Icon {...props} icon="bank" color={theme.colors.primary} />} style={styles.listItem} />
             <List.Item title={t("modules.timezoneHelper.headerTitle", "Time Zones")} left={props => <List.Icon {...props} icon="clock" color={theme.colors.primary} />} style={styles.listItem} />
             
             <View style={styles.priceBox}>
-              <Text variant="displaySmall" style={{ fontWeight: 'bold', color: theme.colors.primary }}>$14.99</Text>
+              <Text variant="displaySmall" style={{  color: theme.colors.primary }}>$14.99</Text>
               <Text variant="bodyMedium" style={{ color: theme.colors.primary }}>{t("access.upgrade.oneTimePayment", "One-time payment")}</Text>
             </View>
           </Card.Content>
@@ -56,7 +56,7 @@ export default function UpgradeScreen() {
       
       <View style={styles.footer}>
         <Button mode="contained" onPress={() => {}} style={styles.button} labelStyle={{ paddingVertical: 4 }}>
-          Unlock TripKit
+          Unlock triphandy
         </Button>
         <Button mode="text" onPress={() => {}} style={{ marginTop: 8 }}>
           Restore Purchase

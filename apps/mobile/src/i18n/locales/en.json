@@ -2,14 +2,14 @@
   "navigation": {
     "tabs": {
       "home": "Home",
-      "myTrips": "My Trips",
+      "myTrips": "Trips",
       "settings": "Settings"
     }
   },
   "welcomeScreen": {
-    "title": "TripKit",
+    "title": "triphandy",
     "heroTitle": "What is your country of origin?",
-    "heroSubtitle": "TripKit sets helpful defaults based on your country of origin.",
+    "heroSubtitle": "triphandy sets helpful defaults based on your country of origin.",
     "searchPlaceholder": "Enter a country...",
     "settingsTitle": "{{countryName}} Settings",
     "baseCurrency": "Base Currency",
@@ -44,7 +44,7 @@
     "inferredCurrency": "Inferred Currency",
     "inferredSizeFormat": "Inferred Size Format",
     "note": "You can add more trip details later.",
-    "enterTripKitButton": "Enter TripKit"
+    "entertriphandyButton": "Enter triphandy"
   },
   "upgradeScreen": {
     "heroTitle": "Unlock Everything",
@@ -52,11 +52,11 @@
     "whatRemainsFree": "What remains free:",
     "unlockIncludes": "Unlock includes:",
     "oneTimePayment": "One-time payment",
-    "unlockButton": "Unlock TripKit",
+    "unlockButton": "Unlock triphandy",
     "restorePurchaseButton": "Restore Purchase"
   },
   "homeScreen": {
-    "headerTitle": "TripKit",
+    "headerTitle": "triphandy",
     "activeTripSubtitle": "{{days}} days in {{country}}",
     "currentLocation": "Current Location",
     "modulesTitle": "Modules",
@@ -86,7 +86,7 @@
         "description": "Rates, fees, and currency converter"
       },
       "vatRefund": {
-        "title": "VAT Refund Calculator",
+        "title": "VAT Refund",
         "description": "Tax-free shopping refund estimates"
       },
       "tipCalculator": {
@@ -94,11 +94,11 @@
         "description": "Destination tipping customs and math"
       },
       "sizeConverter": {
-        "title": "Size Converter",
+        "title": "Sizes & Units",
         "description": "Shoes, clothing, and measurements"
       },
       "timezoneHelper": {
-        "title": "Timezone Helper",
+        "title": "Time Zones",
         "description": "Coordinate with origin"
       }
     },
@@ -146,7 +146,7 @@
     "editTripModalTitle": "Edit {{country}}",
     "selectDateRange": "Select Date Range",
     "datesNotSetYet": "Dates not set yet",
-    "editTripSave": "Save Changes",
+    "editTripSave": "Save",
     "tripStatus": {
       "pending": "Pending",
       "pendingSubtitle": "No dates set yet",
@@ -178,7 +178,21 @@
       "es": "Spanish",
       "de": "German"
     },
-    "forceSyncButton": "Sync Online Data"
+    "forceSyncButton": "Sync Online Data",
+    "customizeCurrencyUnitsTitle": "Customize Currency & Units",
+    "measurementSystem": "Measurement System",
+    "searchCurrencyPlaceholder": "Enter a currency...",
+    "exchangeRateSyncTitle": "Exchange Rate Sync",
+    "exchangeRateSyncSubtitle": "The app runs daily exchange rate updates by default, which will be overridden by your choice of connection availability.",
+    "syncWifiOnly": "Sync only when WiFi connected",
+    "syncCellular": "Sync with mobile data",
+    "syncManual": "Sync only on manual trigger",
+    "forceSyncRatesButton": "Sync Exchange Rates",
+    "lastUpdated": "Last updated:",
+    "neverSynced": "Never synced",
+    "error": "Error",
+    "noConnection": "No internet connection available.",
+    "syncFailed": "Failed to fetch the latest exchange rates."
   },
   "access": {
     "upgrade": {
@@ -294,7 +308,21 @@
         "entertainment": "Fun",
         "shopping": "Shopping",
         "other": "Other"
-      }
+      },
+      "budgetLabel": "Budget",
+      "budgetSettings": "Budget Settings",
+      "day": "day",
+      "notSet": "Not set",
+      "adjustButton": "Adjust",
+      "pieChartTitle": "Expense Breakdown",
+      "noData": "No data available.",
+      "includeRemaining": "Include Remaining Budget",
+      "doneButton": "Done",
+      "clearExpensesButton": "Clear Expenses",
+      "clearExpensesAlertTitle": "Clear Expenses",
+      "clearExpensesAlertMessage": "Are you sure you want to delete all expenses? This cannot be undone.",
+      "clearButton": "Clear",
+      "addExpenseDesc": "Track a new transaction"
     },
     "emergencyEssentials": {
       "headerTitle": "Emergency Numbers",
@@ -314,7 +342,7 @@
       "pharmacyNoteDesc": "Look for a flashing green cross. In France, pharmacists can provide medical advice for minor ailments. For after-hours pharmacies ("
     },
     "localInfo": {
-      "headerTitle": "Destination Info",
+      "headerTitle": "Local Info",
       "overviewTab": "Overview",
       "cultureTab": "Culture",
       "transportTab": "Transport",
@@ -338,12 +366,14 @@
       "holidaysIn": "Public Holidays in {{country}}",
       "duringTrip": "DURING TRIP",
       "noHolidayData": "No holiday data available for {{year}}.",
-      "embassyDesc": "Your country of origin is set to {{homeCountry}}. Showing embassy details in {{destCountry}}.",
+      "embassyDesc": "The embassy of {{homeCountry}} in {{destCountry}}.",
       "embassyConsulate": "Embassy / Consulate",
       "visitButton": "Visit",
       "embassyUnavailable": "Embassy information for {{homeCountry}} in {{destCountry}} is currently unavailable.",
       "embassyTitle": "Embassy",
-      "origin": "Origin"
+      "origin": "Origin",
+      "address": "Address",
+      "showOnMap": "Show on map"
     },
     "plugVoltage": {
       "headerTitle": "Plug & Voltage",
@@ -409,7 +439,7 @@
       "roundUpTippingText": "Standard tipping policy in {{country}} is to round up the bill.",
       "standardTippingText": "Standard tipping in {{country}} is {{standard}}.",
       "billAmountLabel": "Bill Amount ({{symbol}})",
-      "tipPercentage": "Tip Percentage",
+      "tipPercentage": "Tip Amount",
       "noTip": "No Tip",
       "roundUpTip": "Round Up",
       "customTip": "Other",
@@ -453,20 +483,34 @@
       "catJewelry": "Jewelry",
       "catAccessories": "Accessories",
       "catGifts": "Gifts",
-      "catOther": "Other"
+      "catOther": "Other",
+      "pieChartTitle": "Purchases Breakdown",
+      "noData": "No data available.",
+      "showRefundToggle": "Show Estimated Refund",
+      "closeButton": "Close",
+      "amountLocal": "Amount ({{currency}})",
+      "addNewDesc": "Add an item to estimate your refund"
     },
     "atm": {
-      "headerTitle": "ATM Exchange"
+      "headerTitle": "ATM & Exchange"
+    },
+    "destinationInfo": {
+      "headerTitle": "Local Info"
     }
   },
   "modals": {
     "addTrip": {
       "title": "Plan New Trip",
-      "searchPlaceholder": "Enter a country...",
       "tripDates": "Trip Dates",
-      "selectDateRange": "Select Date Range",
-      "notSetYet": "Not Set Yet",
-      "createTripButton": "Create Trip"
+      "noDatesYet": "Dates not set yet",
+      "countryOfDestination": "Country of Destination",
+      "selectCountry": "Select Country",
+      "saveTrip": "Save Trip"
+    },
+    "noTrip": {
+      "title": "No Active Trip",
+      "message": "Please set an active trip or add a new trip to access the modules.",
+      "addTripButton": "Add Trip"
     },
     "changeHomeCountry": {
       "title": "Change country of origin",
@@ -486,6 +530,27 @@
       "expensesCount": "Expenses ({{count}})",
       "noExpenses": "No expenses recorded for this trip.",
       "close": "Close"
+    },
+    "premium": {
+      "title": "triphandy Pro",
+      "freeTier": "Free",
+      "premiumTier": "Pro",
+      "features": {
+        "basicPhrasesLite": "Basic Phrases Lite",
+        "max2Trips": "Max 2 Trips",
+        "fullBasicPhrases": "Full Basic Phrases",
+        "unlimitedTrips": "Unlimited Trips"
+      },
+      "price": "$19.99 / year",
+      "upgradeBtn": "Upgrade to Pro",
+      "continueBtn": "Continue with Free",
+      "allFreeModulesPlus": "Everything in free, plus:"
+    },
+    "tripSelection": {
+      "title": "Keep 2 Trips",
+      "subtitle": "The Free version allows a maximum of 2 saved trips. Please select up to 2 trips you'd like to keep. Unselected trips will be deleted.",
+      "keepSelected": "Keep",
+      "continueBtn": "Continue"
     }
   },
   "categories": {
@@ -496,7 +561,9 @@
     "shopping": "Shopping",
     "other": "Other",
     "Essentials": "Essentials",
-    "Finance": "Finance"
+    "Finance": "Finance",
+    "flights": "Flights",
+    "entertainment": "Fun"
   },
   "countries": {
     "US": "United States",
@@ -650,14 +717,15 @@
   "components": {
     "pastTripSummary": {
       "title": "{{country}} Summary",
-      "configuredBudget": "CONFIGURED BUDGET",
+      "configuredBudget": "Configured Budget",
       "perDayForDays": "{{amount}} {{currency}} / day for {{days}} days",
-      "usedBudget": "USED BUDGET",
+      "usedBudget": "Used Budget",
       "underBudget": "Under budget!",
       "overBudget": "Over budget",
       "noBudgetLimit": "No budget limit set",
       "expensesCount": "Expenses ({{count}})",
-      "noExpenses": "No expenses recorded for this trip."
+      "noExpenses": "No expenses recorded for this trip.",
+      "breakdown": "Expense Breakdown"
     }
   },
   "regions": {
@@ -667,5 +735,12 @@
     "Europe/Asia": "Europe/Asia",
     "Europe": "Europe",
     "Asia": "Asia"
+  },
+  "general": {
+    "processing": "Processing..."
+  },
+  "common": {
+    "close": "Close",
+    "reset": "Reset"
   }
 }

@@ -23,7 +23,7 @@ export default function EmergencyEssentialsScreen() {
 
       <ScrollView contentContainerStyle={styles.content}>
         <View style={styles.destinationHeader}>
-          <Text variant="headlineMedium" style={{ fontWeight: 'bold', color: tokens.colors.ui.textPrimary }}>France</Text>
+          <Text variant="headlineMedium" style={{  color: tokens.colors.ui.textPrimary }}>France</Text>
           <View style={[styles.offlineBadge, { backgroundColor: tokens.colors.ui.selectedPurple }]}>
             <Text variant="labelSmall" style={{ color: tokens.colors.ui.primaryPurple }}>{t("modules.emergencyEssentials.offlineReady", "Offline Ready")}</Text>
           </View>
@@ -33,8 +33,8 @@ export default function EmergencyEssentialsScreen() {
           <Card.Content>
             <View style={styles.emergencyRow}>
               <View>
-                <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.error }}>{t("modules.emergencyEssentials.generalEmergency", "General Emergency")}</Text>
-                <Text variant="displaySmall" style={{ fontWeight: 'bold', color: theme.colors.error }}>112</Text>
+                <Text variant="titleMedium" style={{  color: theme.colors.error }}>{t("modules.emergencyEssentials.generalEmergency", "General Emergency")}</Text>
+                <Text variant="displaySmall" style={{  color: theme.colors.error }}>112</Text>
               </View>
               <IconButton icon="phone" mode="contained" containerColor={theme.colors.errorContainer} iconColor={theme.colors.error} size={32} onPress={() => {}} />
             </View>
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   offlineBadge: { paddingHorizontal: 8, paddingVertical: 4, borderRadius: 12 },
   emergencyCard: { backgroundColor: '#FDECEC', marginBottom: 32, elevation: 0 },
   emergencyRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  sectionTitle: { fontWeight: 'bold', marginBottom: 12 },
+  sectionTitle: {  marginBottom: 12 },
   card: { backgroundColor: '#FFFFFF', borderColor: '#E5DED7' }
 });
 

@@ -152,9 +152,19 @@ export default function DateSelectionScreen() {
       style={[styles.container, { backgroundColor: theme.colors.background }]} 
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
-        <Text variant="titleLarge" style={[styles.headerTitle, { color: theme.colors.primary }]}>{t('dateSelectionScreen.headerTitle')}</Text>
-        <Button mode="text" onPress={handleSkip}>{t('dateSelectionScreen.skipButton')}</Button>
+      <View style={[styles.header, { paddingTop: insets.top + 32, paddingBottom: 32, position: 'relative', justifyContent: 'center' }]}>
+        <Pressable 
+          style={{ position: 'absolute', left: 16, top: insets.top + 16, zIndex: 10, padding: 8 }} 
+          onPress={() => router.back()}
+        >
+          <MaterialIcons name="arrow-back" size={28} color={theme.colors.primary} />
+        </Pressable>
+        
+        <Image source={require('../../assets/images/Logo.png')} style={{ height: 32, width: 110, resizeMode: 'contain' }} />
+
+        <View style={{ position: 'absolute', right: 8, top: insets.top + 12, zIndex: 10 }}>
+          <Button mode="text" labelStyle={{ textAlign: 'right' }} contentStyle={{ justifyContent: 'flex-end' }} onPress={handleSkip}>{t('dateSelectionScreen.skipButton')}</Button>
+        </View>
       </View>
 
       <View style={styles.content}>
@@ -223,7 +233,7 @@ export default function DateSelectionScreen() {
                           </View>
                         )}
                         <View>
-                          <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, fontWeight: '500' }}>
+                          <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, }}>
                             {item.translatedName || item.name}
                           </Text>
                           <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>
@@ -266,7 +276,7 @@ export default function DateSelectionScreen() {
              </Card>
 
              <View style={styles.datesSection}>
-               <Text variant="titleMedium" style={{ marginBottom: 12, fontWeight: 'bold' }}>{t('dateSelectionScreen.datesTitle')}</Text>
+               <Text variant="titleMedium" style={{ marginBottom: 12, }}>{t('dateSelectionScreen.datesTitle')}</Text>
                
                <View style={{ marginBottom: 8 }}>
                  <Pressable 
@@ -287,9 +297,9 @@ export default function DateSelectionScreen() {
                    ]}
                  >
                    <MaterialIcons name="date-range" size={20} color={theme.colors.primary} style={{ marginRight: 8 }} />
-                   <Text style={{ fontSize: 16, color: theme.colors.primary, fontWeight: '500' }}>
+                   <Text style={{ fontSize: 16, color: theme.colors.primary, }}>
                      {startDate && endDate 
-                       ? `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`
+                       ? `${startDate.toLocaleDateString('en-GB')} - ${endDate.toLocaleDateString('en-GB')}`
                        : t('dateSelectionScreen.selectDateRange', 'Select Date Range')}
                    </Text>
                  </Pressable>
@@ -340,10 +350,10 @@ export default function DateSelectionScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   header: { padding: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  headerTitle: { fontWeight: 'bold' },
+  headerTitle: { },
   content: { flex: 1, padding: 24 },
   heroText: { marginBottom: 32 },
-  title: { fontWeight: 'bold', marginBottom: 8 },
+  title: {  marginBottom: 8 },
   searchArea: { position: 'relative', zIndex: 10 },
   searchContainer: { flexDirection: 'row', alignItems: 'center', borderRadius: 16, height: 56, paddingHorizontal: 12 },
   searchIcon: { marginRight: 8 },
@@ -353,7 +363,7 @@ const styles = StyleSheet.create({
   resultItem: { flexDirection: 'row', alignItems: 'center', paddingVertical: 10, paddingHorizontal: 16 },
   selectedContainer: { flex: 1 },
   card: { marginBottom: 24, backgroundColor: '#ffffff' },
-  cardTitle: { fontWeight: 'bold', marginBottom: 8 },
+  cardTitle: {  marginBottom: 8 },
   datesSection: { marginTop: 16 },
   dateButton: { flexDirection: 'row', alignItems: 'center', padding: 16, borderWidth: 1, borderRadius: 12, marginBottom: 16 },
   datePickers: { flexDirection: 'row', justifyContent: 'space-between' },

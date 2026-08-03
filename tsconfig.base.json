@@ -7,7 +7,7 @@
     "exactOptionalPropertyTypes": true,
     "resolveJsonModule": true,
     "paths": {
-      "@tripkit/shared/*": ["./packages/shared/src/*"]
+      "@triphandy/shared/*": ["./packages/shared/src/*"]
     }
   }
 }

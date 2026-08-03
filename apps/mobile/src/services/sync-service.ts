@@ -4,7 +4,7 @@ import { eq } from 'drizzle-orm';
 import Constants from 'expo-constants';
 
 // We use a fallback URL or load from Expo config
-const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'https://content-api.tripkit.com/api/v1';
+const API_BASE_URL = Constants.expoConfig?.extra?.apiUrl || 'https://content-api.triphandy.com/api/v1';
 
 export interface PackageManifest {
   version: string;

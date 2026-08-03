@@ -1,7 +1,7 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState, useEffect } from 'react';
 import { View, StyleSheet, ScrollView, TextInput, Pressable } from 'react-native';;
-import { Text, useTheme, Card, ActivityIndicator, SegmentedButtons } from 'react-native-paper';
+import { Text, useTheme, Card, ActivityIndicator } from 'react-native-paper';
 import { tokens } from '../../src/theme/tokens';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
@@ -13,6 +13,7 @@ import { sizeGuideService, SizeGuidePackage } from '../../src/services/sizeGuide
 import { getCountryCodeByName, getSizeRegion, getMeasurementSystem, usesLetterSizes } from '../../src/lib/countryMappers';
 import { kmToMiles, milesToKm, kgToLbs, lbsToKg, celsiusToFahrenheit, fahrenheitToCelsius, litersToGallons, gallonsToLiters, kmhToMph, mphToKmh } from '../../src/lib/conversions';
 import { COUNTRIES } from '../../src/lib/countries';
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
 
 type TabType = 'shoes' | 'clothes' | 'units';
 
@@ -61,7 +62,7 @@ const MathSlider = ({ title, homeLabel, destLabel, min, max, step, convertHomeTo
         <View style={styles.ioContainer}>
           <View style={styles.ioBox}>
             <Text variant="labelMedium" style={styles.ioLabel}>{homeLabel}</Text>
-            <TextInput 
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
               value={homeStr}
               onChangeText={handleHomeChange}
               keyboardType="numeric"
@@ -71,7 +72,7 @@ const MathSlider = ({ title, homeLabel, destLabel, min, max, step, convertHomeTo
           <MaterialCommunityIcons name="arrow-right" size={24} color={theme.colors.onSurfaceVariant} style={{ marginTop: 16 }} />
           <View style={styles.ioBox}>
             <Text variant="labelMedium" style={styles.ioLabel}>{destLabel}</Text>
-            <TextInput 
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
               value={destStr}
               onChangeText={handleDestChange}
               keyboardType="numeric"
@@ -201,7 +202,7 @@ const ArraySlider = ({ title, homeLabel, destLabel, homeArray, destArray, min, m
         <View style={styles.ioContainer}>
           <View style={styles.ioBox}>
             <Text variant="labelMedium" style={styles.ioLabel}>{homeLabel}</Text>
-            <TextInput 
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
               value={homeStr}
               onChangeText={handleHomeChange}
               keyboardType={isLetters ? "default" : "numeric"}
@@ -211,7 +212,7 @@ const ArraySlider = ({ title, homeLabel, destLabel, homeArray, destArray, min, m
           <MaterialCommunityIcons name="arrow-right" size={24} color={theme.colors.onSurfaceVariant} style={{ marginTop: 16 }} />
           <View style={styles.ioBox}>
             <Text variant="labelMedium" style={styles.ioLabel}>{destLabel}</Text>
-            <TextInput 
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }} 
               value={destStr}
               onChangeText={handleDestChange}
               keyboardType={destIsNumeric ? "numeric" : "default"}
@@ -333,7 +334,7 @@ export default function SizeConverterScreen() {
 
     return (
       <View>
-        <SegmentedButtons
+        <CustomSegmentedControl
           value={personType}
           onValueChange={(val) => setPersonType(val as any)}
           buttons={[
@@ -397,7 +398,7 @@ export default function SizeConverterScreen() {
 
     return (
       <View>
-        <SegmentedButtons
+        <CustomSegmentedControl
           value={personType}
           onValueChange={(val) => setPersonType(val as any)}
           buttons={[
@@ -557,7 +558,7 @@ export default function SizeConverterScreen() {
                     borderRightWidth: 1,
                     borderBottomWidth: 1,
                     borderColor: tokens.colors.ui.warmBorder,
-                    backgroundColor: tokens.colors.ui.warmSand,
+                    backgroundColor: '#F0F0F0',
                     zIndex: 1
                   },
                   isSelected && { 
@@ -594,7 +595,7 @@ const styles = StyleSheet.create({
   container: { flex: 1 },
   centerContent: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 32 },
   content: { padding: 16, paddingBottom: 40 },
-  emptyTitle: { fontWeight: 'bold', marginTop: 24, marginBottom: 8, textAlign: 'center' },
+  emptyTitle: {  marginTop: 24, marginBottom: 8, textAlign: 'center' },
   emptyText: { textAlign: 'center', lineHeight: 24 },
   tabsWrapper: { marginBottom: 24, flexGrow: 0 },
   segmented: { minWidth: '100%' },
@@ -602,8 +603,8 @@ const styles = StyleSheet.create({
   ioContainer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   ioBox: { flex: 1, alignItems: 'center' },
   ioLabel: { marginBottom: 4, opacity: 0.7 },
-  ioValue: { fontWeight: 'bold' },
-  input: { fontSize: 24, fontWeight: 'bold', textAlign: 'center', borderBottomWidth: 2, minWidth: 60, padding: 0 },
+  ioValue: { },
+  input: { fontSize: 24,  textAlign: 'center', borderBottomWidth: 2, minWidth: 60, padding: 0 },
   slider: { width: '75%', alignSelf: 'center', height: 40, marginTop: 24, transform: [{ scale: 1.3 }] },
 });
 

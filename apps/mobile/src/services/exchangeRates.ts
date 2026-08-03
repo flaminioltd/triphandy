@@ -49,13 +49,21 @@ export async function updateExchangeRates() {
       await db.delete(exchangeRates);
       await db.insert(exchangeRates).values(ratesToInsert);
       console.log(`Exchange rates updated. Fetched ${ratesToInsert.length} rates.`);
+      return { success: true, timestamp: now };
     }
+    return { success: false };
   } catch (error) {
     console.error('Failed to update exchange rates:', error);
+    return { success: false };
   }
 }
 
 export async function getExchangeRate(currencyCode: string) {
   const result = await db.select().from(exchangeRates).where(eq(exchangeRates.currencyCode, currencyCode)).limit(1);
   return result[0] || null;
+}
+
+export async function getLastSyncTime() {
+  const result = await db.select({ updatedAt: exchangeRates.updatedAt }).from(exchangeRates).limit(1);
+  return result[0]?.updatedAt || null;
 }

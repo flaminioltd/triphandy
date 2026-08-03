@@ -2,14 +2,14 @@
   "navigation": {
     "tabs": {
       "home": "Home",
-      "myTrips": "I Miei Viaggi",
+      "myTrips": "Viaggi",
       "settings": "Impostazioni"
     }
   },
   "welcomeScreen": {
-    "title": "TripKit",
+    "title": "triphandy",
     "heroTitle": "Qual è il tuo paese di origine?",
-    "heroSubtitle": "TripKit imposta valori predefiniti utili in base al tuo paese di origine.",
+    "heroSubtitle": "triphandy imposta valori predefiniti utili in base al tuo paese di origine.",
     "searchPlaceholder": "Inserisci un paese...",
     "settingsTitle": "Impostazioni per {{countryName}}",
     "baseCurrency": "Valuta Base",
@@ -44,7 +44,7 @@
     "inferredCurrency": "Valuta Dedotta",
     "inferredSizeFormat": "Formato Taglie Dedotto",
     "note": "Puoi aggiungere altri dettagli in seguito.",
-    "enterTripKitButton": "Entra in TripKit"
+    "entertriphandyButton": "Entra in triphandy"
   },
   "upgradeScreen": {
     "heroTitle": "Sblocca Tutto",
@@ -52,11 +52,11 @@
     "whatRemainsFree": "Cosa rimane gratuito:",
     "unlockIncludes": "Lo sblocco include:",
     "oneTimePayment": "Pagamento unico",
-    "unlockButton": "Sblocca TripKit",
+    "unlockButton": "Sblocca triphandy",
     "restorePurchaseButton": "Ripristina Acquisto"
   },
   "homeScreen": {
-    "headerTitle": "TripKit",
+    "headerTitle": "triphandy",
     "activeTripSubtitle": "{{days}} giorni in {{country}}",
     "currentLocation": "Posizione Attuale",
     "modulesTitle": "Moduli",
@@ -78,11 +78,11 @@
         "description": "I numeri di destinazionei per le emergenze"
       },
       "budgetTracker": {
-        "title": "Budget",
+        "title": "Gestione Budget",
         "description": "Tieni traccia delle spese"
       },
       "atmExchange": {
-        "title": "Bancomat e Cambi",
+        "title": "Bancomat e Cambio",
         "description": "Tassi, commissioni e cambi"
       },
       "vatRefund": {
@@ -90,11 +90,11 @@
         "description": "Stima rimborsi tax-free"
       },
       "tipCalculator": {
-        "title": "Mance",
+        "title": "Calcolatore Mance",
         "description": "Costi e usanze di destinazionei"
       },
       "sizeConverter": {
-        "title": "Taglie e Misure",
+        "title": "Taglie e Unità",
         "description": "Scarpe, vestiti e misure"
       },
       "timezoneHelper": {
@@ -146,7 +146,7 @@
     "editTripModalTitle": "Modifica {{country}}",
     "selectDateRange": "Seleziona Date",
     "datesNotSetYet": "Date non ancora impostate",
-    "editTripSave": "Salva Modifiche",
+    "editTripSave": "Save",
     "tripStatus": {
       "pending": "In attesa",
       "pendingSubtitle": "Nessuna data impostata",
@@ -181,7 +181,21 @@
       "it": "Italiano",
       "pt": "Português"
     },
-    "forceSyncButton": "Sincronizza Dati"
+    "forceSyncButton": "Sincronizza Dati",
+    "customizeCurrencyUnitsTitle": "Personalizza valuta e unità",
+    "measurementSystem": "Sistema di misurazione",
+    "searchCurrencyPlaceholder": "Inserisci una valuta...",
+    "exchangeRateSyncTitle": "Sincronizzazione tassi di cambio",
+    "exchangeRateSyncSubtitle": "L'app esegue aggiornamenti quotidiani dei tassi di cambio per impostazione predefinita. Ciò verrà ignorato dalla tua scelta sulla disponibilità della connessione.",
+    "syncWifiOnly": "Sincronizza solo con connessione WiFi",
+    "syncCellular": "Sincronizza con dati mobili",
+    "syncManual": "Sincronizza solo manualmente",
+    "forceSyncRatesButton": "Sincronizza tassi di cambio",
+    "lastUpdated": "Ultimo aggiornamento:",
+    "neverSynced": "Mai sincronizzato",
+    "error": "Errore",
+    "noConnection": "Nessuna connessione internet disponibile.",
+    "syncFailed": "Impossibile recuperare gli ultimi tassi di cambio."
   },
   "access": {
     "upgrade": {
@@ -193,7 +207,7 @@
   },
   "modules": {
     "atmExchange": {
-      "headerTitle": "Bancomat e Cambi",
+      "headerTitle": "Bancomat e Cambio",
       "tabExchange": "Cambio",
       "tabFees": "Commissioni",
       "amountToConvert": "Importo da convertire",
@@ -253,7 +267,7 @@
       "noPhrasesAvailable": "Nessuna frase disponibile per questa categoria."
     },
     "budgetTracker": {
-      "headerTitle": "Budget",
+      "headerTitle": "Gestione Budget",
       "noBudgetTitle": "Nessun budget impostato",
       "noBudgetDesc": "Imposta un budget per tracciare le spese.",
       "setBudgetButton": "Imposta Budget",
@@ -266,7 +280,7 @@
       "totalTripBudget": "Totale",
       "saveBudgetButton": "Salva Budget",
       "cancelButton": "Annulla",
-      "resetButton": "Ripristina",
+      "resetButton": "Reimposta",
       "resetBudgetAlertTitle": "Ripristina Budget",
       "resetBudgetAlertMessage": "Sei sicuro di voler azzerare il budget ed eliminare le spese? Non è possibile annullare.",
       "availableLabel": "DISPONIBILE",
@@ -288,7 +302,7 @@
       "detailsOptional": "Dettagli (Opzionale)",
       "amountLocal": "Importo ({{currency}})",
       "saveExpenseButton": "Salva",
-      "resetBudgetButton": "Ripristina Budget",
+      "resetBudgetButton": "Reimposta Budget e Cancella Spese",
       "tags": {
         "food": "Cibo",
         "transport": "Trasporto",
@@ -297,7 +311,21 @@
         "entertainment": "Divertimento",
         "shopping": "Shopping",
         "other": "Altro"
-      }
+      },
+      "budgetLabel": "Budget",
+      "budgetSettings": "Impostazioni Budget",
+      "day": "giorno",
+      "notSet": "Non impostato",
+      "adjustButton": "Regola",
+      "pieChartTitle": "Ripartizione Spese",
+      "noData": "Nessun dato disponibile.",
+      "includeRemaining": "Includi Budget Rimanente",
+      "doneButton": "Fatto",
+      "clearExpensesButton": "Cancella Spese",
+      "clearExpensesAlertTitle": "Cancella Spese",
+      "clearExpensesAlertMessage": "Sei sicuro di voler eliminare tutte le spese? Questa operazione non può essere annullata.",
+      "clearButton": "Cancella",
+      "addExpenseDesc": "Traccia una nuova transazione"
     },
     "emergencyEssentials": {
       "headerTitle": "Numeri di Emergenza",
@@ -317,7 +345,7 @@
       "pharmacyNoteDesc": "Cerca una croce verde lampeggiante. Spesso i farmacisti possono fornire consigli medici per piccoli malanni."
     },
     "localInfo": {
-      "headerTitle": "Info di Destinazione",
+      "headerTitle": "Info Locali",
       "overviewTab": "Panoramica",
       "cultureTab": "Cultura",
       "transportTab": "Trasporto",
@@ -341,12 +369,14 @@
       "holidaysIn": "Giorni festivi in {{country}}",
       "duringTrip": "DURANTE IL VIAGGIO",
       "noHolidayData": "Nessuna festività per il {{year}}.",
-      "embassyDesc": "Il tuo paese di origine è impostato su {{homeCountry}}. Mostrando i dettagli dell'ambasciata in {{destCountry}}.",
+      "embassyDesc": "L'ambasciata di {{homeCountry}} in {{destCountry}}.",
       "embassyConsulate": "Ambasciata / Consolato",
       "visitButton": "Visita",
       "embassyUnavailable": "Informazioni sull'ambasciata non disponibili.",
       "embassyTitle": "Ambasciata",
-      "origin": "Origine"
+      "origin": "Origine",
+      "address": "Indirizzo",
+      "showOnMap": "Mostra sulla mappa"
     },
     "plugVoltage": {
       "headerTitle": "Prese e Voltaggio",
@@ -367,7 +397,7 @@
       "destCountryCode": "DESTINAZIONE ({{code}})"
     },
     "sizeConverter": {
-      "headerTitle": "Taglie e Misure",
+      "headerTitle": "Taglie e Unità",
       "tabShoes": "Scarpe",
       "tabClothes": "Vestiti",
       "tabUnits": "Unità",
@@ -451,15 +481,24 @@
       "save": "Salva",
       "expenseTitle": "Shopping (IVA dedotta)",
       "yourDestination": "la tua destinazione",
-      "catClothes": "Vestiti",
+      "catClothes": "Abbigliamento",
       "catElectronics": "Elettronica",
       "catJewelry": "Gioielli",
       "catAccessories": "Accessori",
       "catGifts": "Regali",
-      "catOther": "Altro"
+      "catOther": "Altro",
+      "pieChartTitle": "Ripartizione Acquisti",
+      "noData": "Nessun dato disponibile.",
+      "showRefundToggle": "Mostra Rimborso Stimato",
+      "closeButton": "Chiudi",
+      "amountLocal": "Importo ({{currency}})",
+      "addNewDesc": "Aggiungi un articolo per stimare il tuo rimborso"
     },
     "atm": {
-      "headerTitle": "Bancomat"
+      "headerTitle": "Bancomat e Cambio"
+    },
+    "destinationInfo": {
+      "headerTitle": "Info Locali"
     }
   },
   "modals": {
@@ -489,17 +528,45 @@
       "expensesCount": "Spese ({{count}})",
       "noExpenses": "Nessuna spesa registrata per questo viaggio.",
       "close": "Chiudi"
+    },
+    "premium": {
+      "title": "triphandy Pro",
+      "freeTier": "Gratuito",
+      "premiumTier": "Pro",
+      "features": {
+        "basicPhrasesLite": "Frasi Utili Lite",
+        "max2Trips": "Max 2 Viaggi",
+        "fullBasicPhrases": "Frasi Utili Complete",
+        "unlimitedTrips": "Viaggi Illimitati"
+      },
+      "price": "$19.99 / anno",
+      "upgradeBtn": "Passa a Pro",
+      "continueBtn": "Continua Gratis",
+      "allFreeModulesPlus": "Tutto ciò che è gratuito, più:"
+    },
+    "tripSelection": {
+      "title": "Mantieni 2 Viaggi",
+      "subtitle": "La versione gratuita consente un massimo di 2 viaggi salvati. Seleziona fino a 2 viaggi che desideri mantenere. I viaggi non selezionati verranno eliminati.",
+      "keepSelected": "Mantieni",
+      "continueBtn": "Continua"
+    },
+    "noTrip": {
+      "title": "Nessun Viaggio Attivo",
+      "message": "Imposta un viaggio attivo o aggiungine uno nuovo per accedere ai moduli.",
+      "addTripButton": "Aggiungi Viaggio"
     }
   },
   "categories": {
     "food": "Ristorazione",
     "transport": "Trasporti",
     "accommodation": "Alloggio",
-    "activities": "Attività",
+    "activities": "Attività e Tour",
     "shopping": "Shopping",
     "other": "Altro",
     "Essentials": "Essenziali",
-    "Finance": "Finanza"
+    "Finance": "Finanza",
+    "flights": "Voli",
+    "entertainment": "Divertimento"
   },
   "countries": {
     "US": "Stati Uniti",
@@ -615,7 +682,7 @@
     "categories": {
       "Basics": "Basi",
       "Shopping": "Acquisti",
-      "Hotel & Dining": "Hotel e Ristoranti",
+      "Hotel e Dining": "Hotel e Ristoranti",
       "Emergencies": "Emergenze"
     },
     "items": {
@@ -652,15 +719,16 @@
   },
   "components": {
     "pastTripSummary": {
-      "title": "Riepilogo di {{country}}",
-      "configuredBudget": "BUDGET CONFIGURATO",
+      "title": "Riepilogo {{country}}",
+      "configuredBudget": "Budget Configurato",
       "perDayForDays": "{{amount}} {{currency}} / giorno per {{days}} giorni",
-      "usedBudget": "BUDGET UTILIZZATO",
-      "underBudget": "Sotto il budget!",
+      "usedBudget": "Budget Utilizzato",
+      "underBudget": "Sotto budget!",
       "overBudget": "Fuori budget",
       "noBudgetLimit": "Nessun limite",
       "expensesCount": "Spese ({{count}})",
-      "noExpenses": "Nessuna spesa registrata."
+      "noExpenses": "Nessuna spesa registrata per questo viaggio.",
+      "breakdown": "Ripartizione Spese"
     }
   },
   "regions": {
@@ -670,5 +738,12 @@
     "Europe/Asia": "Europa/Asia",
     "Europe": "Europa",
     "Asia": "Asia"
+  },
+  "general": {
+    "processing": "Elaborazione..."
+  },
+  "common": {
+    "close": "Chiudi",
+    "reset": "Reimposta"
   }
 }

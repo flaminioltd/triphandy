@@ -1,8 +1,9 @@
 {
   "expo": {
-    "name": "TripKit",
-    "slug": "tripkit",
-    "scheme": "tripkit",
+    "name": "triphandy",
+    "owner": "flaminio",
+    "slug": "triphandy",
+    "scheme": "triphandy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,19 +15,34 @@
     },
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.tripkit.app"
+      "bundleIdentifier": "com.triphandy.app"
     },
     "android": {
+      "splash": {
+        "image": "./assets/splash.png",
+        "resizeMode": "contain",
+        "backgroundColor": "#ffffff"
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.tripkit.app"
+      "package": "com.triphandy.app"
     },
     "plugins": [
       "expo-router",
-      "expo-localization"
+      "expo-localization",
+      "expo-font",
+      "@react-native-community/datetimepicker",
+      "expo-sqlite"
     ],
-    "extra": {}
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2cfb01d8-5678-4662-b046-537992fde022"
+      }
+    }
   }
 }

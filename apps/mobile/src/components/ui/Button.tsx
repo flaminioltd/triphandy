@@ -56,8 +56,9 @@ export default function Button({
       resolvedMode = 'contained';
     } else if (variant === 'alternative') {
       resolvedMode = 'outlined';
+      resolvedButtonColor = 'transparent';
       resolvedTextColor = tokens.colors.ui.primaryPurple;
-      borderStyle = { borderColor: tokens.colors.ui.primaryPurple };
+      borderStyle = { borderColor: theme.colors.outline };
     } else if (variant === 'destructive') {
       resolvedMode = 'contained';
       resolvedButtonColor = tokens.colors.state.errorSoft;

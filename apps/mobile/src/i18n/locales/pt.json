@@ -2,14 +2,14 @@
   "navigation": {
     "tabs": {
       "home": "Início",
-      "myTrips": "Minhas Viagens",
+      "myTrips": "Viagens",
       "settings": "Configurações"
     }
   },
   "welcomeScreen": {
-    "title": "TripKit",
+    "title": "triphandy",
     "heroTitle": "Qual é o seu país de origem?",
-    "heroSubtitle": "O TripKit define padrões úteis com base no seu país de origem.",
+    "heroSubtitle": "O triphandy define padrões úteis com base no seu país de origem.",
     "searchPlaceholder": "Insira um país...",
     "settingsTitle": "Configurações para {{countryName}}",
     "baseCurrency": "Moeda Base",
@@ -44,7 +44,7 @@
     "inferredCurrency": "Moeda Deduzida",
     "inferredSizeFormat": "Formato de Tamanhos",
     "note": "Você poderá adicionar mais detalhes depois.",
-    "enterTripKitButton": "Entrar no TripKit"
+    "entertriphandyButton": "Entrar no triphandy"
   },
   "upgradeScreen": {
     "heroTitle": "Desbloquear Tudo",
@@ -52,11 +52,11 @@
     "whatRemainsFree": "O que continua grátis:",
     "unlockIncludes": "O desbloqueio inclui:",
     "oneTimePayment": "Pagamento único",
-    "unlockButton": "Desbloquear TripKit",
+    "unlockButton": "Desbloquear triphandy",
     "restorePurchaseButton": "Restaurar Compra"
   },
   "homeScreen": {
-    "headerTitle": "TripKit",
+    "headerTitle": "triphandy",
     "activeTripSubtitle": "{{days}} dias em {{country}}",
     "currentLocation": "Localização Atual",
     "modulesTitle": "Módulos",
@@ -66,7 +66,7 @@
         "description": "Detalhes essenciais e costumes"
       },
       "basicPhrases": {
-        "title": "Frases Úteis",
+        "title": "Frases Básicas",
         "description": "Saudações e essenciais"
       },
       "plugVoltage": {
@@ -78,11 +78,11 @@
         "description": "Números de emergência locais"
       },
       "budgetTracker": {
-        "title": "Orçamento",
+        "title": "Controle Orçamento",
         "description": "Acompanhe seus gastos"
       },
       "atmExchange": {
-        "title": "Câmbio e ATM",
+        "title": "Caixas e Câmbio",
         "description": "Taxas e conversor"
       },
       "vatRefund": {
@@ -90,15 +90,15 @@
         "description": "Estimativas de compras isentas de impostos"
       },
       "tipCalculator": {
-        "title": "Gorjetas",
+        "title": "Calculadora Gorjeta",
         "description": "Costumes e cálculos"
       },
       "sizeConverter": {
-        "title": "Tamanhos",
+        "title": "Tamanhos e Medidas",
         "description": "Calçados, roupas e medidas"
       },
       "timezoneHelper": {
-        "title": "Fuso Horário",
+        "title": "Fusos Horários",
         "description": "Coordenar com a origem"
       }
     },
@@ -146,7 +146,7 @@
     "editTripModalTitle": "Editar {{country}}",
     "selectDateRange": "Selecionar Datas",
     "datesNotSetYet": "Ainda não definidas",
-    "editTripSave": "Salvar",
+    "editTripSave": "Save",
     "tripStatus": {
       "pending": "Pendente",
       "pendingSubtitle": "Sem datas",
@@ -181,7 +181,21 @@
       "it": "Italiano",
       "pt": "Português"
     },
-    "forceSyncButton": "Sincronizar Dados"
+    "forceSyncButton": "Sincronizar Dados",
+    "customizeCurrencyUnitsTitle": "Personalizar Moeda e Unidades",
+    "measurementSystem": "Sistema de Medição",
+    "searchCurrencyPlaceholder": "Insira uma moeda...",
+    "exchangeRateSyncTitle": "Sincronização de taxa de câmbio",
+    "exchangeRateSyncSubtitle": "O aplicativo executa atualizações diárias da taxa de câmbio por padrão, o que será substituído por sua escolha de disponibilidade de conexão.",
+    "syncWifiOnly": "Sincronizar apenas quando houver WiFi",
+    "syncCellular": "Sincronizar com dados móveis",
+    "syncManual": "Sincronizar apenas manualmente",
+    "forceSyncRatesButton": "Sincronizar taxas de câmbio",
+    "lastUpdated": "Última atualização:",
+    "neverSynced": "Nunca sincronizado",
+    "error": "Erro",
+    "noConnection": "Sem conexão de internet disponível.",
+    "syncFailed": "Falha ao buscar as últimas taxas de câmbio."
   },
   "access": {
     "upgrade": {
@@ -193,7 +207,7 @@
   },
   "modules": {
     "atmExchange": {
-      "headerTitle": "Câmbio e ATM",
+      "headerTitle": "Caixas e Câmbio",
       "tabExchange": "Câmbio",
       "tabFees": "Taxas",
       "amountToConvert": "Valor a converter",
@@ -242,7 +256,7 @@
       "recommendationBureau": "Câmbio"
     },
     "basicPhrases": {
-      "headerTitle": "Frases Úteis",
+      "headerTitle": "Frases Básicas",
       "greetingTab": "Saudações",
       "essentialsTab": "Essenciais",
       "numbersTab": "Números",
@@ -253,7 +267,7 @@
       "noPhrasesAvailable": "Nenhuma frase disponível."
     },
     "budgetTracker": {
-      "headerTitle": "Orçamento",
+      "headerTitle": "Controle Orçamento",
       "noBudgetTitle": "Sem orçamento",
       "noBudgetDesc": "Defina um orçamento para suas despesas.",
       "setBudgetButton": "Definir Orçamento",
@@ -288,7 +302,7 @@
       "detailsOptional": "Descrição (Opcional)",
       "amountLocal": "Valor ({{currency}})",
       "saveExpenseButton": "Salvar",
-      "resetBudgetButton": "Zerar Orçamento",
+      "resetBudgetButton": "Redefinir Orçamento e Limpar Despesas",
       "tags": {
         "food": "Alimentação",
         "transport": "Transporte",
@@ -297,7 +311,21 @@
         "entertainment": "Diversão",
         "shopping": "Compras",
         "other": "Outros"
-      }
+      },
+      "budgetLabel": "Orçamento",
+      "budgetSettings": "Configurações de Orçamento",
+      "day": "dia",
+      "notSet": "Não definido",
+      "adjustButton": "Ajustar",
+      "pieChartTitle": "Desdobramento de Despesas",
+      "noData": "Sem dados disponíveis.",
+      "includeRemaining": "Incluir Orçamento Restante",
+      "doneButton": "Concluído",
+      "clearExpensesButton": "Limpar Despesas",
+      "clearExpensesAlertTitle": "Limpar Despesas",
+      "clearExpensesAlertMessage": "Tem certeza de que deseja excluir todas as despesas? Isso não pode ser desfeito.",
+      "clearButton": "Limpar",
+      "addExpenseDesc": "Rastrear uma nova transação"
     },
     "emergencyEssentials": {
       "headerTitle": "Emergência",
@@ -317,7 +345,7 @@
       "pharmacyNoteDesc": "Procure uma cruz verde piscando. Farmacêuticos podem ajudar com problemas menores."
     },
     "localInfo": {
-      "headerTitle": "Info de Destino",
+      "headerTitle": "Info Local",
       "overviewTab": "Visão Geral",
       "cultureTab": "Cultura",
       "transportTab": "Transporte",
@@ -341,12 +369,14 @@
       "holidaysIn": "Feriados em {{country}}",
       "duringTrip": "DURANTE A VIAGEM",
       "noHolidayData": "Sem feriados encontrados para {{year}}.",
-      "embassyDesc": "Seu país de origem está definido como {{homeCountry}}. Mostrando detalhes da embaixada em {{destCountry}}.",
+      "embassyDesc": "A embaixada de {{homeCountry}} em {{destCountry}}.",
       "embassyConsulate": "Embaixada / Consulado",
       "visitButton": "Visitar",
       "embassyUnavailable": "Informações da embaixada indisponíveis.",
       "embassyTitle": "Embaixada",
-      "origin": "Origem"
+      "origin": "Origem",
+      "address": "Endereço",
+      "showOnMap": "Mostrar no mapa"
     },
     "plugVoltage": {
       "headerTitle": "Tomadas e Voltagem",
@@ -367,7 +397,7 @@
       "destCountryCode": "DESTINO ({{code}})"
     },
     "sizeConverter": {
-      "headerTitle": "Tamanhos",
+      "headerTitle": "Tamanhos e Medidas",
       "tabShoes": "Calçados",
       "tabClothes": "Roupas",
       "tabUnits": "Unidades",
@@ -392,7 +422,7 @@
       "matchTitleUnits": "As unidades combinam!"
     },
     "timezoneHelper": {
-      "headerTitle": "Fuso Horário",
+      "headerTitle": "Fusos Horários",
       "homeLabel": "ORIGEM ({{code}})",
       "localLabel": "DESTINO ({{code}})",
       "timeSetting": "Ajuste de Hora",
@@ -405,7 +435,7 @@
       "origin": "Origem"
     },
     "tipCalculator": {
-      "headerTitle": "Gorjetas",
+      "headerTitle": "Calculadora Gorjeta",
       "expenseTitle": "Conta do Restaurante (com gorjeta)",
       "defaultTippingText": "A gorjeta padrão é de 15-20%.",
       "noTippingText": "Em {{country}} não é comum dar gorjeta.",
@@ -456,10 +486,19 @@
       "catJewelry": "Joias",
       "catAccessories": "Acessórios",
       "catGifts": "Presentes",
-      "catOther": "Outro"
+      "catOther": "Outros",
+      "pieChartTitle": "Desdobramento de Compras",
+      "noData": "Sem dados disponíveis.",
+      "showRefundToggle": "Mostrar Reembolso Estimado",
+      "closeButton": "Fechar",
+      "amountLocal": "Valor ({{currency}})",
+      "addNewDesc": "Adicione um item para estimar seu reembolso"
     },
     "atm": {
-      "headerTitle": "ATM"
+      "headerTitle": "Caixas e Câmbio"
+    },
+    "destinationInfo": {
+      "headerTitle": "Info Local"
     }
   },
   "modals": {
@@ -489,17 +528,45 @@
       "expensesCount": "Despesas ({{count}})",
       "noExpenses": "Nenhuma despesa registrada.",
       "close": "Fechar"
+    },
+    "premium": {
+      "title": "triphandy Pro",
+      "freeTier": "Grátis",
+      "premiumTier": "Pro",
+      "features": {
+        "basicPhrasesLite": "Frases Básicas Lite",
+        "max2Trips": "Máx. 2 Viagens",
+        "fullBasicPhrases": "Frases Básicas Completas",
+        "unlimitedTrips": "Viagens Ilimitadas"
+      },
+      "price": "$19.99 / ano",
+      "upgradeBtn": "Mudar para Pro",
+      "continueBtn": "Continuar com Grátis",
+      "allFreeModulesPlus": "Tudo na versão gratuita, mais:"
+    },
+    "tripSelection": {
+      "title": "Manter 2 Viagens",
+      "subtitle": "A versão gratuita permite um máximo de 2 viagens salvas. Por favor, selecione até 2 viagens que deseja manter. Viagens não selecionadas serão excluídas.",
+      "keepSelected": "Manter",
+      "continueBtn": "Continuar"
+    },
+    "noTrip": {
+      "title": "Nenhuma Viagem Ativa",
+      "message": "Por favor, defina uma viagem ativa ou adicione uma nova para acessar os módulos.",
+      "addTripButton": "Adicionar Viagem"
     }
   },
   "categories": {
     "food": "Alimentação",
     "transport": "Transporte",
     "accommodation": "Alojamento",
-    "activities": "Atividades",
+    "activities": "Atividades e Passeios",
     "shopping": "Compras",
     "other": "Outros",
     "Essentials": "Essenciais",
-    "Finance": "Finanças"
+    "Finance": "Finanças",
+    "flights": "Voos",
+    "entertainment": "Diversão"
   },
   "countries": {
     "US": "Estados Unidos",
@@ -615,7 +682,7 @@
     "categories": {
       "Basics": "Básicos",
       "Shopping": "Compras",
-      "Hotel & Dining": "Hospedagem",
+      "Hotel e Dining": "Hospedagem",
       "Emergencies": "Emergências"
     },
     "items": {
@@ -653,14 +720,15 @@
   "components": {
     "pastTripSummary": {
       "title": "Resumo de {{country}}",
-      "configuredBudget": "ORÇAMENTO",
+      "configuredBudget": "Orçamento Configurado",
       "perDayForDays": "{{amount}} {{currency}} / dia",
-      "usedBudget": "ORÇAMENTO USADO",
+      "usedBudget": "Orçamento Usado",
       "underBudget": "Abaixo do orçamento!",
       "overBudget": "Acima do orçamento",
       "noBudgetLimit": "Sem limite",
       "expensesCount": "Despesas ({{count}})",
-      "noExpenses": "Sem despesas."
+      "noExpenses": "Nenhuma despesa registrada para esta viagem.",
+      "breakdown": "Detalhamento de Despesas"
     }
   },
   "regions": {
@@ -670,5 +738,12 @@
     "Europe/Asia": "Europa/Ásia",
     "Europe": "Europa",
     "Asia": "Ásia"
+  },
+  "general": {
+    "processing": "Processando..."
+  },
+  "common": {
+    "close": "Fechar",
+    "reset": "Redefinir"
   }
 }

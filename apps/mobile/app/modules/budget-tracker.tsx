@@ -6,7 +6,8 @@ import { FLAG_IMAGES } from '../../src/lib/assets';
 import { useTripStore } from '../../src/stores/trip-store';
 import { useAppStore } from '../../src/stores/app-store';
 import { View, Image, StyleSheet, FlatList, Pressable, ScrollView, Alert } from 'react-native';
-import { Text, Card, useTheme, IconButton, FAB, Avatar, Portal, Dialog, TextInput, SegmentedButtons, ProgressBar, Switch } from 'react-native-paper';
+import { Text, Card, useTheme, IconButton, FAB, Avatar, Portal, Dialog, TextInput, ProgressBar, Switch, RadioButton } from 'react-native-paper';
+import { Svg, G, Path, Circle } from 'react-native-svg';
 import Button from '../../src/components/ui/Button';
 import { useRouter, useFocusEffect } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -14,16 +15,8 @@ import { db } from '../../src/db/client';
 import { exchangeRates, countries, settings as dbSettings } from '../../src/db/schema';
 import { eq } from 'drizzle-orm';
 import { MaterialIcons } from '@expo/vector-icons';
-
-const CATEGORIES = [
-  { value: 'food', icon: 'silverware-fork-knife', label: 'Food' },
-  { value: 'flights', icon: 'airplane', label: 'Flights' },
-  { value: 'transport', icon: 'train', label: 'Transport' },
-  { value: 'shopping', icon: 'shopping', label: 'Shopping' },
-  { value: 'entertainment', icon: 'ticket', label: 'Fun' },
-  { value: 'accommodation', icon: 'bed', label: 'Hotel' },
-  { value: 'other', icon: 'dots-horizontal', label: 'Other' },
-];
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
+import { EXPENSE_CATEGORIES as CATEGORIES, getCategoryColor, getCoordinatesForPercent } from '../../src/lib/expense-categories';
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥', 'AUD': 'A$', 'CAD': 'C$',
@@ -87,11 +80,17 @@ export default function BudgetTrackerScreen() {
   };
 
   // Modal states
+  const [isSettingsModalVisible, setIsSettingsModalVisible] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [editingExpenseId, setEditingExpenseId] = useState<string | null>(null);
   const [modalTitle, setModalTitle] = useState('');
   const [modalCategory, setModalCategory] = useState('food');
   const [modalAmount, setModalAmount] = useState('');
+  const [modalInputCurrency, setModalInputCurrency] = useState<'local' | 'home'>('local');
+
+  // Pie Chart states
+  const [isPieChartVisible, setIsPieChartVisible] = useState(false);
+  const [includeRemainingBudget, setIncludeRemainingBudget] = useState(false);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -158,11 +157,11 @@ export default function BudgetTrackerScreen() {
     const amountNum = parseFloat(modalAmount);
     if (isNaN(amountNum) || amountNum <= 0) return;
 
-    // The user inputs the amount in the tracked currency
+    // The user inputs the amount in the selected modal input currency
     let localAmt = 0;
     let convertedAmt = 0;
 
-    if (trackCurrency === 'home') {
+    if (modalInputCurrency === 'home') {
       convertedAmt = amountNum;
       localAmt = getConvertedAmount(amountNum, homeCurrencyState, localCurrency);
     } else {
@@ -170,9 +169,7 @@ export default function BudgetTrackerScreen() {
       convertedAmt = getConvertedAmount(amountNum, localCurrency, homeCurrencyState);
     }
 
-    const selectedCategoryObj = CATEGORIES.find(c => c.value === modalCategory);
-    const defaultTitle = selectedCategoryObj ? selectedCategoryObj.label : 'Expense';
-    const finalTitle = modalTitle.trim() || defaultTitle;
+    const finalTitle = modalTitle.trim();
 
     if (editingExpenseId) {
       await updateExpense(editingExpenseId, {
@@ -200,6 +197,7 @@ export default function BudgetTrackerScreen() {
     setModalCategory('food');
     setModalTitle('');
     setModalAmount('');
+    setModalInputCurrency('local');
     setIsModalVisible(true);
   };
 
@@ -207,9 +205,22 @@ export default function BudgetTrackerScreen() {
     setEditingExpenseId(expense.id);
     setModalCategory(expense.category);
     setModalTitle(expense.title);
-    const amt = trackCurrency === 'home' ? (expense.convertedAmount || expense.localAmount) : expense.localAmount;
-    setModalAmount(amt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+    setModalAmount(expense.localAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+    setModalInputCurrency('local');
     setIsModalVisible(true);
+  };
+
+  const handleToggleInputCurrency = (newValue: string) => {
+    if (newValue === modalInputCurrency) return;
+    const num = parseFloat(modalAmount.replace(/,/g, ''));
+    if (!isNaN(num) && num > 0) {
+      if (newValue === 'home') {
+        setModalAmount(getConvertedAmount(num, localCurrency, homeCurrencyState).toFixed(2));
+      } else {
+        setModalAmount(getConvertedAmount(num, homeCurrencyState, localCurrency).toFixed(2));
+      }
+    }
+    setModalInputCurrency(newValue as 'local' | 'home');
   };
 
   // Calculations
@@ -239,17 +250,81 @@ export default function BudgetTrackerScreen() {
   const totalProgress = totalTripBudget > 0 ? Math.min(1, totalSpentDisplay / totalTripBudget) : 0;
   const todayProgress = todayBudgetLimit > 0 ? Math.min(1, spentTodayDisplay / todayBudgetLimit) : 0;
 
+  // Pie chart calculations
+  const pieChartData = React.useMemo(() => {
+    if (!isPieChartVisible) return [];
+    
+    const categoryTotals: Record<string, number> = {};
+    let totalSpent = 0;
+    
+    expenses.forEach(e => {
+      const amt = trackCurrency === 'home' ? (e.convertedAmount || 0) : e.localAmount;
+      if (!categoryTotals[e.category]) categoryTotals[e.category] = 0;
+      categoryTotals[e.category] += amt;
+      totalSpent += amt;
+    });
+
+    const slices: { category: string, value: number, color: string, label: string }[] = Object.keys(categoryTotals).map(cat => {
+      const catObj = CATEGORIES.find(c => c.value === cat) || CATEGORIES.find(c => c.value === 'other')!;
+      return {
+        category: cat,
+        value: categoryTotals[cat],
+        color: getCategoryColor(cat, theme),
+        label: t(`categories.${cat}`, catObj.label)
+      };
+    });
+
+    slices.sort((a, b) => b.value - a.value);
+
+    if (includeRemainingBudget && budgetNum > 0) {
+      const remaining = (viewMode === 'total' ? totalTripBudget : todayBudgetLimit) - totalSpent;
+      if (remaining > 0) {
+        slices.push({
+          category: 'remaining',
+          value: remaining,
+          color: theme.colors.outlineVariant,
+          label: t('modules.budgetTracker.remaining', 'Remaining')
+        });
+      }
+    }
+
+    const total = slices.reduce((acc, s) => acc + s.value, 0);
+    if (total === 0) return [];
+
+    let cumulativePercent = 0;
+
+    return slices.map(slice => {
+      const percent = slice.value / total;
+      
+      let pathData = '';
+      if (percent === 1) {
+        pathData = `M 0 -1 A 1 1 0 1 1 0 1 A 1 1 0 1 1 0 -1 Z`;
+      } else {
+        const [startX, startY] = getCoordinatesForPercent(cumulativePercent);
+        cumulativePercent += percent;
+        const [endX, endY] = getCoordinatesForPercent(cumulativePercent);
+        const largeArcFlag = percent > 0.5 ? 1 : 0;
+        pathData = `M 0 0 L ${startX} ${startY} A 1 1 0 ${largeArcFlag} 1 ${endX} ${endY} Z`;
+      }
+        
+      return {
+        ...slice,
+        path: pathData,
+        percent
+      };
+    });
+  }, [isPieChartVisible, expenses, trackCurrency, includeRemainingBudget, budgetNum, viewMode, totalTripBudget, todayBudgetLimit, theme, t]);
+
   const handleReset = () => {
     Alert.alert(
-      t("modules.budgetTracker.resetBudgetAlertTitle", "Reset Budget & Expenses"),
-      t("modules.budgetTracker.resetBudgetAlertMessage", "Are you sure you want to reset your budget to 0 and delete all expenses? This cannot be undone."),
+      t("modules.budgetTracker.clearExpensesAlertTitle", "Clear Expenses"),
+      t("modules.budgetTracker.clearExpensesAlertMessage", "Are you sure you want to delete all expenses? This cannot be undone."),
       [
         { text: t("modules.budgetTracker.cancelButton", "Cancel"), style: "cancel" },
         {
-          text: t("modules.budgetTracker.resetButton", "Reset"),
+          text: t("modules.budgetTracker.clearButton", "Clear"),
           style: "destructive",
           onPress: async () => {
-            setBudgetAmount('');
             if (expenses.length > 0) {
               for (const e of expenses) {
                 await removeExpense(e.id);
@@ -271,67 +346,43 @@ export default function BudgetTrackerScreen() {
         contentContainerStyle={styles.content}
         ListHeaderComponent={
           <>
-            <Card style={styles.settingsCard} mode="outlined">
-              <Card.Content>
-                <View style={{ marginBottom: 12 }}>
-                  <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.trackIn", "Track Expenses In")}</Text>
-                  <SegmentedButtons
-                    value={trackCurrency}
-                    onValueChange={handleTrackCurrencyChange}
-                    buttons={[
-                      { value: 'home', label: `${t('modules.budgetTracker.homeCurrency', 'Origin')} (${CURRENCY_SYMBOLS[homeCurrencyState] || homeCurrencyState})` },
-                      { value: 'local', label: `${t('modules.budgetTracker.localCurrency', 'Local')} (${CURRENCY_SYMBOLS[localCurrency] || localCurrency})` },
-                    ]}
-                  />
+            <Card style={[styles.settingsCard, { elevation: 0, backgroundColor: 'transparent' }]} mode="outlined">
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingVertical: 12, paddingHorizontal: 16 }}>
+                <View style={{ flex: 1, paddingRight: 16 }}>
+                  <Text variant="labelMedium" style={{ color: theme.colors.onSurfaceVariant, marginBottom: 2 }}>{t("modules.budgetTracker.budgetLabel", "Budget")}</Text>
+                  <Text variant="bodyMedium" style={{ color: theme.colors.onSurface }}>
+                    {budgetNum > 0 
+                      ? `${displaySymbol}${todayBudgetLimit.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })} / ${t('modules.budgetTracker.day', 'day')} (${displaySymbol}${totalTripBudget.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })})`
+                      : t('modules.budgetTracker.notSet', 'Not set')
+                    }
+                  </Text>
                 </View>
-
-                <View style={styles.settingRow}>
-                  <View style={{ flex: 1, paddingRight: 8 }}>
-                    <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.budgetLimit", "Budget Amount")}</Text>
-                    <TextInput
-                      value={budgetAmount}
-                      onChangeText={setBudgetAmount}
-                      keyboardType="numeric"
-                      mode="outlined"
-                      left={<TextInput.Affix text={displaySymbol} />}
-                      style={{ backgroundColor: theme.colors.surface, height: 40 }}
-                    />
-                  </View>
-                  <View style={{ flex: 1.15, paddingLeft: 8 }}>
-                    <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.budgetType", "Budget Scope")}</Text>
-                    <SegmentedButtons
-                      value={budgetType}
-                      onValueChange={handleBudgetTypeChange}
-                      buttons={[
-                        { value: 'daily', label: t('modules.budgetTracker.dailyBudget', 'Daily') },
-                        { value: 'trip', label: t('modules.budgetTracker.totalTripBudget', 'Trip') },
-                      ]}
-                      style={{ height: 40 }}
-                    />
-                  </View>
-                </View>
-              </Card.Content>
+                <Button variant="main" onPress={() => setIsSettingsModalVisible(true)}>
+                  {t('modules.budgetTracker.adjustButton', 'Adjust')}
+                </Button>
+              </View>
             </Card>
 
             <Card style={[styles.summaryCard, { backgroundColor: theme.colors.primaryContainer }]} mode="contained">
               <Card.Content>
                 <View>
                   <View style={styles.progressHeader}>
-                    <Text variant="titleMedium" style={{ color: theme.colors.onPrimaryContainer, fontWeight: 'bold' }}>
+                    <Text variant="titleMedium" style={{ color: theme.colors.onPrimaryContainer, }}>
                       {viewMode === 'total' ? t('modules.budgetTracker.totalSpent', 'Total Spent') : t('modules.budgetTracker.spentToday', 'Spent Today')}
                     </Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                      <Text style={{ fontSize: 14, marginRight: 8, color: viewMode === 'daily' ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant, fontWeight: viewMode === 'daily' ? 'bold' : 'normal' }}>{t('modules.budgetTracker.dailyBudget', 'Daily')}</Text>
+                      <Text style={{ fontSize: 12, marginRight: 0, color: viewMode === 'daily' ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant, fontWeight: viewMode === 'daily' ? 'bold' : 'normal' }}>{t('modules.budgetTracker.dailyBudget', 'Daily')}</Text>
                       <Switch 
                         value={viewMode === 'total'} 
                         onValueChange={(val) => setViewMode(val ? 'total' : 'daily')} 
                         color={theme.colors.primary}
+                        style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }], marginHorizontal: -4 }}
                       />
-                      <Text style={{ fontSize: 14, marginLeft: 8, color: viewMode === 'total' ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant, fontWeight: viewMode === 'total' ? 'bold' : 'normal' }}>{t('modules.budgetTracker.totalTripBudget', 'Trip')}</Text>
+                      <Text style={{ fontSize: 12, marginLeft: 0, color: viewMode === 'total' ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant, fontWeight: viewMode === 'total' ? 'bold' : 'normal' }}>{t('modules.budgetTracker.totalTripBudget', 'Trip')}</Text>
                     </View>
                   </View>
                   <View style={{ alignItems: 'flex-end', marginBottom: 8 }}>
-                    <Text variant="titleMedium" style={{ color: theme.colors.primary, fontWeight: 'bold' }}>
+                    <Text variant="titleMedium" style={{ color: theme.colors.primary, }}>
                       {displaySymbol}{(viewMode === 'total' ? totalSpentDisplay : spentTodayDisplay).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} 
                       {budgetNum > 0 && (
                         <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>
@@ -352,8 +403,11 @@ export default function BudgetTrackerScreen() {
               </Card.Content>
             </Card>
 
-            <View style={styles.sectionHeader}>
-              <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t('modules.budgetTracker.expensesTitle', 'Recent Expenses')}</Text>
+            <View style={[styles.sectionHeader, { paddingRight: 16 }]}>
+              <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{t('modules.budgetTracker.expensesTitle', 'Recent Expenses')}</Text>
+              {expenses.length > 0 && (
+                <IconButton icon="chart-pie" iconColor={theme.colors.primary} size={24} onPress={() => setIsPieChartVisible(true)} style={{ margin: 0 }} />
+              )}
             </View>
 
             <Pressable 
@@ -373,7 +427,7 @@ export default function BudgetTrackerScreen() {
                 <MaterialIcons name="add" size={24} color={theme.colors.primary} />
               </View>
               <View style={{ flex: 1 }}>
-                <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t('modules.budgetTracker.addExpenseButton', 'Add New Expense')}</Text>
+                <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{t('modules.budgetTracker.addExpenseButton', 'Add New Expense')}</Text>
                 <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('modules.budgetTracker.addExpenseDesc', 'Track a new transaction')}</Text>
               </View>
             </Pressable>
@@ -385,7 +439,7 @@ export default function BudgetTrackerScreen() {
           </>
         }
         renderItem={({ item }) => {
-          const categoryObj = CATEGORIES.find(c => c.value === item.category) || CATEGORIES[0];
+          const categoryObj = CATEGORIES.find(c => c.value === item.category) || CATEGORIES.find(c => c.value === 'other')!;
           const displayAmt = trackCurrency === 'home' ? (item.convertedAmount || 0) : item.localAmount;
           const secondaryAmt = trackCurrency === 'home' ? item.localAmount : (item.convertedAmount || 0);
           const secondarySymbol = trackCurrency === 'home' ? CURRENCY_SYMBOLS[localCurrency] : CURRENCY_SYMBOLS[homeCurrencyState];
@@ -394,14 +448,14 @@ export default function BudgetTrackerScreen() {
             <Card style={styles.entryCard} mode="elevated">
               <View style={{ flexDirection: 'row', alignItems: 'center', padding: 8, paddingRight: 0 }}>
                 <View style={{ width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center', marginRight: 12, backgroundColor: theme.colors.surfaceVariant }}>
-                  <IconButton icon={categoryObj.icon} size={24} iconColor={theme.colors.onSurfaceVariant} style={{ margin: 0 }} />
+                  <IconButton icon={categoryObj.icon} size={24} iconColor={getCategoryColor(item.category, theme)} style={{ margin: 0 }} />
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text variant="titleMedium">{item.title}</Text>
+                  <Text variant="titleMedium">{item.title ? item.title : t(`categories.${categoryObj.value}`, categoryObj.label)}</Text>
                   <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{new Date(item.date).toLocaleDateString(i18n.language || 'en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute:'2-digit' })}</Text>
                 </View>
                 <View style={{ marginRight: 8, alignItems: 'flex-end' }}>
-                  <Text variant="titleMedium" style={{ fontWeight: 'bold' }}>{displaySymbol}{displayAmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+                  <Text variant="titleMedium" style={{ }}>{displaySymbol}{displayAmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
                   <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{secondarySymbol || ''}{secondaryAmt.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
@@ -417,12 +471,11 @@ export default function BudgetTrackerScreen() {
         ListFooterComponent={
           <View style={{ padding: 16, alignItems: 'center', marginTop: 8, marginBottom: 64 }}>
             <Button 
-              mode="text" 
-              textColor={theme.colors.error} 
+              variant="destructive"
               icon="delete-sweep"
               onPress={handleReset}
             >
-              Reset Budget & Clear Expenses
+              {t('modules.budgetTracker.clearExpensesButton', 'Clear Expenses')}
             </Button>
           </View>
         }
@@ -450,7 +503,7 @@ export default function BudgetTrackerScreen() {
                     }
                   ]}
                 >
-                  <IconButton icon={cat.icon} size={16} style={{ margin: 0, width: 16, height: 16 }} />
+                  <IconButton icon={cat.icon} iconColor={getCategoryColor(cat.value, theme)} size={16} style={{ margin: 0, width: 16, height: 16 }} />
                   <Text style={{ color: modalCategory === cat.value ? theme.colors.onPrimaryContainer : theme.colors.onSurface, fontSize: 12 }}>
                     {t(`categories.${cat.value}`, cat.label)}
                   </Text>
@@ -458,7 +511,7 @@ export default function BudgetTrackerScreen() {
               ))}
             </View>
 
-            <TextInput
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
               label={t("modules.budgetTracker.detailsOptional", "Description (Optional)")}
               value={modalTitle}
               onChangeText={setModalTitle}
@@ -466,20 +519,150 @@ export default function BudgetTrackerScreen() {
               style={{ marginBottom: 12, backgroundColor: theme.colors.surface }}
             />
 
-            <TextInput
-              label={t("modules.budgetTracker.amountLocal", "Amount ({{currency}})", { currency: displayCurrency })}
-              value={modalAmount}
-              onChangeText={setModalAmount}
-              keyboardType="numeric"
-              mode="outlined"
-              style={{ backgroundColor: theme.colors.surface }}
-            />
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
+                label={t("modules.budgetTracker.amountLocal", "Amount ({{currency}})", { currency: modalInputCurrency === 'home' ? homeCurrencyState : localCurrency })}
+                value={modalAmount}
+                onChangeText={setModalAmount}
+                keyboardType="numeric"
+                mode="outlined"
+                style={{ flex: 1, backgroundColor: theme.colors.surface, marginRight: 8 }}
+              />
+              <CustomSegmentedControl
+                value={modalInputCurrency}
+                onValueChange={handleToggleInputCurrency}
+                style={{ width: 86, padding: 0, borderRadius: 18 }}
+                buttons={[
+                  { value: 'local', label: CURRENCY_SYMBOLS[localCurrency] || localCurrency, style: { borderRadius: 18, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                  { value: 'home', label: CURRENCY_SYMBOLS[homeCurrencyState] || homeCurrencyState, style: { borderRadius: 18, paddingHorizontal: 4 }, labelStyle: { fontSize: 10 } },
+                ]}
+              />
+            </View>
           </Dialog.Content>
           <Dialog.Actions style={{ flexDirection: 'column', gap: 12, alignItems: 'center', paddingBottom: 24, paddingHorizontal: 24 }}>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
               <Button variant="alternative" style={{ width: 125 }} onPress={() => setIsModalVisible(false)}>{t('modules.budgetTracker.cancelButton', 'Cancel')}</Button>
               <Button variant="main" style={{ width: 125 }} onPress={handleSaveExpense}>{t('modules.budgetTracker.saveExpenseButton', 'Save')}</Button>
             </View>
+          </Dialog.Actions>
+        </Dialog>
+
+        <Dialog visible={isPieChartVisible} onDismiss={() => setIsPieChartVisible(false)} style={{ backgroundColor: theme.colors.surface }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 12 }}>
+            <Dialog.Title style={{ color: theme.colors.onSurface, flex: 1, marginBottom: 0, marginTop: 0 }}>{t('modules.budgetTracker.pieChartTitle', 'Expense Breakdown')}</Dialog.Title>
+            <IconButton 
+              icon="close" 
+              size={20} 
+              onPress={() => setIsPieChartVisible(false)} 
+              style={{ margin: 0 }}
+            />
+          </View>
+          <Dialog.Content style={{ paddingTop: 16 }}>
+            {pieChartData.length > 0 ? (
+              <View style={{ alignItems: 'center' }}>
+                <Svg height="200" width="200" viewBox="-1.2 -1.2 2.4 2.4">
+                  {pieChartData.map((slice, index) => (
+                    <Path
+                      key={index}
+                      d={slice.path}
+                      fill={slice.color}
+                    />
+                  ))}
+                </Svg>
+              </View>
+            ) : (
+              <Text style={{ textAlign: 'center', marginTop: 20 }}>{t('modules.budgetTracker.noData', 'No data available.')}</Text>
+            )}
+
+            <View style={{ marginTop: 24, paddingHorizontal: 8 }}>
+              {pieChartData.map((slice, index) => (
+                <View key={index} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
+                  <View style={{ width: 12, height: 12, borderRadius: 6, backgroundColor: slice.color, marginRight: 8 }} />
+                  <Text variant="bodyMedium" style={{ flex: 1, color: theme.colors.onSurface }}>{slice.label}</Text>
+                  <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant, marginRight: 8 }}>
+                    {(slice.percent * 100).toFixed(0)}%
+                  </Text>
+                  <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant, fontWeight: 'bold' }}>
+                    {displaySymbol}{slice.value.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                  </Text>
+                </View>
+              ))}
+            </View>
+
+            {budgetNum > 0 && (
+              <Pressable 
+                style={{ flexDirection: 'row', alignItems: 'center', marginTop: 16, paddingTop: 16, borderTopWidth: 1, borderTopColor: theme.colors.outlineVariant }}
+                onPress={() => setIncludeRemainingBudget(!includeRemainingBudget)}
+              >
+                <View pointerEvents="none" style={{ marginRight: 8 }}>
+                  <MaterialIcons 
+                    name={includeRemainingBudget ? 'check-circle' : 'radio-button-unchecked'} 
+                    size={24} 
+                    color={theme.colors.primary} 
+                  />
+                </View>
+                <Text variant="bodyMedium" style={{ color: theme.colors.onSurface, flex: 1 }}>
+                  {t('modules.budgetTracker.includeRemaining', 'Include Remaining Budget')}
+                </Text>
+              </Pressable>
+            )}
+          </Dialog.Content>
+        </Dialog>
+        <Dialog visible={isSettingsModalVisible} onDismiss={() => setIsSettingsModalVisible(false)} style={{ backgroundColor: theme.colors.surface }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingRight: 12 }}>
+            <Dialog.Title style={{ color: theme.colors.onSurface, flex: 1, marginBottom: 0, marginTop: 0 }}>{t("modules.budgetTracker.budgetSettings", "Budget Settings")}</Dialog.Title>
+            <IconButton 
+              icon="close" 
+              size={20} 
+              onPress={() => setIsSettingsModalVisible(false)} 
+              style={{ margin: 0 }}
+            />
+          </View>
+          <Dialog.Content style={{ paddingTop: 16 }}>
+            <View style={{ marginBottom: 16 }}>
+              <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.trackIn", "Track Expenses In")}</Text>
+              <CustomSegmentedControl
+                value={trackCurrency}
+                onValueChange={handleTrackCurrencyChange}
+                buttons={[
+                  { value: 'home', label: `${t('modules.budgetTracker.homeCurrency', 'Origin')} (${CURRENCY_SYMBOLS[homeCurrencyState] || homeCurrencyState})` },
+                  { value: 'local', label: `${t('modules.budgetTracker.localCurrency', 'Local')} (${CURRENCY_SYMBOLS[localCurrency] || localCurrency})` },
+                ]}
+              />
+            </View>
+
+            <View style={styles.settingRow}>
+              <View style={{ flex: 1, paddingRight: 8 }}>
+                <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.budgetLimit", "Budget Amount")}</Text>
+                <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
+                  value={budgetAmount}
+                  onChangeText={setBudgetAmount}
+                  keyboardType="numeric"
+                  mode="outlined"
+                  left={<TextInput.Affix text={displaySymbol} />}
+                  style={{ backgroundColor: theme.colors.surface, height: 40 }}
+                />
+              </View>
+              <View style={{ flex: 1.15, paddingLeft: 8 }}>
+                <Text variant="labelMedium" style={{ marginBottom: 4 }}>{t("modules.budgetTracker.budgetType", "Budget Scope")}</Text>
+                <CustomSegmentedControl
+                  value={budgetType}
+                  onValueChange={handleBudgetTypeChange}
+                  buttons={[
+                    { value: 'daily', label: t('modules.budgetTracker.dailyBudget', 'Daily'), labelStyle: { fontSize: 11 } },
+                    { value: 'trip', label: t('modules.budgetTracker.totalTripBudget', 'Trip'), labelStyle: { fontSize: 11 } },
+                  ]}
+                />
+              </View>
+            </View>
+          </Dialog.Content>
+          <Dialog.Actions style={{ flexDirection: 'row', gap: 12, paddingHorizontal: 16, justifyContent: 'center', paddingBottom: 16 }}>
+            <Button variant="alternative" onPress={() => setBudgetAmount('0')} style={{ width: 130 }}>
+              {t('common.reset', 'Reset')}
+            </Button>
+            <Button variant="main" onPress={() => setIsSettingsModalVisible(false)} style={{ width: 130 }}>
+              {t('modules.budgetTracker.doneButton', 'Done')}
+            </Button>
           </Dialog.Actions>
         </Dialog>
       </Portal>

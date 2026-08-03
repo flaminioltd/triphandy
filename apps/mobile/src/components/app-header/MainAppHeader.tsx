@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, StyleSheet, Pressable, Animated, Platform, UIManager } from 'react-native';
+import { View, StyleSheet, Pressable, Animated, Platform, UIManager, Image } from 'react-native';
 import { Text, useTheme } from 'react-native-paper';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePathname, useRouter } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
-
+import { useAppStore } from '../../stores/app-store';
 const NavItem = ({ active, title, icon, onPress, theme }: { active: boolean, title: string, icon: keyof typeof MaterialIcons.glyphMap, onPress: () => void, theme: any }) => {
   const anim = useRef(new Animated.Value(active ? 1 : 0)).current;
 
@@ -65,6 +65,7 @@ export default function MainAppHeader() {
   const router = useRouter();
   const pathname = usePathname();
   const { t } = useTranslation();
+  const { settings } = useAppStore();
 
   const [localActive, setLocalActive] = useState<string>(pathname);
 
@@ -92,9 +93,11 @@ export default function MainAppHeader() {
       }
     ]}>
       <View style={styles.content}>
-        <Text variant="titleLarge" style={[styles.title, { color: theme.colors.primary }]}>
-          TripKit
-        </Text>
+        {settings?.isPremium ? (
+          <Image source={require('../../../assets/full-logo-pro.png')} style={{ height: 36, width: 115, resizeMode: 'contain', marginLeft: 8 }} />
+        ) : (
+          <Image source={require('../../../assets/images/Logo.png')} style={{ height: 36, width: 115, resizeMode: 'contain', marginLeft: 8 }} />
+        )}
 
         <View style={styles.nav}>
           <NavItem active={isHome} title={t('navigation.tabs.home', 'Home')} icon="home" onPress={() => handleNav('/(main)')} theme={theme} />
@@ -119,7 +122,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   title: {
-    fontWeight: 'bold',
+    
   },
   nav: {
     flexDirection: 'row',
@@ -133,6 +136,6 @@ const styles = StyleSheet.create({
     borderRadius: 24,
   },
   pillText: {
-    fontWeight: 'bold',
+    
   }
 });

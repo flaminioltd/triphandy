@@ -41,7 +41,7 @@ export default function ChangeLanguageModal({ visible, onDismiss }: ChangeLangua
         contentContainerStyle={[styles.modalContainer, { backgroundColor: theme.colors.background }]}
       >
         <View style={styles.header}>
-          <Text variant="headlineSmall" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t("settingsScreen.changeSystemLanguageTitle", "System Language")}</Text>
+          <Text variant="headlineSmall" style={{  color: theme.colors.onSurface }}>{t("settingsScreen.changeSystemLanguageTitle", "System Language")}</Text>
           <Pressable onPress={onDismiss} style={styles.closeButton}>
             <MaterialIcons name="close" size={24} color={theme.colors.onSurfaceVariant} />
           </Pressable>

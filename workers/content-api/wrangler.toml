@@ -1,9 +1,9 @@
-﻿name = "tripkit-content-api"
+﻿name = "triphandy-content-api"
 compatibility_date = "2024-05-12"
 
 [[r2_buckets]]
 binding = "CONTENT_BUCKET"
-bucket_name = "tripkit-content"
+bucket_name = "triphandy-content"
 
 [vars]
 APP_ENV = "development"

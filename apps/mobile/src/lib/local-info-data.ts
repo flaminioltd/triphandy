@@ -4271,5294 +4271,8220 @@ export const PUBLIC_HOLIDAYS: Record<string, Record<string, PublicHoliday[]>> = 
 // Note: Embassy data API was unavailable. Mocking some data for US/FR.
 // The structure is: EMBASSIES[destinationCode][homeCode]
 export const EMBASSIES: Record<string, Record<string, EmbassyInfo>> = {
-  "AU": {
-    "AR": {
-      "name": "Embassy",
-      "address": "11 National Circuit, 2600",
-      "phone": "+61 2 6273 9111",
-      "website": "https://eaust.cancilleria.gob.ar/en"
+  AU: {
+    AR: {
+      name: "Embassy",
+      address: "7, National Circuit",
+      phone: "",
+      website: "https://eaust.cancilleria.gob.ar",
+      latitude: -35.30767,
+      longitude: 149.13319
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "19 Forster Crescent, 2600",
-      "phone": "+61 2 6273 2372",
-      "website": "https://www.gov.br/mre/pt-br/embaixada-camberra"
+    AT: {
+      name: "Embassy",
+      address: "12 Talbot Street",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-canberra/",
+      latitude: -35.3139,
+      longitude: 149.1223
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "150 Commonwealth Avenue",
-      "phone": "+61 2 6270 4000",
-      "website": "https://www.international.gc.ca/country-pays/australia-australie/canberra.aspx?lang=eng"
+    BE: {
+      name: "Embassy",
+      address: "19 Arkana Street",
+      phone: "+61-2-6273-2501",
+      website: "https://australia.diplomatie.belgium.be",
+      latitude: -35.3057,
+      longitude: 149.115
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "19 Forster Crescent",
+      phone: "",
+      website: "http://camberra.itamaraty.gov.br",
+      latitude: -35.3034,
+      longitude: 149.1174
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "6 Perth Avenue",
-      "phone": "+61 2 6216 0100",
-      "website": "https://au.ambafrance.org"
+    CA: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/australia-australie/index.aspx",
+      latitude: -35.3026,
+      longitude: 149.1244
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "119 Empire Circuit",
-      "phone": "+61 2 6270 1911",
-      "website": "https://australien.diplo.de/au-en"
+    HR: {
+      name: "Embassy",
+      address: "14 Jindalee Crescent",
+      phone: "",
+      website: "http://au.mvep.hr",
+      latitude: -35.3528,
+      longitude: 149.10305
     },
-    "IN": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "8 Culgoa Circuit",
+      phone: "",
+      website: "https://www.mzv.cz/canberra",
+      latitude: -35.35072,
+      longitude: 149.10477
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "6 Turrana Street",
-      "phone": "+61 2 6215 4500",
-      "website": "https://embassies.gov.il/canberra"
+    FR: {
+      name: "Embassy",
+      address: "6 Perth Avenue",
+      phone: "",
+      website: "https://au.ambafrance.org",
+      latitude: -35.304304,
+      longitude: 149.117426
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "12 Grey Street",
-      "phone": "+61 2 6185 8111",
-      "website": "https://ambcanberra.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "119 Empire Circuit, Yarralumla, ACT 2600",
+      phone: "+61-2-62701911",
+      website: "https://australien.diplo.de/",
+      latitude: -35.308,
+      longitude: 149.1122
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.brisbane.au.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "9 Turrana Street",
+      phone: "",
+      website: "https://www.mfa.gr/australia/",
+      latitude: -35.3091,
+      longitude: 149.1127
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "43 Culgoa Circuit",
-      "phone": "+61 2 6247 4788",
-      "website": "https://www.kenya.asn.au/"
+    HU: {
+      name: "Embassy",
+      address: "17 Beale Crescent",
+      phone: "",
+      website: "https://canberra.mfa.gov.hu",
+      latitude: -35.32498,
+      longitude: 149.09076
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "120 Empire Circuit, 2600",
-      "phone": "+61 2 6220 9400",
-      "website": "https://www.netherlandsworldwide.nl/contact/embassies-consulates-general/australia/embassy-canberra"
+    IN: {
+      name: "Consulate General",
+      address: "Lots 70-74, Level 6, 12 St. Georges Terrace, Perth WA 6000",
+      phone: "+61-8-9221-4205",
+      website: "http://www.cgiperth.org/"
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "14 Perth Avenue",
-      "phone": "+61 2 6273 3947",
-      "website": "https://embamex.sre.gob.mx/australia"
+    IE: {
+      name: "Embassy",
+      address: "20 Arkana Street",
+      phone: "+61-2-62140000",
+      website: "https://www.ireland.ie/en/australia/canberra/",
+      latitude: -35.3066,
+      longitude: 149.1133
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.moroccoembassy.org.au/"
+    IT: {
+      name: "Embassy",
+      address: "12 Grey Street",
+      phone: "",
+      website: "https://ambcanberra.esteri.it",
+      latitude: -35.3113,
+      longitude: 149.1141
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "140 Commonwealth Avenue",
-      "phone": "+61 2 6270 4211",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/australia-and-pacific/australia/new-zealand-high-commission-to-australia/"
+    JP: {
+      name: "Embassy",
+      address: "112 Empire Circuit",
+      phone: "",
+      website: "https://www.au.emb-japan.go.jp",
+      latitude: -35.3105,
+      longitude: 149.111583333
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://nigeria-can.org.au/"
+    DK: {
+      name: "Embassy",
+      address: "17 Hunter Street",
+      phone: "",
+      website: "https://australien.um.dk",
+      latitude: -35.3044,
+      longitude: 149.111306
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "17 Hunter Street",
-      "phone": "+61 2 6270 5700",
-      "website": "https://www.norway.no/en/australia/"
+    NL: {
+      name: "Embassy",
+      address: "120 Empire Circuit",
+      phone: "",
+      website: "",
+      latitude: -35.3074076,
+      longitude: 149.1113767
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "78 Canberra Avenue",
-      "phone": "+61 2 6295 9033;+61 2 6295 9474",
-      "website": "https://australia.mid.ru/"
+    MX: {
+      name: "Embassy",
+      address: "14 Perth Avenue",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/australia/",
+      latitude: -35.30363,
+      longitude: 149.11458
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.mofa.gov.sa/sites/Australia/AR/Pages/default.aspx"
+    NZ: {
+      name: "Consulate",
+      address: "140 Commonwealth Avenue, Canberra, ACT 2600",
+      phone: "+61-2-6270-4211",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/australia/new-zealand-high-commission/",
+      latitude: -35.3019167,
+      longitude: 149.1248058
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "17 Forster Crescent",
-      "phone": "+61 2 6271 2000",
-      "website": "https://www.mfa.gov.sg/canberra"
+    NO: {
+      name: "Embassy",
+      address: "17 Hunter Street",
+      phone: "+61-2-6270-5700",
+      website: "https://www.norway.no/en/australia/",
+      latitude: -35.3044,
+      longitude: 149.111306
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "State Circle",
-      "phone": "+61 2 6272 7300",
-      "website": "https://www.sahc.org.au/"
+    CN: {
+      name: "Embassy",
+      address: "15 Coronation Drive",
+      phone: "",
+      website: "http://au.china-embassy.org",
+      latitude: -35.3019,
+      longitude: 149.1233
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "113 Empire Circuit",
-      "phone": "+61 2 6270 4100",
-      "website": "https://overseas.mofa.go.kr/au-en/index.do"
+    PL: {
+      name: "Embassy",
+      address: "7 Turrana St, Yarralumla ACT 2600, Australia",
+      phone: "",
+      website: "https://www.gov.pl/web/australia",
+      latitude: -35.309,
+      longitude: 149.114
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "15 Arkana Street, 2600",
-      "phone": "+61 2 6273 3555",
-      "website": "https://www.exteriores.gob.es/Embajadas/canberra/en/Paginas/index.aspx"
+    PT: {
+      name: "Embassy",
+      address: "32 Thesiger Ct, Deakin ACT 2600",
+      phone: "",
+      website: "https://camberra.embaixadaportugal.mne.gov.pt",
+      latitude: -35.3166,
+      longitude: 149.0963
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "5 Turrana Street",
-      "phone": "+61 2 6270 2700",
-      "website": "https://www.swedenabroad.se/en/embassies/australia-canberra"
+    KR: {
+      name: "Embassy",
+      address: "113 Empire Circuit",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/au-en/index.do",
+      latitude: -35.31,
+      longitude: 149.1138
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/canberra"
+    ES: {
+      name: "Embassy",
+      address: "15 Arkana Street",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Canberra/es/Paginas/inicio.aspx",
+      latitude: -35.3059,
+      longitude: 149.1136
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://canberra.thaiembassy.org"
+    SE: {
+      name: "Embassy",
+      address: "5 Turrana Street",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/australien-canberra/",
+      latitude: -35.3083,
+      longitude: 149.11454
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "6 Moonah Place",
-      "phone": "+61 2 6234 0000",
-      "website": "https://kanberra-be.mfa.gov.tr/"
+    CH: {
+      name: "Embassy",
+      address: "7, Melbourne Avenue",
+      phone: "",
+      website: "https://www.eda.admin.ch/canberra",
+      latitude: -35.3136,
+      longitude: 149.1211
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "40 Blackall Street, 2600",
-      "phone": "+61 2 6286 8802",
-      "website": "https://www.mofa.gov.ae/en/missions/canberra"
+    TH: {
+      name: "Embassy",
+      address: "111 Empire Circuit",
+      phone: "",
+      website: "https://canberra.thaiembassy.org",
+      latitude: -35.31013,
+      longitude: 149.11279
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "100 Eagle Street, 4000",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-brisbane"
+    TR: {
+      name: "Embassy",
+      address: "6 Moonah Place",
+      phone: "",
+      website: "https://kanberra-be.mfa.gov.tr",
+      latitude: -35.30779,
+      longitude: 149.11847
     },
-    "US": {
-      "name": "Embassy",
-      "address": "21 Moonah Place",
-      "phone": "+61 2 6214 5600;+61 2 9373 9200",
-      "website": "https://au.usembassy.gov/"
+    GB: {
+      name: "Consulate General",
+      address: "",
+      phone: "",
+      website: ""
+    },
+    US: {
+      name: "Embassy",
+      address: "Moonah Place",
+      phone: "",
+      website: "https://au.usembassy.gov",
+      latitude: -35.3072,
+      longitude: 149.117
+    },
+    VN: {
+      name: "Embassy",
+      address: "6 Timbarra Crescent",
+      phone: "",
+      website: "https://vietnamembassy.org.au/",
+      latitude: -35.34894,
+      longitude: 149.10911
     }
   },
-  "BR": {
-    "AR": {
-      "name": "Embassy",
-      "address": "12 SES Quadra 803, 70200-905 Brasília",
-      "phone": "+55 61 3212 7600",
-      "website": "https://ebras.cancilleria.gob.ar"
+  AT: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://etria.cancilleria.gob.ar/",
+      latitude: 48.210147,
+      longitude: 16.374432
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "07 SES - Quadra 801, 70407-900 Brasília",
-      "phone": "+55 61 32263111",
-      "website": "https://brazil.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "Mattiellistraße 2-4",
+      phone: "",
+      website: "http://austria.embassy.gov.au/",
+      latitude: 48.1986,
+      longitude: 16.373
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "16 SES Quadra 803, 70410-900 Brasilia",
-      "phone": "+55 61 3424 5400",
-      "website": "https://www.canadainternational.gc.ca/brazil-bresil/"
+    BE: {
+      name: "Embassy",
+      address: "Schönburgstraße 10",
+      phone: "+43-1-502-070",
+      website: "https://austria.diplomatie.belgium.be",
+      latitude: 48.1895,
+      longitude: 16.3671
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Lote 12 SEN Quadra 801, 70800-914 Brasília",
-      "phone": "+55 61 3323-8800",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "Pestalozzigasse 4",
+      phone: "",
+      website: "http://viena.itamaraty.gov.br",
+      latitude: 48.20130278,
+      longitude: 16.37560556
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "4 SES - Quadra 801, 70404-900 Brasília",
-      "phone": "+55 61 32223999",
-      "website": "https://br.ambafrance.org"
+    CA: {
+      name: "Embassy",
+      address: "Laurenzerberg 2",
+      phone: "",
+      website: "",
+      latitude: 48.2109,
+      longitude: 16.3785
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "25 SES Quadra 807, 70415-900 Brasília",
-      "phone": "+55 61 3443 7330",
-      "website": "https://brasil.diplo.de/br-pt/representacoes/botschaft"
+    HR: {
+      name: "Embassy",
+      address: "Rennweg 3",
+      phone: "",
+      website: "http://at.mfa.hr/",
+      latitude: 48.198,
+      longitude: 16.3783
     },
-    "IN": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "Penzinger Straße 11-13",
+      phone: "",
+      website: "https://www.mzv.cz/vienna",
+      latitude: 48.1896,
+      longitude: 16.3122
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "38 SES Quadra 809, 70424-900 Brasília",
-      "phone": "+55-61-2105-0500",
-      "website": "https://embassies.gov.il/brasilia"
+    FR: {
+      name: "Embassy",
+      address: "Technikerstraße 2",
+      phone: "",
+      website: "https://at.ambafrance.org/",
+      latitude: 48.1986,
+      longitude: 16.3745
     },
-    "IT": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://consbelohorizonte.esteri.it/consolato_belohorizonte/pt/"
+    DE: {
+      name: "Embassy",
+      address: "Gauermanngasse 2-4, 1010 Wien",
+      phone: "+43-1-711540",
+      website: "https://www.wien.diplo.de/",
+      latitude: 48.197778,
+      longitude: 16.382778
     },
-    "JP": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "Argentinierstraße 14",
+      phone: "",
+      website: "",
+      latitude: 48.1968,
+      longitude: 16.372
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "8 SHIS QL 10 Conjunto 8",
-      "phone": "+55 (61) 3364–0691",
-      "website": "https://kenyaembassybrazil.com.br/"
+    HU: {
+      name: "Embassy",
+      address: "Bankgasse 4-6",
+      phone: "+43-1-53780300",
+      website: "https://becs.mfa.gov.hu/",
+      latitude: 48.2104,
+      longitude: 16.3632
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "05 SES - Quadra 801, 70405-900 Brasília",
-      "phone": "+556139613200",
-      "website": "https://www.nederlandwereldwijd.nl/landen/brazilie/over-ons/ambassade-in-brasilia"
+    IN: {
+      name: "Embassy",
+      address: "Kärntner Ring 2, 1015 Wien",
+      phone: "+43-1-5058666",
+      website: "https://www.eoivienna.gov.in/",
+      latitude: 48.202,
+      longitude: 16.37
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "18 SES Quadra 805, 70412-900 Brasília",
-      "phone": "+55 61 3204 5200",
-      "website": "https://embamex.sre.gob.mx/brasil/"
+    IE: {
+      name: "Embassy",
+      address: "Rotenturmstraße 16-18",
+      phone: "+43-1-715-4246",
+      website: "https://www.ireland.ie/en/austria/vienna/",
+      latitude: 48.2107,
+      longitude: 16.3752
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Lote 2 SEN Quadra 801, 70800-920 Brasília",
-      "phone": "+55 (61) 3321-4487",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://ambvienna.esteri.it",
+      latitude: 48.196124,
+      longitude: 16.382759
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "1 SHIS QI 9 Conjunto 16, 71625-160 Brasília - DF",
-      "phone": "+55 61 32489900",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/latin-america/brazil/new-zealand-embassy/"
+    JP: {
+      name: "Embassy",
+      address: "Heßgasse 6",
+      phone: "",
+      website: "https://www.at.emb-japan.go.jp",
+      latitude: 48.2143,
+      longitude: 16.3642
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Lote 5 SEN Quadra 801, 70800-918 Brasília",
-      "phone": "+55 (61) 3208-1701",
-      "website": "https://nigerianembbrasilia.gov.ng/"
+    DK: {
+      name: "Embassy",
+      address: "Führichgasse 6",
+      phone: "",
+      website: "https://oestrig.um.dk",
+      latitude: 48.2049,
+      longitude: 16.3698
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "28 SES Quadra 807, 70418-900 Brasília",
-      "phone": "+55 61 3443 7151",
-      "website": "https://www.norway.no/pt/brasil/"
+    NL: {
+      name: "Embassy",
+      address: "Opernring 5",
+      phone: "",
+      website: "",
+      latitude: 48.2024,
+      longitude: 16.3682
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "A SES - Quadra 801, 70476-900 Brasília",
-      "phone": "+55 61 3223-3094",
-      "website": "https://brazil.mid.ru"
+    MX: {
+      name: "Embassy",
+      address: "Renngasse 5, 1010 Wien",
+      phone: "",
+      website: "https://directorio.sre.gob.mx/index.php/embajadas-de-mexico-en-el-exterior/austria",
+      latitude: 48.2127,
+      longitude: 16.3669
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "18 SHIS QI 9 Conjunto 9",
-      "phone": "+55 (61) 3248-3525",
-      "website": null
+    NZ: {
+      name: "Embassy",
+      address: "Mattiellistraße 2-4/3",
+      phone: "+43-1-5053021",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/austria/new-zealand-embassy-and-permanent-mission/",
+      latitude: 48.1986,
+      longitude: 16.373
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "11 SHIS QL 24 Conjunto 3",
-      "phone": "+55-61-2191 6565",
-      "website": "https://www.mfa.gov.sg/brasilia"
+    NO: {
+      name: "Embassy",
+      address: "Reisnerstraße 55-57",
+      phone: "",
+      website: "https://www.norway.no/de/austria/",
+      latitude: 48.1963,
+      longitude: 16.3839
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "06 SES - Quadra 801, 70406-900 Brasília",
-      "phone": "Phone not available",
-      "website": "https://www.africadosul.org.br"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.chinaembassy.at",
+      latitude: 48.1977,
+      longitude: 16.3823
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/br-saopaulo-pt/index.do"
+    PL: {
+      name: "Embassy",
+      address: "Hietzinger Hauptstraße 42c",
+      phone: "",
+      website: "https://www.gov.pl/austria",
+      latitude: 48.1874,
+      longitude: 16.2896
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Lote 44 SES Quadra 811, 70429-900 Brasília",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/BRASILIA"
+    PT: {
+      name: "Embassy",
+      address: "Opernring 3/1",
+      phone: "",
+      website: "https://viena.embaixadaportugal.mne.gov.pt",
+      latitude: 48.2022,
+      longitude: 16.3686
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Lote 29 SES 807, 70419-900 Brasília",
-      "phone": "+55 61 3442 52 00",
-      "website": "https://www.swedenabroad.se/pt/embaixada/brasil-bras%C3%ADlia"
+    KR: {
+      name: "Embassy",
+      address: "Gregor-Mendel-Straße 25",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/at-de/index.do",
+      latitude: 48.233,
+      longitude: 16.3374
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/brasilia"
+    ES: {
+      name: "Embassy",
+      address: "Argentinierstraße 34",
+      phone: "",
+      website: "",
+      latitude: 48.1917,
+      longitude: 16.3745
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Lote 10 SEN Quadra 801, 70800-912 Brasília",
-      "phone": "+55 (61) 3224-6943",
-      "website": null
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.swedenabroad.com/Wien/",
+      latitude: 48.21896,
+      longitude: 16.37184
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "23 SES Quadra 805, 70452-900 Brasília",
-      "phone": "+55 61 3242-1850;+55 61 3244-4840",
-      "website": "https://brezilya-be.mfa.gov.tr/"
+    CH: {
+      name: "Embassy",
+      address: "Prinz-Eugen-Straße 9a, 1030 Wien",
+      phone: "+43-1-79505",
+      website: "https://www.eda.admin.ch/wien",
+      latitude: 48.1964,
+      longitude: 16.3761
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "54 SHIS QI 5, 71.600-580 Brasilia",
-      "phone": "+55-61-32480717",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=08d6e04a-7242-42a7-97c7-7096e4201d28"
+    TH: {
+      name: "Embassy",
+      address: "Cottagegasse 48",
+      phone: "",
+      website: "https://www.thaiembassy.at",
+      latitude: 48.2326,
+      longitude: 16.342
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "669/702 Rua Fernandes Tourinho, 30112-000 Belo Horizonte",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-belo-horizonte"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://vienna-emb.mfa.gov.tr",
+      latitude: 48.1931,
+      longitude: 16.3783
     },
-    "US": {
-      "name": "Embassy",
-      "address": "3 SES - Quadra 801, 70403-900 Brasília",
-      "phone": "+55 61 3312 7000",
-      "website": "https://br.usembassy.gov"
+    GB: {
+      name: "Embassy",
+      address: "Jauresgasse 12",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-vienna",
+      latitude: 48.1975,
+      longitude: 16.3814
+    },
+    US: {
+      name: "Embassy",
+      address: "Boltzmanngasse 16",
+      phone: "",
+      website: "https://at.usembassy.gov/",
+      latitude: 48.2228,
+      longitude: 16.3562
+    },
+    VN: {
+      name: "Embassy",
+      address: "Felix-Mottl-Straße 20",
+      phone: "",
+      website: "",
+      latitude: 48.2348,
+      longitude: 16.3437
     }
   },
-  "CA": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ecana.cancilleria.gob.ar/"
+  BE: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ebelg.cancilleria.gob.ar/",
+      latitude: 50.8257,
+      longitude: 4.3649
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "50 O'Connor Street, K1P 6L2 Ottawa",
-      "phone": "+1 613 236 0841",
-      "website": "https://canada.embassy.gov.au"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://eu.mission.gov.au/",
+      latitude: 50.8411,
+      longitude: 4.3667
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://montreal.itamaraty.gov.br/"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-bruessel/",
+      latitude: 50.8437,
+      longitude: 4.3866
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "454 Laurier Avenue East",
-      "phone": "+1 613 234 4931",
-      "website": "https://www.egyptembassy.org/location/canada/egypt-embassy-ottawa/"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8222,
+      longitude: 4.3697
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "42 Sussex Drive",
-      "phone": "Phone not available",
-      "website": "https://ca.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/belgium-belgique/",
+      latitude: 50.8407,
+      longitude: 4.3666
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "1 Waverley Street",
-      "phone": "Phone not available",
-      "website": "https://canada.diplo.de/ca-en/vertretungen/embassy"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8188,
+      longitude: 4.3705
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "10 Springfield Road, Ottawa",
-      "phone": "Phone not available",
-      "website": "https://www.hciottawa.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/brussels",
+      latitude: 50.8132,
+      longitude: 4.3849
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "50 O'Connor Street",
-      "phone": "+1 613-750-7500",
-      "website": "https://embassies.gov.il/ottawa"
+    FR: {
+      name: "Embassy",
+      address: "Rue Ducale 65-67, 1000 Bruxelles",
+      phone: "",
+      website: "https://be.ambafrance.org/",
+      latitude: 50.8469,
+      longitude: 4.36739
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "275 Slater Street, K1P 5H9",
-      "phone": "Phone not available",
-      "website": null
+    DE: {
+      name: "Embassy",
+      address: "Rue Jacques de Lalaing 8/14, 1040 Bruxelles",
+      phone: "+32-2-787-1800",
+      website: "https://bruessel.diplo.de",
+      latitude: 50.8439,
+      longitude: 4.3738
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.calgary.ca.emb-japan.go.jp/itprtop_en/"
+    GR: {
+      name: "Embassy",
+      address: "Rue des Petits Carmes 10",
+      phone: "",
+      website: "",
+      latitude: 50.8402,
+      longitude: 4.3592
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "415 Laurier Avenue East",
-      "phone": "Phone not available",
-      "website": null
+    HU: {
+      name: "Embassy",
+      address: "Avenue du Vert Chasseur 44",
+      phone: "+32-2-348-18-00",
+      website: "https://brusszel.mfa.gov.hu/",
+      latitude: 50.800944444,
+      longitude: 4.369472222
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "350 Albert Street, K1R 1A4",
-      "phone": "+1-613-237-5031",
-      "website": "https://nederlandwereldwijd.nl/landen/canada/over-ons/ambassade-in-ottawa"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.indianembassybrussels.gov.in",
+      latitude: 50.8201,
+      longitude: 4.366
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "45 O'Connor Street, K1P 1A4",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+32-2-2823-400",
+      website: "https://www.ireland.ie/en/belgium/brussels/",
+      latitude: 50.8392,
+      longitude: 4.3819
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.consulatdumaroc.ca/"
+    IT: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: "https://ambbruxelles.esteri.it",
+      latitude: 50.8159,
+      longitude: 4.3693
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "150 Elgin Street, K2P 1L4 Ottawa",
-      "phone": "+1-613-238-5991",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/north-america/canada/new-zealand-high-commission/"
+    JP: {
+      name: "Embassy",
+      address: "Rue Van Maerlant 1",
+      phone: "",
+      website: "https://www.be.emb-japan.go.jp",
+      latitude: 50.842222222,
+      longitude: 4.381388888
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "295 Metcalfe Street",
-      "phone": "+1-613-236-0521",
-      "website": "https://nigeriahcottawa.ca"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://belgien.um.dk",
+      latitude: 50.8429,
+      longitude: 4.3744
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "150 Metcalfe Street, K2P 1P1",
-      "phone": "+1 613 238 6571",
-      "website": "https://www.norway.no/en/canada"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.843027998,
+      longitude: 4.385003617
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "285 Charlotte Street, K1N 8L5",
-      "phone": "Phone not available",
-      "website": "https://rusembassy.ca/"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/belgica/",
+      latitude: 50.8083,
+      longitude: 4.385
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "201 Sussex Drive",
-      "phone": "Phone not available",
-      "website": null
+    NZ: {
+      name: "Embassy",
+      address: "",
+      phone: "+32-2-512-10-40",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/belgium/new-zealand-embassy-to-belgium/",
+      latitude: 50.8392,
+      longitude: 4.3866
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "15 Sussex Drive",
-      "phone": "Phone not available",
-      "website": "http://www.southafrica-canada.ca/"
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "+32-2-238-73-00",
+      website: "https://www.norway.no/en/belgium",
+      latitude: 50.8436,
+      longitude: 4.3841
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "14169203809",
-      "website": "https://overseas.mofa.go.kr/ca-toronto-en/index.do"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8235,
+      longitude: 4.4455
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "74 Stanley Avenue",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Ottawa"
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.pl/web/belgia",
+      latitude: 50.84375,
+      longitude: 4.385111
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "377 Dalhousie Street, K1N 9N8",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/kanada-ottawa/"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bruxelas.embaixadaportugal.mne.pt",
+      latitude: 50.8432,
+      longitude: 4.3853
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "5 Marlborough Avenue, K1N 8E6",
-      "phone": "+1-613-235-1837",
-      "website": "https://www.eda.admin.ch/ottawa"
+    KR: {
+      name: "Embassy",
+      address: "Chaussée de La Hulpe 175",
+      phone: "",
+      website: "https://be.mofa.go.kr",
+      latitude: 50.7957,
+      longitude: 4.4026
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "180 Island Park Drive, K1Y 0A2 Ottawa",
-      "phone": "+1 613-722-4444",
-      "website": "https://ottawa.thaiembassy.org/"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8424,
+      longitude: 4.3716
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "197 Wurtemburg Street",
-      "phone": "+1 613-244-2470",
-      "website": "https://ottava-be.mfa.gov.tr/"
+    SE: {
+      name: "Consulate",
+      address: "Square de Meeûs 30, 1000 Bruxelles",
+      phone: "+32-22895800",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/belgien-bryssel/",
+      latitude: 50.8407,
+      longitude: 4.3697
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "125 Boteler Street, K1N 0A4 Ottawa",
-      "phone": "+1-613-565-7272",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=d0b31b5e-a5bb-4fa4-bf70-69902e98aef5"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/bruxelles",
+      latitude: 50.8388,
+      longitude: 4.3722
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "144 4 Avenue SW, T2P 3N4 Calgary",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-calgary"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8053,
+      longitude: 4.3725
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ca.usembassy.gov/"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://bruksel-be.mfa.gov.tr",
+      latitude: 50.8418897,
+      longitude: 4.3675254
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-brussels",
+      latitude: 50.8417,
+      longitude: 4.3845
+    },
+    US: {
+      name: "Embassy",
+      address: "Regentlaan 27 Boulevard du Régent, B-1000",
+      phone: "+32-2-811-4000",
+      website: "https://be.usembassy.gov/",
+      latitude: 50.844525,
+      longitude: 4.367372222
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.8167,
+      longitude: 4.3787
     }
   },
-  "EG": {
-    "AR": {
-      "name": "Embassy",
-      "address": "8 شارع الصالح ايوب, 11568 القاهرة",
-      "phone": "+20227367765",
-      "website": "https://eegip.cancilleria.gob.ar"
+  BR: {
+    AR: {
+      name: "Embassy",
+      address: "Setor de Embaixadas Sul, Quadra 803, Lote 12",
+      phone: "",
+      website: "https://ebras.cancilleria.gob.ar",
+      latitude: -15.81181,
+      longitude: -47.87844
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "شارع كورنيش النيل",
-      "phone": "+202 2770 6600",
-      "website": "https://egypt.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 801, Conjunto K, Lote 7",
+      phone: "",
+      website: "https://brazil.embassy.gov.au",
+      latitude: -15.80842,
+      longitude: -47.87414
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "2005C شارع كورنيش النيل",
-      "phone": "+202 24 61 9837",
-      "website": "http://cairo.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Avenida das Naçoes, Quadra 811 - Lote 40",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-brasilia/",
+      latitude: -15.8309,
+      longitude: -47.8967
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/egypt-egypte"
+    BE: {
+      name: "Embassy",
+      address: "SES Quadra 809, Lote 32",
+      phone: "+55-61-344-311-33",
+      website: "https://brazil.diplomatie.belgium.be",
+      latitude: -15.8239,
+      longitude: -47.8933
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://eg.ambafrance.org"
+    CA: {
+      name: "Embassy",
+      address: "Av. das Nações, Quadra 803, Lote 16",
+      phone: "",
+      website: "https://www.international.gc.ca/world-monde/country-pays/brazil-bresil/brasilia.aspx",
+      latitude: -15.8153,
+      longitude: -47.8796
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+20 3 487 01 00",
-      "website": null
+    HR: {
+      name: "Embassy",
+      address: "SHIS QI 09 Conjunto 11, Casa 3",
+      phone: "",
+      website: "",
+      latitude: -15.83556,
+      longitude: -47.87606
     },
-    "IN": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "SES Quadra 805 Via L3 Sul, Lote 21 A",
+      phone: "",
+      website: "https://www.mzv.cz/brasilia",
+      latitude: -15.81657,
+      longitude: -47.88631
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/cairo"
+    FR: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 801, Lote 4",
+      phone: "",
+      website: "https://br.ambafrance.org",
+      latitude: -15.805726,
+      longitude: -47.87374
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+20 3 484 7292",
-      "website": null
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+55-61-34-427000",
+      website: "https://brasil.diplo.de",
+      latitude: -15.8213,
+      longitude: -47.8863
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eg.emb-japan.go.jp"
+    GR: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 805, Lote 22",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/brazil.html",
+      latitude: -15.8176,
+      longitude: -47.88652
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+20 227395500",
-      "website": "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/egypt/about-us/embassy-in-cairo"
+    HU: {
+      name: "Embassy",
+      address: "S.E.S. Av. das Nações, Quadra 805, Lote 19",
+      phone: "+55-61-3443-0836",
+      website: "https://braziliavaros.mfa.gov.hu/",
+      latitude: -15.81525,
+      longitude: -47.885166666
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "25 شارع الحدائق, 11728",
-      "phone": "+202 2358-0256",
-      "website": "https://embamex.sre.gob.mx/egipto"
+    IN: {
+      name: "Embassy",
+      address: "SES 805 Lote 24",
+      phone: "",
+      website: "https://eoibrasilia.gov.in/",
+      latitude: -15.81889,
+      longitude: -47.8879
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "SHIS QL 12 conjunto 05 casa 09",
+      phone: "+55-61-3248-8800",
+      website: "https://www.ireland.ie/en/brazil/brasilia/",
+      latitude: -15.832,
+      longitude: -47.8649
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "2005c شارع كورنيش النيل, القاهرة",
-      "phone": "+20 2 24616000",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/africa/egypt/new-zealand-embassy-cairo-egypt/contactfull"
+    IT: {
+      name: "Embassy",
+      address: "S.E.S. Avenida das Nações Quadra 807, Lote 30",
+      phone: "",
+      website: "https://ambbrasilia.esteri.it",
+      latitude: -15.8247,
+      longitude: -47.89
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+20 2 2735 8311",
-      "website": null
+    JP: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 811, Lote 39",
+      phone: "",
+      website: "https://www.br.emb-japan.go.jp",
+      latitude: -15.830222222,
+      longitude: -47.896138888
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/en/egypt/"
+    DK: {
+      name: "Embassy",
+      address: "Setor de Embaixada Sul - Avenida das Nações, Quadra 807, lote 26",
+      phone: "",
+      website: "https://brasilien.um.dk/",
+      latitude: -15.82206,
+      longitude: -47.88712
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "95 شارع شارل ديجول",
-      "phone": "+20(2)3748-9353; +20(2)3748-9354; +20(2)3748-9355",
-      "website": "https://egypt.mid.ru"
+    NL: {
+      name: "Embassy",
+      address: "SES Quadra 801, Lote 05 70405-900",
+      phone: "",
+      website: "",
+      latitude: -15.8067147,
+      longitude: -47.8732014
     },
-    "SA": {
-      "name": "Consulate",
-      "address": "1 شارع دكتور ابراهيم عبد السيد",
-      "phone": "+20 3 497 7593",
-      "website": null
+    MX: {
+      name: "Embassy",
+      address: "SES Avenida das Nações quadra 805 lote 18",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/brasil/",
+      latitude: -15.81507,
+      longitude: -47.88387
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "40 شارع بابل",
-      "phone": "+20-2-3749-0468",
-      "website": "https://www.mfa.gov.sg/Cairo"
+    NZ: {
+      name: "Embassy",
+      address: "SHIS QI 09 Conjunto 16, Brasília - DF",
+      phone: "+55-61-3248-9900",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/latin-america/brazil/new-zealand-embassy/",
+      latitude: -15.831932,
+      longitude: -47.875983
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.dirco.gov.za/cairo"
+    NO: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 807, Lote 28",
+      phone: "",
+      website: "https://www.norway.no/pt/brasil/",
+      latitude: -15.8233,
+      longitude: -47.88845
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CN: {
+      name: "Embassy",
+      address: "Avenida das Nações, Quadra 813, Lote 51",
+      phone: "",
+      website: "http://br.china-embassy.gov.cn/",
+      latitude: -15.836901,
+      longitude: -47.9062861
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "41 شارع إسماعيل محمد, 11211 القاهرة",
-      "phone": "+20 2-2735643",
-      "website": "http://www.exteriores.gob.es/embajadas/elcairo/es/Paginas/inicio.aspx"
+    PL: {
+      name: "Embassy",
+      address: "Av. das Nações Qd. 809, Lote 33",
+      phone: "",
+      website: "http://www.brasilia.msz.gov.pl",
+      latitude: -15.824972,
+      longitude: -47.8935
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "13 شارع محمد مظهر, القاهرة",
-      "phone": "+20 2 2728 9200",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/egypten-kairo/"
+    PT: {
+      name: "Embassy",
+      address: "SES - Setor de Embaixadas Sul, Quadra 801, Lote 02",
+      phone: "",
+      website: "https://brasilia.embaixadaportugal.mne.gov.pt",
+      latitude: -15.8024,
+      longitude: -47.8739
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "10 شارع عبد الخالق ثروت, 11511 القاهرة",
-      "phone": "+20-2-25758284",
-      "website": "https://www.eda.admin.ch/cairo"
+    KR: {
+      name: "Embassy",
+      address: "SEN Avenida das Nações Qd 801, Lote 14",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/br-ko/index.do",
+      latitude: -15.78419,
+      longitude: -47.86423
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "شارع الدكتور إبراهيم عبد السيد",
-      "phone": "+20 3 3990700",
-      "website": "https://iskenderiye-bk.mfa.gov.tr/"
+    ES: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 811, Lote 44",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/BRASILIA",
+      latitude: -15.8335,
+      longitude: -47.8993
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "4 شارع ابن سيناء, جيزه",
-      "phone": "+20-2-37766101",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Cairo/Pages/home.aspx"
+    SE: {
+      name: "Embassy",
+      address: "Avenida das Nações Qd. 807, Lote 29",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/brasilien-brasilia/",
+      latitude: -15.824418,
+      longitude: -47.889231
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CH: {
+      name: "Embassy",
+      address: "Avenida das Nações Qd. 811, Lote 41 70448-900 Brasilia",
+      phone: "",
+      website: "https://www.eda.admin.ch/brasilia",
+      latitude: -15.8308,
+      longitude: -47.8978
     },
-    "US": {
-      "name": "Embassy",
-      "address": "5 شارع توفيق دياب, القاهرة",
-      "phone": "+20-2 2797 3300",
-      "website": "https://eg.usembassy.gov"
+    TH: {
+      name: "Embassy",
+      address: "SEN Avenida das Nações, Lote 10",
+      phone: "",
+      website: "",
+      latitude: -15.78594,
+      longitude: -47.86484
+    },
+    TR: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 805, Lote 23",
+      phone: "",
+      website: "https://brezilya-be.mfa.gov.tr",
+      latitude: -15.8189,
+      longitude: -47.887
+    },
+    GB: {
+      name: "Embassy",
+      address: "Quadra 801 - Conjunto K - Lote 08",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-brazil",
+      latitude: -15.80934,
+      longitude: -47.87445
+    },
+    US: {
+      name: "Embassy",
+      address: "SES Avenida das Nações, Quadra 801, Lote 3",
+      phone: "",
+      website: "https://br.usembassy.gov",
+      latitude: -15.80453,
+      longitude: -47.87283
+    },
+    VN: {
+      name: "Embassy",
+      address: "SHIS QI 9, Conjunto 10, Casa 1 – Lago Sul",
+      phone: "",
+      website: "",
+      latitude: -15.83694,
+      longitude: -47.8765
     }
   },
-  "FR": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://efran.cancilleria.gob.ar/fr"
+  CA: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ecana.cancilleria.gob.ar/",
+      latitude: 45.4212,
+      longitude: -75.6957
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://france.embassy.gov.au/"
+    AU: {
+      name: "Consulate General",
+      address: "Suite 1100 South Tower, 175 Bloor Street, East Toronto, Ontario M4W 3R8",
+      phone: "",
+      website: "",
+      latitude: 43.6708646,
+      longitude: -79.3826073
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 45 61 63 00",
-      "website": "http://paris.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "445 Wilbrod Street",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-ottawa/",
+      latitude: 45.4295,
+      longitude: -75.6766
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.international.gc.ca/country-pays/france/paris.aspx?lang=fra"
+    BE: {
+      name: "Embassy",
+      address: "360 Albert Street, 8th floor, suite 820 ON - K1R 7X7 Ottawa",
+      phone: "+1-613-236-72-67",
+      website: "https://canada.diplomatie.belgium.be/",
+      latitude: 45.4186,
+      longitude: -75.7032
     },
-    "DK": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "450 Wilbrod Street",
+      phone: "",
+      website: "",
+      latitude: 45.4289,
+      longitude: -75.6767
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HR: {
+      name: "Embassy",
+      address: "229 Chapel Street",
+      phone: "+1-613-562-7824",
+      website: "http://ca.mfa.hr/",
+      latitude: 45.42949,
+      longitude: -75.6794
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 53 64 76 70",
-      "website": "https://allemagneenfrance.diplo.de"
+    CZ: {
+      name: "Embassy",
+      address: "251 Cooper Street",
+      phone: "",
+      website: "https://www.mzv.cz/ottawa",
+      latitude: 45.4182,
+      longitude: -75.6922
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "15 Rue Alfred Dehodencq, 75016",
-      "phone": "+33140507070",
-      "website": "https://www.ambinde.fr"
+    FR: {
+      name: "Embassy",
+      address: "42 Sussex Drive",
+      phone: "",
+      website: "https://ca.ambafrance.org/"
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://embassies.gov.il/paris"
+    DE: {
+      name: "Embassy",
+      address: "Waverley Street",
+      phone: "+1-613-232-1101",
+      website: "https://canada.diplo.de/",
+      latitude: 45.4185,
+      longitude: -75.6818
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambparigi.esteri.it"
+    GR: {
+      name: "Embassy",
+      address: "80 MacLaren Street",
+      phone: "",
+      website: "https://www.mfa.gr/canada/en/the-embassy/",
+      latitude: 45.4183,
+      longitude: -75.6865
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 48 88 62 00",
-      "website": "https://www.fr.emb-japan.go.jp"
+    HU: {
+      name: "Embassy",
+      address: "306 Metcalfe Street",
+      phone: "+1-613-230-2717",
+      website: "https://ottawa.mfa.gov.hu/",
+      latitude: 45.4149,
+      longitude: -75.6909
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://kenyaembassyparis.fr/"
+    IN: {
+      name: "Consulate General",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 40 62 33 00",
-      "website": "https://www.paysbasmondial.nl/pays/france"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+1-613-233-6281",
+      website: "https://www.ireland.ie/en/canada/ottawa/",
+      latitude: 45.4213,
+      longitude: -75.6971
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/francia/index.php/fr/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 45.4193,
+      longitude: -75.7002
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.consulatmaroclyon.com/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.ca.emb-japan.go.jp",
+      latitude: 45.4332,
+      longitude: -75.6987
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "103 Rue de Grenelle",
-      "phone": "+33 1 45014343",
-      "website": "https://www.mfat.govt.nz/fr/countries-and-regions/europe/france/new-zealand-embassy/"
+    DK: {
+      name: "Embassy",
+      address: "47 Clarence Street, Suite 450, Ottawa, ON, K1N 9K1",
+      phone: "",
+      website: "http://canada.um.dk/",
+      latitude: 45.4289,
+      longitude: -75.6939
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.nigeriafrance.org/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.netherlandsworldwide.nl/countries/canada/about-us/embassy-in-ottawa",
+      latitude: 45.4185,
+      longitude: -75.7031
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/fr/france/"
+    MX: {
+      name: "Embassy",
+      address: "45 O´Connor Street",
+      phone: "",
+      website: "",
+      latitude: 45.4214,
+      longitude: -75.6984
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    NZ: {
+      name: "Consulate",
+      address: "",
+      phone: "+1-613-238-5991",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/north-america/canada/new-zealand-high-commission/",
+      latitude: 45.4204693,
+      longitude: -75.6927819
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.mofa.gov.sa/sites/France"
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.norway.no/en/canada/",
+      latitude: 45.41992778,
+      longitude: -75.69517778
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 56 79 68 00",
-      "website": "https://www.mfa.gov.sg/paris"
+    CN: {
+      name: "Embassy",
+      address: "515 St. Patrick Street",
+      phone: "",
+      website: "http://ca.china-embassy.org/",
+      latitude: 45.4364,
+      longitude: -75.6848
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33153592323",
-      "website": "https://www.afriquesud.net/"
+    PL: {
+      name: "Embassy",
+      address: "443 Daly Avenue",
+      phone: "",
+      website: "https://www.gov.pl/web/kanada",
+      latitude: 45.4322,
+      longitude: -75.6743
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/fr-fr"
+    PT: {
+      name: "Embassy",
+      address: "645, Island Park Drive",
+      phone: "",
+      website: "https://otava.embaixadaportugal.mne.gov.pt",
+      latitude: 45.39086667,
+      longitude: -75.73113889
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.exteriores.gob.es/Embajadas/paris/es/Paginas/index.aspx"
+    KR: {
+      name: "Embassy",
+      address: "150 Boteler Street",
+      phone: "",
+      website: "http://can-ottawa.mofa.go.kr",
+      latitude: 45.43485,
+      longitude: -75.69482
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.com/fr-FR/Embassies/Paris/"
+    ES: {
+      name: "Embassy",
+      address: "74 Stanley Avenue",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Ottawa",
+      latitude: 45.4411,
+      longitude: -75.6908
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "142 Rue de Grenelle, 75007 Paris",
-      "phone": "+33 1 49 55 67 00",
-      "website": "https://www.eda.admin.ch/countries/france/fr/home/representations/ambassade-a-paris.html"
+    SE: {
+      name: "Embassy",
+      address: "377 Dalhousie Street",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/kanada-ottawa/",
+      latitude: 45.42754,
+      longitude: -75.68981
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.thaiembassy.fr"
+    CH: {
+      name: "Embassy",
+      address: "5 Marlborough Avenue, Ottawa",
+      phone: "",
+      website: "https://www.eda.admin.ch/ottawa",
+      latitude: 45.4282,
+      longitude: -75.6748
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 53 92 71 11;+33 1 53 92 71 12;+33 1 53 92 71 13",
-      "website": "https://paris-be.mfa.gov.tr"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ottawa.thaiembassy.org",
+      latitude: 45.40158,
+      longitude: -75.75031
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "1 Rue Desgenettes, 75007 Paris",
-      "phone": "+33 1 44 34 02 00",
-      "website": null
+    TR: {
+      name: "Embassy",
+      address: "197 Wurtemburg Street",
+      phone: "",
+      website: "https://ottava-be.mfa.gov.tr",
+      latitude: 45.4347,
+      longitude: -75.6756
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-paris"
+    GB: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+33 1 4312 2222",
-      "website": "https://fr.usembassy.gov"
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: ""
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://vietnamembassy.ca",
+      latitude: 45.44309,
+      longitude: -75.69126
     }
   },
-  "DE": {
-    "AR": {
-      "name": "Embassy",
-      "address": "2 Von-der-Heydt-Straße, 10785 Berlin",
-      "phone": "+49 30 2266890",
-      "website": "https://ealem.cancilleria.gob.ar/de/konsulat"
+  CZ: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://eches.cancilleria.gob.ar",
+      latitude: 50.08458,
+      longitude: 14.4268
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "10179 Berlin",
-      "phone": "+49 30 88 00 88 0",
-      "website": "https://germany.embassy.gov.au/"
+    AU: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "57 Wallstraße, 10179 Berlin",
-      "phone": "+49 30 72628",
-      "website": "http://berlim.itamaraty.gov.br/de/"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-prag/",
+      latitude: 50.0757,
+      longitude: 14.4025
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "17 Leipziger Platz, 10117 Berlin",
-      "phone": "Phone not available",
-      "website": "http://www.canadainternational.gc.ca/germany-allemagne/"
+    BE: {
+      name: "Embassy",
+      address: "Valdštejnská 6, Malá Strana Prague",
+      phone: "+420 257 533 283",
+      website: "https://czechrepublic.diplomatie.belgium.be",
+      latitude: 50.0913669,
+      longitude: 14.4086447
     },
-    "DK": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://praga.itamaraty.gov.br",
+      latitude: 50.08471944,
+      longitude: 14.42723333
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "6-7 Stauffenbergstraße, 10785 Berlin",
-      "phone": "+49 30 4775470",
-      "website": "https://egyptian-embassy.de/"
+    CA: {
+      name: "Embassy",
+      address: "Ve Struhach 95/2",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/czech-tcheque",
+      latitude: 50.1081,
+      longitude: 14.4015
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://de.ambafrance.org"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://cz.mvep.hr",
+      latitude: 50.09483,
+      longitude: 14.37208
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://cz.ambafrance.org/",
+      latitude: 50.085921,
+      longitude: 14.406332
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "74-76 Auguste-Viktoria-Straße, 14193 Berlin",
-      "phone": "Phone not available",
-      "website": "http://www.israel.de/"
+    DE: {
+      name: "Embassy",
+      address: "Vlašská 19, Postbox 88, 118 01 Praha 1",
+      phone: "+420-2-57-113111",
+      website: "https://prag.diplo.de/",
+      latitude: 50.087064,
+      longitude: 14.39815
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.ambberlino.esteri.it"
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/czech.html",
+      latitude: 50.09488,
+      longitude: 14.38539
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "27 Breite Straße, 40213 Düsseldorf",
-      "phone": "+49 211 164820",
-      "website": "https://www.dus.emb-japan.go.jp/"
+    HU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://praga.mfa.gov.hu/",
+      latitude: 50.095055555,
+      longitude: 14.390972222
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.kenyaembassyberlin.de/"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eoiprague.gov.in",
+      latitude: 50.09758,
+      longitude: 14.40871
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "50 Klosterstraße, 10179 Berlin",
-      "phone": "+49 30 20 95 60",
-      "website": "https://www.sieunddieniederlande.nl"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+420-257-011-280",
+      website: "https://www.ireland.ie/en/czech-republic/prague/",
+      latitude: 50.0872,
+      longitude: 14.402
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "3 Klingelhöferstraße, 10785 Berlin",
-      "phone": "+49 30 269 32 30",
-      "website": "https://embamex.sre.gob.mx/alemania/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 50.0885906,
+      longitude: 14.4003817
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.cz.emb-japan.go.jp",
+      latitude: 50.086,
+      longitude: 14.405
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "60 Friedrichstraße, 10117 Berlin",
-      "phone": "+49 30 206210",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/germany/berlin/"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://tjekkiet.um.dk/",
+      latitude: 50.08588889,
+      longitude: 14.40516944
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "4 Neue Jakobstraße, 10179 Berlin",
-      "phone": "Phone not available",
-      "website": "https://nigeriaembassygermany.org/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/de/germany/"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/republicacheca",
+      latitude: 50.08009722,
+      longitude: 14.41684167
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "66 Behrenstraße, 10117 Berlin",
-      "phone": "+49 30 22651184",
-      "website": "http://www.visatorussia.com/"
+    NO: {
+      name: "Embassy",
+      address: "Hellichova 458/1",
+      phone: "",
+      website: "https://www.norway.no/cs/Czech-Republic/",
+      latitude: 50.084166666,
+      longitude: 14.406027777
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "33 - 34 Tiergartenstraße, 10785 Berlin",
-      "phone": "+49 30 889 25 00",
-      "website": "https://www.mofa.gov.sa/detail.asp?InServiceID"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.chinaembassy.cz",
+      latitude: 50.1013985,
+      longitude: 14.4073257
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "17 Voßstraße, 10117 Berlin",
-      "phone": "+49 30 226 3430",
-      "website": "https://www.mfa.gov.sg/berlin"
+    PL: {
+      name: "Embassy",
+      address: "ul. Valdštejnská 8, 118 01 Praga",
+      phone: "",
+      website: "https://www.gov.pl/web/czechy",
+      latitude: 50.090591666,
+      longitude: 14.406958333
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "18 Tiergartenstraße, 10785 Berlin",
-      "phone": "+49 30 220730",
-      "website": "https://www.suedafrika.org/"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://praga.embaixadaportugal.mne.gov.pt",
+      latitude: 50.0999,
+      longitude: 14.4105
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/de-frankfurt-ko/index.do"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/cz-cs/index.do",
+      latitude: 50.09892,
+      longitude: 14.41012
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+49 30 2540070",
-      "website": "https://www.exteriores.gob.es/Embajadas/berlin/"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Praga",
+      latitude: 50.0973,
+      longitude: 14.4082
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/tyskland-berlin/"
+    SE: {
+      name: "Embassy",
+      address: "Úvoz 13",
+      phone: "",
+      website: "http://www.swedenabroad.com/Prag/",
+      latitude: 50.08753056,
+      longitude: 14.39098333
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "4A Otto-von-Bismarck-Allee, 10557 Berlin",
-      "phone": "+49 30 390 40 00",
-      "website": "https://www.eda.admin.ch/berlin.html"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/praha",
+      latitude: 50.0963,
+      longitude: 14.3883
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+4930 79481 0",
-      "website": "http://www.thaiembassy.de"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://thaiembassy.cz",
+      latitude: 50.10177,
+      longitude: 14.41144
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "20 Tiergartenstraße, 10785 Berlin",
-      "phone": "+49 30 275850",
-      "website": "https://berlin-be.mfa.gov.tr"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://prag-be.mfa.gov.tr",
+      latitude: 50.095028,
+      longitude: 14.373573
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "18;20 Hiroshimastraße, 10785 Berlin",
-      "phone": "+49 30 516516",
-      "website": "https://www.mofa.gov.ae/EN/DiplomaticMissions/Embassies/Berlin/Pages/home.aspx"
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-prague/",
+      latitude: 50.089722222,
+      longitude: 14.403055555
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "10 Willi-Becker-Allee, 40227 Düsseldorf",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-dusseldorf"
+    US: {
+      name: "Embassy",
+      address: "Tržiště 15, Praha 1 - Malá Strana",
+      phone: "+420-257-022-000",
+      website: "https://cz.usembassy.gov/",
+      latitude: 50.087075,
+      longitude: 14.401133
     },
-    "US": {
-      "name": "Embassy",
-      "address": "30 Gießener Straße, 60435 Frankfurt am Main",
-      "phone": "+49 69 75350",
-      "website": "http://frankfurt.usconsulate.de/"
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://vnembassy-praha.mofa.gov.vn",
+      latitude: 50.07012,
+      longitude: 14.36706
     }
   },
-  "IN": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://eindi.cancilleria.gob.ar"
+  FR: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://efran.cancilleria.gob.ar/",
+      latitude: 48.8682,
+      longitude: 2.2901
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "1/50 G Shanti Path",
-      "phone": "+911141399900",
-      "website": "https://india.highcommission.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://france.embassy.gov.au/",
+      latitude: 48.85513889,
+      longitude: 2.29013889
     },
-    "BR": {
-      "name": "Consulate",
-      "address": "R N Goenka Marg, 400021 Mumbai",
-      "phone": "+91-22-22834467",
-      "website": "http://mumbai.itamaraty.gov.br/en-us"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/fr/ambassade-dautriche-a-paris/",
+      latitude: 48.861333,
+      longitude: 2.311278
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "7/8 Shanti Path, 110021 New Delhi",
-      "phone": "+91 11 4178 2000",
-      "website": "www.canada.ca/CanadaAndIndia"
+    BE: {
+      name: "Embassy",
+      address: "9, rue de Tilsitt 75840 Paris Cedex 17",
+      phone: "+33 1-44-09-39-39",
+      website: "https://france.diplomatie.belgium.be",
+      latitude: 48.875113,
+      longitude: 2.294378
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "1/50 M Niti Marg",
-      "phone": "+91-11-2611 4096",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.br/mre/pt-br/embaixada-paris",
+      latitude: 48.864986667,
+      longitude: 2.30525104
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "2/50-E Shanti Path, 110021",
-      "phone": "+91 11 4319 6100",
-      "website": "https://in.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/france/paris.aspx?lang=fra",
+      latitude: 48.872393055,
+      longitude: 2.312401666
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Corner St. Mark's Road & Residency Road, 560 025 Bangalore",
-      "phone": "+91 80 45300-100",
-      "website": "https://india.diplo.de/in-de/vertretungen/generalkonsulat1"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://mvep.gov.hr/fr/fr",
+      latitude: 48.8661,
+      longitude: 2.27728
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "3 Doctor Avul Pakir Jainulabdeen Abdul Kalam Marg, 110011",
-      "phone": "+91 11 3041 4500",
-      "website": "https://embassies.gov.il/delhi/Pages/default.aspx"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/paris",
+      latitude: 48.8558,
+      longitude: 2.29547
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "50 Chandragupta Marg, 110021 New Delhi",
-      "phone": "+91-1126114355",
-      "website": "https://ambnewdelhi.esteri.it/ambasciata_newdelhi/en/"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://frankrig.um.dk",
+      latitude: 48.871476,
+      longitude: 2.296917
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    DE: {
+      name: "Embassy",
+      address: "13-15, avenue Franklin-D.-Roosevelt 75008 Paris",
+      phone: "+33-1-53834500",
+      website: "https://allemagneenfrance.diplo.de/",
+      latitude: 48.8661,
+      longitude: 2.30968
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mfa.gr/france/fr/",
+      latitude: 48.8697,
+      longitude: 2.29472
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "6/50 F Shantipath, 110021 New Delhi",
-      "phone": "+911124197600",
-      "website": "https://www.nederlandwereldwijd.nl/landen/india/over-ons/ambassade-in-new-delhi"
+    HU: {
+      name: "Embassy",
+      address: "5 bis, square de l’avenue Foch",
+      phone: "+33-1-45-00-94-97",
+      website: "https://parizs.mfa.gov.hu/",
+      latitude: 48.873,
+      longitude: 2.278
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+91 (11) 2411-7180",
-      "website": "https://embamex.sre.gob.mx/india"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eoiparis.gov.in/",
+      latitude: 48.8607,
+      longitude: 2.27067
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://in.diplomatie.ma/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+33-1-44-17-67-00",
+      website: "https://www.ireland.ie/en/france/paris/",
+      latitude: 48.87411111,
+      longitude: 2.29144444
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "Sir Edmund Hillary Marg, 110021 New Delhi",
-      "phone": "+91 11 46883170",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/south-asia/india/new-zealand-high-commission/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ambparigi.esteri.it",
+      latitude: 48.854561111,
+      longitude: 2.321397222
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "EP-4 Chandragupta Marg, 110021",
-      "phone": "+91 11 2412 2143",
-      "website": "https://www.nigerianhcdelhi.in"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.fr.emb-japan.go.jp/",
+      latitude: 48.877306,
+      longitude: 2.304083
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/en/india/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.paysbasetvous.nl/votre-pays-et-les-pays-bas/france/qui-sommes-nous/ambassade-paris",
+      latitude: 48.849,
+      longitude: 2.313638888
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "33 Santhome High Road, 600004",
-      "phone": "+91 44 2498 2320",
-      "website": "http://www.chennai.mid.ru"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/francia/index.php/fr/",
+      latitude: 48.8647,
+      longitude: 2.29222
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.mofa.gov.sa/sites/India"
+    NZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/france/new-zealand-embassy/",
+      latitude: 48.8567085,
+      longitude: 2.3187615
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "E-6 Chandragupta Marg, 110021",
-      "phone": "+91 11 4600 0800",
-      "website": "https://www.mfa.gov.sg/New-Delhi"
+    NO: {
+      name: "Embassy",
+      address: "28 Rue Bayard",
+      phone: "",
+      website: "https://www.norway.no/fr/france/",
+      latitude: 48.867372,
+      longitude: 2.307831
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Vasant Marg",
-      "phone": "+91 11 2 614 9411",
-      "website": null
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://fr.china-embassy.gov.cn/fra",
+      latitude: 48.8662,
+      longitude: 2.301
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/in-chennai-ko/index.do"
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.pl/web/france",
+      latitude: 48.858889,
+      longitude: 2.315556
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "12 Prithviraj Road, 110011 New Delhi",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/NUEVADELHI"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://paris.embaixadaportugal.mne.gov.pt/fr/",
+      latitude: 48.869013888,
+      longitude: 2.278161111
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.sveriges-konsulat.com/se/11232/Sverige-i-Kolkata"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/fr-fr",
+      latitude: 48.8576,
+      longitude: 2.31631
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+91 11 4995 9500",
-      "website": "https://www.eda.admin.ch/newdelhi"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.exteriores.gob.es/Embajadas/paris/es/Paginas/index.aspx",
+      latitude: 48.8664,
+      longitude: 2.30111
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.thaiembassy.org/chennai/en/"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/frankrike-paris/",
+      latitude: 48.853472,
+      longitude: 2.317778
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "50 Nyaya Marg, 110021 New Delhi",
-      "phone": "+91 11 2688 9053;+91 11 2688 9054;+91 11 2410 1921",
-      "website": "https://yenidelhi-be.mfa.gov.tr"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/countries/france/fr/home/representations/ambassade-a-paris.html",
+      latitude: 48.85797222,
+      longitude: 2.31577778
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "695009 Thiruvananthapuram",
-      "phone": "+91-471-3388888",
-      "website": "https://sp.mofaic.gov.ae/EN/consulates/Kerala/Pages/home.aspx"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.thaiembassy.fr",
+      latitude: 48.8642,
+      longitude: 2.28297
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "Ramdev Nagar, 380015 Ahmedabad",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-deputy-high-commission-ahmedabad"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://paris-emb.mfa.gov.tr",
+      latitude: 48.8549,
+      longitude: 2.281
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://in.usembassy.gov/embassy-consulates/chennai/"
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-paris",
+      latitude: 48.8692,
+      longitude: 2.31884
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+33-1-43-12-22-22",
+      website: "https://fr.usembassy.gov/",
+      latitude: 48.86777778,
+      longitude: 2.32055556
+    },
+    VN: {
+      name: "Embassy",
+      address: "61 rue de Miromesnil, 75008 Paris, France",
+      phone: "",
+      website: "https://ambassade-vietnam.com/",
+      latitude: 48.876039029,
+      longitude: 2.315584531
     }
   },
-  "IL": {
-    "AR": {
-      "name": "Embassy",
-      "address": "85 מדינת היהודים, הרצליה",
-      "phone": "+972 073-252-0800",
-      "website": "https://eisra.cancilleria.gob.ar"
+  DE: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ealem.cancilleria.gob.ar/",
+      latitude: 52.5012,
+      longitude: 13.3446
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "23 יהודה הלוי, Tel Aviv",
-      "phone": "+972 3 6935000",
-      "website": "https://israel.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://germany.embassy.gov.au",
+      latitude: 52.5123,
+      longitude: 13.4094
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "23 יהודה הלוי, Tel Aviv",
-      "phone": "+972 3 797-1500",
-      "website": "http://telaviv.itamaraty.gov.br/"
+    AT: {
+      name: "Embassy",
+      address: "Stauffenbergstraße 1",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-berlin/",
+      latitude: 52.509722222,
+      longitude: 13.363888888
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "3 נירים, Tel Aviv",
-      "phone": "036363300",
-      "website": "https://www.canadainternational.gc.ca/israel/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "Jägerstrasse 52-53 10117 Berlin",
+      phone: "+49-30-206-420",
+      website: "https://germany.diplomatie.belgium.be/",
+      latitude: 52.5143,
+      longitude: 13.3944
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "68 עפרוני, Eilat",
-      "phone": "08-6376882",
-      "website": "http://www.embassypages.com/missions/embassy8636/"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://berlim.itamaraty.gov.br/",
+      latitude: 52.513538888,
+      longitude: 13.413830555
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "112 הרברט סמואל",
-      "phone": "+97235208300",
-      "website": "https://il.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.canadainternational.gc.ca/germany-allemagne/",
+      latitude: 52.510305555,
+      longitude: 13.377194444
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "3 דניאל פריש, 64731 Tel Aviv",
-      "phone": "+972 3 6931313",
-      "website": "https://tel-aviv.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://de.mfa.hr",
+      latitude: 52.381416111,
+      longitude: 13.4621
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "140 HaYarkon, Tel Aviv",
-      "phone": "035291999",
-      "website": "http://www.indembassy.co.il"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.mzv.cz/berlin/de/",
+      latitude: 52.5111,
+      longitude: 13.3839
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "25 המרד, 68125 Tel Aviv-Yafo",
-      "phone": "+97235104004",
-      "website": "www.ambtelaviv.esteri.it"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://tyskland.um.dk",
+      latitude: 52.5088,
+      longitude: 13.3501
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "4 ברקוביץ, Tel Aviv",
-      "phone": "036957292",
-      "website": "https://www.israel.emb-japan.go.jp"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://de.ambafrance.org",
+      latitude: 52.516944444,
+      longitude: 13.378888888
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "15 אבא הלל סילבר",
-      "phone": "+972 3 5754633",
-      "website": "https://kenyaembassyisrael.com"
+    GR: {
+      name: "Embassy",
+      address: "Hiroshimastraße 11-15, 10785 Berlin",
+      phone: "",
+      website: "http://www.mfa.gr/germany/de/the-embassy/",
+      latitude: 52.5005,
+      longitude: 13.3147
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HU: {
+      name: "Embassy",
+      address: "Unter den Linden 76, 10117 Berlin",
+      phone: "+49-30-203100",
+      website: "https://berlin.mfa.gov.hu/",
+      latitude: 52.5168,
+      longitude: 13.381
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "25 המרד, 68125 Tel Aviv-Yafo",
-      "phone": "+972 03-516-3938",
-      "website": "https://embamex.sre.gob.mx/israel"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "+49-30-257950",
+      website: "https://www.indianembassyberlin.gov.in/",
+      latitude: 52.5094,
+      longitude: 13.3621
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "34 י. ל. גורדון, Tel Aviv",
-      "phone": "+972 3-5222144",
-      "website": "https://www.nigerianembassy.co.il/"
+    IE: {
+      name: "Embassy",
+      address: "Jägerstraße 51, 10117 Berlin",
+      phone: "+49-30-22-07-20",
+      website: "https://www.ireland.ie/en/germany/berlin/",
+      latitude: 52.51436,
+      longitude: 13.39472
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/en/israel/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.ambberlino.esteri.it",
+      latitude: 52.5094,
+      longitude: 13.3594
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "120 הירקון, תל אביב-יפו",
-      "phone": "+972 3 522 67 36;+972 3 522 67 44",
-      "website": "https://israel.mid.ru"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.de.emb-japan.go.jp",
+      latitude: 52.5091,
+      longitude: 13.3584
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "12 אבא הלל סילבר",
-      "phone": "+972 (3) 525 2566",
-      "website": "http://www.safis.co.il"
+    NL: {
+      name: "Embassy",
+      address: "Klosterstraße 50, 10179 Berlin",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/duitsland/over-ons/ambassade-in-berlijn",
+      latitude: 52.515278,
+      longitude: 13.411944
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "6 הסדנאות",
-      "phone": "+972-9-959-6800",
-      "website": "https://overseas.mofa.go.kr/il-he/index.do"
+    MX: {
+      name: "Embassy",
+      address: "Klingelhöferstrasse 3, 10785 Berlin",
+      phone: "",
+      website: "http://embamex.sre.gob.mx/alemania/",
+      latitude: 52.5081,
+      longitude: 13.3511
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "3 דניאל פריש, 64731 תל אביב-יפו",
-      "phone": "+97237697900",
-      "website": "http://www.exteriores.gob.es/Embajadas/TELAVIV"
+    NZ: {
+      name: "Embassy",
+      address: "",
+      phone: "+49-30-206210",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/germany/berlin/",
+      latitude: 52.5106,
+      longitude: 13.3901
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "2 Ha-Shlosha St, Tel Aviv",
-      "phone": "+972 3 718 0000",
-      "website": "https://swedenabroad.com/sv/utlandsmyndigheter/israel-tel-aviv"
+    NO: {
+      name: "Embassy",
+      address: "Rauchstraße 1 10787 Berlin",
+      phone: "",
+      website: "https://www.norway.no/de/germany/",
+      latitude: 52.5091,
+      longitude: 13.3504
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "228 הירקון, Tel Aviv",
-      "phone": "+972 3 546 44 55",
-      "website": "https://www.eda.admin.ch/telaviv"
+    CN: {
+      name: "Consulate General",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://telaviv.thaiembassy.org/"
+    PL: {
+      name: "Embassy",
+      address: "Lassenstraße 19–21, 14193 Berlin",
+      phone: "",
+      website: "https://www.gov.pl/niemcy",
+      latitude: 52.4844966,
+      longitude: 13.274436
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "202 הירקון, 63405 Tel Aviv",
-      "phone": "+972 3-741-6900",
-      "website": "https://telaviv-be.mfa.gov.tr"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.berlim.embaixadaportugal.mne.pt/",
+      latitude: 52.508119444,
+      longitude: 13.394919444
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "2 אחוזת בית, 6525216 תל אביב-יפו",
-      "phone": "Phone not available",
-      "website": "https://www.mofaic.gov.ae/en/missions/tel-aviv"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/de-de/index.do",
+      latitude: 52.508,
+      longitude: 13.3485
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "192 הירקון, 6340502 Tel Aviv",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-tel-aviv"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Berlin/",
+      latitude: 52.5105,
+      longitude: 13.3455
+    },
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/tyskland-berlin/",
+      latitude: 52.5091,
+      longitude: 13.3509
+    },
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.eda.admin.ch/germany_all/de/home/berlin.html",
+      latitude: 52.5211,
+      longitude: 13.3711
+    },
+    TH: {
+      name: "Embassy",
+      address: "Lepsiusstrasse 64/66, 12163 Berlin",
+      phone: "",
+      website: "http://thaiembassy.de/",
+      latitude: 52.461111111,
+      longitude: 13.316944444
+    },
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://berlin-be.mfa.gov.tr",
+      latitude: 52.509305555,
+      longitude: 13.3605
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-berlin/",
+      latitude: 52.5158,
+      longitude: 13.3808
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+49-30-8305-0",
+      website: "https://de.usembassy.gov/",
+      latitude: 52.515305555,
+      longitude: 13.378305555
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.4935,
+      longitude: 13.4597
     }
   },
-  "IT": {
-    "AR": {
-      "name": "Embassy",
-      "address": "00193 Roma",
-      "phone": "+39 06 686 5303",
-      "website": "https://essed.cancilleria.gob.ar/es"
+  GR: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://egrec.cancilleria.gob.ar",
+      latitude: 37.978,
+      longitude: 23.7514
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "5 Via Antonio Bosio, Roma",
-      "phone": "+39 06 852721",
-      "website": "https://www.italy.embassy.gov.au/rome/home.html"
+    AU: {
+      name: "Embassy",
+      address: "Χατζηγιάννη Μέξη 5",
+      phone: "",
+      website: "https://greece.embassy.gov.au/",
+      latitude: 37.97695,
+      longitude: 23.75208
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "22 Via della Conciliazione, 00193 Roma",
-      "phone": "+39 06 687 5252",
-      "website": "http://vaticano.itamaraty.gov.br/"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-athen/",
+      latitude: 37.9754,
+      longitude: 23.7411
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "4 Via della Conciliazione, 00193 Roma",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/holy_see-saint_siege/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "Σέκερη 3",
+      phone: "+30-210-338-85-40",
+      website: "https://greece.diplomatie.belgium.be",
+      latitude: 37.9767,
+      longitude: 23.7392
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "9 Piazza della Città Leonina, 00193 Roma",
-      "phone": "Phone not available",
-      "website": "https://www.mfa.gov.eg/VaticanState_Emb"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://atenas.itamaraty.gov.br",
+      latitude: 37.9759,
+      longitude: 23.7416
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "67 Piazza Farnese, 00186 Roma",
-      "phone": "+39 06 68 60 11",
-      "website": "https://it.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "Εθνικής Αντιστάσεως 48, Χαλάνδρι, 152 31",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/greece-grece/athens-athenes.aspx",
+      latitude: 38.0146,
+      longitude: 23.7889
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HR: {
+      name: "Embassy",
+      address: "Tzavela 4",
+      phone: "",
+      website: "http://gr.mvep.hr",
+      latitude: 38.0094,
+      longitude: 23.78352
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "Georgiou Seferi 6",
+      phone: "",
+      website: "https://www.mzv.cz/athens",
+      latitude: 38.01342,
+      longitude: 23.76912
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "12 Via Michele Mercati, 00197 Roma",
-      "phone": "+39 06 3619 8690",
-      "website": null
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://gr.ambafrance.org/",
+      latitude: 37.976168,
+      longitude: 23.737893
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.va.emb-japan.go.jp"
+    DE: {
+      name: "Embassy",
+      address: "Karaoli & Dimitriou 3",
+      phone: "+30-210-7285111",
+      website: "https://griechenland.diplo.de/",
+      latitude: 37.976103,
+      longitude: 23.744033
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "205 Viale Luca Gaurico, 00143 Roma",
-      "phone": "Phone not available",
-      "website": "http://www.embassyofkenya.it/"
+    HU: {
+      name: "Embassy",
+      address: "",
+      phone: "+30-21-0725-6800",
+      website: "https://athen.mfa.gov.hu/",
+      latitude: 37.97225,
+      longitude: 23.743722222
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "6 Via Michele Mercati, 00197 Roma",
-      "phone": "+390632286206",
-      "website": "https://www.netherlandsworldwide.nl/countries/vatican-city/about-us/netherlands-embassy-to-the-holy-see"
+    IN: {
+      name: "Embassy",
+      address: "3, Kleanthous Street",
+      phone: "",
+      website: "https://www.indiaingreece.gov.in/",
+      latitude: 37.972392,
+      longitude: 23.7408963
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "16 Via Lazzaro Spallanzani",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/italia/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+30-210-723-2771",
+      website: "https://www.ireland.ie/en/greece/athens/",
+      latitude: 37.970573209,
+      longitude: 23.740493939
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "Sekeri, 2",
+      phone: "",
+      website: "https://ambatene.esteri.it",
+      latitude: 37.976111111,
+      longitude: 23.739444444
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "44 Via Clitunno, 00198 Roma",
-      "phone": "+39 06 8537501",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/italy/new-zealand-embassy/"
+    JP: {
+      name: "Embassy",
+      address: "Εθνκής Αντιστάσεως 46",
+      phone: "",
+      website: "https://www.gr.emb-japan.go.jp",
+      latitude: 38.0149,
+      longitude: 23.78945
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "14/18 Via Orazio, 00193 Roma",
-      "phone": "Phone not available",
-      "website": "https://nigerianrome.org/"
+    DK: {
+      name: "Embassy",
+      address: "Mourouzi 10",
+      phone: "",
+      website: "https://graekenland.um.dk",
+      latitude: 37.97497,
+      longitude: 23.74228
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "7 Via delle Terme Deciane, 00153 Roma",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/it/italy/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/griekenland/over-ons/ambassade-athene",
+      latitude: 37.970573209,
+      longitude: 23.740493939
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "5 Via Gaeta, 00185 Roma",
-      "phone": "+39 06 4941680",
-      "website": "http://www.roma.mid.ru"
+    MX: {
+      name: "Embassy",
+      address: "Platia Filikis Eterias 14",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/grecia",
+      latitude: 37.9771,
+      longitude: 23.7413
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "9 Via Giovanni Battista Pergolesi, 00198 Roma",
-      "phone": "+39 06 844851",
-      "website": "http://www.arabia-saudita.it/"
+    NO: {
+      name: "Embassy",
+      address: "Hatziyianni Mexi Street 5",
+      phone: "",
+      website: "",
+      latitude: 37.97695,
+      longitude: 23.75208
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "14 Via Tanaro, 00198 Roma",
-      "phone": "Phone not available",
-      "website": "http://lnx.sudafrica.it"
+    CN: {
+      name: "Embassy",
+      address: "10-12 Dimokratias",
+      phone: "",
+      website: "http://gr.china-embassy.org",
+      latitude: 38.00815,
+      longitude: 23.77235
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "30 Via Barnaba Oriani, 00197 Roma",
-      "phone": "Phone not available",
-      "website": "http://overseas.mofa.go.kr/it-ko/index.do"
+    PL: {
+      name: "Embassy",
+      address: "οδός Χρυσανθέμων 22 Παλαιό Ψυχικό",
+      phone: "",
+      website: "https://www.gov.pl/web/grecja/",
+      latitude: 38.006,
+      longitude: 23.7704
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "19 Largo della Fontanella di Borghese, 00186 Roma",
-      "phone": "+39 066840401",
-      "website": "http://www.exteriores.gob.es/Embajadas/Roma/es/Paginas/inicio.aspx"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://atenas.embaixadaportugal.mne.gov.pt",
+      latitude: 37.9759,
+      longitude: 23.7416
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "3 Piazza Rio De Janeiro, 00161 Roma",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/Roma/"
+    KR: {
+      name: "Embassy",
+      address: "2 Messogion Avenue",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/gr-ko/index.do",
+      latitude: 37.98464,
+      longitude: 23.76074
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "61 Via Barnaba Oriani, 00197 Roma",
-      "phone": "+39 06 809 571",
-      "website": "https://www.eda.admin.ch/roma"
+    ES: {
+      name: "Embassy",
+      address: "Dionisiou Areopagitou, 21",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/ATENAS",
+      latitude: 37.9694,
+      longitude: 23.7276
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "132 Via Nomentana, 00162 Roma",
-      "phone": "+39 06 8622 051",
-      "website": "http://www.thaiembassy.it"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.swedenabroad.com/Athen/",
+      latitude: 37.97077778,
+      longitude: 23.74077778
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "9-11 Via Serchio, 00198 Roma",
-      "phone": "+39 06 8550 8601;+39 06 8550 8602;+39 06 8550 8603",
-      "website": "https://vatikan-be.mfa.gov.tr"
+    CH: {
+      name: "Embassy",
+      address: "Ιασίου 2, 11521 Αθήνα",
+      phone: "",
+      website: "https://www.eda.admin.ch/athens",
+      latitude: 37.9783,
+      longitude: 23.7491
     },
-    "AE": {
-      "name": "Consulate",
-      "address": "4 Via Cappuccini, 20122 Milano",
-      "phone": "+39-02-763694",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=2688e0f0-5db3-4b65-b2a4-932c251086d3"
+    TH: {
+      name: "Embassy",
+      address: "25 Marathonodromou Str.",
+      phone: "",
+      website: "https://athens.thaiembassy.org",
+      latitude: 38.0015,
+      longitude: 23.7723
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "7 Via San Paolo, 20121 Milano",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-milan"
+    TR: {
+      name: "Embassy",
+      address: "Vassileos Gheorgiou B', 11",
+      phone: "",
+      website: "https://atina-be.mfa.gov.tr",
+      latitude: 37.9728066,
+      longitude: 23.7421417
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://it.usembassy.gov/embassy-consulates/florence/"
+    GB: {
+      name: "Embassy",
+      address: "Πλούταρχου 1",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-athens",
+      latitude: 37.97642,
+      longitude: 23.74534
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+30-210-721-2951",
+      website: "https://gr.usembassy.gov/",
+      latitude: 37.9822,
+      longitude: 23.7552
+    },
+    VN: {
+      name: "Embassy",
+      address: "20,rue Diamantidou",
+      phone: "",
+      website: "",
+      latitude: 38.01026,
+      longitude: 23.77363
     }
   },
-  "JP": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ejapo.cancilleria.gob.ar/"
+  HU: {
+    AR: {
+      name: "Embassy",
+      address: "Vérhalom utca 12-16., A épület 21.",
+      phone: "+36 1 326 1391",
+      website: "https://eungr.cancilleria.gob.ar",
+      latitude: 47.5199,
+      longitude: 19.0308
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    AT: {
+      name: "Embassy",
+      address: "Benczúr utca 16.",
+      phone: "",
+      website: "https://www.bmeia.gv.at/hu/osztrak-nagykoevetseg-budapest/",
+      latitude: 47.510194444,
+      longitude: 19.073111111
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "430-0946 浜松市",
-      "phone": "+81 053-450-8191",
-      "website": "http://hamamatsu.itamaraty.gov.br/"
+    BE: {
+      name: "Embassy",
+      address: "Toldy Ferenc utca 13",
+      phone: "+36 1 457 99 60",
+      website: "http://hungary.diplomatie.belgium.be",
+      latitude: 47.5052,
+      longitude: 19.0352
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "107-8503 港区",
-      "phone": "+81 3-5412-6200",
-      "website": "https://www.japan.gc.ca/"
+    BR: {
+      name: "Embassy",
+      address: "Szabadság tér 7",
+      phone: "",
+      website: "http://budapeste.itamaraty.gov.br",
+      latitude: 47.5027,
+      longitude: 19.052
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://egyptembassy.jp/"
+    CA: {
+      name: "Embassy",
+      address: "Ganz utca 12–14.",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/hungary-hongrie",
+      latitude: 47.5109,
+      longitude: 19.0368
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.ambafrance-jp.org/"
+    HR: {
+      name: "Embassy",
+      address: "Munkácsy Mihály utca 15.",
+      phone: "",
+      website: "http://hu.mvep.hr/",
+      latitude: 47.513305555,
+      longitude: 19.072416666
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://japan.diplo.de/ja-ja"
+    CZ: {
+      name: "Embassy",
+      address: "Rózsa utca 61.",
+      phone: "",
+      website: "https://www.mzv.cz/budapest/",
+      latitude: 47.507861111,
+      longitude: 19.06875
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.indembassy-tokyo.gov.in/"
+    FR: {
+      name: "Embassy",
+      address: "Kossuth Lajos tér 13–15.",
+      phone: "",
+      website: "https://hu.ambafrance.org/",
+      latitude: 47.508611111,
+      longitude: 19.047305555
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+81-3-3264-0911",
-      "website": "https://embassies.gov.il/tokyo"
+    DE: {
+      name: "Embassy",
+      address: "Úri utca 64–66.",
+      phone: "+36-1-488-3500",
+      website: "https://budapest.diplo.de/",
+      latitude: 47.503,
+      longitude: 19.029
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+81 (0)334535291",
-      "website": "https://ambtokyo.esteri.it/it/"
+    GR: {
+      name: "Embassy",
+      address: "Szegfű utca 3.",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/hungary.html",
+      latitude: 47.507861111,
+      longitude: 19.069277777
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "152-0023 目黒区",
-      "phone": "03-3723-4006/7",
-      "website": "https://www.kenyarep-jp.com/"
+    IN: {
+      name: "Embassy",
+      address: "Búzavirág utca 14.",
+      phone: "",
+      website: "https://www.eoibudapest.gov.in/",
+      latitude: 47.525388888,
+      longitude: 19.016388888
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.orandatowatashi.nl/"
+    IE: {
+      name: "Embassy",
+      address: "Szabadság tér 7",
+      phone: "+36-1-301-4960",
+      website: "https://www.ireland.ie/en/hungary/budapest/",
+      latitude: 47.5027,
+      longitude: 19.052
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+81 3 358111315",
-      "website": "https://www.gob.mx/sre"
+    IT: {
+      name: "Embassy",
+      address: "Stefánia út 95.",
+      phone: "",
+      website: "https://ambbudapest.esteri.it/ambasciata_budapest/hu",
+      latitude: 47.509083333,
+      longitude: 19.0945
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+81 3 54 85 71 71",
-      "website": "https://www.morocco-emba.jp/"
+    JP: {
+      name: "Embassy",
+      address: "Zalai út 7.",
+      phone: "",
+      website: "https://www.hu.emb-japan.go.jp/",
+      latitude: 47.51348,
+      longitude: 18.98615
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "150-0047 渋谷区",
-      "phone": "+81 3 34672271",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/north-asia/japan/new-zealand-embassy/contactfull"
+    DK: {
+      name: "Embassy",
+      address: "Határőr út 37.",
+      phone: "",
+      website: "https://ungarn.um.dk/",
+      latitude: 47.503388888,
+      longitude: 19.015305555
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.nigeriaembassy.jp/"
+    NL: {
+      name: "Embassy",
+      address: "Kapás u. 6–12.",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/hongarije/over-ons/ambassade-in-boedapest",
+      latitude: 47.5082927,
+      longitude: 19.0325878
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+81-3-5422-1200",
-      "website": "https://www.norway.no/ja/japan/"
+    MX: {
+      name: "Embassy",
+      address: "Rómer Flóris utca 58.",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/hungria/",
+      latitude: 47.516833333,
+      longitude: 19.027972222
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    NO: {
+      name: "Embassy",
+      address: "Ostrom utca 13.",
+      phone: "",
+      website: "https://www.norway.no/hungary/",
+      latitude: 47.5060252,
+      longitude: 19.0294833
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.mofa.gov.sa/sites/japan"
+    CN: {
+      name: "Embassy",
+      address: "Városligeti fasor 20-22.",
+      phone: "",
+      website: "http://www.chinaembassy.hu/",
+      latitude: 47.509166666,
+      longitude: 19.075944444
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.mfa.gov.sg/Tokyo"
+    PL: {
+      name: "Embassy",
+      address: "Városligeti fasor 16",
+      phone: "",
+      website: "https://www.gov.pl/web/wegry",
+      latitude: 47.5089,
+      longitude: 19.0753
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.sajapan.org/"
+    PT: {
+      name: "Embassy",
+      address: "MOM Park C ép. 4.em., Alkotás u. 53",
+      phone: "",
+      website: "https://budapeste.embaixadaportugal.mne.gov.pt",
+      latitude: 47.490791666,
+      longitude: 19.023980555
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    KR: {
+      name: "Embassy",
+      address: "Andrássy út 109.",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/hu-en/index.do",
+      latitude: 47.511944444,
+      longitude: 19.07375
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/embajadas/dhaka/es/Paginas/inicio.aspx"
+    ES: {
+      name: "Embassy",
+      address: "Eötvös utca 11/B",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/BUDAPEST/es/Embajada/Paginas/inicio.aspx",
+      latitude: 47.50561,
+      longitude: 19.06508
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "106-0032 港区",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/Tokyo/"
+    SE: {
+      name: "Embassy",
+      address: "Kapás utca 6–12.",
+      phone: "",
+      website: "https://www.swedenabroad.se/hu/embassies/magyarorsz%C3%A1g-budapest/",
+      latitude: 47.50785,
+      longitude: 19.03263
     },
-    "CH": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CH: {
+      name: "Embassy",
+      address: "Stefánia út 107.",
+      phone: "",
+      website: "https://www.eda.admin.ch/budapest",
+      latitude: 47.5106,
+      longitude: 19.0924
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://fukuoka.thaiembassy.org/th/index"
+    TH: {
+      name: "Embassy",
+      address: "Verecke út 79",
+      phone: "",
+      website: "https://budapest.thaiembassy.org",
+      latitude: 47.5336,
+      longitude: 19.0022
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    TR: {
+      name: "Embassy",
+      address: "Andrássy út 123.",
+      phone: "",
+      website: "https://budapeste-be.mfa.gov.tr",
+      latitude: 47.51333,
+      longitude: 19.07634
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "150-0036 渋谷区",
-      "phone": "+81 3 54890804",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Tokyo/Ambassador/Pages/Ambassador.aspx"
+    GB: {
+      name: "Embassy",
+      address: "Füge u. 5-7",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-budapest",
+      latitude: 47.515083333,
+      longitude: 19.02625
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "函館市",
-      "phone": "+81 138 27 8159",
-      "website": "http://kakodate-kankou.com/british/"
+    US: {
+      name: "Embassy",
+      address: "Szabadság tér 12.",
+      phone: "+36-1-475-4400",
+      website: "https://hu.usembassy.gov/",
+      latitude: 47.504551,
+      longitude: 19.051419
     },
-    "US": {
-      "name": "Embassy",
-      "address": "107-8420 港区",
-      "phone": "+81-3-32245000",
-      "website": "https://jp.usembassy.gov/"
+    VN: {
+      name: "Embassy",
+      address: "Thököly út 41.",
+      phone: "",
+      website: "https://vnembassy-budapest.mofa.gov.vn/",
+      latitude: 47.505591666,
+      longitude: 19.091472222
     }
   },
-  "KE": {
-    "AR": {
-      "name": "Embassy",
-      "address": "United Nations Crescent",
-      "phone": "+254 (0) 202 324 673",
-      "website": "https://ekeny.cancilleria.gob.ar"
+  IN: {
+    AR: {
+      name: "Embassy",
+      address: "F-3/3 Vasant Vihar",
+      phone: "",
+      website: "https://eindi.cancilleria.gob.ar",
+      latitude: 28.559,
+      longitude: 77.1609
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Limuru Road, Nairobi",
-      "phone": "Phone not available",
-      "website": "https://kenya.embassy.gov.au/"
+    AU: {
+      name: "Consulate",
+      address: "1/50 G, Shanti path, Chanakyapuri",
+      phone: "",
+      website: "https://india.highcommission.gov.au/",
+      latitude: 28.59551,
+      longitude: 77.19182
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "123 Gardenia Road, 00100 Nairobi",
-      "phone": "+254 (20) 727-0000",
-      "website": "https://www.gov.br/mre/pt-br/embaixada-nairobi/endereco"
+    AT: {
+      name: "Embassy",
+      address: "EP-13, Chandragupta Marg, Chanakyapuri",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-new-delhi/",
+      latitude: 28.5959,
+      longitude: 77.1828
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Limuru Road",
-      "phone": "+254-20 366 3000",
-      "website": "https://www.canadainternational.gc.ca/kenya"
+    BE: {
+      name: "Embassy",
+      address: "50-N Shantipath, Chanakyapuri 110021 New Delhi",
+      phone: "+91 11-424-280-00",
+      website: "https://india.diplomatie.belgium.be",
+      latitude: 28.586388888,
+      longitude: 77.183888888
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ke.ambafrance.org/"
+    BR: {
+      name: "Embassy",
+      address: "8 Dr. A.P.J. Abdul Kalam Road",
+      phone: "",
+      website: "http://novadelhi.itamaraty.gov.br/",
+      latitude: 28.60197,
+      longitude: 77.21948
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "113 Riverside Drive, 00100 Nairobi",
-      "phone": "+254 20 4262100",
-      "website": "https://nairobi.diplo.de/"
+    CA: {
+      name: "Consulate",
+      address: "7/8 Shantipath, Chanakyapuri, New Delhi",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/india-inde/new_delhi.aspx",
+      latitude: 28.59,
+      longitude: 77.1848
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HR: {
+      name: "Embassy",
+      address: "A-15 West End",
+      phone: "",
+      website: "",
+      latitude: 28.57354,
+      longitude: 77.16333
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Bishop Road, Nairobi",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/nairobi"
+    CZ: {
+      name: "Embassy",
+      address: "50-M, Niti Marg, Chanakyapuri",
+      phone: "",
+      website: "https://www.mzv.cz/newdelhi",
+      latitude: 28.58481,
+      longitude: 77.18543
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "United Nations Crescent, 00619 Nairobi",
-      "phone": "Phone not available",
-      "website": "https://ambnairobi.esteri.it/"
+    FR: {
+      name: "Embassy",
+      address: "2/50-E Shantipath Chanakyapuri",
+      phone: "",
+      website: "https://in.ambafrance.org/",
+      latitude: 28.595643,
+      longitude: 77.187865
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    DE: {
+      name: "Embassy",
+      address: "No. 6/50G, Shanti Path, Chanakyapuri",
+      phone: "+91-11-44-199199",
+      website: "https://india.diplo.de/",
+      latitude: 28.58915,
+      longitude: 77.1883
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "95 Riverside Drive, Nairobi",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "EP-32, Dr S. Radhakrishnan Marg",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/india.html",
+      latitude: 28.59114,
+      longitude: 77.17934
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "60 Kibagare Way, NAIROBI",
-      "phone": "+254 728 389 813",
-      "website": "https://embamex.sre.gob.mx/kenia"
+    HU: {
+      name: "Embassy",
+      address: "2/50-M Niti Marg,Chanakyapuri",
+      phone: "",
+      website: "https://newdelhi.mfa.gov.hu",
+      latitude: 28.58511,
+      longitude: 77.18822
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "C-17 Malcha marg",
+      phone: "+91-11-4940-3200",
+      website: "https://www.ireland.ie/en/india/newdelhi/",
+      latitude: 28.6023,
+      longitude: 77.185
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "58 Red Hill Road, Nairobi",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/en/kenya/"
+    IT: {
+      name: "Embassy",
+      address: "50, Chandra Gupta Marg Chanakyapuri - N.D. 110021",
+      phone: "+91-11-2611-4355",
+      website: "https://ambnewdelhi.esteri.it",
+      latitude: 28.5907,
+      longitude: 77.1829
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Lenana Road, Nairobi",
-      "phone": "+254 20 272-87-00",
-      "website": "https://russembkenya.mid.ru"
+    JP: {
+      name: "Embassy",
+      address: "Plot No.4&5, 50-G Shantipath, Chanakyapuri",
+      phone: "",
+      website: "https://www.in.emb-japan.go.jp/",
+      latitude: 28.590027777,
+      longitude: 77.188444444
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Muthaiga Road",
-      "phone": "+254204062781",
-      "website": "https://embassies.mofa.gov.sa/sites/Kenya"
+    DK: {
+      name: "Embassy",
+      address: "33 B, Dr. S. Radhakrishnan Marg",
+      phone: "",
+      website: "https://indien.um.dk",
+      latitude: 28.59059,
+      longitude: 77.17846
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Lenana Road, Nairobi",
-      "phone": "+254 709 127 000",
-      "website": null
+    NL: {
+      name: "Embassy",
+      address: "Shantipath 6/50 F, Chanakyapuri",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/india/over-ons/ambassade-in-new-delhi",
+      latitude: 28.5913304,
+      longitude: 77.1854303
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+254 20 272 02 22",
-      "website": "http://www.exteriores.gob.es/Embajadas/NAIROBI"
+    MX: {
+      name: "Embassy",
+      address: "C-8 Anand Niketan",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/india",
+      latitude: 28.58014,
+      longitude: 77.16396
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "United Nations Crescent, Nairobi",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/kenya-nairobi/"
+    NZ: {
+      name: "Consulate",
+      address: "Sir Edmund Hillary Marg, Chanakyapuri 110021, New Delhi",
+      phone: "+91-11-4688-3170",
+      website: "https://www.mfat.govt.nz/countries-and-regions/asia/india/new-zealand-high-commission/",
+      latitude: 28.5872362,
+      longitude: 77.182766
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/nairobi"
+    NO: {
+      name: "Embassy",
+      address: "50-C, Shantipath, Chanakyapuri",
+      phone: "",
+      website: "https://www.norway.no/en/india/",
+      latitude: 28.6009,
+      longitude: 77.1941
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "30 Gigiri Road",
-      "phone": "+254 20 7126929;+254 20 7126930",
-      "website": "https://nairobi-be.mfa.gov.tr/"
+    CN: {
+      name: "Embassy",
+      address: "50-D, Shantipath, Chanakyapuri",
+      phone: "",
+      website: "http://in.china-embassy.gov.cn",
+      latitude: 28.6016,
+      longitude: 77.1908
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "Nyerere Road, Nairobi",
-      "phone": "+254-709991999",
-      "website": null
+    PL: {
+      name: "Embassy",
+      address: "50-M Shantipath, Chanakyapuri",
+      phone: "",
+      website: "https://www.gov.pl/web/indie",
+      latitude: 28.585972222,
+      longitude: 77.185555555
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Upper Hill Road, Nairobi",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-high-commission-nairobi"
+    PT: {
+      name: "Embassy",
+      address: "No.4, Panchsheel Marg, Chanakyapuri",
+      phone: "",
+      website: "https://novadeli.embaixadaportugal.mne.gov.pt",
+      latitude: 28.6007,
+      longitude: 77.1829
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ke.usembassy.gov/"
+    KR: {
+      name: "Embassy",
+      address: "9 Chandragupta Marg, chanakyapuri Extension",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/in-en/index.do",
+      latitude: 28.5897,
+      longitude: 77.18
+    },
+    ES: {
+      name: "Embassy",
+      address: "12, Prithviraj Road",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/NUEVADELHI",
+      latitude: 28.599,
+      longitude: 77.2191
+    },
+    SE: {
+      name: "Embassy",
+      address: "4-5 Nyaya Marg Chanakyapuri",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/indien-new-delhi/",
+      latitude: 28.5949,
+      longitude: 77.18387
+    },
+    CH: {
+      name: "Embassy",
+      address: "Nyaya Marg, Chanakyapuri, New Delhi 110 021",
+      phone: "",
+      website: "https://www.eda.admin.ch/newdelhi",
+      latitude: 28.5965,
+      longitude: 77.1855
+    },
+    TH: {
+      name: "Embassy",
+      address: "56 N, Nyaya Marg, Chanakyapuri, New Delhi, Delhi 110021",
+      phone: "",
+      website: "https://newdelhi.thaiembassy.org",
+      latitude: 28.58914,
+      longitude: 77.18172
+    },
+    TR: {
+      name: "Embassy",
+      address: "N 50 Nyaya Marg, Chanakyapuri, New Delhi 110021",
+      phone: "+91-11-2688-9053",
+      website: "https://newdelhi-emb.mfa.gov.tr",
+      latitude: 28.58536,
+      longitude: 77.18342
+    },
+    GB: {
+      name: "Consulate General",
+      address: "",
+      phone: "",
+      website: ""
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://in.usembassy.gov/",
+      latitude: 28.5968,
+      longitude: 77.1883
+    },
+    VN: {
+      name: "Embassy",
+      address: "20 Kautilya Marg, Chanakyapuri",
+      phone: "",
+      website: "http://vietnamembassydelhi.in/",
+      latitude: 28.6036,
+      longitude: 77.1896
     }
   },
-  "MX": {
-    "AR": {
-      "name": "Embassy",
-      "address": "1685 Avenida Paseo de las Palmas",
-      "phone": "+52 (55) 5520 9430",
-      "website": "https://emexi.cancilleria.gob.ar/"
+  IE: {
+    AR: {
+      name: "Embassy",
+      address: "15 Ailesbury Drive",
+      phone: "",
+      website: "",
+      latitude: 53.3209,
+      longitude: -6.2282
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "55 Calle Rubén Darío",
-      "phone": "+52-55-11012200",
-      "website": "https://mexico.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "47-49 St Stephens Green",
+      phone: "",
+      website: "https://ireland.embassy.gov.au/",
+      latitude: 53.3376,
+      longitude: -6.2558
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "130 Calle Lope Díaz de Armendáriz",
-      "phone": "+52 (55) 5201-4531",
-      "website": "http://mexico.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-dublin/",
+      latitude: 53.3206,
+      longitude: -6.2176
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "529 Schiller, 11560 Ciudad de México",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/mexico-mexique/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "1 Elgin Road",
+      phone: "+353 1 660 08 80",
+      website: "http://ireland.diplomatie.belgium.be",
+      latitude: 53.3301,
+      longitude: -6.2372
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "131 Calle Alejandro Dumas",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "Block 8, Harcourt Centre, Charlotte Way",
+      phone: "",
+      website: "http://dublin.itamaraty.gov.br",
+      latitude: 53.3335,
+      longitude: -6.2641
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://mx.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "7-8 Wilton Terrace",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/ireland-irlande/index.aspx",
+      latitude: 53.3342,
+      longitude: -6.247
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://mexiko.diplo.de"
+    HR: {
+      name: "Embassy",
+      address: "Adelaide Chambers, Peter Street",
+      phone: "",
+      website: "http://ie.mvep.hr/",
+      latitude: 53.3394,
+      longitude: -6.2677
     },
-    "IN": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "57 Northumberland Road",
+      phone: "",
+      website: "",
+      latitude: 53.3339,
+      longitude: -6.2369
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "215 Calle Sierra Madre",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/mexico-city"
+    FR: {
+      name: "Embassy",
+      address: "66 Fitzwilliam Lane",
+      phone: "",
+      website: "http://www.ambafrance-ie.org/",
+      latitude: 53.3382,
+      longitude: -6.25
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "1994 Avenida Paseo de las Palmas",
-      "phone": "Phone not available",
-      "website": "https://ambcittadelmessico.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "31 Trimleston Avenue",
+      phone: "+353-1-2693011",
+      website: "https://dublin.diplo.de/",
+      latitude: 53.31095,
+      longitude: -6.203125
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "1 Upper Pembroke Street",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/ireland.html",
+      latitude: 53.3349,
+      longitude: -6.2536
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HU: {
+      name: "Embassy",
+      address: "2 Fitzwilliam Place",
+      phone: "+353 661 2903",
+      website: "https://dublin.mfa.gov.hu",
+      latitude: 53.3343,
+      longitude: -6.2513
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IN: {
+      name: "Embassy",
+      address: "69 Merrion Road",
+      phone: "",
+      website: "https://www.indianembassydublin.gov.in/",
+      latitude: 53.3221,
+      longitude: -6.2186
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "8 Calle Jaime Balmes, 11510 Ciudad de México",
-      "phone": "+52 55 52839460",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/latin-america/mexico/embajada-de-nueva-zelandia/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ambdublino.esteri.it",
+      latitude: 53.3335,
+      longitude: -6.2367
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "145 Calle Sierra Gorda, 11000 Ciudad de México",
-      "phone": "+52 55 5245 1487",
-      "website": "https://www.nigerianembmexico.org"
+    JP: {
+      name: "Embassy",
+      address: "Nutley Building, Merrion Centre, Nutley Lane",
+      phone: "",
+      website: "https://www.ie.emb-japan.go.jp",
+      latitude: 53.318666666,
+      longitude: -6.213472222
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "1460 Boulevard de los Virreyes",
-      "phone": "+52 (55) 50 47 37 00",
-      "website": "https://www.norway.no/es/mexico"
+    DK: {
+      name: "Embassy",
+      address: "Iveagh Court, Harcourt Road",
+      phone: "",
+      website: "https://irland.um.dk/",
+      latitude: 53.3325,
+      longitude: -6.262
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "204 Avenida Maestro José Vasconcelos, 06170 Ciudad de México",
-      "phone": "+52 (55) 5516-0870",
-      "website": "https://mexico.mid.ru"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/ierland/over-ons/ambassade-in-dublin",
+      latitude: 53.3208861,
+      longitude: -6.215737
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "2075 Avenida Paseo de las Palmas",
-      "phone": "+525550203161",
-      "website": "https://embassies.mofa.gov.sa/sites/mexico"
+    MX: {
+      name: "Embassy",
+      address: "19 Raglan Road",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/irlanda/",
+      latitude: 53.3303,
+      longitude: -6.2388
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "10 Calle Andrés Bello",
-      "phone": "+55 1100 4970",
-      "website": "https://embajadasudafrica.mx/"
+    NZ: {
+      name: "Embassy",
+      address: "Merrion Row, Dublin",
+      phone: "+353-1-567-7680",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/ireland/new-zealand-embassy/",
+      latitude: 53.3384311,
+      longitude: -6.254046
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "110 Calle Lope Díaz de Armendáriz",
-      "phone": "+52-55-5202-9866",
-      "website": "https://overseas.mofa.go.kr/mx-es/index.do"
+    NO: {
+      name: "Embassy",
+      address: "48-53 Mount Street Lower",
+      phone: "",
+      website: "https://www.norway.no/en/ireland/",
+      latitude: 53.3378,
+      longitude: -6.2417
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "114 Calle Galileo, 11550 Ciudad de México",
-      "phone": "+52 55 52 82 29 82",
-      "website": "http://www.exteriores.gob.es/Embajadas/MEXICO"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://ie.chineseembassy.org",
+      latitude: 53.3203,
+      longitude: -6.2223
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "1375 Paseo de las Palmas, 11000 Mexico City",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/Mexico/"
+    PL: {
+      name: "Embassy",
+      address: "5 Ailesbury Road, Ballsbridge, D04 W221, Dublin",
+      phone: "",
+      website: "https://www.gov.pl/web/irlandia",
+      latitude: 53.320027777,
+      longitude: -6.217638888
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "405 Paseo de las Palmas, 11000 Ciudad de México",
-      "phone": "+52 55 9178 4370",
-      "website": "https://www.eda.admin.ch/mexico"
+    PT: {
+      name: "Embassy",
+      address: "70 Upper Leeson Street",
+      phone: "",
+      website: "https://dublin.embaixadaportugal.mne.gov.pt",
+      latitude: 53.3278,
+      longitude: -6.2458
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "1610 Avenida Paseo de las Palmas",
-      "phone": "Phone not available",
-      "website": null
+    KR: {
+      name: "Embassy",
+      address: "72 Merrion Square South, Dublin, Ireland",
+      phone: "",
+      website: "",
+      latitude: 53.338971795,
+      longitude: -6.250236284
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "885 Calle Monte Líbano",
-      "phone": "+52 55 5282 5446;+52 55 5282 4277;+52 55 5282 5043",
-      "website": "https://meksika-be.mfa.gov.tr/"
+    ES: {
+      name: "Embassy",
+      address: "17A Merlyn Park,",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/DUBLIN",
+      latitude: 53.3214,
+      longitude: -6.2147
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "505 Avenida Paseo de la Reforma, 11000 Mexico",
-      "phone": "+52-5555400100",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=9ee8168d-9426-437d-a17d-b002d766f41d"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 53.3206,
+      longitude: -6.2178
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "Boulevard Kukulkan, 77500 Cancún",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-cancun"
+    TR: {
+      name: "Embassy",
+      address: "8 Raglan Road",
+      phone: "",
+      website: "https://dublin-be.mfa.gov.tr",
+      latitude: 53.3301,
+      longitude: -6.2378
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://mx.usembassy.gov/"
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-dublin/",
+      latitude: 53.3251,
+      longitude: -6.2238
+    },
+    US: {
+      name: "Embassy",
+      address: "42 Elgin Road",
+      phone: "+353-1-668-8777",
+      website: "https://ie.usembassy.gov/",
+      latitude: 53.330325,
+      longitude: -6.233717
     }
   },
-  "MA": {
-    "AR": {
-      "name": "Embassy",
-      "address": "4 Avenue Mehdi Ben Barka شارع المهدي بن بركة",
-      "phone": "+212 537 75 51 20",
-      "website": "https://emarr.cancilleria.gob.ar/"
+  IT: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://essed.cancilleria.gob.ar/",
+      latitude: 41.9026,
+      longitude: 12.4617
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://morocco.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "Via Antonio Bosio 5",
+      phone: "",
+      website: "https://italy.embassy.gov.au",
+      latitude: 41.9168,
+      longitude: 12.5139
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://rabat.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Via Reno, 9",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-heiliger-stuhl/",
+      latitude: 41.9195,
+      longitude: 12.5051
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "66 Avenue Mehdi Ben Barka شارع المهدي بن بركة",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/morocco-maroc/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "Via Giuseppe de Notaris, 6",
+      phone: "+39 06-360-95-11",
+      website: "https://italy.diplomatie.belgium.be/",
+      latitude: 41.9197,
+      longitude: 12.4812
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://vaticano.itamaraty.gov.br",
+      latitude: 41.9026,
+      longitude: 12.4617
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "1 Rue Ibn Hajar, 10000 Rabat",
-      "phone": "+212 5 37 68 97 00",
-      "website": "http://www.ambafrance-ma.org/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/holy_see-saint_siege/index.aspx",
+      latitude: 41.9026,
+      longitude: 12.4633
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "7 Rue Zankat Madnine, 10000 Rabat",
-      "phone": "+212 537 218600",
-      "website": "https://rabat.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://va.mvep.hr/",
+      latitude: 41.9025,
+      longitude: 12.4599
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.indianembassyrabat.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "Via Crescenzio, 91 - sc. B, int. 1, 00193 Roma",
+      phone: "",
+      website: "https://www.mzv.cz/vatican",
+      latitude: 41.905806,
+      longitude: 12.460806
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambrabat.esteri.it"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.ambafrance-it.org/",
+      latitude: 41.894794,
+      longitude: 12.470826
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "39 Avenue Ahmed Balafrej شارع أحمد بلافريج",
-      "phone": "+212 5 37 63 17 82",
-      "website": "https://www.ma.emb-japan.go.jp"
+    DE: {
+      name: "Embassy",
+      address: "Via di Villa Sacchetti 4-6, 00197 Roma",
+      phone: "+39-06-809-51-1",
+      website: "https://heiliger-stuhl.diplo.de",
+      latitude: 41.920502,
+      longitude: 12.485141
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "40 Rue de Tunis زنقة تونس, Rabat الرباط",
-      "phone": "+212 537 219600",
-      "website": "https://www.nederlandwereldwijd.nl/landen/marokko"
+    GR: {
+      name: "Embassy",
+      address: "Via Giuseppe Mercalli, 6",
+      phone: "",
+      website: "",
+      latitude: 41.923,
+      longitude: 12.4872
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/marruecos"
+    HU: {
+      name: "Embassy",
+      address: "Piazza Girolamo Fabrizio 2",
+      phone: "+39-06-440-2167",
+      website: "",
+      latitude: 41.909167,
+      longitude: 12.508278
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/morocco/"
+    IN: {
+      name: "Embassy",
+      address: "Via XX Settembre, 5",
+      phone: "",
+      website: "",
+      latitude: 41.902747222,
+      longitude: 12.491519444
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "4 km Avenue Mohammed VI شارع محمد السادس, Rabat ⵔⴱⴰⵟ الرباط",
-      "phone": "+212 5 37 75 35 45",
-      "website": "https://marocco.mid.ru"
+    IE: {
+      name: "Embassy",
+      address: "Via dei Corridori, 48",
+      phone: "+39-06-5852-3880",
+      website: "https://www.ireland.ie/en/holysee/vaticancity/",
+      latitude: 41.903,
+      longitude: 12.4601
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Avenue Mohammed VI شارع محمد السادس, Rabat ⵔⴱⴰⵟ الرباط",
-      "phone": "+212 537633000",
-      "website": "https://embassies.mofa.gov.sa/sites/Morocco"
+    JP: {
+      name: "Embassy",
+      address: "Via Virgilio, 30, 00193 Roma",
+      phone: "",
+      website: "https://www.va.emb-japan.go.jp",
+      latitude: 41.906611,
+      longitude: 12.465444
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "34 Rue Saadiyine زنقة السعديين, الرباط",
-      "phone": "+212 537 68 9159",
-      "website": null
+    DK: {
+      name: "Embassy",
+      address: "Piazza Rio de Janeiro, 3",
+      phone: "",
+      website: "https://italien.um.dk",
+      latitude: 41.9125,
+      longitude: 12.5083
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    NL: {
+      name: "Embassy",
+      address: "Via Michele Mercati 6, 00197 Roma",
+      phone: "",
+      website: "",
+      latitude: 41.9195,
+      longitude: 12.4851
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "159 Avenue Mohamed VI, Rabat",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/marocko-rabat/"
+    MX: {
+      name: "Embassy",
+      address: "Via Lazzaro Spallanzani, 16",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/italia/",
+      latitude: 41.9131,
+      longitude: 12.5094
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "12 Rue Ouazzane زنقة وزان, 10020 Rabat الرباط",
-      "phone": "+212 537 26 80 30",
-      "website": "https://www.eda.admin.ch/rabat"
+    NZ: {
+      name: "Embassy",
+      address: "Via Clitunno 44, Rome 00198",
+      phone: "+39-06-853-7501",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/italy/new-zealand-embassy/",
+      latitude: 41.9201553,
+      longitude: 12.5031487
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "7 Avenue Abdelkrim Benjelloun شارع عبد الكريم بن جلون, الرباط",
-      "phone": "+212 5 37 66 15 22",
-      "website": "https://rabat-be.mfa.gov.tr/"
+    NO: {
+      name: "Embassy",
+      address: "Via delle Terme Deciane, 7",
+      phone: "",
+      website: "https://www.norway.no/it/italy/",
+      latitude: 41.8832,
+      longitude: 12.4847
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+212-5377-07070",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=cbdf30bc-b20d-458f-8dde-8bcf6cc9bee4"
+    CN: {
+      name: "Embassy",
+      address: "Via Bruxelles 56",
+      phone: "",
+      website: "http://it.china-embassy.org",
+      latitude: 41.9228,
+      longitude: 12.4996
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "28 Avenue Amir Sidi Mohammed شارع الأمير سيدي محمد, 10105 الرباط",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-rabat"
+    PL: {
+      name: "Embassy",
+      address: "Via P.P. Rubens 20",
+      phone: "",
+      website: "https://www.gov.pl/web/wlochy",
+      latitude: 41.923583333,
+      longitude: 12.47525
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Km. 5.7 Avenue Mohammed VI شارع محمد السادس, 10170 Rabat",
-      "phone": "+212 5 37 63 72 00",
-      "website": "https://ma.usembassy.gov"
+    PT: {
+      name: "Embassy",
+      address: "Via di San Valentino, 9",
+      phone: "",
+      website: "https://www.santase.embaixadaportugal.mne.pt",
+      latitude: 41.9265,
+      longitude: 12.4779
+    },
+    KR: {
+      name: "Embassy",
+      address: "Via Barnaba Oriani 30",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/it-it/index.do",
+      latitude: 41.9277,
+      longitude: 12.4856
+    },
+    ES: {
+      name: "Embassy",
+      address: "Largo Fontanella Borghese, 19",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Roma/es/Paginas/inicio.aspx",
+      latitude: 41.903886111,
+      longitude: 12.476494444
+    },
+    SE: {
+      name: "Embassy",
+      address: "Piazza Rio de Janeiro, 3",
+      phone: "",
+      website: "http://www.swedenabroad.com/Roma/",
+      latitude: 41.9125,
+      longitude: 12.5083
+    },
+    CH: {
+      name: "Embassy",
+      address: "Via Barnaba Oriani 61, 00197 Roma",
+      phone: "",
+      website: "https://www.eda.admin.ch/roma",
+      latitude: 41.9266,
+      longitude: 12.4851
+    },
+    TH: {
+      name: "Embassy",
+      address: "Via Nomentana, 132",
+      phone: "",
+      website: "http://www.thaiembassy.it",
+      latitude: 41.9212,
+      longitude: 12.5183
+    },
+    TR: {
+      name: "Embassy",
+      address: "Via Serchio 9-11",
+      phone: "",
+      website: "https://vatikan-be.mfa.gov.tr",
+      latitude: 41.9188,
+      longitude: 12.5042
+    },
+    GB: {
+      name: "Embassy",
+      address: "Via XX Settembre 80/a",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-rome/",
+      latitude: 41.90823,
+      longitude: 12.50126
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://it.usembassy.gov/",
+      latitude: 41.906583,
+      longitude: 12.490778
+    },
+    VN: {
+      name: "Embassy",
+      address: "Via di Bravetta, 156",
+      phone: "",
+      website: "",
+      latitude: 41.8839,
+      longitude: 12.4238
     }
   },
-  "NL": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://epbaj.cancilleria.gob.ar/"
+  JP: {
+    AR: {
+      name: "Embassy",
+      address: "2-14-14 Moto Azabu, Minato-ku",
+      phone: "",
+      website: "https://ejapo.cancilleria.gob.ar/",
+      latitude: 35.652659,
+      longitude: 139.730617
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "4 Carnegielaan, 2517KH 's-Gravenhage",
-      "phone": "+31 70 310 8200",
-      "website": "https://www.netherlands.embassy.gov.au"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://japan.embassy.gov.au/",
+      latitude: 35.6515,
+      longitude: 139.739333
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "19 Mauritskade, 2514HD 's-Gravenhage",
-      "phone": "+31 70 302 3959",
-      "website": "https://haia.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/en/austrian-embassy-tokyo",
+      latitude: 35.655924,
+      longitude: 139.732681
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "7 Sophialaan, 2514JP 's-Gravenhage",
-      "phone": "+31 70 311 1600",
-      "website": "https://canada.nl/"
+    BE: {
+      name: "Embassy",
+      address: "Nibancho, ５−４",
+      phone: "+81-3-3262-0191",
+      website: "https://diplomatie.belgium.be/en/japan",
+      latitude: 35.685062,
+      longitude: 139.735814
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "92 Badhuisweg, 2587CL 's-Gravenhage",
-      "phone": "+31 70 354 2000",
-      "website": "http://www.ambeg.nl"
+    BR: {
+      name: "Embassy",
+      address: "2-11-12 Kita Aoyama, Minato-ku, Tokyo",
+      phone: "+81-3-3404-5211",
+      website: "https://toquio.itamaraty.gov.br/",
+      latitude: 35.670833,
+      longitude: 139.714472
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.consulfrance-amsterdam.org"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 35.67361,
+      longitude: 139.72835
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "20 Groot Hertoginnelaan, 2517EG 's-Gravenhage",
-      "phone": "+31 70 342 0600",
-      "website": "https://niederlande.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "3-3-10 Hiroo",
+      phone: "",
+      website: "http://jp.mvep.hr/",
+      latitude: 35.655194444,
+      longitude: 139.715083333
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "2 Buitenrustweg, 2517KD 's-Gravenhage",
-      "phone": "+31 70 346 9771",
-      "website": "http://www.indianembassy.nl/"
+    CZ: {
+      name: "Embassy",
+      address: "2-16-14 Hiroo, Shibuya-ku",
+      phone: "",
+      website: "",
+      latitude: 35.651938,
+      longitude: 139.716795
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "5 Johan de Wittlaan, 2517JR 's-Gravenhage",
-      "phone": "+31 70 376 0500",
-      "website": "https://embassies.gov.il/hague/Pages/default.aspx"
+    FR: {
+      name: "Embassy",
+      address: "4-11-44, Minami-Azabu, Minato-ku",
+      phone: "",
+      website: "http://www.ambafrance-jp.org/",
+      latitude: 35.6472,
+      longitude: 139.7255
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "28 Parkstraat, 2514JK 's-Gravenhage",
-      "phone": "+31 70 302 10 30",
-      "website": "https://amblaja.esteri.it/"
+    DE: {
+      name: "Embassy",
+      address: "〒106-0047 東京都港区南麻布4-5-10",
+      phone: "+81-3-57-917700",
+      website: "https://japan.diplo.de/",
+      latitude: 35.650806,
+      longitude: 139.725222
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "5 Tobias Asserlaan, 2517KC 's-Gravenhage",
-      "phone": "+31 70 346 9544",
-      "website": "https://www.nl.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "3-16-30 Nishi-Azabu",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/japan.html",
+      latitude: 35.658369,
+      longitude: 139.726048
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "21 Nieuwe Parklaan, 2597LA 's-Gravenhage",
-      "phone": "+31 70 350 4215",
-      "website": "https://www.kenyaembassy.nl"
+    HU: {
+      name: "Embassy",
+      address: "2-17-14, Mita, Minato-ku",
+      phone: "+81-3-5730-7120",
+      website: "https://tokio.mfa.gov.hu/",
+      latitude: 35.648453,
+      longitude: 139.741194
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "28 Nassauplein, 2585EC 's-Gravenhage",
-      "phone": "+31 70 360 2900",
-      "website": "https://embamex.nl"
+    IN: {
+      name: "Embassy",
+      address: "2-2-11 Kudan-Minami",
+      phone: "",
+      website: "https://www.indembassy-tokyo.gov.in/",
+      latitude: 35.693944444,
+      longitude: 139.747166666
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "Ireland House, 1-6, Yotsuya Honshiocho, Shinjuku-ku, Tokyo, 160-0003",
+      phone: "",
+      website: "https://www.ireland.ie/en/japan/tokyo/",
+      latitude: 35.685659,
+      longitude: 139.740615
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "77N Eisenhowerlaan, 2517KK 's-Gravenhage",
-      "phone": "+31 70 346 9324",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/netherlands/new-zealand-embassy/"
+    IT: {
+      name: "Embassy",
+      address: "Mita, 2 Chome−2−5−4",
+      phone: "+81-3-3453-5291",
+      website: "https://ambtokyo.esteri.it/it/",
+      latitude: 35.650722222,
+      longitude: 139.7425
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "5 Wagenaarweg, 2597LL 's-Gravenhage",
-      "phone": "+31 70 350 1703",
-      "website": "https://www.nigerianembassythehague.nl"
+    DK: {
+      name: "Embassy",
+      address: "29-6, Sarugaku-cho",
+      phone: "",
+      website: "https://japan.um.dk/",
+      latitude: 35.648359,
+      longitude: 139.699799
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "77J Eisenhowerlaan, 2517KK 's-Gravenhage",
-      "phone": "+31 70 311 7611",
-      "website": "https://www.noorwegen.nl/Embassy"
+    NL: {
+      name: "Embassy",
+      address: "3-6-3 Shibakoen",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/japan",
+      latitude: 35.66172,
+      longitude: 139.745832
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "2 Andries Bickerweg, 2517JP 's-Gravenhage",
-      "phone": "+31 70 345 1300",
-      "website": "https://netherlands.mid.ru/"
+    MX: {
+      name: "Embassy",
+      address: "2-15-1, Nagata-cho",
+      phone: "",
+      website: "",
+      latitude: 35.676888,
+      longitude: 139.739648
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "14 Alexanderstraat, 2514JL 's-Gravenhage",
-      "phone": "+31 70 361 4391",
-      "website": "https://www.saudiembassy.nl"
+    NZ: {
+      name: "Embassy",
+      address: "Kamiyama-cho, Shibuya-ku, Tokyo",
+      phone: "+81-3-3467-2271",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/asia/japan/new-zealand-embassy/",
+      latitude: 35.663796,
+      longitude: 139.690489
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "40 Wassenaarseweg, 2596CJ 's-Gravenhage",
-      "phone": "+31 70 392 4501",
-      "website": "https://www.zuidafrika.nl/"
+    NO: {
+      name: "Embassy",
+      address: "3-4-30 Shibakoen",
+      phone: "+81-3-5422-1200",
+      website: "https://www.norway.no/ja/japan/",
+      latitude: 35.658939,
+      longitude: 139.746432
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "8 Verlengde Tolweg, 2517JV 's-Gravenhage",
-      "phone": "+31 70 740 0200",
-      "website": "https://overseas.mofa.go.kr/nl-en/index.do"
+    CN: {
+      name: "Embassy",
+      address: "東京都港区元麻布3－4－33",
+      phone: "+81-3-3403-3388",
+      website: "http://www.china-embassy.or.jp/",
+      latitude: 35.656278,
+      longitude: 139.727222
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    PL: {
+      name: "Embassy",
+      address: "2 Chome-13-5 Mita, Meguro, Tokyo 153-0062",
+      phone: "",
+      website: "https://www.gov.pl/web/japonia",
+      latitude: 35.63939,
+      longitude: 139.70866
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "7 Johan de Wittlaan, 2517JR 's-Gravenhage",
-      "phone": "+31 70 412 0200",
-      "website": "https://www.swedenabroad.se/en/embassies/netherlands-the-hague/"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 35.655659005,
+      longitude: 139.72624014
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "42 Lange Voorhout, 2514EE 's-Gravenhage",
-      "phone": "+31 70 364 2831",
-      "website": "https://www.eda.admin.ch/denhaag"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/jp-ko/index.do",
+      latitude: 35.687414,
+      longitude: 139.717175
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "123 Laan Copes van Cattenburch, 2585EZ 's-Gravenhage",
-      "phone": "+31 70 345 9703",
-      "website": "https://hague.thaiembassy.org"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/embajadas/dhaka/es/Paginas/inicio.aspx",
+      latitude: 35.665138888,
+      longitude: 139.7415
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "15 Jan Evertstraat, 2514BS 's-Gravenhage",
-      "phone": "+31 70 302 3101",
-      "website": "https://lahey-be.mfa.gov.tr"
+    SE: {
+      name: "Embassy",
+      address: "1-10-3-100, Roppongi, Minato-ku",
+      phone: "",
+      website: "http://www.swedenabroad.com/Tokyo/",
+      latitude: 35.66462,
+      longitude: 139.74184
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "130 Eisenhowerlaan, 2517KN 's-Gravenhage",
-      "phone": "+31 70 338 4370",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=d939871e-0457-4cc8-b1cd-5a307851d8d4"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/tokyo",
+      latitude: 35.653389,
+      longitude: 139.723841
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    TH: {
+      name: "Embassy",
+      address: "Kamiosaki, 3 Chome−１４−６",
+      phone: "+81-3-5789-2449",
+      website: "http://site.thaiembassy.jp/en/",
+      latitude: 35.632003,
+      longitude: 139.719581
     },
-    "US": {
-      "name": "Embassy",
-      "address": "1 John Adams Park, 2244BZ Wassenaar",
-      "phone": "+31 70 310 2209",
-      "website": "https://nl.usembassy.gov/"
+    TR: {
+      name: "Embassy",
+      address: "2-33-6 Jingumae",
+      phone: "",
+      website: "https://tokyo-be.mfa.gov.tr",
+      latitude: 35.67318,
+      longitude: 139.708591
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-tokyo",
+      latitude: 35.68638889,
+      longitude: 139.74444444
+    },
+    US: {
+      name: "Embassy",
+      address: "1-10-5 Akasaka, Minato ku, Tokyo, 107-8420",
+      phone: "",
+      website: "https://jp.usembassy.gov/",
+      latitude: 35.66861,
+      longitude: 139.74328
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.vnembassy-jp.org/",
+      latitude: 35.672861111,
+      longitude: 139.685805555
     }
   },
-  "NZ": {
-    "AR": {
-      "name": "Embassy",
-      "address": "15-17 Murphy Street, 6011 Wellington",
-      "phone": "+64 4 472 8330",
-      "website": "https://enzel.cancilleria.gob.ar/"
+  DK: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://edina.cancilleria.gob.ar/",
+      latitude: 55.68351,
+      longitude: 12.58527
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "188 Quay Street, 1010 Auckland",
-      "phone": "+64 9 921 8800",
-      "website": "https://newzealand.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://denmark.embassy.gov.au/",
+      latitude: 55.699838888,
+      longitude: 12.595755555
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "10 Customhouse Quay, 6011 Wellington",
-      "phone": "+64 4 473 3516",
-      "website": "http://wellington.itamaraty.gov.br/"
+    AT: {
+      name: "Embassy",
+      address: "Sølundsvej 1, 2100 København Ø",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-kopenhagen/",
+      latitude: 55.719,
+      longitude: 12.5748
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "125 The Terrace, 6011 Wellington",
-      "phone": "Phone not available",
-      "website": "https://www.newzealand.gc.ca/"
+    BE: {
+      name: "Embassy",
+      address: "Øster Allé 7, 2100 København Ø",
+      phone: "+45 35 250 200",
+      website: "https://denmark.diplomatie.belgium.be",
+      latitude: 55.7001,
+      longitude: 12.5741
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "5 Willeston Street",
-      "phone": "+64 4 472 4900",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://copenhague.itamaraty.gov.br",
+      latitude: 55.68913,
+      longitude: 12.59057
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://nz.ambafrance.org"
+    CA: {
+      name: "Embassy",
+      address: "Kristen Bernikows Gade 1, 1105 København K",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/denmark-danemark",
+      latitude: 55.6798,
+      longitude: 12.5821
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "90-92 Hobson Street, 6011 Wellington",
-      "phone": "Phone not available",
-      "website": "https://wellington.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://dk.mvep.hr",
+      latitude: 55.68537,
+      longitude: 12.56485
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.hciwellington.gov.in/"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/copenhagen",
+      latitude: 55.71938,
+      longitude: 12.57337
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "36 Brandon Street",
-      "phone": "+64 4 439 9500",
-      "website": "https://embassies.gov.il/wellington"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.ambafrance-dk.org/",
+      latitude: 55.681048,
+      longitude: 12.587197
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambwellington.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "Göteborg Plads 1, 2150 Nordhavn",
+      phone: "+45-35-459900",
+      website: "https://kopenhagen.diplo.de/",
+      latitude: 55.706925,
+      longitude: 12.59737
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.auckland.nz.emb-japan.go.jp/itprtop_ja/"
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mfa.gr/copenhagen",
+      latitude: 55.68816,
+      longitude: 12.59054
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "20 Ballance Street, 6011 Wellington",
-      "phone": "+64 4 471 6390",
-      "website": "https://www.nederlandwereldwijd.nl/landen/nieuw-zeeland/over-ons/ambassade-in-wellington"
+    HU: {
+      name: "Embassy",
+      address: "Strandvejen 170, 2920 Charlottenlund",
+      phone: "+45-39-63-16-88",
+      website: "https://koppenhaga.mfa.gov.hu/",
+      latitude: 55.733138888,
+      longitude: 12.575222222
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "187 Featherston Street",
-      "phone": "+64 4 472 0555",
-      "website": "https://embamex.sre.gob.mx/nuevazelandia"
+    IN: {
+      name: "Embassy",
+      address: "Vangehusvej 15, 2100 København Ø",
+      phone: "",
+      website: "https://www.indianembassycopenhagen.gov.in/",
+      latitude: 55.7198,
+      longitude: 12.5738
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "57 Messines Road, 6012",
-      "phone": "+64 4 476 6113",
-      "website": "https://newzealand.mid.ru"
+    IE: {
+      name: "Embassy",
+      address: "Østbanegade 21, 2100 København Ø",
+      phone: "+45-35-47-32-00",
+      website: "https://www.ireland.ie/en/denmark/copenhagen/",
+      latitude: 55.6959,
+      longitude: 12.5904
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "Gammel Vartov Vej 7, 2900 Hellerup",
+      phone: "",
+      website: "https://ambcopenaghen.esteri.it",
+      latitude: 55.7238,
+      longitude: 12.5716
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "17 Kabul Street, 6035 Wellington",
-      "phone": "+64 4 470 0850",
-      "website": "https://www.mfa.gov.sg/wellington"
+    JP: {
+      name: "Embassy",
+      address: "Havneholmen 25, 1561 København",
+      phone: "",
+      website: "https://www.dk.emb-japan.go.jp",
+      latitude: 55.6614,
+      longitude: 12.5634
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "36 Brandon Street, 6011 Wellington",
-      "phone": "+64 4 815 8484",
-      "website": "https://dirco1.azurewebsites.net/Wellington/consularservices.html"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/denemarken/over-ons/ambassade-in-kopenhagen",
+      latitude: 55.682118104,
+      longitude: 12.593165157
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/dinamarca/",
+      latitude: 55.68643,
+      longitude: 12.59178
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Wellington"
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "+45-72-11-19-00",
+      website: "https://www.norway.no/denmark",
+      latitude: 55.69707,
+      longitude: 12.59491
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "10 Customhouse Quay, 6011 Wellington",
-      "phone": "+64 4 472 1593",
-      "website": "https://www.eda.admin.ch/wellington"
+    CN: {
+      name: "Embassy",
+      address: "Øregårds Allé 25, 2900 Hellerup",
+      phone: "+45-39460889",
+      website: "https://www.fmprc.gov.cn/ce/cedk",
+      latitude: 55.73784,
+      longitude: 12.57009
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "110 Molesworth Street",
-      "phone": "+64 4 496 2900",
-      "website": "https://wellington.thaiembassy.org/"
+    PL: {
+      name: "Embassy",
+      address: "Richelieus Allé 12, 2900 Hellerup",
+      phone: "",
+      website: "https://www.gov.pl/web/dania",
+      latitude: 55.7381,
+      longitude: 12.5832
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "15-17 Murphy Street, 6011 Wellington",
-      "phone": "+64 4 472 1290;+64 4 472 1292",
-      "website": "https://wellington-be.mfa.gov.tr"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://copenhaga.embaixadaportugal.mne.gov.pt",
+      latitude: 55.6819,
+      longitude: 12.5931
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "119;121;123 Featherston Street, 6011 Wellington",
-      "phone": "+64 4 830 2949",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=0dca8a36-58cc-46f2-9ccc-c793b39540c0"
+    KR: {
+      name: "Embassy",
+      address: "Svanemøllevej 104, 2900 Hellerup",
+      phone: "",
+      website: "http://dnk.mofat.go.kr/",
+      latitude: 55.7309,
+      longitude: 12.5741
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "151 Queen Street, 1010 Auckland",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-auckland"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/COPENHAGUE",
+      latitude: 55.6966,
+      longitude: 12.5896
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.swedenabroad.com/Kopenhamn/",
+      latitude: 55.6823,
+      longitude: 12.5916
+    },
+    CH: {
+      name: "Embassy",
+      address: "Richelieus Alle 14, 2900 Hellerup",
+      phone: "",
+      website: "https://www.eda.admin.ch/copenhagen",
+      latitude: 55.7386,
+      longitude: 12.5831
+    },
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://thaiembassy.dk",
+      latitude: 55.72571,
+      longitude: 12.57305
+    },
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://kopenhag-be.mfa.gov.tr",
+      latitude: 55.72224,
+      longitude: 12.57336
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-copenhagen",
+      latitude: 55.69586,
+      longitude: 12.58549
+    },
+    US: {
+      name: "Embassy",
+      address: "Dag Hammarskjölds Allé 24, 2100 København Ø",
+      phone: "+45-33-41-71-00",
+      website: "https://dk.usembassy.gov/",
+      latitude: 55.69472222,
+      longitude: 12.58305556
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 55.72844,
+      longitude: 12.55576
     }
   },
-  "NG": {
-    "AR": {
-      "name": "Embassy",
-      "address": "30 Nelson Mandela Street",
-      "phone": "+234 (0) 8093664820",
-      "website": "https://enige.cancilleria.gob.ar"
+  MX: {
+    AR: {
+      name: "Embassy",
+      address: "Av. Paseo de las Palmas Nro 1685",
+      phone: "",
+      website: "https://emexi.cancilleria.gob.ar/",
+      latitude: 19.41628,
+      longitude: -99.22924
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "48 Aguiyi Ironsi Street",
-      "phone": "Phone not available",
-      "website": "https://nigeria.embassy.gov.au"
+    AU: {
+      name: "Embassy",
+      address: "Ruben Dario 55, Col. Bosque de Chapultepec",
+      phone: "",
+      website: "https://mexico.embassy.gov.au/",
+      latitude: 19.42976,
+      longitude: -99.18321
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "324 Diplomatic Drive, Abuja",
-      "phone": "(234) 8036590806",
-      "website": "http://abuja.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Sierra Tarahumara Poniente 420",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-mexiko/",
+      latitude: 19.4138,
+      longitude: -99.2265
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "13010G Palm Close, Abuja",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/nigeria/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "Avenida Alfredo Musset, 41",
+      phone: "+52-55-52-80-07-58",
+      website: "https://mexico.diplomatie.belgium.be",
+      latitude: 19.4332,
+      longitude: -99.1964
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ng.ambafrance.org/"
+    BR: {
+      name: "Embassy",
+      address: "Lope Días de Armendariz, 130",
+      phone: "",
+      website: "http://mexico.itamaraty.gov.br",
+      latitude: 19.4153,
+      longitude: -99.2139
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "9 Maracaibo Close, 7077 Abuja",
-      "phone": "+234 92 208010",
-      "website": "https://nigeria.diplo.de"
+    CA: {
+      name: "Embassy",
+      address: "Schiller 529, Col. Bosque de Chapultepec",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/mexico-mexique/index.aspx",
+      latitude: 19.42899211,
+      longitude: -99.18618461
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+234 7080622800",
-      "website": "https://hciabuja.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "Cuvier 22, Colonia Nueva Anzures, Delegación Miguel Hidalgo",
+      phone: "",
+      website: "https://www.mzv.cz/mexico",
+      latitude: 19.43298,
+      longitude: -99.18
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "12 Mary Slessor",
-      "phone": "+234 9-4605500",
-      "website": "https://embassies.gov.il/abuja"
+    FR: {
+      name: "Embassy",
+      address: "339 Campos Eliseos",
+      phone: "",
+      website: "https://mx.ambafrance.org/",
+      latitude: 19.428056,
+      longitude: -99.199444
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "European Union Crescent",
-      "phone": "+234-9-460-2970",
-      "website": "https://ambabuja.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "Horacio No. 1506, Col. Los Morales Sección Alameda, Alcaldía Miguel Hidalgo",
+      phone: "+52-55-52832200",
+      website: "https://mexiko.diplo.de",
+      latitude: 19.4347,
+      longitude: -99.2053
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "9 Bobo Street, Abuja",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "Calle Monte Ararat 615",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/mexico.html",
+      latitude: 19.4181,
+      longitude: -99.22855
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "European Union Crescent, Abuja",
-      "phone": "+234 94611200",
-      "website": "https://www.nederlandwereldwijd.nl/landen/nigeria"
+    HU: {
+      name: "Embassy",
+      address: "Av. Montes Auvernia 310, Lomas de Chapultepec, Alcaldía Miguel Hidalgo, 11000 Ciudad de México",
+      phone: "",
+      website: "https://mexiko.mfa.gov.hu/",
+      latitude: 19.410167429,
+      longitude: -99.228326646
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/nigeria"
+    IN: {
+      name: "Embassy",
+      address: "Musset 325, Colonia Polanco, Delegacion Miguel Hidalgo",
+      phone: "",
+      website: "https://www.indiainmexico.gov.in",
+      latitude: 19.4367,
+      longitude: -99.19616
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "Cda. Blvd. Avila Camacho, 76-3",
+      phone: "+52-55-5520-5803",
+      website: "https://www.ireland.ie/en/mexico/mexicocity",
+      latitude: 19.4308,
+      longitude: -99.2075
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "54 T. Y. Danjuma Street",
-      "phone": "+234 813 989 0050",
-      "website": "https://www.norway.no/en/nigeria"
+    IT: {
+      name: "Embassy",
+      address: "Avenida Paseo de las Palmas 1994",
+      phone: "",
+      website: "https://ambcittadelmessico.esteri.it",
+      latitude: 19.4096,
+      longitude: -99.2293
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "1119 Constitution Avenue, Abuja",
-      "phone": "+234 805-908-00-07",
-      "website": "https://nigeria.mid.ru/"
+    JP: {
+      name: "Embassy",
+      address: "Paseo de la Reforma 243, Torre Mapfre Piso 9",
+      phone: "",
+      website: "https://www.mx.emb-japan.go.jp",
+      latitude: 19.429666666,
+      longitude: -99.163583333
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "6 Orange Close",
-      "phone": "+2347098221442",
-      "website": "https://embassies.mofa.gov.sa/sites/Nigeria"
+    DK: {
+      name: "Embassy",
+      address: "Tres Picos 43, Col. Polanco",
+      phone: "",
+      website: "https://mexico.um.dk",
+      latitude: 19.42888,
+      longitude: -99.18822
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "D41004 European Union Crescent",
-      "phone": "+234-9-462-4200",
-      "website": "https://www.dirco.gov.za/abuja/index.html"
+    NL: {
+      name: "Embassy",
+      address: "Volcán 150, piso 2, Edificio Qúbica",
+      phone: "",
+      website: "",
+      latitude: 19.4294,
+      longitude: -99.2077
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "8 Bobo Close, Abuja",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Abuja"
+    NZ: {
+      name: "Embassy",
+      address: "8 Avenida Jaime Balmes, Polanco I Sección 11510",
+      phone: "+52-55-5283-9460",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/americas/mexico/new-zealand-embassy/",
+      latitude: 19.4380282,
+      longitude: -99.2096825
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "41 T. Y. Danjuma Street",
-      "phone": "+234 9 9047 302",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/nigeria-abuja/"
+    NO: {
+      name: "Embassy",
+      address: "Boulevard de los Virreyes 1460",
+      phone: "",
+      website: "https://www.norway.no/es/mexico/",
+      latitude: 19.40702,
+      longitude: -99.22223
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "157 Adetokunbo Ademola Crescent, 900288 Abuja",
-      "phone": "+234 9 22 00 400",
-      "website": "https://www.eda.admin.ch/abuja"
+    CN: {
+      name: "Embassy",
+      address: "Avenida San Jerónimo No. 217 B",
+      phone: "",
+      website: "http://mx.china-embassy.gov.cn",
+      latitude: 19.43309,
+      longitude: -99.2043
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "333 Diplomatic Drive, Abuja",
-      "phone": "Phone not available",
-      "website": "https://abuja-be.mfa.gov.tr/"
+    PL: {
+      name: "Embassy",
+      address: "Calle Cracovia 40, Colonia San Ángel",
+      phone: "",
+      website: "https://www.gov.pl/web/meksyk",
+      latitude: 19.348801,
+      longitude: -99.188279
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "17 Kainji Crescent, Abuja",
-      "phone": "+234-809-9009004",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Nigeria/"
+    PT: {
+      name: "Embassy",
+      address: "Alpes 1370, Lomas de Chapultepec",
+      phone: "",
+      website: "https://mexico.embaixadaportugal.mne.gov.pt",
+      latitude: 19.4112,
+      longitude: -99.2235
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "1137 Diplomatic Drive, Abuja",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-high-commission-abuja"
+    KR: {
+      name: "Embassy",
+      address: "Lopez Diaz de Armendariz 110",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/mx-es/index.do",
+      latitude: 19.4157,
+      longitude: -99.21368
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ng.usembassy.gov"
+    ES: {
+      name: "Embassy",
+      address: "Calle Galileo 114",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/MEXICO",
+      latitude: 19.4334,
+      longitude: -99.1928
+    },
+    SE: {
+      name: "Embassy",
+      address: "Avenida Paseo de las Palmas 1375",
+      phone: "",
+      website: "http://www.swedenabroad.com/Mexico/",
+      latitude: 19.4215,
+      longitude: -99.2242
+    },
+    CH: {
+      name: "Embassy",
+      address: "405 Paseo de las Palmas",
+      phone: "",
+      website: "https://www.eda.admin.ch/mexico",
+      latitude: 19.4303,
+      longitude: -99.2114
+    },
+    TH: {
+      name: "Embassy",
+      address: "Paseo de las Palmas 1610",
+      phone: "",
+      website: "",
+      latitude: 19.41716,
+      longitude: -99.22794
+    },
+    TR: {
+      name: "Embassy",
+      address: "Monte Líbano 885",
+      phone: "",
+      website: "https://meksika-be.mfa.gov.tr",
+      latitude: 19.41612,
+      longitude: -99.22428
+    },
+    GB: {
+      name: "Embassy",
+      address: "Paseo de la Reforma 350",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-mexico-city/",
+      latitude: 19.425833333,
+      longitude: -99.1675
+    },
+    US: {
+      name: "Embassy",
+      address: "Presa Angostura 225",
+      phone: "+55-5080-2000",
+      website: "https://mx.usembassy.gov/",
+      latitude: 19.433333,
+      longitude: -99.133333
+    },
+    VN: {
+      name: "Embassy",
+      address: "Sierra Ventana No. 255",
+      phone: "",
+      website: "",
+      latitude: 19.42431,
+      longitude: -99.22085
     }
   },
-  "NO": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 55 24 48",
-      "website": "http://www.enoru.mrecic.gov.ar"
+  NL: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://epbaj.cancilleria.gob.ar/",
+      latitude: 52.0878,
+      longitude: 4.3026
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22540730",
-      "website": "http://oslo.itamaraty.gov.br/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.netherlands.embassy.gov.au",
+      latitude: 52.0852,
+      longitude: 4.2938
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 99 53 00",
-      "website": "https://www.canadainternational.gc.ca/norway-norvege/"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-den-haag/",
+      latitude: 52.0998,
+      longitude: 4.3217
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 08 42 00",
-      "website": "https://mfa.gov.eg/oslo_emb"
+    BE: {
+      name: "Embassy",
+      address: "Johan van Oldenbarneveltlaan 11 2582 NE Den Haag",
+      phone: "+31-70-312-34-56",
+      website: "https://netherlands.diplomatie.belgium.be/",
+      latitude: 52.0961,
+      longitude: 4.284
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 28 46 00",
-      "website": "https://no.ambafrance.org/"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://haia.itamaraty.gov.br",
+      latitude: 52.0845,
+      longitude: 4.3069
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 27 54 00",
-      "website": "https://oslo.diplo.de/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.0854,
+      longitude: 4.3038
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 2411 5910",
-      "website": "http://indemb.no"
+    HR: {
+      name: "Embassy",
+      address: "Surinamestraat 11 2585 GG",
+      phone: "",
+      website: "http://nl.mvep.hr/",
+      latitude: 52.0896493,
+      longitude: 4.3079079
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 21 01 95 00",
-      "website": "https://embassies.gov.il/oslo"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/hague",
+      latitude: 52.082,
+      longitude: 4.3072
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 08 49 00;+47 22 55 72 50",
-      "website": "https://amboslo.esteri.it/"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://nl.ambafrance.org",
+      latitude: 52.0863,
+      longitude: 4.2982
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 01 29 00",
-      "website": "https://www.no.emb-japan.go.jp/"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+31-70-3-420600",
+      website: "https://niederlande.diplo.de/",
+      latitude: 52.0848,
+      longitude: 4.2891
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 33 36 00",
-      "website": "https://www.netherlandsworldwide.nl/countries/norway/about-us/embassy-in-oslo"
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.0832,
+      longitude: 4.3067
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 21 04 02 20",
-      "website": "https://embamex.sre.gob.mx/noruega/"
+    HU: {
+      name: "Embassy",
+      address: "Hogeweg 14",
+      phone: "+31-70-222-3939",
+      website: "https://haga.mfa.gov.hu/",
+      latitude: 52.081861111,
+      longitude: 4.342
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 21 38 17 99",
-      "website": null
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.indianembassy.nl/",
+      latitude: 52.0869,
+      longitude: 4.2911
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 55 32 78;+47 22 44 06 08",
-      "website": "https://norway.mid.ru/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+31-70-363-0993",
+      website: "https://www.ireland.ie/en/thenetherlands/thehague/",
+      latitude: 52.1016,
+      longitude: 4.2786
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 04 90 10",
-      "website": "http://embassies.mofa.gov.sa/sites/Norway/"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.0853,
+      longitude: 4.3055
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 23 27 32 20",
-      "website": "https://www.dirco.gov.za/oslo/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.nl.emb-japan.go.jp/",
+      latitude: 52.08586,
+      longitude: 4.29155
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://nederlandene.um.dk",
+      latitude: 52.0889,
+      longitude: 4.3124
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 92 66 90",
-      "website": "http://maec.es/embajadas/oslo"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.09,
+      longitude: 4.3061
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 24 11 42 00",
-      "website": "http://sverigesambassad.no"
+    NZ: {
+      name: "Embassy",
+      address: "Eisenhowerlaan 77N, The Hague 2517 KK",
+      phone: "+31-70-346-9324",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/netherlands/new-zealand-embassy/",
+      latitude: 52.093636,
+      longitude: 4.281841
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.norway.no/en/netherlands",
+      latitude: 52.0937,
+      longitude: 4.282
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 12 86 75",
-      "website": "https://thaiembassy.no/"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://nl.china-embassy.gov.cn/eng/",
+      latitude: 52.0928,
+      longitude: 4.2859
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 12 87 50",
-      "website": "https://oslo-be.mfa.gov.tr"
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://gov.pl/holandia/",
+      latitude: 52.0875,
+      longitude: 4.3039
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+47 22 12 24 22",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=fd558b84-77ca-404f-9d7a-d49e4cde209a"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.haia.embaixadaportugal.mne.pt/",
+      latitude: 52.0857,
+      longitude: 4.3019
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-oslo"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.0934,
+      longitude: 4.2872
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://no.usembassy.gov/"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/embajadas/lahaya/es/Paginas/inicio.aspx",
+      latitude: 52.0836,
+      longitude: 4.313
+    },
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/nederl%C3%A4nderna-haag/",
+      latitude: 52.093,
+      longitude: 4.2848
+    },
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 52.0834,
+      longitude: 4.3126
+    },
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://hague.thaiembassy.org",
+      latitude: 52.0915,
+      longitude: 4.3075
+    },
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://lahey-be.mfa.gov.tr",
+      latitude: 52.0847,
+      longitude: 4.3155
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-the-hague/",
+      latitude: 52.0823,
+      longitude: 4.3105
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+31-70-310-2209",
+      website: "https://nl.usembassy.gov/",
+      latitude: 52.099461111,
+      longitude: 4.3441
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://vnembassy-thehague.mofa.gov.vn",
+      latitude: 52.0873,
+      longitude: 4.3026
     }
   },
-  "RU": {
-    "AR": {
-      "name": "Embassy",
-      "address": "72 с1 улица Большая Ордынка, 119017 Москва",
-      "phone": "+7 495 5021020",
-      "website": "http://efrus.mrecic.gov.ar"
+  NZ: {
+    AR: {
+      name: "Embassy",
+      address: "15 Murphy Street",
+      phone: "",
+      website: "https://enzel.cancilleria.gob.ar/",
+      latitude: -41.27492,
+      longitude: 174.77911
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "10 Подколокольный переулок, 109028 Москва",
-      "phone": "Phone not available",
-      "website": "https://russia.embassy.gov.au"
+    AU: {
+      name: "Consulate General",
+      address: "Level 7 HSBC Tower 188 Quay Street, Auckland, 1010",
+      phone: "",
+      website: "",
+      latitude: -36.843270145,
+      longitude: 174.765215109
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "54 с1 Большая Никитская улица, 121069 Москва",
-      "phone": "+7 495 966-10-81",
-      "website": "http://moscou.itamaraty.gov.br/"
+    BR: {
+      name: "Embassy",
+      address: "Maritime Tower, 10 Customhouse Quay",
+      phone: "",
+      website: "http://wellington.itamaraty.gov.br",
+      latitude: -41.28229,
+      longitude: 174.77837
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "23 с1 Староконюшенный переулок",
-      "phone": "Phone not available",
-      "website": "http://www.canadainternational.gc.ca/russia-russie"
+    CA: {
+      name: "Consulate",
+      address: "125 The Terrace",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/new_zealand-nouvelle_zelande",
+      latitude: -41.2835,
+      longitude: 174.775
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    FR: {
+      name: "Embassy",
+      address: "20 Ballance Street",
+      phone: "",
+      website: "https://nz.ambafrance.org",
+      latitude: -41.290232,
+      longitude: 174.775341
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+7 495 9371500",
-      "website": "https://ru.ambafrance.org"
+    DE: {
+      name: "Embassy",
+      address: "90-92 Hobson Street",
+      phone: "+64-4-4736063",
+      website: "https://wellington.diplo.de",
+      latitude: -41.270989,
+      longitude: 174.780089
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "56 Мосфильмовская улица, 119285 Москва",
-      "phone": "+7 495 937 95 00",
-      "website": "https://germania.diplo.de/ru-de/vertretungen/botschaft"
+    HU: {
+      name: "Embassy",
+      address: "101 Lambton Quay",
+      phone: "",
+      website: "https://wellington.mfa.gov.hu",
+      latitude: -41.28509,
+      longitude: 174.77621
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "4 с2 улица Воронцово Поле",
-      "phone": "Phone not available",
-      "website": "https://indianembassy-moscow.gov.in"
+    IN: {
+      name: "Consulate",
+      address: "102-112, Lambton Quay",
+      phone: "",
+      website: "https://www.hciwellington.gov.in/",
+      latitude: -41.28006,
+      longitude: 174.77566
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "56 улица Большая Ордынка",
-      "phone": "+7 (495)660 27 00",
-      "website": "https://embassies.gov.il/moscow"
+    IE: {
+      name: "Embassy",
+      address: "86 Victoria Street",
+      phone: "+64-4-471-2252",
+      website: "https://www.ireland.ie/en/new-zealand/wellington/",
+      latitude: -41.2888,
+      longitude: 174.7759
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "5 Денежный переулок, 119034",
-      "phone": "Phone not available",
-      "website": "https://ambmosca.esteri.it"
+    IT: {
+      name: "Embassy",
+      address: "34-38 Grant Road, Thorndon",
+      phone: "",
+      website: "https://ambwellington.esteri.it",
+      latitude: -41.2692,
+      longitude: 174.7782
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.khabarovsk.ru.emb-japan.go.jp/"
+    JP: {
+      name: "Embassy",
+      address: "The Majestic Centre, 100 Willis Street",
+      phone: "",
+      website: "https://www.nz.emb-japan.go.jp",
+      latitude: -41.288694444,
+      longitude: 174.774638888
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "5 Лопухинский переулок",
-      "phone": "+7 (495) 637 42 57",
-      "website": "https://kenemb.ru"
+    NL: {
+      name: "Embassy",
+      address: "20 Ballance Street",
+      phone: "",
+      website: "",
+      latitude: -41.2813,
+      longitude: 174.7778
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "6 Калашный переулок, 115127 Москва",
-      "phone": "+7 495 7972900",
-      "website": "http://russia-ru.nlembassy.org"
+    MX: {
+      name: "Embassy",
+      address: "187 Featherson Street",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/nuevazelandia",
+      latitude: -41.28509,
+      longitude: 174.77621
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "4 с1 Большой Лёвшинский переулок, 119034",
-      "phone": "+7 495 969-28-79",
-      "website": "https://embamex.sre.gob.mx/rusia"
+    CN: {
+      name: "Embassy",
+      address: "2-6 Glenmore Street, Kelburn, Wellington, New Zealand",
+      phone: "+64-4-4721382",
+      website: "http://nz.china-embassy.gov.cn",
+      latitude: -41.2799428,
+      longitude: 174.7672486
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "8 Пречистенский переулок",
-      "phone": "+7(495)116-16-81",
-      "website": "https://www.ambmaroc.ru/"
+    PL: {
+      name: "Embassy",
+      address: "142-144 Featherston Street",
+      phone: "",
+      website: "https://www.gov.pl/web/nowazelandia",
+      latitude: -41.283,
+      longitude: 174.777
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "3 Пречистенская набережная, 119034 Москва",
-      "phone": "+7 495 9563579",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/russia/new-zealand-embassy/"
+    KR: {
+      name: "Embassy",
+      address: "2 Hunter Street, Wellington 6011",
+      phone: "",
+      website: "",
+      latitude: -41.2856,
+      longitude: 174.7775
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "5 Мамоновский переулок",
-      "phone": "+7 (495) 690 3785",
-      "website": "http://www.nigerianembassy.ru"
+    ES: {
+      name: "Embassy",
+      address: "50 Manners Street",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Wellington",
+      latitude: -41.2904,
+      longitude: 174.7756
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/ru/russia/"
+    CH: {
+      name: "Embassy",
+      address: "10 Customhouse Quay, Wellington 6011",
+      phone: "",
+      website: "https://www.eda.admin.ch/wellington",
+      latitude: -41.2821,
+      longitude: 174.7784
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "3 3-й Неопалимовский переулок",
-      "phone": "+7 499 245-23-10",
-      "website": "https://embassies.mofa.gov.sa/sites/Russia"
+    TH: {
+      name: "Embassy",
+      address: "110 Molesworth Street",
+      phone: "",
+      website: "https://wellington.thaiembassy.org/",
+      latitude: -41.27518,
+      longitude: 174.77819
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "5 переулок Каменная Слобода, 121099",
-      "phone": "+7-499-241-3702",
-      "website": "https://www.mfa.gov.sg/moscow"
+    TR: {
+      name: "Embassy",
+      address: "15-17 Murphy Street",
+      phone: "",
+      website: "https://wellington-emb.mfa.gov.tr",
+      latitude: -41.27492,
+      longitude: 174.77911
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "1 с9 Гранатный переулок",
-      "phone": "+7 (495) 926 1177",
-      "website": "http://www.saembassy.ru/"
+    GB: {
+      name: "Consulate",
+      address: "Level 17/151 Queen Street, Auckland CBD, Auckland 1010",
+      phone: "",
+      website: "",
+      latitude: -36.84711,
+      longitude: 174.76559
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "56 с1 улица Плющиха",
-      "phone": "+7 495 783-27-27",
-      "website": "https://overseas.mofa.go.kr/ru-ru/index.do"
+    US: {
+      name: "Embassy",
+      address: "29 Fitzherbert Terrace",
+      phone: "+64-4-462-6000",
+      website: "https://nz.usembassy.gov/",
+      latitude: -41.272878,
+      longitude: 174.779008
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "5 Скарятинский переулок",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Moscu/es/Paginas/inicio.aspx"
-    },
-    "SE": {
-      "name": "Embassy",
-      "address": "60 Мосфильмовская улица, 119590 Москва",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/Moscow/"
-    },
-    "CH": {
-      "name": "Embassy",
-      "address": "2/5 переулок Огородная Слобода, 101000 Москва",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/moscow"
-    },
-    "TH": {
-      "name": "Embassy",
-      "address": "6 Серпов переулок, Москва",
-      "phone": "+7 (495) 109-3918",
-      "website": "https://moscow.thaiembassy.org"
-    },
-    "TR": {
-      "name": "Embassy",
-      "address": "12 7-й Ростовский переулок, Москва",
-      "phone": "+7 495 994-48-08",
-      "website": "https://moskova-be.mfa.gov.tr"
-    },
-    "AE": {
-      "name": "Embassy",
-      "address": "4 улица Улофа Пальме, 115127 Москва",
-      "phone": "+7 495 2344060",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=76cf09aa-d15b-4b95-b038-74eb06b52125"
-    },
-    "GB": {
-      "name": "Embassy",
-      "address": "10 Смоленская набережная, 121099 Москва",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-moscow"
-    },
-    "US": {
-      "name": "Embassy",
-      "address": "1 с1 площадь Донецкой Народной Республики, 121099 Москва",
-      "phone": "+7 495 7285000",
-      "website": "https://ru.usembassy.gov/"
+    VN: {
+      name: "Embassy",
+      address: "2-6 Gilmer Terrace",
+      phone: "",
+      website: "https://vnembassy-wellington.mofa.gov.vn",
+      latitude: -41.28588,
+      longitude: 174.77484
     }
   },
-  "SA": {
-    "AR": {
-      "name": "Embassy",
-      "address": "4 حبيب الحنظلي",
-      "phone": "+966 11-4652600",
-      "website": "https://earab.cancilleria.gob.ar"
+  NO: {
+    AR: {
+      name: "Embassy",
+      address: "Drammesveien 39, 0244 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.913489,
+      longitude: 10.713006
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "PO 94000 Abdullah Bin Hozafa As-Shami Road, 11693 Riyadh",
-      "phone": "Phone not available",
-      "website": "https://saudiarabia.embassy.gov.au/"
+    AT: {
+      name: "Embassy",
+      address: "Thomas Heftyes gate 19-21, 0264 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.91608333,
+      longitude: 10.70418333
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://riade.itamaraty.gov.br"
+    BE: {
+      name: "Embassy",
+      address: "Munkedamsveien 53B, 0250 Oslo",
+      phone: "+47-23-23-92-20",
+      website: "https://norway.diplomatie.belgium.be",
+      latitude: 59.910833333,
+      longitude: 10.7225
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "PO 94321 Omaya Abu Al Salt, 11693 Riyadh",
-      "phone": "966 (11) 202-3200",
-      "website": "https://www.saudiarabia.gc.ca/"
+    BR: {
+      name: "Embassy",
+      address: "Sigurd Syrs gate 2, 0273 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.919563888,
+      longitude: 10.691880555
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Abdullah Bin Hazafa As-Shami Road, 11693 Riyadh",
-      "phone": "+966114810159",
-      "website": null
+    CA: {
+      name: "Embassy",
+      address: "Wergelandsveien 7, 0244 Oslo",
+      phone: "",
+      website: "http://www.canadainternational.gc.ca/norway-norvege/index.aspx?lang=eng",
+      latitude: 59.918909,
+      longitude: 10.731748
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.ambafrance-sa.org/"
+    HR: {
+      name: "Embassy",
+      address: "Drammensveien 82",
+      phone: "",
+      website: "",
+      latitude: 59.91389444,
+      longitude: 10.70253889
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Riyadh",
-      "phone": "+966 112 776900",
-      "website": "https://saudiarabien.diplo.de/"
+    CZ: {
+      name: "Embassy",
+      address: "Fritzners gate 14, 0244 Oslo",
+      phone: "",
+      website: "https://www.mzv.cz/oslo",
+      latitude: 59.91682,
+      longitude: 10.70482
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+966-11-4884144",
-      "website": "https://www.eoiriyadh.gov.in/"
+    FR: {
+      name: "Embassy",
+      address: "Drammensveien 69, 0244 Oslo",
+      phone: "",
+      website: "http://www.ambafrance-no.org/",
+      latitude: 59.913321,
+      longitude: 10.705748
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambriad.esteri.it/ambasciata_riad/"
+    DE: {
+      name: "Embassy",
+      address: "Oscars gate 45, 0244 Oslo",
+      phone: "+47-23-275400",
+      website: "https://oslo.diplo.de/",
+      latitude: 59.920116666,
+      longitude: 10.722616666
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "0126670676",
-      "website": "https://www.jeddah.ksa.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "Nobels gate 45, 0268 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.919483333,
+      longitude: 10.699883333
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.kenyaembassyriyadh.com"
+    HU: {
+      name: "Embassy",
+      address: "Sophus Lies gate 3",
+      phone: "+47 22 54 76 40",
+      website: "https://oslo.mfa.gov.hu/",
+      latitude: 59.91585,
+      longitude: 10.70705
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IN: {
+      name: "Embassy",
+      address: "Niels Juels gate 30, 0244 Oslo",
+      phone: "",
+      website: "https://www.indianembassyoslo.gov.in/",
+      latitude: 59.914227777,
+      longitude: 10.711577777
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "3293 طريق عبد الله بن حذافة السهمي, Riyadh",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/arabiasaudita/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+47-2201-7200",
+      website: "https://www.ireland.ie/en/norway/oslo/",
+      latitude: 59.912978,
+      longitude: 10.731914
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "Inkognitogaten 7, 0244 Oslo",
+      phone: "",
+      website: "https://amboslo.esteri.it/ambasciata_oslo/it/",
+      latitude: 59.919408,
+      longitude: 10.723489
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/middle-east/saudi-arabia/"
+    JP: {
+      name: "Embassy",
+      address: "Haakon VIIs gate 9, 0244 Oslo",
+      phone: "",
+      website: "https://www.no.emb-japan.go.jp",
+      latitude: 59.914419,
+      longitude: 10.730789
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "PO 94386 Abdullah Bin Hazafa As-Shami Road, 11693 Riyadh",
-      "phone": "Phone not available",
-      "website": "http://nigeria.org.sa/"
+    DK: {
+      name: "Embassy",
+      address: "Olav Kyrres gate 7",
+      phone: "",
+      website: "http://norge.um.dk/",
+      latitude: 59.918,
+      longitude: 10.6936
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "PO 94380 Ibn Shamil, 11693 Riyadh",
-      "phone": "Phone not available",
-      "website": "https://www.norway.no/en/Saudi-Arabia/"
+    NL: {
+      name: "Embassy",
+      address: "Oscars gate 29, 0352 Oslo",
+      phone: "",
+      website: "https://www.netherlandsworldwide.nl/countries/norway/about-us/embassy-in-oslo",
+      latitude: 59.921666666,
+      longitude: 10.72495
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://riyadh.mid.ru"
+    MX: {
+      name: "Embassy",
+      address: "Frøyas gate 9, 0273 Oslo",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/noruega",
+      latitude: 59.916691,
+      longitude: 10.695046
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "11693 Riyadh",
-      "phone": "+966-11-480-3855",
-      "website": "https://www.mfa.gov.sg/Riyadh"
+    CN: {
+      name: "Embassy",
+      address: "Tuengen allé 2B, 0374 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.941366666,
+      longitude: 10.701530555
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "7184 Mohamed Al Abaderi",
-      "phone": "+966 11 442 9716",
-      "website": null
+    PL: {
+      name: "Embassy",
+      address: "Olav Kyrres plass 1",
+      phone: "",
+      website: "https://www.gov.pl/web/norwegia/",
+      latitude: 59.918889,
+      longitude: 10.696111
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+966-11-488-2211",
-      "website": "https://overseas.mofa.go.kr/sa-ko/index.do"
+    PT: {
+      name: "Embassy",
+      address: "Josefines Gate 37",
+      phone: "",
+      website: "",
+      latitude: 59.92216111,
+      longitude: 10.72372778
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.exteriores.gob.es/Embajadas/riad"
+    KR: {
+      name: "Embassy",
+      address: "Inkognitogata 3",
+      phone: "",
+      website: "",
+      latitude: 59.91981194,
+      longitude: 10.72415806
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Collector Road B, Riyadh",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/saudiarabien-riyadh/"
+    ES: {
+      name: "Embassy",
+      address: "Halvdan Svartes gate 13, 0268 Oslo",
+      phone: "",
+      website: "https://www.exteriores.gob.es/Embajadas/oslo/es/Paginas/index.aspx",
+      latitude: 59.921528,
+      longitude: 10.696228
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Diplomatic quarter",
-      "phone": "+966 11 488 12 91",
-      "website": "https://www.eda.admin.ch/countries/saudi-arabia/en/home/representations/embassy.html"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.swedenabroad.com/Oslo/",
+      latitude: 59.9172,
+      longitude: 10.72102
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://riyadh.thaiembassy.org/"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 59.9216,
+      longitude: 10.7248
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "8604 Abdullah Bin Hazafa As-Shami Road",
-      "phone": "+966 11 482 0101",
-      "website": "https://riyadh-emb.mfa.gov.tr"
+    TH: {
+      name: "Embassy",
+      address: "Eilert Sundts gate 4, 0244 Oslo",
+      phone: "",
+      website: "",
+      latitude: 59.921038888,
+      longitude: 10.715113888
     },
-    "AE": {
-      "name": "Consulate",
-      "address": "Uthman Ibn Affan, Jeddah",
-      "phone": "+96-62-6515436",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=17126333-8566-4b49-af59-6b5ba4f37c62"
+    TR: {
+      name: "Embassy",
+      address: "Halvdan Svartes gate 5, 0268 Oslo",
+      phone: "",
+      website: "https://oslo-be.mfa.gov.tr",
+      latitude: 59.920754,
+      longitude: 10.695356
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-jeddah"
+    GB: {
+      name: "Embassy",
+      address: "Thomas Heftyes gate 8, 0244 Oslo",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-oslo/",
+      latitude: 59.9146,
+      longitude: 10.70485
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Al Safa Street, Jeddah",
-      "phone": "Phone not available",
-      "website": "https://sa.usembassy.gov/"
+    US: {
+      name: "Embassy",
+      address: "Morgedalsvegen 36, 0378 Oslo",
+      phone: "+47-21-30-85-40",
+      website: "https://no.usembassy.gov/",
+      latitude: 59.941388888,
+      longitude: 10.669147222
+    },
+    VN: {
+      name: "Embassy",
+      address: "St. Olavs gate 21",
+      phone: "",
+      website: "",
+      latitude: 59.918022,
+      longitude: 10.738969
     }
   },
-  "SG": {
-    "AR": {
-      "name": "Embassy",
-      "address": "7 Temasek Boulevard",
-      "phone": "+65 6887 9808",
-      "website": "https://esing.cancilleria.gob.ar"
+  CN: {
+    AR: {
+      name: "Embassy",
+      address: "11 DongWuJie, SanLiTun",
+      phone: "",
+      website: "https://echin.cancilleria.gob.ar/",
+      latitude: 39.944,
+      longitude: 116.455898
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "101 Thomson Road, 307591 Singapore",
-      "phone": "+65 6603 9361",
-      "website": "http://cingapura.itamaraty.gov.br"
+    AU: {
+      name: "Embassy",
+      address: "21 Dongzhimenwai Dajie Sanlitun",
+      phone: "",
+      website: "http://china.embassy.gov.au/",
+      latitude: 39.941991,
+      longitude: 116.447504
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "#11-01 1 George Street, 049145 Singapore",
-      "phone": "+65 6854 5900",
-      "website": "https://www.singapore.gc.ca/"
+    AT: {
+      name: "Embassy",
+      address: "Jianguomenwai Xiushui Nanjie 5",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-peking/",
+      latitude: 39.9086,
+      longitude: 116.4386
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://sg.ambafrance.org/"
+    BE: {
+      name: "Embassy",
+      address: "3 Sanlitun Dongsanjie",
+      phone: "+86 10 653 217 36",
+      website: "https://china.diplomatie.belgium.be",
+      latitude: 39.9417,
+      longitude: 116.4501
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://singapur.diplo.de"
+    BR: {
+      name: "Embassy",
+      address: "27, Guanghua Lu, Chaoyang District",
+      phone: "",
+      website: "http://pequim.itamaraty.gov.br",
+      latitude: 39.91237,
+      longitude: 116.43099
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "31 Grange Road",
-      "phone": "+65 6238 2518",
-      "website": "https://hcisingapore.gov.in"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 39.9406,
+      longitude: 116.4432
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "24 Stevens Close",
-      "phone": "+65 6834 9200",
-      "website": "https://embassies.gov.il/singapore/Pages/Important%20Announcements.aspx"
+    HR: {
+      name: "Embassy",
+      address: "Villa 5-2, Qijiayuan Diplomatic Compound, No. 9 Jianguomenwai Street",
+      phone: "",
+      website: "http://cn.mvep.hr",
+      latitude: 39.9087,
+      longitude: 116.4392
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "101 Thomson Road, 307591 Singapore",
-      "phone": "+65 6250 6022",
-      "website": "https://ambsingapore.esteri.it"
+    CZ: {
+      name: "Embassy",
+      address: "2 Ritan Lu, Jianguomenwai",
+      phone: "",
+      website: "https://www.mzv.cz/beijing",
+      latitude: 39.9095,
+      longitude: 116.43559
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.sg.emb-japan.go.jp/"
+    FR: {
+      name: "Embassy",
+      address: "60, Tianze Lu",
+      phone: "",
+      website: "https://cn.ambafrance.org/",
+      latitude: 39.9515,
+      longitude: 116.463
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "541 Orchard Road, 238881 Singapore",
-      "phone": "Phone not available",
-      "website": null
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+86-10-8532-9000",
+      website: "https://china.diplo.de/",
+      latitude: 39.94166667,
+      longitude: 116.45166667
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/singapur"
+    GR: {
+      name: "Embassy",
+      address: "19 Guang Hua Lu, Chao Yang District",
+      phone: "",
+      website: "https://www.mfa.gr/china/",
+      latitude: 39.91233,
+      longitude: 116.43356
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "1 George Street, 049145 Singapore",
-      "phone": "+65 62359966",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/south-east-asia/singapore/new-zealand-high-commission-singapore/"
+    HU: {
+      name: "Embassy",
+      address: "San Li Tun, Dong Zhi Men Wai No.10",
+      phone: "+86-10-6532-1431",
+      website: "https://peking.mfa.gov.hu/",
+      latitude: 39.939,
+      longitude: 116.4509
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "16 Raffles Quay, 048581 Singapore",
-      "phone": "+65 6818 2000",
-      "website": "https://www.norway.no/singapore"
+    IN: {
+      name: "Embassy",
+      address: "5, Liang Ma Qiao Bei Jie, Chaoyang District",
+      phone: "",
+      website: "https://www.eoibeijing.gov.in",
+      latitude: 39.952196916,
+      longitude: 116.461266611
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "51 Nassim Road, 258439 Singapore",
-      "phone": "+65 6235 1832",
-      "website": "https://singapore.mid.ru"
+    IE: {
+      name: "Embassy",
+      address: "3 Ritan East Road",
+      phone: "+86-10-8531-6200",
+      website: "https://www.ireland.ie/en/china/beijing/",
+      latitude: 39.9094,
+      longitude: 116.4409
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "163 Penang Road",
-      "phone": "Phone not available",
-      "website": "https://embassies.mofa.gov.sa/sites/singapore"
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ambpechino.esteri.it",
+      latitude: 39.9348,
+      longitude: 116.4542
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "331 North Bridge Road",
-      "phone": "+65 6339 3319",
-      "website": "https://www.dirco.gov.za/singapore"
+    JP: {
+      name: "Embassy",
+      address: "No. 1 Liangmaqiao East Street, Chaoyang District",
+      phone: "",
+      website: "https://www.cn.emb-japan.go.jp",
+      latitude: 39.9532825,
+      longitude: 116.471610833
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    DK: {
+      name: "Embassy",
+      address: "1 Dong Wu Jie, San Li Tun",
+      phone: "",
+      website: "https://kina.um.dk/",
+      latitude: 39.9431,
+      longitude: 116.4546
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "7 Temasek Boulevard, 038987 Singapore",
-      "phone": "+65 67259215",
-      "website": "http://www.exteriores.gob.es/Embajadas/SINGAPUR"
+    NL: {
+      name: "Embassy",
+      address: "亮马河南路4号",
+      phone: "",
+      website: "https://www.nederlandwereldwijd.nl/landen/china/over-ons/ambassade-in-peking",
+      latitude: 39.94522,
+      longitude: 116.45374
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "111 Somerset Road, Singapore",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/singapore-singapore/"
+    MX: {
+      name: "Embassy",
+      address: "Sanlitun Dongwujie No. 5, Distrito de Chaoyang",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/china",
+      latitude: 39.9432,
+      longitude: 116.4525
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "1 Swiss Club Link, 288162 Singapore",
-      "phone": "+65 6468 5788",
-      "website": "https://www.eda.admin.ch/singapore"
+    NZ: {
+      name: "Embassy",
+      address: "No. 1 Ritan Dongerjie, (1 Ritan East 2nd Street), Chaoyang District 100600",
+      phone: "+86-10-8532-7000",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/asia/china/new-zealand-embassy/",
+      latitude: 39.915583,
+      longitude: 116.4489
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "2 Shenton Way, 068804 Singapore",
-      "phone": "+65 6422 7322;+65 6533 3390",
-      "website": "https://singapur-be.mfa.gov.tr"
+    NO: {
+      name: "Embassy",
+      address: "1 Dong Yi Jie, San Li Tun",
+      phone: "",
+      website: "https://www.norway.no/china/",
+      latitude: 39.9342,
+      longitude: 116.4546
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "600 North Bridge Road, 188778 Singapore",
-      "phone": "+65 6238 8206",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Singapore/Pages/home.aspx"
+    PL: {
+      name: "Embassy",
+      address: "1 Ritan Rd.",
+      phone: "",
+      website: "https://www.gov.pl/web/chiny",
+      latitude: 39.9125,
+      longitude: 116.4417
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "100 Tanglin Road, 247919 Singapore",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-high-commission-singapore"
+    PT: {
+      name: "Embassy",
+      address: "8, Dong Wu Jie, San Li Tun, Chaoyang District",
+      phone: "",
+      website: "https://www.pequim.embaixadaportugal.mne.pt",
+      latitude: 39.9422,
+      longitude: 116.451
     },
-    "US": {
-      "name": "Embassy",
-      "address": "27 Napier Road, 258508 Singapore",
-      "phone": "+6564769100",
-      "website": "https://sg.usembassy.gov/"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/cn-zh/index.do",
+      latitude: 39.955791,
+      longitude: 116.46504
+    },
+    ES: {
+      name: "Embassy",
+      address: "Chaoyang Qu, Sanlitun Lu, 9",
+      phone: "",
+      website: "https://www.exteriores.gob.es/Embajadas/pekin/es/Paginas/index.aspx",
+      latitude: 39.940949638,
+      longitude: 116.449098638
+    },
+    SE: {
+      name: "Embassy",
+      address: "3, Dongzhimenwai Dajie, Sanlitun, Chaoyang District, Beijing 100600",
+      phone: "+86-10-8531-1800",
+      website: "http://www.swedenabroad.com/Peking/",
+      latitude: 39.94095,
+      longitude: 116.45314
+    },
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/countries/china/fr/home/representations/ambassade-beijing.html",
+      latitude: 39.9431,
+      longitude: 116.4534
+    },
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 39.912125,
+      longitude: 116.433005555
+    },
+    TR: {
+      name: "Embassy",
+      address: "San Li Tun Dong 5 Jie No: 9",
+      phone: "+86 10 6532 1715",
+      website: "https://beijing-emb.mfa.gov.tr",
+      latitude: 39.904214,
+      longitude: 116.407413
+    },
+    GB: {
+      name: "Embassy",
+      address: "11 Guang Hua Lu, Jian Guo Men Wai",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-beijing/",
+      latitude: 39.9124,
+      longitude: 116.4423
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: ""
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.vnemba.org.cn/zh",
+      latitude: 39.9116,
+      longitude: 116.4398
     }
   },
-  "ZA": {
-    "AR": {
-      "name": "Embassy",
-      "address": "440 Hilda Street",
-      "phone": "+27 12 430 3524",
-      "website": "https://esafr.cancilleria.gob.ar"
+  PL: {
+    AR: {
+      name: "Embassy",
+      address: "Aleje Jerozolimskie 123a, p. 10, 02-017 Warszawa",
+      phone: "+48226176028",
+      website: "http://epolo.cancilleria.gov.ar/pl",
+      latitude: 52.224447222,
+      longitude: 21.064547222
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "292 Orient Street, 0083 Arcadia",
-      "phone": "+27 12 423 6000",
-      "website": "https://southafrica.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "+48-22-521-34-44",
+      website: "https://poland.embassy.gov.au"
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "152 Dallas Road, Pretoria",
-      "phone": "+27 12 366 5200",
-      "website": "http://pretoria.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "ul. Gagarina 34",
+      phone: "+48-22-841-00-81",
+      website: "http://www.bmeia.gv.at/pl/ambasada/warszawa.html",
+      latitude: 52.207633333,
+      longitude: 21.035877777
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "1103 Arcadia Street, 0083 Hatfield",
-      "phone": "Phone not available",
-      "website": "https://www.canadainternational.gc.ca/southafrica-afriquedusud/index.aspx"
+    BE: {
+      name: "Embassy",
+      address: "ul. Senatorska 34, 00-095 Warszawa",
+      phone: "+48-22-551-28-00",
+      website: "https://poland.diplomatie.belgium.be",
+      latitude: 52.243805555,
+      longitude: 21.003605555
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "270 Bourke Street",
-      "phone": "+27 12 343 1590",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "ul. Bajońska 15",
+      phone: "",
+      website: "http://varsovia.itamaraty.gov.br/pl/",
+      latitude: 52.2268,
+      longitude: 21.057594444
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "250 Melk Street, 0181 Pretoria",
-      "phone": "+27 12 425 1600",
-      "website": "https://za.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "ul. Matejki 1-5, 00-481 Warszawa",
+      phone: "+48-22-584-31-00",
+      website: "https://www.international.gc.ca/country-pays/poland-pologne/warsaw-varsovie.aspx?lang=fra",
+      latitude: 52.22472222,
+      longitude: 21.02611111
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "201 Florence Ribeiro Avenue",
-      "phone": "+27 12 427 89 00",
-      "website": "https://southafrica.diplo.de"
+    HR: {
+      name: "Embassy",
+      address: "ul. Ignacego Krasickiego 25, 02-611 Warszawa",
+      phone: "",
+      website: "http://pl.mvep.hr/pl/",
+      latitude: 52.192916666,
+      longitude: 21.020022222
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "852 Francis Baard Street",
-      "phone": "+27 12 342 5393 x05",
-      "website": "https://www.hcipretoria.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "ul. Koszykowa 18, 00-555 Warszawa",
+      phone: "",
+      website: "http://www.mzv.cz/warsaw",
+      latitude: 52.221738888,
+      longitude: 21.0206
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "428 King's Highway",
-      "phone": "+27 12 470 3500",
-      "website": "https://embassies.gov.il/pretoria"
+    FR: {
+      name: "Embassy",
+      address: "ul. Piękna, 100-477 Warszawa",
+      phone: "+48-22-529-30-00",
+      website: "https://pl.ambafrance.org/",
+      latitude: 52.2238,
+      longitude: 21.0273
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "796 George Avenue",
-      "phone": "+27 12 423 0000",
-      "website": "https://ambpretoria.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "ul. Jazdów 12",
+      phone: "+48-22-584-1700",
+      website: "https://polen.diplo.de",
+      latitude: 52.2231,
+      longitude: 21.02957
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "259 Baines Street",
-      "phone": "+27 12 452 1500",
-      "website": "https://www.za.emb-japan.go.jp"
+    GR: {
+      name: "Embassy",
+      address: "ul. Górnośląska 35, 00-432 Warszawa",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/poland.html",
+      latitude: 52.224683333,
+      longitude: 21.032702777
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "302 Brooks Street",
-      "phone": "+27 12 362 2249",
-      "website": "https://kenya.org.za/"
+    HU: {
+      name: "Embassy",
+      address: "ul. Księdza Ignacego Jana Skorupki 5,",
+      phone: "+48-22-628-44-51",
+      website: "https://varso.mfa.gov.hu/",
+      latitude: 52.223027777,
+      longitude: 21.023819444
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "210 Florence Ribeiro Avenue, Pretoria",
-      "phone": "Phone not available",
-      "website": null
+    IN: {
+      name: "Embassy",
+      address: "ul. Myśliwiecka 2, 00-459 Warszawa",
+      phone: "+48-22-540-00-00",
+      website: "https://www.indianembassywarsaw.gov.in/",
+      latitude: 52.217879,
+      longitude: 21.038142
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "570 Fehrsen Street",
-      "phone": "+27 12 460 1004",
-      "website": "https://embamex.sre.gob.mx/sudafrica/"
+    IE: {
+      name: "Embassy",
+      address: "ul. Mysia 5, 00-496 Warszawa",
+      phone: "+48-22-564-22-00",
+      website: "https://www.ireland.ie/en/poland/warsaw/",
+      latitude: 52.2303,
+      longitude: 21.0201
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "799 Francis Baard Street",
-      "phone": "+27 12 343 0230",
-      "website": "https://www.moroccoembassy.co.za/"
+    IT: {
+      name: "Embassy",
+      address: "pl. J. H. Dąbrowskiego 6, 00-055 Warszawa",
+      phone: "+48-22-826-34-71",
+      website: "https://ambvarsavia.esteri.it/it/",
+      latitude: 52.237289,
+      longitude: 21.009936
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "125 Middel Street, 0181 Pretoria",
-      "phone": "+27 12 4359000",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/africa/south-africa/new-zealand-high-commission-pretoria-south-africa/contactfull"
+    JP: {
+      name: "Embassy",
+      address: "ul. Szwoleżerów 8, 00-464 Warszawa",
+      phone: "+48-22-696-50-00",
+      website: "https://www.pl.emb-japan.go.jp/",
+      latitude: 52.2171,
+      longitude: 21.04075
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.nhcpsa.org"
+    DK: {
+      name: "Embassy",
+      address: "ul. Marszałkowska 142, 00-061 Warszawa",
+      phone: "+48-22-565-29-00",
+      website: "http://polen.um.dk/",
+      latitude: 52.2382,
+      longitude: 21.0073
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "165 Lynnwood Road",
-      "phone": "+27 12 364 3700",
-      "website": "https://www.norway.no/south-africa"
+    NL: {
+      name: "Embassy",
+      address: "ul. Kawalerii 10, 00-468 Warszawa",
+      phone: "",
+      website: "http://poland.nlembassy.org/",
+      latitude: 52.218347222,
+      longitude: 21.040986111
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "316 Brooks Street, 0102",
-      "phone": "+27 12 346 1508",
-      "website": "https://russianembassyza.mid.ru/"
+    MX: {
+      name: "Embassy",
+      address: "al. Jerozolimskie 123a, 02-017 Warszawa",
+      phone: "+48-22-311-29-00",
+      website: "http://embamex.sre.gob.mx/polonia/",
+      latitude: 52.224866666,
+      longitude: 20.991288888
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "711 Jan Shoba Street, Pretoria",
-      "phone": "+27 12 362 4230",
-      "website": "https://www.saudiembassy.co.za"
+    NZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: ""
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "980;982 Francis Baard Street, 0083 Pretoria",
-      "phone": "+27 12 430 6035",
-      "website": "https://www.mfa.gov.sg/pretoria"
+    NO: {
+      name: "Embassy",
+      address: "al. Armii Ludowej 26",
+      phone: "",
+      website: "https://www.norway.no/poland/",
+      latitude: 52.217777777,
+      longitude: 21.008055555
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "265 Melk Street, 0181 Pretoria",
-      "phone": "+27 12 460 2508",
-      "website": "http://overseas.mofa.go.kr/za-en/index.do"
+    CN: {
+      name: "Embassy",
+      address: "Ulica Bonifraterska 1",
+      phone: "",
+      website: "http://www.chinaembassy.org.pl",
+      latitude: 52.25051,
+      longitude: 21.00166
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Pretoria"
+    PT: {
+      name: "Embassy",
+      address: "ul. Ateńska 37, 03-978 Warszawa",
+      phone: "+48-22-511-10-10",
+      website: "http://ambasada-portugalii.pl",
+      latitude: 52.224475,
+      longitude: 21.06665
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Park Street, 1166 Pretoria",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/sydafrika-pretoria/"
+    KR: {
+      name: "Embassy",
+      address: "ul. Szwoleżerów 6",
+      phone: "+48-22-559-29-00",
+      website: "http://overseas.mofa.go.kr/pl-ko/index.do",
+      latitude: 52.216918,
+      longitude: 21.042088
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/pretoria"
+    ES: {
+      name: "Embassy",
+      address: "ul. Myśliwiecka 4, 00-459 Warszawa",
+      phone: "+48-22-583-40-01",
+      website: "http://www.exteriores.gob.es/Embajadas/VARSOVIA/pl/Paginas/inicio.aspx",
+      latitude: 52.218413888,
+      longitude: 21.038002777
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "248 Hill Street",
-      "phone": "+27 12 342 5470",
-      "website": "https://pretoria.thaiembassy.org"
+    SE: {
+      name: "Embassy",
+      address: "ul. Bagatela 3, 00-585 Warszawa",
+      phone: "+48-22-640-89-00",
+      website: "http://www.swedenabroad.com/Warszawa/",
+      latitude: 52.21336,
+      longitude: 21.0253
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://pretoria.emb.mfa.gov.tr"
+    CH: {
+      name: "Embassy",
+      address: "al. Ujazdowskie 27, 00-540 Warszawa",
+      phone: "+48-22-628-04-81",
+      website: "https://www.eda.admin.ch/warsaw",
+      latitude: 52.224197222,
+      longitude: 21.023475
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "992 Arcadia Street, 0083 Pretoria",
-      "phone": "+27 12 342 7736",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=f4d32ae9-01aa-4a43-a8ae-07aab0eb26dd"
+    TH: {
+      name: "Embassy",
+      address: "ul. Willowa 7",
+      phone: "+48-22-849-26-55",
+      website: "http://www.thaiembassy.org/warsaw/pl/",
+      latitude: 52.207252777,
+      longitude: 21.023883333
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "8 Riebeek Street, 8000 Cape Town",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-cape-town"
+    TR: {
+      name: "Embassy",
+      address: "ul. Rakowiecka 19",
+      phone: "",
+      website: "https://varsova-be.mfa.gov.tr",
+      latitude: 52.20887,
+      longitude: 21.01679
     },
-    "US": {
-      "name": "Embassy",
-      "address": "877 Pretorius Street, 0083 Arcadia",
-      "phone": "Phone not available",
-      "website": "https://za.usembassy.gov/"
+    GB: {
+      name: "Embassy",
+      address: "ul. Kawalerii 12, 00-468 Warszawa",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-warsaw/",
+      latitude: 52.218375,
+      longitude: 21.040363888
+    },
+    US: {
+      name: "Embassy",
+      address: "al. Ujazdowskie 29-31, 00-540 Warszawa",
+      phone: "+48-22-504-20-00",
+      website: "https://pl.usembassy.gov/",
+      latitude: 52.224166666,
+      longitude: 21.0225
+    },
+    VN: {
+      name: "Embassy",
+      address: "ul. Resorowa 36",
+      phone: "+48-22-651-60-98",
+      website: "https://vnembassy-warsaw.mofa.gov.vn/en-us/Pages/default.aspx",
+      latitude: 52.173536111,
+      longitude: 21.0671
     }
   },
-  "KR": {
-    "AR": {
-      "name": "Embassy",
-      "address": "206 녹사평대로, 04345 서울특별시",
-      "phone": "+82 2 796 8144",
-      "website": "https://ecore.cancilleria.gob.ar/"
+  PT: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://eport.cancilleria.gob.ar/",
+      latitude: 38.7367,
+      longitude: -9.1417
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "1 종로, 03154 서울특별시",
-      "phone": "+82 02-2003-0100",
-      "website": "https://southkorea.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://portugal.embassy.gov.au/",
+      latitude: 38.721269,
+      longitude: -9.145835
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "73 청와대로, 03054 서울특별시",
-      "phone": "+82 02-738-4970",
-      "website": "https://www.brazilhall.com/"
+    AT: {
+      name: "Embassy",
+      address: "Avenida Infante Santo 43",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-lissabon",
+      latitude: 38.7084,
+      longitude: -9.1674
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "21 정동길, 04518 서울특별시",
-      "phone": "+82 02-3783-6000",
-      "website": "https://www.korea.gc.ca/"
+    BE: {
+      name: "Embassy",
+      address: "Rua Castilho 75",
+      phone: "+351 213-170-510",
+      website: "http://portugal.diplomatie.belgium.be",
+      latitude: 38.7248,
+      longitude: -9.1536
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "114 독서당로, 04420 서울특별시",
-      "phone": "+82 2 749 0787",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://lisboa.itamaraty.gov.br/",
+      latitude: 38.74225,
+      longitude: -9.164583
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://kr.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "Avenida da Liberdade, 196-200",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/portugal/index.aspx",
+      latitude: 38.721269,
+      longitude: -9.145835
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "416 한강대로, 04637 서울특별시",
-      "phone": "+82 2 748 41 14",
-      "website": "https://seoul.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "Rua Dom Lourenço de Almeida, 24",
+      phone: "",
+      website: "http://pt.mvep.hr/",
+      latitude: 38.6993,
+      longitude: -9.2116
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    CZ: {
+      name: "Embassy",
+      address: "Rua Pêro de Alenquer 14",
+      phone: "",
+      website: "https://www.mzv.cz/lisbon",
+      latitude: 38.7038,
+      longitude: -9.2126
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/seoul"
+    FR: {
+      name: "Embassy",
+      address: "Rua Santos-o-Velho, 5",
+      phone: "",
+      website: "http://www.ambafrance-pt.org/",
+      latitude: 38.707287,
+      longitude: -9.1566
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambseoul.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+351-21-8810210",
+      website: "https://lissabon.diplo.de/",
+      latitude: 38.721273,
+      longitude: -9.140787
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "Rua Alto Do Duque 13",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/portugal.html",
+      latitude: 38.7027,
+      longitude: -9.2189
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "21-15 정동길, 04518 서울특별시",
-      "phone": "+82 02-311-8600",
-      "website": "https://www.netherlandsandyou.nl/your-country-and-the-netherlands/south-korea"
+    HU: {
+      name: "Embassy",
+      address: "Calcada de Santo Amaro, 85.",
+      phone: "+351-21-364-5928",
+      website: "https://lisszabon.mfa.gov.hu/",
+      latitude: 38.702833333,
+      longitude: -9.186666666
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "6 율곡로, 03142 서울특별시",
-      "phone": "+82 2 7981694",
-      "website": "https://embamex.sre.gob.mx/corea/index.php/menu-1"
+    IN: {
+      name: "Embassy",
+      address: "Rua Pêro da Covilhã 16",
+      phone: "",
+      website: "https://www.eoilisbon.gov.in/",
+      latitude: 38.7037,
+      longitude: -9.2095
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "Avenida da Liberdade, 200",
+      phone: "+351-213-308-200",
+      website: "https://www.ireland.ie/en/portugal/lisbon/",
+      latitude: 38.721269,
+      longitude: -9.145835
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "21-15 정동길, 04518 서울특별시",
-      "phone": "+82 2 37017700",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/north-asia/republic-of-korea-south/new-zealand-embassy/"
+    IT: {
+      name: "Embassy",
+      address: "Largo Conde Pombeiro, 6",
+      phone: "+351-213-515-320",
+      website: "https://amblisbona.esteri.it",
+      latitude: 38.724,
+      longitude: -9.1366
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "21-15 정동길, 04518 서울특별시",
-      "phone": "+82 02-727-71000",
-      "website": "https://www.norway.no/en/south-korea"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.pt.emb-japan.go.jp",
+      latitude: 38.7235,
+      longitude: -9.1492
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    DK: {
+      name: "Embassy",
+      address: "Rua Castilho 14C",
+      phone: "",
+      website: "https://portugal.um.dk/",
+      latitude: 38.7204,
+      longitude: -9.1491
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://embassies.mofa.gov.sa/sites/SouthKorea"
+    NL: {
+      name: "Embassy",
+      address: "Avenida Infante Santo 43",
+      phone: "",
+      website: "",
+      latitude: 38.7084,
+      longitude: -9.1674
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "136 세종대로22길, 서울특별시",
-      "phone": "+82-2-774-2464",
-      "website": "https://www.mfa.gov.sg/Seoul"
+    MX: {
+      name: "Embassy",
+      address: "Estrada de Monsanto, 78",
+      phone: "+351-21-762-1290",
+      website: "https://embamex.sre.gob.mx/portugal/",
+      latitude: 38.7375,
+      longitude: -9.2018
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "104 독서당로, 04420 서울특별시",
-      "phone": "+82 2 2077 5900",
-      "website": "http://www.southafrica-embassy.or.kr/"
+    NO: {
+      name: "Embassy",
+      address: "Avenida Dom Vasco da Gama, 1",
+      phone: "+351 21 300 9100",
+      website: "https://www.norway.no/pt/portugal",
+      latitude: 38.702,
+      longitude: -9.2175
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/Seul"
+    CN: {
+      name: "Embassy",
+      address: "Rua do Pau de Bandeira 11-13",
+      phone: "",
+      website: "http://pt.china-embassy.org/",
+      latitude: 38.707,
+      longitude: -9.165
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "10 소월로, 04527 서울특별시",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/sydkorea-seoul/"
+    PL: {
+      name: "Embassy",
+      address: "Av das Descobertas 2, 1400-092 Lisboa",
+      phone: "",
+      website: "http://lizbona.msz.gov.pl/pl/",
+      latitude: 38.7,
+      longitude: -9.18333
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "77 송월길, 03165 서울특별시",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/seoul"
+    KR: {
+      name: "Embassy",
+      address: "Avenida Miguel Bombarda, 36",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/pt-ko",
+      latitude: 38.7372,
+      longitude: -9.1473
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://seoul.thaiembassy.org/th/index"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/LISBOA",
+      latitude: 38.7193,
+      longitude: -9.1457
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "40 동호로20나길, 04606 서울특별시",
-      "phone": "+82 2 3780 1600",
-      "website": "https://seul-be.mfa.gov.tr"
+    SE: {
+      name: "Embassy",
+      address: "Rua Miguel Lupi 12",
+      phone: "",
+      website: "http://www.swedenabroad.com/portugal",
+      latitude: 38.71184,
+      longitude: -9.1551
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "118 독서당로, 04420 서울특별시",
-      "phone": "+82-2-7903235",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Seoul/Pages/home.aspx"
+    CH: {
+      name: "Embassy",
+      address: "Travessa do Jardim 15, 1350-229 Lisboa",
+      phone: "",
+      website: "https://www.eda.admin.ch/lisbon",
+      latitude: 38.714,
+      longitude: -9.1638
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "24 세종대로19길, 04519 서울특별시",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-seoul"
+    TH: {
+      name: "Embassy",
+      address: "Rua de Alcolena 12",
+      phone: "",
+      website: "https://lisbon.thaiembassy.org/",
+      latitude: 38.7012,
+      longitude: -9.2114
     },
-    "US": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://kr.usembassy.gov/busan/"
+    TR: {
+      name: "Embassy",
+      address: "Avenida das Descobertas, 22",
+      phone: "",
+      website: "https://lizbon-be.mfa.gov.tr",
+      latitude: 38.7071,
+      longitude: -9.2155
+    },
+    GB: {
+      name: "Embassy",
+      address: "Rua de São Bernardo, 33",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-lisbon",
+      latitude: 38.7162,
+      longitude: -9.1574
+    },
+    US: {
+      name: "Embassy",
+      address: "Avenida das Forças Armadas 133",
+      phone: "+351-21-727-3300",
+      website: "https://pt.usembassy.gov",
+      latitude: 38.7436,
+      longitude: -9.1622
     }
   },
-  "ES": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://cbarc.cancilleria.gob.ar/"
+  KR: {
+    AR: {
+      name: "Embassy",
+      address: "Chun Woo Bldg., 206 Noksapyeong-daero, Yongsan-gu",
+      phone: "",
+      website: "https://ecore.cancilleria.gob.ar/",
+      latitude: 37.536658,
+      longitude: 126.98741
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "259-D Paseo de la Castellana, 28046 Madrid",
-      "phone": "+34 913536600",
-      "website": "https://www.spain.embassy.gov.au"
+    AU: {
+      name: "Embassy",
+      address: "Kyobo Building, 1 Jong-ro, Jongno-gu",
+      phone: "",
+      website: "https://southkorea.embassy.gov.au/",
+      latitude: 37.571,
+      longitude: 126.9779
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://madri.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Kyobo Building, 1 Jong-ro, Jongno-gu",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-seoul/",
+      latitude: 37.571,
+      longitude: 126.9779
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "259D Paseo de la Castellana, 28046 Madrid",
-      "phone": "+34 91 382 8400",
-      "website": "https://www.canadainternational.gc.ca/spain-espagne"
+    BE: {
+      name: "Embassy",
+      address: "Itaewon-ro 45-gil 23, Yongsan-gu",
+      phone: "",
+      website: "https://republicofkorea.diplomatie.belgium.be",
+      latitude: 37.5364,
+      longitude: 126.9982
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "69 Calle de Velázquez, 28006 Madrid",
-      "phone": "+34 91 577 63 08",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://seul.itamaraty.gov.br/",
+      latitude: 37.58165,
+      longitude: 126.980497
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://es.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 37.5668,
+      longitude: 126.9709
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+34 932 92 10 00",
-      "website": "https://spanien.diplo.de/es-de/vertretungen/generalkonsulat1"
+    HR: {
+      name: "Embassy",
+      address: "Coryo Daeyungak Tower, Toegye-ro, Jung-gu 97",
+      phone: "",
+      website: "",
+      latitude: 37.561,
+      longitude: 126.9946
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "30-32 Avenida de Pío XII, 28016 Madrid",
-      "phone": "+34 91 309 88 82",
-      "website": "https://www.eoimadrid.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "K Twin Towers, B dong, 50 Jong-ro 1 gil",
+      phone: "",
+      website: "https://www.mzv.cz/seoul",
+      latitude: 37.5745869,
+      longitude: 126.9792435
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    FR: {
+      name: "Embassy",
+      address: "43-12 Seosomun-ro, Seodaemun-gu, Seoul, 03741",
+      phone: "",
+      website: "https://kr.ambafrance.org/",
+      latitude: 37.561333333,
+      longitude: 126.966213888
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://consbarcellona.esteri.it/consolato_barcellona"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+82-2-7484114",
+      website: "https://seoul.diplo.de/",
+      latitude: 37.5558016,
+      longitude: 126.9736064
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "109 Calle de Serrano, 28006 Madrid",
-      "phone": "+34 915907600",
-      "website": "https://www.es.emb-japan.go.jp/itprtop_es/"
+    GR: {
+      name: "Embassy",
+      address: "Hanwha Building, 1 Janggyo-dong, Jung-gu",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/republic-of-korea.html",
+      latitude: 37.56757,
+      longitude: 126.98656
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "13 Calle del Segre, 28002 Madrid",
-      "phone": "+34 917 81 20 00",
-      "website": "https://www.kenyaembassyspain.es/"
+    HU: {
+      name: "Embassy",
+      address: "04393, Seoul, Yongsan-gu, Jangmun-ro 58",
+      phone: "",
+      website: "https://szoul.mfa.gov.hu/",
+      latitude: 37.526638888,
+      longitude: 126.996111111
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "259-D Paseo de la Castellana, 28046 Madrid",
-      "phone": "+34 913 537 500",
-      "website": "https://www.nederlandwereldwijd.nl/landen/spanje/over-ons/ambassade-in-madrid"
+    IN: {
+      name: "Embassy",
+      address: "101 Dokseodang-ro",
+      phone: "",
+      website: "https://www.indembassyseoul.gov.in/",
+      latitude: 37.53554,
+      longitude: 127.01114
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://consulmex.sre.gob.mx/barcelona/"
+    IE: {
+      name: "Embassy",
+      address: "42, Jongro 1-gil",
+      phone: "",
+      website: "https://www.ireland.ie/en/republic-of-korea/seoul/",
+      latitude: 37.5739,
+      longitude: 126.9789
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "98 Hannam-daero, Yongsan-gu",
+      phone: "",
+      website: "https://ambseoul.esteri.it",
+      latitude: 37.537341,
+      longitude: 127.005287
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "7 Calle de Diego de León, 28006 Madrid",
-      "phone": "+34 915 230226",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/spain/new-zealand-embassy/"
+    JP: {
+      name: "Embassy",
+      address: "Twin Tree Tower A, 6, Yulgok-ro, Jongno-gu, Seoul, South Korea",
+      phone: "",
+      website: "https://www.kr.emb-japan.go.jp/itprtop_ja/",
+      latitude: 37.5754,
+      longitude: 126.9798
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "23 Calle del Segre, 28002 Madrid",
-      "phone": "+34 91 563 09 11",
-      "website": "https://www.ng-embassyspain.org"
+    DK: {
+      name: "Embassy",
+      address: "416, Hangang-daero, Jung-gu",
+      phone: "",
+      website: "https://sydkorea.um.dk/en",
+      latitude: 37.5558016,
+      longitude: 126.9736064
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "26 Calle de Serrano, 28001 Madrid",
-      "phone": "+34 91 436 38 40",
-      "website": "https://www.norway.no/es/spain/"
+    NL: {
+      name: "Embassy",
+      address: "21-15 정동길",
+      phone: "",
+      website: "",
+      latitude: 37.5676,
+      longitude: 126.9708
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "155 Calle de Velázquez, 28002 Madrid",
-      "phone": "+34915622264",
-      "website": "https://spain.mid.ru"
+    MX: {
+      name: "Embassy",
+      address: "Twin Tree Tower, Tower B, 17 Fl., 6, Yulgok-ro, Jongno-gu, Seoul, Korea 03142",
+      phone: "+82-2-798-1694",
+      website: "https://embamex.sre.gob.mx/corea/",
+      latitude: 37.57549,
+      longitude: 126.98051
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "3 Calle del Doctor Álvarez Sierra, 28033 Madrid",
-      "phone": "+34 91 416 10 00",
-      "website": null
+    NZ: {
+      name: "Embassy",
+      address: "Jeong Dong Building, 21-15, Jeongdong-gil, Jung-gu",
+      phone: "+82-2-3701-7700",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/asia/republic-of-korea-south/new-zealand-embassy/",
+      latitude: 37.567681,
+      longitude: 126.970882
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "91 Calle de Claudio Coello, 28006 Madrid",
-      "phone": "+34 91 436 37 80",
-      "website": "https://www.dirco.gov.za/madrid/"
+    NO: {
+      name: "Embassy",
+      address: "Jeong-dong Building, 21-15 Jeongdong-gil",
+      phone: "",
+      website: "https://www.norway.no/south-korea/",
+      latitude: 37.5675,
+      longitude: 126.971
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/es-barcelona-es/index.do"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "+82-2-738-1038",
+      website: "http://kr.china-embassy.org/",
+      latitude: 37.56222222,
+      longitude: 126.98277778
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "25 Calle de Caracas",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/es/embajada/spain-madrid/"
+    PL: {
+      name: "Embassy",
+      address: "70 Sagan-dong, Jongro-gu",
+      phone: "",
+      website: "https://www.gov.pl/web/hanguk",
+      latitude: 37.577666666,
+      longitude: 126.979888888
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "35 A Calle de Núñez de Balboa, 28001 Madrid",
-      "phone": "+34 91 436 39 60",
-      "website": "https://www.eda.admin.ch/madrid"
+    PT: {
+      name: "Embassy",
+      address: "13, Changdeokgung 1-gil, Jongno-gu",
+      phone: "",
+      website: "https://seul.embaixadaportugal.mne.gov.pt",
+      latitude: 37.5792,
+      longitude: 126.9885
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "29 Calle de Joaquín Costa, 28002 Madrid",
-      "phone": "+34 915632903",
-      "website": "https://madrid.thaiembassy.org"
+    ES: {
+      name: "Embassy",
+      address: "17 Hannam-daero 36-gil, Yongsan-gu",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Seul",
+      latitude: 37.5417283,
+      longitude: 127.0022234
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "7 Passeig de Gràcia, 08007 Barcelona",
-      "phone": "+34 933 17 92 31;+34 933 43 59 14;+34 933 17 10 51",
-      "website": "https://barselona-bk.mfa.gov.tr/"
+    SE: {
+      name: "Embassy",
+      address: "10 Sowol-ro, Jung-Gu",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/sydkorea-seoul/",
+      latitude: 37.558611,
+      longitude: 126.975424
     },
-    "AE": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "+34-932-40-85-50",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=9c459907-85ea-4da7-a547-e294e7122163"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/seoul",
+      latitude: 37.5702,
+      longitude: 126.9651
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "259D Paseo de la Castellana, 28046 Madrid",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-madrid"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://seoul.thaiembassy.org/en/index",
+      latitude: 37.533361111,
+      longitude: 127.002805555
     },
-    "US": {
-      "name": "Embassy",
-      "address": "75 Calle de Serrano, 28006",
-      "phone": "+34 91 587 2200",
-      "website": "https://es.usembassy.gov/embassy-consulates/madrid/"
+    TR: {
+      name: "Embassy",
+      address: "40, Dongho-ro 20 Na-gil, Jung-gu",
+      phone: "",
+      website: "https://seoul-emb.mfa.gov.tr",
+      latitude: 37.5599492,
+      longitude: 127.0061986
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 37.566916666,
+      longitude: 126.975138888
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+82-2-397-4114",
+      website: "https://kr.usembassy.gov/",
+      latitude: 37.5731,
+      longitude: 126.978
+    },
+    VN: {
+      name: "Embassy",
+      address: "58 Jong-ro 5-gil",
+      phone: "",
+      website: "https://vnembassy-seoul.mofa.gov.vn",
+      latitude: 37.5729,
+      longitude: 126.9803
     }
   },
-  "SE": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://esuec.cancilleria.gov.ar/"
+  ES: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://eespa.cancilleria.gob.ar",
+      latitude: 40.4284,
+      longitude: -3.6928
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://sweden.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://spain.embassy.gov.au/",
+      latitude: 40.4767,
+      longitude: -3.6879
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 545 163 00",
-      "website": "http://estocolmo.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-madrid/",
+      latitude: 40.4505,
+      longitude: -3.6916
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 453 30 00",
-      "website": "https://www.international.gc.ca/country-pays/sweden-suede/stockholm.aspx?lang=eng"
+    BE: {
+      name: "Embassy",
+      address: "Paseo de la Castellana, 18 Madrid",
+      phone: "+34-91-577-63-00",
+      website: "https://spain.diplomatie.belgium.be",
+      latitude: 40.4286,
+      longitude: -3.689
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.egyptembassy.se/"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://madri.itamaraty.gov.br",
+      latitude: 40.42817778,
+      longitude: -3.69424722
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 459 53 00",
-      "website": "https://se.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "Paseo de la Castellana 259D",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/spain-espagne",
+      latitude: 40.4767,
+      longitude: -3.6879
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://stockholm.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://es.mvep.hr",
+      latitude: 40.4302,
+      longitude: -3.6857
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.indembassysweden.gov.in/"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/madrid",
+      latitude: 40.4661,
+      longitude: -3.6747
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/STOCKHOLM/Pages/default.aspx"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://es.ambafrance.org/",
+      latitude: 40.4208,
+      longitude: -3.6899
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.ambstoccolma.esteri.it/ambasciata_stoccolma"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+34-91-557-9000",
+      website: "https://spanien.diplo.de/",
+      latitude: 40.429825,
+      longitude: -3.690708333
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.se.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mfa.gr/spain/",
+      latitude: 40.4474,
+      longitude: -3.6802
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://kenyaembassystockholm.com/"
+    HU: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://madrid.mfa.gov.hu/",
+      latitude: 40.429194444,
+      longitude: -3.691
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46855693300",
-      "website": "https://www.nederlandwereldwijd.nl/landen/zweden/over-ons/ambassade-in-stockholm"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eoimadrid.gov.in",
+      latitude: 40.4667,
+      longitude: -3.6744
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 511 614 00",
-      "website": "https://embamex.sre.gob.mx/suecia/index.php/en/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+34-914364093",
+      website: "https://www.ireland.ie/en/spain/madrid/",
+      latitude: 40.4342,
+      longitude: -3.6878
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://ambmadrid.esteri.it",
+      latitude: 40.432471,
+      longitude: -3.684057
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 40017270",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/sweden/new-zealand-embassy/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.es.emb-japan.go.jp",
+      latitude: 40.439638888,
+      longitude: -3.686444444
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.nigerianembassysweden.se/"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://spanien.um.dk/",
+      latitude: 40.4241,
+      longitude: -3.6878
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://norge.se/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 40.4767,
+      longitude: -3.6879
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.ryssland.se/"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/espana/",
+      latitude: 40.416,
+      longitude: -3.6974
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.mofa.gov.sa/sites/mofaen/SaudiMissionsAbroad/SaudiEmbassiesAbroad/Europe/Pages/EmbassyID40920.aspx"
+    NZ: {
+      name: "Embassy",
+      address: "Pinar 7, 3rd floor, Madrid 28006",
+      phone: "+34-915-23-02-26",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/europe/spain/new-zealand-embassy/",
+      latitude: 40.4351996,
+      longitude: -3.68134
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 24 39 50",
-      "website": "https://dirco1.azurewebsites.net/sweden/"
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.norway.no/es/spain/",
+      latitude: 40.4241,
+      longitude: -3.6878
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://swe.mofat.go.kr/eng/index.jsp"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://es.chineseembassy.org",
+      latitude: 40.4512,
+      longitude: -3.6532
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.pl/web/hiszpania",
+      latitude: 40.47125,
+      longitude: -3.731472222
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 676 79 00",
-      "website": "https://www.eda.admin.ch/stockholm"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://madrid.embaixadaportugal.mne.gov.pt",
+      latitude: 40.4299,
+      longitude: -3.6847
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.thaiembassy.se/"
+    KR: {
+      name: "Embassy",
+      address: "Calle de González Amigo 15",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/es-es",
+      latitude: 40.46626,
+      longitude: -3.66703
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "20 Dag Hammarskjölds Väg, 115 27 Stockholm",
-      "phone": "+46 8 667 29 60",
-      "website": "https://stokholm-be.mfa.gov.tr/"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/spanien-madrid/",
+      latitude: 40.4307,
+      longitude: -3.69377
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 411 12 44",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=149ec9b5-d0fe-46cf-8039-28d062427049"
+    CH: {
+      name: "Embassy",
+      address: "Calle de Núñez de Balboa 35A, 28001 Madrid",
+      phone: "",
+      website: "https://www.eda.admin.ch/madrid",
+      latitude: 40.4254,
+      longitude: -3.683
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://madrid.thaiembassy.org",
+      latitude: 40.4463,
+      longitude: -3.6858
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+46 8 783 53 00",
-      "website": "https://se.usembassy.gov/"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://madrid-be.mfa.gov.tr",
+      latitude: 40.4337,
+      longitude: -3.6943
+    },
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-madrid/",
+      latitude: 40.4767,
+      longitude: -3.6879
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+34-91-587-2200",
+      website: "https://es.usembassy.gov/",
+      latitude: 40.434647222,
+      longitude: -3.687088888
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 40.4529159,
+      longitude: -3.667069
     }
   },
-  "CH": {
-    "AR": {
-      "name": "Embassy",
-      "address": "1 Jungfraustrasse, 3005 Bern",
-      "phone": "+41 31 3564343",
-      "website": "http://www.esuiz.mrecic.gob.ar"
+  SE: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://esuec.cancilleria.gob.ar/",
+      latitude: 59.33672222,
+      longitude: 18.09119167
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://geneva.mission.gov.au/gene/Australian-SwissRelationship.html"
+    AU: {
+      name: "Embassy",
+      address: "Klarabergsviadukten 63, 111 64 Stockholm",
+      phone: "",
+      website: "http://www.sweden.embassy.gov.au/",
+      latitude: 59.33111111,
+      longitude: 18.05666667
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "68 Monbijoustrasse, 3007 Bern",
-      "phone": "+41 31 3718515",
-      "website": "http://berna.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-stockholm",
+      latitude: 59.33722222,
+      longitude: 18.08694444
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "88 Kirchenfeldstrasse, 3005 Bern",
-      "phone": "+41 31 3573200",
-      "website": "https://www.canadainternational.gc.ca/switzerland-suisse"
+    BE: {
+      name: "Embassy",
+      address: "Kungsbroplan 2",
+      phone: "+46-8-534-802-00",
+      website: "http://sweden.diplomatie.belgium.be/",
+      latitude: 59.33222222,
+      longitude: 18.04916667
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "61 Elfenauweg, 3006 Bern",
-      "phone": "+41 31 352 80 12",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "Kungsgatan 88",
+      phone: "",
+      website: "",
+      latitude: 59.331512,
+      longitude: 18.04748
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "46 Schosshaldenstrasse, 3006 Bern",
-      "phone": "+41 31 3592111",
-      "website": "http://www.ambafrance-ch.org"
+    CA: {
+      name: "Embassy",
+      address: "Klarabergsgatan 23, 111 21 Stockholm",
+      phone: "",
+      website: "",
+      latitude: 59.32904444,
+      longitude: 18.062725
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "78 Willadingweg, 3006 Bern",
-      "phone": "+41 31 359 43 43",
-      "website": "http://www.bern.diplo.de/"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://se.mvep.hr/",
+      latitude: 59.33002,
+      longitude: 18.07639
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "28 Kirchenfeldstrasse, 3005 Bern",
-      "phone": "+41 31 3501130",
-      "website": "https://www.indembassybern.gov.in/"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/stockholm",
+      latitude: 59.3439,
+      longitude: 18.07430833
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "32 Alpenstrasse, 3006 Bern",
-      "phone": "+41 31 3563500",
-      "website": "https://embassies.gov.il/bern"
+    FR: {
+      name: "Embassy",
+      address: "Kommendörsgatan 13, 114 48 Stockholm",
+      phone: "+46-8-459-53-00",
+      website: "http://www.ambafrance-se.org/",
+      latitude: 59.338888888,
+      longitude: 18.079166666
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "14 Elfenstrasse, 3005 Bern",
-      "phone": "+41 31 3500777",
-      "website": "http://www.ambberna.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "Skarpögatan 9, 115 27 Stockholm",
+      phone: "+46-8-670-1500",
+      website: "https://stockholm.diplo.de",
+      latitude: 59.3344,
+      longitude: 18.1063
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "53 Engestrasse, 3012 Bern",
-      "phone": "+41 31 3002222",
-      "website": "https://www.ch.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "Kommendörsgatan 16, 114 48 Stockholm",
+      phone: "",
+      website: "",
+      latitude: 59.33856389,
+      longitude: 18.07933333
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "7 Seftigenstrasse, 3007 Bern",
-      "phone": "+41 31 350 87 00",
-      "website": "https://www.nederlandwereldwijd.nl/landen/zwitserland/over-ons/ambassade-in-bern"
+    HU: {
+      name: "Embassy",
+      address: "Dag Hammarskjölds väg 10",
+      phone: "+46-8-661-67-62",
+      website: "https://stockholm.mfa.gov.hu/",
+      latitude: 59.33222222,
+      longitude: 18.10069444
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "20 Weltpoststrasse, 3015 Bern",
-      "phone": "+41 31 357 47 47",
-      "website": "https://embamex.sre.gob.mx/suiza"
+    IN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.indembassysweden.gov.in/",
+      latitude: 59.3229,
+      longitude: 18.0703
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+41-31-351-46-30",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "Hovslagargatan 5, 111 48 Stockholm",
+      phone: "",
+      website: "https://www.ireland.ie/en/sweden/stockholm/",
+      latitude: 59.32972222,
+      longitude: 18.07805556
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "2 Chemin des Fins, 1218 Le Grand-Saconnex",
-      "phone": "+41 22 9290350",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/united-nations/new-zealand-permanent-mission-geneva/"
+    IT: {
+      name: "Embassy",
+      address: "Djurgårdsvägen 174, 115 21 Stockholm",
+      phone: "",
+      website: "https://ambstoccolma.esteri.it",
+      latitude: 59.32321111,
+      longitude: 18.11140278
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "45 Zieglerstrasse, 3007 Bern",
-      "phone": "+41 31 3842600",
-      "website": "https://www.nigerianbern.org/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.se.emb-japan.go.jp",
+      latitude: 59.33472222,
+      longitude: 18.10666667
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "1 Giacomettistrasse, 3006 Bern",
-      "phone": "+41 31 3105555",
-      "website": "https://www.norway.no/switzerland"
+    DK: {
+      name: "Embassy",
+      address: "Jakobs Torg 1, 111 52 Stockholm",
+      phone: "",
+      website: "https://sverige.um.dk",
+      latitude: 59.330081,
+      longitude: 18.0697
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "37 Brunnadernrain",
-      "phone": "+41 31 352 05 66",
-      "website": "https://switzerland.mid.ru"
+    NL: {
+      name: "Embassy",
+      address: "Götgatan 16, 118 46 Stockholm",
+      phone: "",
+      website: "http://sweden.nlembassy.org/",
+      latitude: 59.3192,
+      longitude: 18.07064167
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "64 Kirchenfeldstrasse, 3005 Bern",
-      "phone": "+41 31 3521555;+41 31 3521556",
-      "website": "https://embassies.mofa.gov.sa/sites/Switzerland/EN/Pages/default.aspx"
+    MX: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/suecia",
+      latitude: 59.3385,
+      longitude: 18.0626
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "29 Alpenstrasse, 3006 Bern",
-      "phone": "+41 31 3501313",
-      "website": "https://www.southafrica.ch"
+    NZ: {
+      name: "Embassy",
+      address: "",
+      phone: "+46-8-400-172-70",
+      website: "",
+      latitude: 59.334161,
+      longitude: 18.10721
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+41-31-356-24-44",
-      "website": null
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.norway.no/no/sweden/",
+      latitude: 59.333794,
+      longitude: 18.107336
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "24 Kalcheggweg, 3000 Bern",
-      "phone": "+41 31 350 52 52",
-      "website": "http://www.exteriores.gob.es/Embajadas/BERNA"
+    CN: {
+      name: "Embassy",
+      address: "Lidovägen 8, 115 25 Stockholm",
+      phone: "+46-8-579-364-29",
+      website: "http://www.chinaembassy.se/eng/",
+      latitude: 59.33222222,
+      longitude: 18.12222222
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "26 Bundesgasse, 3011 Bern",
-      "phone": "+41 31 3287000",
-      "website": "https://www.swedenabroad.se/en/embassies/switzerland-bern/"
+    PL: {
+      name: "Embassy",
+      address: "Karlavägen 35, 114 31 Stockholm",
+      phone: "",
+      website: "http://www.sztokholm.msz.gov.pl/",
+      latitude: 59.3414,
+      longitude: 18.0736
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "56 Kirchstrasse, 3097 Liebefeld",
-      "phone": "+41 31 9703030",
-      "website": "https://www.thaiembassy.ch/"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 59.3389,
+      longitude: 18.0567
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "33 Lombachweg, 3006 Bern",
-      "phone": "+41 31 359 70 70",
-      "website": "https://bern-be.mfa.gov.tr/"
+    KR: {
+      name: "Embassy",
+      address: "Laboratoriegatan 10, 115 27 Stockholm",
+      phone: "",
+      website: "http://overseas.mofa.go.kr/se-en/index.do",
+      latitude: 59.33222222,
+      longitude: 18.10333333
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "31 Schwarztorstrasse, 3007 Bern",
-      "phone": "+41 31 3121710",
-      "website": null
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 59.32637778,
+      longitude: 18.09814444
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "50 Thunstrasse, 3005 Bern",
-      "phone": "+41-31-359-77-00",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-berne"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/stockholm",
+      latitude: 59.34613889,
+      longitude: 18.06808333
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+41-31-357-70-11",
-      "website": "https://ch.usembassy.gov/"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://thaiembassy.se",
+      latitude: 59.34166667,
+      longitude: 18.07448333
+    },
+    TR: {
+      name: "Embassy",
+      address: "Dag Hammarskjölds väg 20, 115 27 Stockholm",
+      phone: "",
+      website: "https://stokholm-be.mfa.gov.tr",
+      latitude: 59.332925,
+      longitude: 18.10369722
+    },
+    GB: {
+      name: "Embassy",
+      address: "Skarpögatan 6-8",
+      phone: "+46-8-671-30-00",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-stockholm/",
+      latitude: 59.33428333,
+      longitude: 18.10775278
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+49-8-783-53-00",
+      website: "https://se.usembassy.gov/",
+      latitude: 59.3333969,
+      longitude: 18.1048297
+    },
+    VN: {
+      name: "Embassy",
+      address: "Örby Slottsväg 26, 125 71 Älvsjö",
+      phone: "",
+      website: "",
+      latitude: 59.28138889,
+      longitude: 18.03027778
     }
   },
-  "TH": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+66 (0) 2259 0401",
-      "website": "https://etail.cancilleria.gob.ar"
+  CH: {
+    AR: {
+      name: "Embassy",
+      address: "Jungfraustrasse 1, 3005 Bern",
+      phone: "+41-31-356-43-43",
+      website: "https://esuiz.cancilleria.gob.ar",
+      latitude: 46.9440888,
+      longitude: 7.4546108
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "181 Wireless Road",
-      "phone": "+66 2 344 6300",
-      "website": "https://thailand.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "Weltpoststrasse 5, 2nd Floor – Flex Office 3015 Bern, Switzerland",
+      phone: "",
+      website: "https://geneva.mission.gov.au/gene/Australian-SwissRelationship.html",
+      latitude: 46.939436666,
+      longitude: 7.4754462
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "ถนนพระรามที่ 4",
-      "phone": "+66 02-679-8567",
-      "website": "http://bangkok.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Postfach 266, Kirchenfeldstrasse 77/79, 3005 Bern",
+      phone: "+41-31-356-52-52",
+      website: "",
+      latitude: 46.940611111,
+      longitude: 7.456527777
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "990 Rama IV, 10500",
-      "phone": "+66 0-2646-4300",
-      "website": "https://www.thailand.gc.ca/"
+    BE: {
+      name: "Embassy",
+      address: "Weltpoststrasse 4, 3000 Bern 15",
+      phone: "+41-31-350-01-50",
+      website: "https://switzerland.diplomatie.belgium.be",
+      latitude: 46.939099,
+      longitude: 7.4731202
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "35 ซอยเจริญกรุง 36, 10500",
-      "phone": "Phone not available",
-      "website": "https://th.ambafrance.org/"
+    BR: {
+      name: "Embassy",
+      address: "Monbijoustrasse 68, 3007 Bern",
+      phone: "+41-31-371-85-15",
+      website: "http://berna.itamaraty.gov.br/pt-br/Main.xml",
+      latitude: 46.940938888,
+      longitude: 7.435388888
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://bangkok.diplo.de/"
+    CA: {
+      name: "Embassy",
+      address: "Postfach, 88 Kirchenfeldstrasse, 3000 Bern 6",
+      phone: "+41-31-357-32-00",
+      website: "",
+      latitude: 46.940211111,
+      longitude: 7.457311111
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "ซอยสุขุมวิท 23",
-      "phone": "+66-2-2580300",
-      "website": "https://embassyofindiabangkok.gov.in"
+    HR: {
+      name: "Embassy",
+      address: "Thunstrasse 45, 3005 Bern",
+      phone: "+41-31-352-02-75",
+      website: "",
+      latitude: 46.9414,
+      longitude: 7.4565
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "75 ซอยสุขุมวิท 19",
-      "phone": "+662 204 9200",
-      "website": "https://embassies.gov.il/bangkok"
+    CZ: {
+      name: "Embassy",
+      address: "Muristrasse 53, 3006 Bern",
+      phone: "+41-31-350-40-70",
+      website: "https://www.mzv.cz/bern",
+      latitude: 46.9418,
+      longitude: 7.4683
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "87 ถนนวิทยุ, 10330",
-      "phone": "+66 2-2504970",
-      "website": "https://ambbangkok.esteri.it"
+    FR: {
+      name: "Embassy",
+      address: "Schosshaldenstrasse 46, 3006 Bern",
+      phone: "+41-31-359-21-11",
+      website: "https://ch.ambafrance.org/",
+      latitude: 46.946944444,
+      longitude: 7.466538888
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.th.emb-japan.go.jp/en/index.htm"
+    DE: {
+      name: "Embassy",
+      address: "Willadingweg 83, 3006 Bern",
+      phone: "+41-31-359-41-11",
+      website: "https://bern.diplo.de/",
+      latitude: 46.93528,
+      longitude: 7.46214
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "ถนนวิทยุ, 10330",
-      "phone": "Phone not available",
-      "website": null
+    GR: {
+      name: "Embassy",
+      address: "Weltpoststrasse 4, 3000 Bern 15",
+      phone: "+41-31-356-14-14",
+      website: "https://www.mfa.gr/switzerland/",
+      latitude: 46.93905,
+      longitude: 7.473063888
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "1 South Sathorn Road, 10120",
-      "phone": "+66 2 006 0734",
-      "website": "https://embamex.sre.gob.mx/tailandia"
+    HU: {
+      name: "Embassy",
+      address: "Postfach 216, Muristrasse 31, 3006 Bern",
+      phone: "+41-31-352-85-72",
+      website: "https://bern.mfa.gov.hu",
+      latitude: 46.942833333,
+      longitude: 7.46475
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.moroccoembassybangkok.org"
+    IN: {
+      name: "Embassy",
+      address: "Kirchenfeldstrasse 28, 3005 Bern",
+      phone: "+41-31-350-11-30",
+      website: "https://www.indembassybern.gov.in/",
+      latitude: 46.940002777,
+      longitude: 7.450452777
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "87 ถนนวิทยุ, 10330",
-      "phone": "+66 2 2542530",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/south-east-asia/thailand/new-zealand-embassy/"
+    IE: {
+      name: "Embassy",
+      address: "Kirchenfeldstrasse 68, 3005 Bern",
+      phone: "+41-31-350-03-80",
+      website: "https://www.ireland.ie/en/switzerland/berne/",
+      latitude: 46.9402,
+      longitude: 7.455519444
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "591 ถนนสุขุมวิท",
-      "phone": "+66 (0)2204 6500",
-      "website": "https://www.norway.no/en/thailand"
+    IT: {
+      name: "Embassy",
+      address: "Elfenstrasse 14, 3006 Bern",
+      phone: "+41-31-350-07-77",
+      website: "https://ambberna.esteri.it/",
+      latitude: 46.939247222,
+      longitude: 7.4616
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "78 ถนนทรัพย์",
-      "phone": "+66 2 234-98-24",
-      "website": "https://thailand.mid.ru"
+    JP: {
+      name: "Embassy",
+      address: "Engestrasse 53, 3012 Bern",
+      phone: "+41-31-300-22-22",
+      website: "https://www.ch.emb-japan.go.jp",
+      latitude: 46.960813888,
+      longitude: 7.438722222
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "28 ถนนสาทรเหนือ",
-      "phone": "+6626392999",
-      "website": "https://embassies.mofa.gov.sa/sites/Thailand"
+    NL: {
+      name: "Embassy",
+      address: "Seftigenstrasse 7, 3007 Bern",
+      phone: "+41-31-350-87-00",
+      website: "http://switzerland.nlembassy.org/",
+      latitude: 46.939652777,
+      longitude: 7.432230555
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.mfa.gov.sg/Bangkok"
+    MX: {
+      name: "Embassy",
+      address: "Weltpoststrasse 20, 3015 Bern",
+      phone: "+41-31-357-47-47",
+      website: "https://embamex.sre.gob.mx/suiza/",
+      latitude: 46.937669444,
+      longitude: 7.476666666
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+66 (0) 2 092 2900",
-      "website": "https://www.dirco.gov.za/bangkok"
+    NZ: {
+      name: "Consulate",
+      address: "Chemin des Fins, Grand-Saconnex, Geneva",
+      phone: "+41-22-929-03-50",
+      website: "",
+      latitude: 46.2263096,
+      longitude: 6.1239981
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "23 ถนนเทียมร่วมมิตร",
-      "phone": "+66 2 247 7537",
-      "website": "http://tha.mofa.go.kr/"
+    NO: {
+      name: "Embassy",
+      address: "Giacomettistrasse 1, 3006 Bern",
+      phone: "+41-31-310-55-55",
+      website: "https://www.norway.no/de/switzerland",
+      latitude: 46.947438888,
+      longitude: 7.437925
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "ถนนรัชดาภิเษก",
-      "phone": "Phone not available",
-      "website": "http://www.exteriores.gob.es/Embajadas/BANGKOK"
+    CN: {
+      name: "Embassy",
+      address: "Kalcheggweg 10, 3006 Bern",
+      phone: "+41-31-352-73-33",
+      website: "",
+      latitude: 46.939441666,
+      longitude: 7.465341666
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "140 ถนนสุขุมวิท, 10110",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/Bangkok/"
+    PL: {
+      name: "Embassy",
+      address: "Elfenstrasse 9, 3006 Bern",
+      phone: "+41-31-358-02-02",
+      website: "https://www.gov.pl/web/schweiz",
+      latitude: 46.93992,
+      longitude: 7.46136
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "35 North Wireless Road, 10330",
-      "phone": "+66 2 674 6900",
-      "website": "https://www.eda.admin.ch/bangkok"
+    PT: {
+      name: "Embassy",
+      address: "Weltpoststrasse 20, 3015 Bern",
+      phone: "+41-31-352-86-68",
+      website: "https://berna.embaixadaportugal.mne.gov.pt",
+      latitude: 46.937669444,
+      longitude: 7.476666666
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+66 2 355 5486;+66 2 355 5487;+66 2 355 5488;+66 2 355 5489",
-      "website": "https://bangkok-be.mfa.gov.tr"
+    KR: {
+      name: "Embassy",
+      address: "Kalcheggweg 38, 3006 Bern",
+      phone: "+41-31-356-24-44",
+      website: "",
+      latitude: 46.9369,
+      longitude: 7.4624
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "87 ถนนวิทยุ, 10330",
-      "phone": "Phone not available",
-      "website": "https://sp.mofaic.gov.ae/EN/DiplomaticMissions/Embassies/Bangkok/Pages/home.aspx"
+    ES: {
+      name: "Embassy",
+      address: "Kalcheggweg 24, 3006 Bern",
+      phone: "+41-31-350-52-52",
+      website: "http://www.exteriores.gob.es/Embajadas/BERNA",
+      latitude: 46.938188888,
+      longitude: 7.463144444
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "11/1 ถนนสาทรใต้, 10120",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-bangkok"
+    SE: {
+      name: "Embassy",
+      address: "Bundesgasse 26, 3011 Bern",
+      phone: "+41-31-328-70-00",
+      website: "http://www.swedenabroad.com/Bern/",
+      latitude: 46.94638,
+      longitude: 7.43995
     },
-    "US": {
-      "name": "Embassy",
-      "address": "95 ถนนวิทยุ, 10330 แขวงลุมพินี เขตปทุมวัน กรุงเทพมหานคร",
-      "phone": "+6622054000",
-      "website": "https://th.usembassy.gov/th/"
+    TH: {
+      name: "Embassy",
+      address: "Kirchstrasse 56, 3097 Liebefeld",
+      phone: "+41-31-970-30-30",
+      website: "",
+      latitude: 46.931002777,
+      longitude: 7.432416666
+    },
+    TR: {
+      name: "Embassy",
+      address: "Lombachweg 33, 3000 Bern 15",
+      phone: "+41-31-359-70-70",
+      website: "https://bern-be.mfa.gov.tr",
+      latitude: 46.938222,
+      longitude: 7.464889
+    },
+    GB: {
+      name: "Embassy",
+      address: "Thunstrasse 50, 3000 Bern 15",
+      phone: "+41-31-359-77-00",
+      website: "https://www.gov.uk/world/organisations/british-embassy-berne",
+      latitude: 46.940691666,
+      longitude: 7.457341666
+    },
+    US: {
+      name: "Embassy",
+      address: "Sulgeneckstrasse 19, 3007 Bern",
+      phone: "+41-31-357-70-11",
+      website: "https://ch.usembassy.gov/",
+      latitude: 46.943475,
+      longitude: 7.438241666
+    },
+    VN: {
+      name: "Embassy",
+      address: "Schlösslistrasse 26, 3008 Bern",
+      phone: "+41-31-388-78-72",
+      website: "",
+      latitude: 46.946794444,
+      longitude: 7.428819444
     }
   },
-  "TR": {
-    "AR": {
-      "name": "Embassy",
-      "address": "19 Karaca Sokak, 06680 Ankara",
-      "phone": "+90 312 446 20 61;+90 312 446 20 62",
-      "website": "https://eturq.cancilleria.gob.ar"
+  TH: {
+    AR: {
+      name: "Embassy",
+      address: "VASU 1 Building, No. 1 Soi 25, Sukhumvit Road",
+      phone: "",
+      website: "https://etail.cancilleria.gob.ar",
+      latitude: 13.736266,
+      longitude: 100.563517
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "88 Uğur Mumcu Caddesi, 06680 Ankara",
-      "phone": "+90 312 459 95 00",
-      "website": "https://turkey.embassy.gov.au/anka/home.html"
+    AU: {
+      name: "Embassy",
+      address: "181 Wireless Road",
+      phone: "",
+      website: "https://thailand.embassy.gov.au/",
+      latitude: 13.729596,
+      longitude: 100.54737
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "69A Reşit Galip Caddesi, 06680",
-      "phone": "+90 312 448 18 40",
-      "website": "https://www.gov.br/mre/pt-br/embaixada-ancara"
+    AT: {
+      name: "Embassy",
+      address: "No 14 Soi Nantha-Mozart, Sathorn Soi 1, South Sathorn Road,Thungmahamek, Sathorn",
+      phone: "",
+      website: "http://www.bmeia.gv.at/botschaft/bangkok.html",
+      latitude: 13.7224,
+      longitude: 100.5442
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "58 Cinnah Caddesi, 06690",
-      "phone": "+90 312 409 27 00",
-      "website": "https://www.international.gc.ca/country-pays/turkiye/ankara.aspx?lang=eng"
+    BE: {
+      name: "Embassy",
+      address: "16/F Sathorn Square - 98 North Sathorn Road",
+      phone: "+66-2-108-18-00",
+      website: "https://thailand.diplomatie.belgium.be",
+      latitude: 13.7224,
+      longitude: 100.5294
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "126 Atatürk Bulvarı, 06680",
-      "phone": "+90 312 426 10 26",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "Lumpini Tower 1168/101 Rama IV Road",
+      phone: "",
+      website: "http://bangkok.itamaraty.gov.br",
+      latitude: 13.72317,
+      longitude: 100.54928
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "70 Paris Caddesi, 06680",
-      "phone": "+90 312 455 45 45",
-      "website": "https://tr.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "990 Rama IV Road",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/thailand-thailande/",
+      latitude: 13.7272,
+      longitude: 100.5389
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "114 Atatürk Bulvarı, 06680 Ankara",
-      "phone": "+90 312 455 51 00",
-      "website": "https://ankara.diplo.de/"
+    CZ: {
+      name: "Embassy",
+      address: "71/6 Ruam Rudee Soi 2, Ploenchit Rd",
+      phone: "",
+      website: "https://www.mzv.cz/bangkok",
+      latitude: 13.73754,
+      longitude: 100.55087
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "77 Cinnah Caddesi, 06690",
-      "phone": "+90 312 438 21 95;+90 312 438 21 96;+90 312 438 21 97;+90 312 438 21 98",
-      "website": "https://www.indembassyankara.gov.in"
+    FR: {
+      name: "Embassy",
+      address: "35 Rue de Brest, Charoen Krung Soi 36, Charoen Krung Road",
+      phone: "",
+      website: "https://th.ambafrance.org/",
+      latitude: 13.7269,
+      longitude: 100.514
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "2 Söğütözü Caddesi, 06530",
-      "phone": "+90 312 459 75 00",
-      "website": "https://ankara.mfa.gov.il"
+    DE: {
+      name: "Embassy",
+      address: "9 South Sathorn Road",
+      phone: "+66-2-287-9000",
+      website: "https://bangkok.diplo.de/",
+      latitude: 13.724064,
+      longitude: 100.541933
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "118 Atatürk Bulvarı, 06680",
-      "phone": "+90 312 457 42 00",
-      "website": "https://ambankara.esteri.it/tr"
+    GR: {
+      name: "Embassy",
+      address: "Sathorn Nakorn Tower, No. 100 North Sathorn Road",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/thailand",
+      latitude: 13.72281,
+      longitude: 100.53035
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "81 Reşit Galip Caddesi, 06680",
-      "phone": "+90 312 446 05 00",
-      "website": "https://www.tr.emb-japan.go.jp/index.htm"
+    HU: {
+      name: "Embassy",
+      address: "Park Ventures Ecoplex 14th Floor, 57 Thanon Witthayu (Wireless Road), Lumpini, Pathumwan, Bangkok 10330",
+      phone: "",
+      website: "https://bangkok.mfa.gov.hu/",
+      latitude: 13.743138888,
+      longitude: 100.548027777
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "11 Fahreddin Paşa Sokağı, 06550 Ankara",
-      "phone": "+90 312 491 45 07;+90 312 491 45 08;+90 312 491 45 09",
-      "website": "https://kenyaembassy.org.tr/"
+    IN: {
+      name: "Embassy",
+      address: "46, Prasarnmitr, Sukhumvit, Soi 23",
+      phone: "",
+      website: "https://embassyofindiabangkok.gov.in",
+      latitude: 13.74222,
+      longitude: 100.56392
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "221 Mevlana Bulvarı, 06520",
-      "phone": "+90 312 409 18 00",
-      "website": "https://www.netherlandsandyou.nl/web/turkiye/"
+    IE: {
+      name: "Embassy",
+      address: "208 Wireless Road",
+      phone: "+66-2-016-1360",
+      website: "https://www.ireland.ie/en/thailand/bangkok/",
+      latitude: 13.7394,
+      longitude: 100.5464
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "1 Pak Sokağı, 06690",
-      "phone": "+90 312 442 30 33",
-      "website": "https://embamex.sre.gob.mx/turquia/index.php/laembajada"
+    IT: {
+      name: "Embassy",
+      address: "87 Wireless Road",
+      phone: "",
+      website: "https://ambbangkok.esteri.it",
+      latitude: 13.738797222,
+      longitude: 100.547980555
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "11 Rabat Sokak, 06680 Ankara",
-      "phone": "+90 312 347 60 20",
-      "website": null
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.th.emb-japan.go.jp/",
+      latitude: 13.729444444,
+      longitude: 100.545694444
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "11 Kız Kulesi Sokağı, 06680 Ankara",
-      "phone": "+90 312 446 33 33",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/middle-east/turkey/new-zealand-embassy-to-turkey"
+    DK: {
+      name: "Embassy",
+      address: "Sathorn Soi 1, (10 Soi Attakarn Prasit)",
+      phone: "",
+      website: "https://thailand.um.dk",
+      latitude: 13.72329,
+      longitude: 100.54364
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "56 Ugur Mumcu'nun Sokağı, 06680 Ankara",
-      "phone": "+90 312 448 10 76;+90 312 448 10 77;+90 312 448 10 78;+90 312 448 10 79",
-      "website": "https://ankara.foreignaffairs.gov.ng/;https://embassynigeriaturkey.com"
+    NL: {
+      name: "Embassy",
+      address: "15 Soi Ton Son, Lumphini, Pathumwan",
+      phone: "",
+      website: "",
+      latitude: 13.7388,
+      longitude: 100.5456
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "106 Turan Güneş Bulvarı, 06550 Ankara",
-      "phone": "+90 312 408 48 00",
-      "website": "https://www.norway.no/en/turkiye/"
+    MX: {
+      name: "Embassy",
+      address: "1 South Sathorn Road",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/tailandia",
+      latitude: 13.7254,
+      longitude: 100.5444
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "5 Andrey Karlov Sokağı, 06690",
-      "phone": "+90 312 439 21 83",
-      "website": "https://turkey.mid.ru"
+    NZ: {
+      name: "Embassy",
+      address: "87 Wireless Road 10330, Bangkok",
+      phone: "+66-2-254-2530",
+      website: "https://www.mfat.govt.nz/countries-and-regions/asia/thailand/new-zealand-embassy/",
+      latitude: 13.73953,
+      longitude: 100.54764
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "6 Turan Emeksiz Caddesi, 06680",
-      "phone": "+90 312 468 55 40;+90 312 468 55 41",
-      "website": "https://embassies.mofa.gov.sa/sites/Turkey/EN/Pages/default.aspx"
+    NO: {
+      name: "Embassy",
+      address: "591 Sukhumvit Rd., Soi 33",
+      phone: "",
+      website: "https://www.norway.no/en/thailand",
+      latitude: 13.73264,
+      longitude: 100.56747
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "5 719. Sokak, 06550",
-      "phone": "+90 312 442 43 30",
-      "website": "https://www.mfa.gov.sg/ankara"
+    CN: {
+      name: "Embassy",
+      address: "57 Ratchadaphisek Road",
+      phone: "",
+      website: "http://th.china-embassy.gov.cn/chn/",
+      latitude: 13.763226111,
+      longitude: 100.566775
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "4 298. Cadde, 06610",
-      "phone": "+90 312 405 68 61;+90 312 405 68 71",
-      "website": "http://www.southafrica.org.tr/"
+    PL: {
+      name: "Embassy",
+      address: "Athenee Tower, Wireless Road, Lumpini, Pathumwan",
+      phone: "",
+      website: "https://www.gov.pl/web/tajlandia",
+      latitude: 13.741194,
+      longitude: 100.548694
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "5 Alaçam Sokağı, 06690",
-      "phone": "+90 312 468 48 20;+90 312 468 48 23",
-      "website": "https://overseas.mofa.go.kr/tr-tr/index.do"
+    PT: {
+      name: "Embassy",
+      address: "26, Bush Lane",
+      phone: "",
+      website: "https://banguecoque.embaixadaportugal.mne.gov.pt",
+      latitude: 13.727778,
+      longitude: 100.514167
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "8 Prof. Dr. Aziz Sancar Caddesi, 06690 Ankara",
-      "phone": "+90 312 438 03 92;+90 312 405 80 76;+90 312 405 80 77",
-      "website": "http://www.exteriores.gob.es/Embajadas/ANKARA"
+    KR: {
+      name: "Embassy",
+      address: "23 Thiam Ruam Mit Road, Ratchadapisek",
+      phone: "",
+      website: "http://tha.mofa.go.kr",
+      latitude: 13.767472,
+      longitude: 100.577944
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "7 Katip Çelebi Sokağı, 06690 Ankara",
-      "phone": "+90 312 455 41 00",
-      "website": "https://www.swedenabroad.se/ankara"
+    ES: {
+      name: "Embassy",
+      address: "193/98-99 Lake Rajada Office Complex, 23rd floor, Ratchadaphisek Road",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Bangkok",
+      latitude: 13.7311,
+      longitude: 100.5605
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "247 Atatürk Bulvarı, 06690 Ankara",
-      "phone": "+90 312 457 31 00",
-      "website": "https://www.eda.admin.ch/ankara"
+    SE: {
+      name: "Embassy",
+      address: "140 Sukhumvit Road, Khlong Toei, Bangkok 10110",
+      phone: "",
+      website: "http://www.swedenabroad.com/Bangkok/",
+      latitude: 13.740536111,
+      longitude: 100.554783333
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "87 Koza Sokak, 06680",
-      "phone": "+90 312 437 43 18",
-      "website": "https://ankara.thaiembassy.org"
+    CH: {
+      name: "Embassy",
+      address: "35 North Wireless Road",
+      phone: "",
+      website: "https://www.eda.admin.ch/bangkok",
+      latitude: 13.7454,
+      longitude: 100.5485
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "5 596. Sokak, 06550",
-      "phone": "+90 312 490 14 14",
-      "website": "https://www.mofa.gov.ae/Missions/Ankara"
+    TR: {
+      name: "Embassy",
+      address: "61-1, Soi Chat San, Sutthisan Road",
+      phone: "",
+      website: "https://bangkok-emb.mfa.gov.tr",
+      latitude: 13.788079,
+      longitude: 100.586792
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "46 Şehit Ersan Caddesi, 06690 Ankara",
-      "phone": "+90 312 455 33 44",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-ankara"
+    GB: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-bangkok",
+      latitude: 13.744933,
+      longitude: 100.547562
     },
-    "US": {
-      "name": "Embassy",
-      "address": "1 1480. Sokak, 06530",
-      "phone": "+90 312 294 00 00",
-      "website": "https://tr.usembassy.gov/"
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+66-2-205-4000",
+      website: "https://th.usembassy.gov/",
+      latitude: 13.736166666,
+      longitude: 100.546444444
     }
   },
-  "AE": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "9712 443 6838",
-      "website": "https://eearb.cancilleria.gob.ar"
+  TR: {
+    AR: {
+      name: "Embassy",
+      address: "Karaca Sokak, 19",
+      phone: "",
+      website: "https://eturq.cancilleria.gob.ar/",
+      latitude: 39.88803,
+      longitude: 32.872
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2 401 7500",
-      "website": "https://www.uae.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "Uğur Mumcu Caddesi No: 88, Gaziosmanpaşa 06700",
+      phone: "+90-312-4599500",
+      website: "https://turkey.embassy.gov.au/",
+      latitude: 39.89573,
+      longitude: 32.87953
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2 632 0606",
-      "website": "http://abudhabi.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "Atatürk Bulvarı no.189",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-ankara/",
+      latitude: 39.9096,
+      longitude: 32.857
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.international.gc.ca/country-pays/uae-eau/abu_dhabi-abou_dhabi.aspx"
+    BE: {
+      name: "Embassy",
+      address: "Vista 312 Office Building, Eskişehir Yolu, 2176. Cadde No: 9",
+      phone: "+90 312-544-30-58",
+      website: "http://turkey.diplomatie.belgium.be",
+      latitude: 39.9098,
+      longitude: 32.7966
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "Reşit Galip Caddesi, 69A",
+      phone: "",
+      website: "http://ancara.itamaraty.gov.br",
+      latitude: 39.89622,
+      longitude: 32.86994
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2 813 10 00",
-      "website": "https://ae.ambafrance.org/"
+    CA: {
+      name: "Embassy",
+      address: "Cinnah Caddesi No : 58",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/turkey-turquie",
+      latitude: 39.8925,
+      longitude: 32.8558
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HR: {
+      name: "Embassy",
+      address: "Kırkpınar Sokak 18/5",
+      phone: "",
+      website: "http://tr.mvep.hr",
+      latitude: 39.89086,
+      longitude: 32.85241
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2449 2700",
-      "website": "https://indembassyuae.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "Kaptanpaşa Sokak No. 15",
+      phone: "",
+      website: "https://www.mzv.cz/ankara",
+      latitude: 39.89701,
+      longitude: 32.87767
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    FR: {
+      name: "Embassy",
+      address: "Paris Caddesi No:70",
+      phone: "",
+      website: "https://tr.ambafrance.org/",
+      latitude: 39.902428,
+      longitude: 32.856714
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambabudhabi.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+90 312 455 51 00",
+      website: "https://tuerkei.diplo.de",
+      latitude: 39.904609,
+      longitude: 32.855967
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.uae.emb-japan.go.jp"
+    GR: {
+      name: "Embassy",
+      address: "Zia Ür Rahman cad. 9-11",
+      phone: "",
+      website: "https://www.mfa.gr/turkey/",
+      latitude: 39.89208,
+      longitude: 32.86821
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    HU: {
+      name: "Embassy",
+      address: "Sancak Mahallesi, Layoş Koşut Caddesi No: 2",
+      phone: "+90 312 405 80 60",
+      website: "https://ankara.mfa.gov.hu/",
+      latitude: 39.8721963,
+      longitude: 32.8662597
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embamex.sre.gob.mx/emiratosarabesunidos"
+    IN: {
+      name: "Embassy",
+      address: "Cinnah Caddesi No: 77",
+      phone: "",
+      website: "http://www.indembassyankara.gov.in",
+      latitude: 39.889912,
+      longitude: 32.85568
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "Ugur Mumcu Caddesi No.88",
+      phone: "+90-312-4591000",
+      website: "https://www.ireland.ie/en/turkiye/ankara/",
+      latitude: 39.8956,
+      longitude: 32.8793
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2 4963333",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/middle-east/dubai/new-zealand-embassy/"
+    IT: {
+      name: "Embassy",
+      address: "Atatürk Bulvarı No: 118",
+      phone: "",
+      website: "https://ambankara.esteri.it",
+      latitude: 39.9044,
+      longitude: 32.8575
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    JP: {
+      name: "Embassy",
+      address: "Reşit Galip Caddesi, No.: 81",
+      phone: "",
+      website: "https://www.tr.emb-japan.go.jp",
+      latitude: 39.894305555,
+      longitude: 32.869916666
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 02 403 8400",
-      "website": "https://www.norway.no/en/united-arab-emirates"
+    DK: {
+      name: "Embassy",
+      address: "Sakarya Mahallesi, Turan Güneş Bulvarı No: 106",
+      phone: "",
+      website: "https://tyrkiet.um.dk",
+      latitude: 39.86284,
+      longitude: 32.854
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 50-463-54-80",
-      "website": "https://uae.mid.ru"
+    NL: {
+      name: "Embassy",
+      address: "Mevlana Bulvarı, Yıldırım Kule No: 221",
+      phone: "",
+      website: "https://www.netherlandsandyou.nl/web/turkiye/home",
+      latitude: 39.8674,
+      longitude: 32.8578
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+97124445700",
-      "website": "https://embassies.mofa.gov.sa/sites/uae"
+    MX: {
+      name: "Embassy",
+      address: "Pak Sokak, Portakal Çiçeği Residence No: 1/110",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/turquia",
+      latitude: 39.89082,
+      longitude: 32.85235
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.mfa.gov.sg/Abu-Dhabi"
+    NZ: {
+      name: "Embassy",
+      address: "Kizkulesi Sokak, Gaziosmanpaşa, Ankara",
+      phone: "",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/middle-east/turkey/new-zealand-embassy/",
+      latitude: 39.892442,
+      longitude: 32.869839
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.dirco.gov.za/abudhabi"
+    NO: {
+      name: "Embassy",
+      address: "Turan Güneş Bulvarı, No: 106",
+      phone: "",
+      website: "https://www.norway.no/en/turkiye/",
+      latitude: 39.8629,
+      longitude: 32.8539
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 (02) 407 90 00",
-      "website": "http://www.exteriores.gob.es/Embajadas/ABUDHABI"
+    CN: {
+      name: "Embassy",
+      address: "Ferit Recai Ertuğrul Cad. No:18",
+      phone: "",
+      website: "http://tr.china-embassy.org",
+      latitude: 39.85154,
+      longitude: 32.8326
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/f%C3%B6renade-arabemiraten-abu-dhabi/"
+    PL: {
+      name: "Embassy",
+      address: "Atatürk Bulvarı No: 241",
+      phone: "",
+      website: "https://www.gov.pl/web/turcja",
+      latitude: 39.900194444,
+      longitude: 32.860861111
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/uae"
+    PT: {
+      name: "Embassy",
+      address: "Kırlangıç Sokak, n.º 39 Gaziosmanpaşa",
+      phone: "",
+      website: "https://ancara.embaixadaportugal.mne.gov.pt",
+      latitude: 39.8937,
+      longitude: 32.867
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+971 2 410 9999;+971 2 410 9947",
-      "website": "https://abudhabi-be.mfa.gov.tr"
+    KR: {
+      name: "Embassy",
+      address: "Alaçam Sokağı No: 5",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/tr-tr/index.do",
+      latitude: 39.896444444,
+      longitude: 32.857111111
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "شارع الحِصِن, أبو ظبي",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/world/organisations/british-embassy-abu-dhabi"
+    ES: {
+      name: "Embassy",
+      address: "Prof. Dr. Aziz Sancar Caddesi No: 8",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/ANKARA",
+      latitude: 39.8848,
+      longitude: 32.8568
     },
-    "US": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "(+971-2) 414-2200",
-      "website": "https://ae.usembassy.gov/"
+    SE: {
+      name: "Embassy",
+      address: "Katip Çelebi Sokağı No: 7",
+      phone: "",
+      website: "https://www.swedenabroad.se/ankara",
+      latitude: 39.8978,
+      longitude: 32.85931
+    },
+    CH: {
+      name: "Embassy",
+      address: "Atatürk Bulvarı No: 247, 06680 Kavaklıdere, Ankara",
+      phone: "",
+      website: "https://www.eda.admin.ch/ankara",
+      latitude: 39.8978,
+      longitude: 32.8619
+    },
+    TH: {
+      name: "Embassy",
+      address: "Koza Caddesi No: 87",
+      phone: "",
+      website: "https://ankara.thaiembassy.org",
+      latitude: 39.89166,
+      longitude: 32.87659
+    },
+    GB: {
+      name: "Embassy",
+      address: "Şehit Ersan Caddesi No: 46/A",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-ankara",
+      latitude: 39.88964,
+      longitude: 32.85828
+    },
+    US: {
+      name: "Embassy",
+      address: "1480. Sokak No: 1, Çankaya",
+      phone: "+90-312-294-00-00",
+      website: "https://tr.usembassy.gov/",
+      latitude: 39.9078,
+      longitude: 32.8555
+    },
+    VN: {
+      name: "Embassy",
+      address: "414 Sokak, No: 14",
+      phone: "",
+      website: "https://vnembassy-ankara.mofa.gov.vn",
+      latitude: 39.88221,
+      longitude: 32.86961
     }
   },
-  "GB": {
-    "AR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://eruni.cancilleria.gob.ar/"
+  GB: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://eruni.cancilleria.gob.ar/",
+      latitude: 51.5125,
+      longitude: -0.14875
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "Strand, WC2B 4LA London",
-      "phone": "+44 20 7379 4334",
-      "website": "https://uk.embassy.gov.au/"
+    AU: {
+      name: "Consulate",
+      address: "Australia House, The Strand, London, WC2B 4LA",
+      phone: "",
+      website: "https://uk.embassy.gov.au/lhlh/home.html",
+      latitude: 51.5129,
+      longitude: -0.115722
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "14/16 Cockspur Street, SW1Y 5BL London",
-      "phone": "Phone not available",
-      "website": "http://londres.itamaraty.gov.br"
+    AT: {
+      name: "Embassy",
+      address: "18 Belgrave Mews West, London, SW1X 8HU",
+      phone: "",
+      website: "",
+      latitude: 51.4985,
+      longitude: -0.154694
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "5 Trafalgar Square, SW1Y 5BJ London",
-      "phone": "+44 20 7258 6600",
-      "website": "https://www.canadainternational.gc.ca/united_kingdom-royaume_uni"
+    BE: {
+      name: "Embassy",
+      address: "",
+      phone: "+44 20-747-037-00",
+      website: "https://unitedkingdom.diplomatie.belgium.be/",
+      latitude: 51.500987,
+      longitude: -0.153072
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "26 South Street, London",
-      "phone": "Phone not available",
-      "website": null
+    BR: {
+      name: "Embassy",
+      address: "14–16 Cockspur Street",
+      phone: "",
+      website: "",
+      latitude: 51.507513,
+      longitude: -0.130803
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "58 Knightsbridge, SW1X 7JT London",
-      "phone": "Phone not available",
-      "website": "http://www.ambafrance-uk.org/"
+    CA: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: "http://www.canadainternational.gc.ca/united_kingdom-royaume_uni",
+      latitude: 51.5079,
+      longitude: -0.1295
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "23 Belgrave Square, SW1X 8PZ London",
-      "phone": "+44 20 78 24 13 00",
-      "website": "https://uk.diplo.de/uk-en/01/1embassy"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://uk.mvep.hr",
+      latitude: 51.5233,
+      longitude: -0.14125
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+44-20-8629-5950",
-      "website": "https://www.hcilondon.gov.in"
+    CZ: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.mzv.cz/london",
+      latitude: 51.5094,
+      longitude: -0.19349
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "2 Palace Green, W8 4QB London",
-      "phone": "Phone not available",
-      "website": "http://embassies.gov.il/london/"
+    FR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.ambafrance-uk.org/",
+      latitude: 51.5025,
+      longitude: -0.158257
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "14 Three Kings Yard, W1K 4EH London",
-      "phone": "+44 20 7312 2200",
-      "website": "http://www.amblondra.esteri.it/ambasciata_londra/"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+44-20-78-241300",
+      website: "https://uk.diplo.de",
+      latitude: 51.49825,
+      longitude: -0.15425
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.edinburgh.uk.emb-japan.go.jp/itprtop_ja/"
+    GR: {
+      name: "Embassy",
+      address: "1A Holland Park, London, W11 3TP",
+      phone: "",
+      website: "",
+      latitude: 51.5055,
+      longitude: -0.2045
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "45 Portland Place, London",
-      "phone": "Phone not available",
-      "website": null
+    HU: {
+      name: "Embassy",
+      address: "35 Eaton Place",
+      phone: "",
+      website: "https://london.mfa.gov.hu/",
+      latitude: 51.4973,
+      longitude: -0.152611
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "38 Hyde Park Gate, SW7 5DP London",
-      "phone": "+44 20 7590 3200",
-      "website": "https://www.nederlandwereldwijd.nl/landen/verenigd-koninkrijk/over-ons/ambassade-in-londen"
+    IN: {
+      name: "Consulate",
+      address: "India House, Aldwych, London WC2B 4NA, United Kingdom",
+      phone: "+44-20-8629-5950",
+      website: "https://www.hcilondon.gov.in",
+      latitude: 51.512388888,
+      longitude: -0.118305555
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "48 Belgrave Square, London",
-      "phone": "Phone not available",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+44-20-7235-2171",
+      website: "https://www.ireland.ie/en/greatbritain/london/",
+      latitude: 51.5004,
+      longitude: -0.149778
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "49 Queen's Gate Gardens, SW7 5NE London",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "14 Three Kings Yard, Davies Street, London, W1K 4EH",
+      phone: "",
+      website: "https://amblondra.esteri.it",
+      latitude: 51.511761,
+      longitude: -0.149689
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "80 Haymarket, SW1Y 4TQ London",
-      "phone": "+44 20 7930 8422",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/europe/united-kingdom/new-zealand-high-commission/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.uk.emb-japan.go.jp",
+      latitude: 51.505396,
+      longitude: -0.146074
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "9 Northumberland Avenue, WC2N 5BX London",
-      "phone": "+44 20 7839 1244",
-      "website": "https://www.nigeriahc.org.uk"
+    DK: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://storbritannien.um.dk/",
+      latitude: 51.4978,
+      longitude: -0.1594
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "25 Belgrave Square, SW1X 8QD London",
-      "phone": "+44 207 591 5500",
-      "website": "https://www.norway.no/uk/"
+    NL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://unitedkingdom.nlembassy.org/",
+      latitude: 51.5009,
+      longitude: -0.182278
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://www.rus.rusemb.org.uk/index"
+    MX: {
+      name: "Embassy",
+      address: "16 St. George Street, London, W1S 1FD",
+      phone: "",
+      website: "",
+      latitude: 51.5129,
+      longitude: -0.1436
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "30 Charles Street, London",
-      "phone": "+44 20 7917 3000",
-      "website": "https://embassies.mofa.gov.sa/sites/uk"
+    NZ: {
+      name: "Consulate",
+      address: "",
+      phone: "",
+      website: "http://www.nzembassy.com",
+      latitude: 51.5077,
+      longitude: -0.1318
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "9 Wilton Crescent, SW1X 8SP London",
-      "phone": "+44 20 7235 8315",
-      "website": "https://www.mfa.gov.sg/content/mfa/overseasmission/london.html"
+    NO: {
+      name: "Embassy",
+      address: "",
+      phone: "+44 207 591 5500",
+      website: "https://www.norway.no/uk/",
+      latitude: 51.4981,
+      longitude: -0.153028
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "Trafalgar Square, London",
-      "phone": "Phone not available",
-      "website": null
+    CN: {
+      name: "Embassy",
+      address: "49–51 [[Portland Place]], London W1B 1JL",
+      phone: "",
+      website: "http://gb.china-embassy.gov.cn/",
+      latitude: 51.521,
+      longitude: -0.14548
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Palace Gate, W8 5NF London",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/gb-ko/index.do"
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.pl/web/unitedkingdom",
+      latitude: 51.5208,
+      longitude: -0.1456
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "39 Chesham Place, London",
-      "phone": "Phone not available",
-      "website": null
+    PT: {
+      name: "Embassy",
+      address: "11, Belgrave Square, London, SW1X 8PP",
+      phone: "",
+      website: "https://www.londres.embaixadaportugal.mne.pt/pt/",
+      latitude: 51.4996,
+      longitude: -0.155194
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "11 Montagu Place, W1H 2AL London",
-      "phone": "Phone not available",
-      "website": "http://www.swedenabroad.com/London/"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/gb-en/index.do",
+      latitude: 51.498,
+      longitude: -0.136583
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "16-18 Montagu Place, W1H 2BQ London",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/london"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 51.4978,
+      longitude: -0.153617
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "29-30 Queen's Gate, SW7 5JB London",
-      "phone": "+44 20 7589 2944",
-      "website": "https://london.thaiembassy.org/"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.swedenabroad.com/London/",
+      latitude: 51.5189,
+      longitude: -0.160333
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "39 Drumsheugh Gardens, EH3 7SW Edinburgh",
-      "phone": "+44 131 285 9282",
-      "website": "https://edinburg-bk.mfa.gov.tr/"
+    CH: {
+      name: "Embassy",
+      address: "16/18 Montagu Place, London, W1H 2BQ",
+      phone: "",
+      website: "https://www.eda.admin.ch/london",
+      latitude: 51.5185,
+      longitude: -0.1608
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "1;2 Grosvenor Crescent, SW1X 7EE London",
-      "phone": "+44 20 7581 1281",
-      "website": "https://www.mofaic.gov.ae/missions/UAE-Missions-Abroad/UAE-Missions-Abroad-Details?countryId=6a569bf9-7922-4923-b43b-b44dd105e32a"
+    TH: {
+      name: "Embassy",
+      address: "29-30 Queen's Gate, London, SW7 5JB",
+      phone: "",
+      website: "http://www.thaiembassyuk.org.uk/",
+      latitude: 51.498405,
+      longitude: -0.180088
     },
-    "US": {
-      "name": "Embassy",
-      "address": "33 Nine Elms Lane, SW11 7US London",
-      "phone": "+44 20 7499 9000",
-      "website": "https://uk.usembassy.gov/embassy-consulates/london/"
+    TR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://manchester-bk.mfa.gov.tr",
+      latitude: 51.499862,
+      longitude: -0.152449
+    },
+    US: {
+      name: "Embassy",
+      address: "33 Nine Elms Lane, London, SW11 7US",
+      phone: "",
+      website: "https://uk.usembassy.gov/",
+      latitude: 51.4826,
+      longitude: -0.1317
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 51.5003,
+      longitude: -0.186361
     }
   },
-  "US": {
-    "AR": {
-      "name": "Consulate",
-      "address": "12 West 56th Street, 10019",
-      "phone": "Phone not available",
-      "website": "https://cnyor.cancilleria.gob.ar/en"
+  US: {
+    AR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://eeeuu.cancilleria.gob.ar/",
+      latitude: 38.9111,
+      longitude: -77.0422
     },
-    "AU": {
-      "name": "Embassy",
-      "address": "123 North Wacker Drive, 60606 Chicago",
-      "phone": "+1-312-419-1480",
-      "website": "https://usa.embassy.gov.au/"
+    AU: {
+      name: "Embassy",
+      address: "1601 Massachusetts Ave NW, Washington, D.C. 20036",
+      phone: "",
+      website: "https://usa.embassy.gov.au/",
+      latitude: 38.907775,
+      longitude: -77.037013888
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.gov.br/mre/pt-br/consulado-miami"
+    AT: {
+      name: "Embassy",
+      address: "3524 International Court",
+      phone: "",
+      website: "https://www.austria.org/",
+      latitude: 38.945389,
+      longitude: -77.069194
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    BE: {
+      name: "Embassy",
+      address: "1430 K Street NW, Suite 101, Washington, D.C. 20005",
+      phone: "+1 202-333-69-00",
+      website: "https://unitedstates.diplomatie.belgium.be",
+      latitude: 38.9023,
+      longitude: -77.0332
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "3521 International Court Northwest, 20008 Washington",
-      "phone": "+1-202-895-5400;+1-202-895-5408",
-      "website": "https://egyptembassy.net"
+    BR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://washington.itamaraty.gov.br/",
+      latitude: 38.9192,
+      longitude: -77.0603
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "4101 Reservoir Road Northwest, 20007 Washington",
-      "phone": "+1-202-944-6000",
-      "website": "https://www.franceintheus.org"
+    CA: {
+      name: "Embassy",
+      address: "501 Pennsylvania Ave NW, Washington, DC 20001",
+      phone: "+1-202-682-1740",
+      website: "https://www.international.gc.ca/country-pays/us-eu/washington.aspx",
+      latitude: 38.8931,
+      longitude: -77.0183
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.germany.info/us-en/embassy-consulates/newyork"
+    HR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.croatiaemb.org/",
+      latitude: 38.9136,
+      longitude: -77.052
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "455 North Cityfront Plaza Drive, 60611 Chicago",
-      "phone": "Phone not available",
-      "website": "https://www.cgichicago.gov.in/"
+    CZ: {
+      name: "Embassy",
+      address: "3900 Spring of Freedom St.",
+      phone: "",
+      website: "https://www.mzv.cz/washington/cz/index.html",
+      latitude: 38.9392,
+      longitude: -77.0539
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://embassies.gov.il/chicago-he/Pages/default.aspx"
+    FR: {
+      name: "Embassy",
+      address: "4101 Reservoir Rd NW, Washington, D.C. 20007",
+      phone: "+1-202-944-6000",
+      website: "https://fr.franceintheus.org/",
+      latitude: 38.9137,
+      longitude: -77.0779
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "3000 Whitehaven Street Northwest, 20008 Washington",
-      "phone": "+1-202-612-4400",
-      "website": "https://ambwashingtondc.esteri.it/en/"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+1-202-298-4000",
+      website: "https://www.germany.info/",
+      latitude: 38.914394,
+      longitude: -77.088704
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.anchorage.us.emb-japan.go.jp/itprtop_ja/"
+    GR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.mfa.gr/usa/en/the-embassy/",
+      latitude: 38.9122,
+      longitude: -77.0499
     },
-    "KE": {
-      "name": "Embassy",
-      "address": "2249 R Street Northwest, 20008 Washington",
-      "phone": "+1 202-387-6101",
-      "website": "http://www.kenyaembassy.com/"
+    HU: {
+      name: "Embassy",
+      address: "3910 Shoemaker St NW, Washington, D.C. 20008",
+      phone: "+1-202-362-6730",
+      website: "https://washington.mfa.gov.hu/",
+      latitude: 38.94,
+      longitude: -77.0531
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "4200 Linnean Avenue Northwest, 20008 Washington",
-      "phone": "+1 202-244-5300",
-      "website": "https://www.netherlandsworldwide.nl/contact/embassies-consulates-general/united-states/embassy-washington-dc"
+    IN: {
+      name: "Embassy",
+      address: "2107 Massachusetts Avenue, N.W.",
+      phone: "",
+      website: "https://www.indianembassyusa.gov.in/",
+      latitude: 38.9111,
+      longitude: -77.0469
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://consulmex.sre.gob.mx/nogales/"
+    IE: {
+      name: "Embassy",
+      address: "",
+      phone: "+1-202-462-3939",
+      website: "https://www.ireland.ie/en/usa/washington/",
+      latitude: 38.911719444,
+      longitude: -77.050277777
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    IT: {
+      name: "Embassy",
+      address: "3000 Whitehaven Street, N.W.",
+      phone: "",
+      website: "https://ambwashingtondc.esteri.it",
+      latitude: 38.917778,
+      longitude: -77.060278
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "733 Bishop Street, 96813 Honolulu",
-      "phone": "+1 808 6755555",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/north-america/united-states-of-america/new-zealand-consulate-general-honolulu/"
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.us.emb-japan.go.jp",
+      latitude: 38.9156,
+      longitude: -77.0561
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "3519 International Drive Northwest, 20008 Washington",
-      "phone": "+1-202-800-7201 ext. 100",
-      "website": "https://nigeriaembassyusa.org/"
+    DK: {
+      name: "Embassy",
+      address: "3200 Whitehaven St.",
+      phone: "",
+      website: "http://usa.um.dk/",
+      latitude: 38.91729,
+      longitude: -77.06303
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    NL: {
+      name: "Embassy",
+      address: "4200 Linnean Ave NW, Washington, D.C. 20008",
+      phone: "",
+      website: "",
+      latitude: 38.914300936,
+      longitude: -77.052138382
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "9 East 91st Street, 10128 New York",
-      "phone": "+1-212-534-3782",
-      "website": "https://newyork.mid.ru/"
+    MX: {
+      name: "Embassy",
+      address: "1911 Pennsylvania Ave NW, Washington, DC 20006",
+      phone: "",
+      website: "",
+      latitude: 38.9007,
+      longitude: -77.044
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "601 New Hampshire Avenue Northwest, 20037 Washington",
-      "phone": "+1-202-342-3800",
-      "website": "https://us.saudiembassy.sa/en/Pages/default.aspx"
+    NZ: {
+      name: "Embassy",
+      address: "37 Observatory Cir NW",
+      phone: "+1-202-328-4800",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/north-america/united-states-of-america/new-zealand-embassy-washington/",
+      latitude: 38.919,
+      longitude: -77.0641
     },
-    "SG": {
-      "name": "Embassy",
-      "address": "3501 International Place Northwest, 20008 Washington",
-      "phone": "+1-202-537-3100",
-      "website": "https://washington.mfa.gov.sg/"
+    NO: {
+      name: "Embassy",
+      address: "2720 34th Street",
+      phone: "",
+      website: "https://www.norway.no/en/usa/",
+      latitude: 38.925,
+      longitude: -77.0667
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "3051 Massachusetts Avenue Northwest, 20008 Washington",
-      "phone": "Phone not available",
-      "website": "https://www.saembassy.org/"
+    CN: {
+      name: "Embassy",
+      address: "3505 International Place, N.W.",
+      phone: "",
+      website: "http://www.china-embassy.org/chn/",
+      latitude: 38.9425,
+      longitude: -77.0664
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://overseas.mofa.go.kr/us-losangeles-ko/index.do"
+    PL: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.gov.pl/web/usa",
+      latitude: 38.9244,
+      longitude: -77.0369
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "2375 Pennsylvania Avenue Northwest, 20037 Washington",
-      "phone": "+1-202-452-0100",
-      "website": "http://www.exteriores.gob.es/Embajadas/WASHINGTON/en/Embajada/Pages/inicio.aspx"
+    PT: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 38.9098,
+      longitude: -77.0474
     },
-    "SE": {
-      "name": "Consulate",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/us-en/index.do",
+      latitude: 38.9144,
+      longitude: -77.0544
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.eda.admin.ch/atlanta"
+    ES: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/WASHINGTON/es/Paginas/inicio.aspx",
+      latitude: 38.9032,
+      longitude: -77.0511
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "1024 Wisconsin Avenue Northwest, 20007 Washington",
-      "phone": "+1-202-944-3600",
-      "website": "https://washingtondc.thaiembassy.org/en/index"
+    SE: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/usa-washington/",
+      latitude: 38.901469,
+      longitude: -77.058856
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "2525 Massachusetts Avenue Northwest, 20008 Washington",
-      "phone": "+1 202-612-6700;+1 202-612-6701",
-      "website": "https://washington-emb.mfa.gov.tr/"
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.eda.admin.ch/washington",
+      latitude: 38.9283,
+      longitude: -77.0578
     },
-    "AE": {
-      "name": "Consulate",
-      "address": "1 International Place, 02110 Boston",
-      "phone": "+1-617-5053300",
-      "website": "https://www.mofaic.gov.ae/en/missions/uae-missions-abroad/uae-missions-abroad-details?countryId=100429f6-3c58-4674-8f88-ae439f94408a"
+    TH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 38.9033,
+      longitude: -77.0631
     },
-    "GB": {
-      "name": "Consulate",
-      "address": "133 Peachtree Street Northeast, 30303 Atlanta",
-      "phone": "+1 404-954-7700",
-      "website": "https://www.gov.uk/world/organisations/british-consulate-general-atlanta"
+    TR: {
+      name: "Embassy",
+      address: "2525 Massachusetts Ave NW, Washington, D.C. 20008",
+      phone: "",
+      website: "https://washington-emb.mfa.gov.tr",
+      latitude: 38.9165,
+      longitude: -77.056
+    },
+    GB: {
+      name: "Embassy",
+      address: "3100 Massachusetts Ave NW, Washington, DC 20008",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-washington",
+      latitude: 38.920292657,
+      longitude: -77.062931948
+    },
+    VN: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://vietnamembassy-usa.org/",
+      latitude: 38.912777777,
+      longitude: -77.050555555
     }
   },
-  "AR": {
-    "AU": {
-      "name": "Embassy",
-      "address": "1400 Villanueva, 1426 Ciudad Aurónoma de Buenos Aires",
-      "phone": "+54 11 4779-3500",
-      "website": "https://argentina.embassy.gov.au/"
+  VN: {
+    AR: {
+      name: "Embassy",
+      address: "41A Phố Lý Thái Tổ",
+      phone: "",
+      website: "https://eviet.cancilleria.gob.ar/",
+      latitude: 21.0288,
+      longitude: 105.8557
     },
-    "BR": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "http://buenosaires.itamaraty.gov.br"
+    AU: {
+      name: "Embassy",
+      address: "8 Đào Tấn",
+      phone: "",
+      website: "https://vietnam.embassy.gov.au",
+      latitude: 21.03257,
+      longitude: 105.81156
     },
-    "CA": {
-      "name": "Embassy",
-      "address": "2828 Tagle, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4808-1000",
-      "website": "https://www.argentina.gc.ca/"
+    AT: {
+      name: "Embassy",
+      address: "53 Quang Trung",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-hanoi/",
+      latitude: 21.0186,
+      longitude: 105.8478
     },
-    "EG": {
-      "name": "Embassy",
-      "address": "3140 Virrey Del Pino, 1426 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4553-3311",
-      "website": null
+    BE: {
+      name: "Embassy",
+      address: "49 Hai Bà Trưng",
+      phone: "+84 24 393 461 79",
+      website: "http://vietnam.diplomatie.belgium.be",
+      latitude: 21.0259,
+      longitude: 105.8461
     },
-    "FR": {
-      "name": "Embassy",
-      "address": "1399 Cerrito, 1010 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4515-7030",
-      "website": "https://ar.ambafrance.org"
+    BR: {
+      name: "Embassy",
+      address: "44B Lý Thường Kiệt, Hà Nội",
+      phone: "",
+      website: "http://hanoi.itamaraty.gov.br",
+      latitude: 21.0242,
+      longitude: 105.8486
     },
-    "DE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "+54-11-4778-2500",
-      "website": null
+    CA: {
+      name: "Embassy",
+      address: "31 Hung Vuong",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/vietnam/index.aspx",
+      latitude: 21.0348,
+      longitude: 105.8351
     },
-    "IN": {
-      "name": "Embassy",
-      "address": "942 Avenida Eduardo Madero, 1106 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4393-4001",
-      "website": "http://www.indembarg.org.ar/"
+    CZ: {
+      name: "Embassy",
+      address: "13 Chu Văn An, Ba Đình",
+      phone: "",
+      website: "https://www.mzv.cz/hanoi",
+      latitude: 21.032,
+      longitude: 105.83664
     },
-    "IL": {
-      "name": "Embassy",
-      "address": "701 Avenida de Mayo, 1084 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 3724-4500",
-      "website": "https://buenosaires.mfa.gov.il/"
+    FR: {
+      name: "Embassy",
+      address: "57 rue Tran Hung Dao",
+      phone: "",
+      website: "https://vn.ambafrance.org/",
+      latitude: 21.0208594,
+      longitude: 105.8506215
     },
-    "IT": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://ambbuenosaires.esteri.it"
+    DE: {
+      name: "Embassy",
+      address: "",
+      phone: "+84-24-32673335",
+      website: "https://vietnam.diplo.de/",
+      latitude: 21.0305184,
+      longitude: 105.8406964
     },
-    "JP": {
-      "name": "Embassy",
-      "address": "547 Bouchard, 1106 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4318-8200",
-      "website": "https://www.ar.emb-japan.go.jp/"
+    GR: {
+      name: "Embassy",
+      address: "27-29 Đường Âu Cơ",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/vietnam.html",
+      latitude: 21.06019,
+      longitude: 105.83321
     },
-    "NL": {
-      "name": "Embassy",
-      "address": "831 Olga Cossetini, 1107 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4338-0050",
-      "website": "http://argentina.nlembajada.org/"
+    HU: {
+      name: "Embassy",
+      address: "Hanoi Lake View Residence, 28 Thanh Nien, Tay Ho",
+      phone: "+84-24-3771-5717",
+      website: "https://hanoi.mfa.gov.hu/",
+      latitude: 21.049861111,
+      longitude: 105.838888888
     },
-    "MX": {
-      "name": "Embassy",
-      "address": "1650 Arcos, 1426 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4118-8800",
-      "website": "https://embamex.sre.gob.mx/argentina/"
+    IN: {
+      name: "Embassy",
+      address: "63, Tran Hung Dao Street",
+      phone: "",
+      website: "https://www.indembassyhanoi.gov.in",
+      latitude: 21.02211,
+      longitude: 105.84929
     },
-    "MA": {
-      "name": "Embassy",
-      "address": "3461 Castex, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4801-8154",
-      "website": null
+    IE: {
+      name: "Embassy",
+      address: "41A Phố Lý Thái Tổ",
+      phone: "+84-24-3974-3291",
+      website: "https://www.ireland.ie/en/vietnam/hanoi/",
+      latitude: 21.0288,
+      longitude: 105.8557
     },
-    "NZ": {
-      "name": "Embassy",
-      "address": "1427 Carlos Pellegrini, 1011 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 5070-0700",
-      "website": "https://www.mfat.govt.nz/en/countries-and-regions/latin-america/argentina/new-zealand-embassy/"
+    IT: {
+      name: "Embassy",
+      address: "9, Phố Lê Phụng Hiểu",
+      phone: "",
+      website: "https://ambhanoi.esteri.it",
+      latitude: 21.0258,
+      longitude: 105.8571
     },
-    "NG": {
-      "name": "Embassy",
-      "address": "2746 Juez Estrada, Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 48070985",
-      "website": null
+    JP: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://www.vn.emb-japan.go.jp/",
+      latitude: 21.033127777,
+      longitude: 105.814302777
     },
-    "NO": {
-      "name": "Embassy",
-      "address": "1427 Carlos Pellegrini, 1011 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 3724-1200",
-      "website": "https://www.norway.no/es/argentina"
+    DK: {
+      name: "Embassy",
+      address: "194 Đường Trần Quang Khải",
+      phone: "",
+      website: "https://vietnam.um.dk",
+      latitude: 21.0293,
+      longitude: 105.8572
     },
-    "RU": {
-      "name": "Embassy",
-      "address": "1741 Rodríguez Peña, 1021 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4813-1552",
-      "website": "https://argentina.mid.ru"
+    NL: {
+      name: "Embassy",
+      address: "194 Đường Trần Quang Khải",
+      phone: "",
+      website: "",
+      latitude: 21.0293,
+      longitude: 105.8572
     },
-    "SA": {
-      "name": "Embassy",
-      "address": "2881 Alejandro María de Aguado, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4802-4303",
-      "website": "https://embassies.mofa.gov.sa/sites/Argentina/"
+    MX: {
+      name: "Embassy",
+      address: "14 Thuy Khue, oficina P033, Distrito Tay Ho",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/vietnam",
+      latitude: 21.04203,
+      longitude: 105.82973
     },
-    "ZA": {
-      "name": "Embassy",
-      "address": "590 Marcelo T. de Alvear, 1058 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4317-2900",
-      "website": "https://www.embajadasudafrica.org.ar/en/index.html"
+    NZ: {
+      name: "Embassy",
+      address: "63 Ly Thai To Street, Hoan Kiem District, Ha Noi",
+      phone: "+84-24-3824-1481",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/south-east-asia/viet-nam/new-zealand-embassy/",
+      latitude: 21.0309577,
+      longitude: 105.8547173
     },
-    "KR": {
-      "name": "Embassy",
-      "address": "2395 Avenida Del Libertador, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4802-8865",
-      "website": "http://arg.mofa.go.kr/"
+    NO: {
+      name: "Embassy",
+      address: "49 Hai Bà Trưng",
+      phone: "",
+      website: "https://www.norway.no/en/vietnam/",
+      latitude: 21.0259,
+      longitude: 105.8461
     },
-    "ES": {
-      "name": "Embassy",
-      "address": "3102 Avenida Presidente Figueroa Alcorta, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4809-4900",
-      "website": "http://www.exteriores.gob.es/embajadas/buenosaires/"
+    CN: {
+      name: "Embassy",
+      address: "",
+      phone: "+844-38453736",
+      website: "http://vn.china-embassy.org/",
+      latitude: 21.032107,
+      longitude: 105.8382795
     },
-    "SE": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": "https://www.swedenabroad.se/sv/utlandsmyndigheter/argentina-buenos-aires/"
+    PL: {
+      name: "Embassy",
+      address: "3 Chua Mot Cot",
+      phone: "",
+      website: "https://www.gov.pl/web/wietnam",
+      latitude: 21.034722222,
+      longitude: 105.836277777
     },
-    "CH": {
-      "name": "Embassy",
-      "address": "846 Avenida Santa Fe, 1059 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 4311-6491",
-      "website": "https://www.eda.admin.ch/buenosaires"
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "",
+      latitude: 21.0667245,
+      longitude: 105.7968339
     },
-    "TH": {
-      "name": "Embassy",
-      "address": "1947 Vuelta de Obligado, 1428 Ciudad Autónoma de Buenos Aires",
-      "phone": "Phone not available",
-      "website": "http://www.thaiembargen.org/"
+    ES: {
+      name: "Embassy",
+      address: "4 Phố Lê Hồng Phong",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/Hanoi",
+      latitude: 21.0337,
+      longitude: 105.8371
     },
-    "TR": {
-      "name": "Embassy",
-      "address": "1382 11 de Septiembre de 1888, 1426 Ciudad Aurónoma de Buenos Aires",
-      "phone": "+54 11 4788-3239;+54 11 4788-5106",
-      "website": "https://buenosaires-be.mfa.gov.tr/"
+    SE: {
+      name: "Embassy",
+      address: "360 Kim Ma",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/vietnam-hanoi/",
+      latitude: 21.03181,
+      longitude: 105.82169
     },
-    "AE": {
-      "name": "Embassy",
-      "address": "2021 Olleros, 1426 Ciudad Aurónoma de Buenos Aires",
-      "phone": "+54 11 4772-9709",
-      "website": "http://www.embajadaemiratos.org.ar/"
+    CH: {
+      name: "Embassy",
+      address: "44B Lý Thường Kiệt, Hà Nội",
+      phone: "",
+      website: "https://www.eda.admin.ch/hanoi",
+      latitude: 21.0242,
+      longitude: 105.8486
     },
-    "GB": {
-      "name": "Embassy",
-      "address": "2575 Newton, Ciudad Autónoma de Buenos Aires",
-      "phone": "Phone not available",
-      "website": "https://www.gov.uk/government/world/organisations/british-embassy-buenos-aires/"
+    TR: {
+      name: "Embassy",
+      address: "Phố Lý Thường Kiệt 44B",
+      phone: "",
+      website: "https://hanoi-emb.mfa.gov.tr",
+      latitude: 21.0242,
+      longitude: 105.8486
     },
-    "US": {
-      "name": "Embassy",
-      "address": "4300 Avenida Colombia, 1425 Ciudad Autónoma de Buenos Aires",
-      "phone": "+54 11 5777-4533",
-      "website": "https://ar.usembassy.gov/"
+    GB: {
+      name: "Embassy",
+      address: "31 Phố Hai Bà Trưng",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-hanoi",
+      latitude: 21.02437,
+      longitude: 105.85161
+    },
+    US: {
+      name: "Embassy",
+      address: "",
+      phone: "+84-24-3850-5000",
+      website: "https://vn.usembassy.gov/",
+      latitude: 21.0215396,
+      longitude: 105.8189851
     }
   },
-  "DK": {
-    "NL": {
-      "name": "Embassy",
-      "address": "Address not available",
-      "phone": "Phone not available",
-      "website": null
+  AR: {
+    AU: {
+      name: "Embassy",
+      address: "Villanueva 1400",
+      phone: "+54 11 4779 3500",
+      website: "http://argentina.embassy.gov.au/",
+      latitude: -34.56473,
+      longitude: -58.44394
+    },
+    AT: {
+      name: "Embassy",
+      address: "Calle French 3671",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-buenos-aires/",
+      latitude: -34.5829,
+      longitude: -58.4115
+    },
+    BE: {
+      name: "Embassy",
+      address: "Olga Cossettini 831",
+      phone: "+54 11 431 372 72",
+      website: "https://argentina.diplomatie.belgium.be",
+      latitude: -34.60702222,
+      longitude: -58.36412185
+    },
+    BR: {
+      name: "Embassy",
+      address: "Cerrito 1350",
+      phone: "",
+      website: "http://buenosaires.itamaraty.gov.br",
+      latitude: -34.591755,
+      longitude: -58.383447
+    },
+    CA: {
+      name: "Embassy",
+      address: "Tagle 2828",
+      phone: "",
+      website: "https://www.canadainternational.gc.ca/argentina-argentine",
+      latitude: -34.5798,
+      longitude: -58.3977
+    },
+    HR: {
+      name: "Embassy",
+      address: "Gorostiaga 2104",
+      phone: "",
+      website: "http://ar.mvep.hr",
+      latitude: -34.56868,
+      longitude: -58.44022
+    },
+    CZ: {
+      name: "Embassy",
+      address: "Junín 1461",
+      phone: "",
+      website: "https://www.mzv.cz/buenosaires",
+      latitude: -34.5914,
+      longitude: -58.39528
+    },
+    FR: {
+      name: "Embassy",
+      address: "Cerrito 1399",
+      phone: "",
+      website: "https://ar.ambafrance.org/",
+      latitude: -34.59176,
+      longitude: -58.382517
+    },
+    DE: {
+      name: "Embassy",
+      address: "Villanueva 1055, C1426BMC Buenos Aires",
+      phone: "+54-11-4778-2500",
+      website: "https://buenos-aires.diplo.de/",
+      latitude: -34.5672,
+      longitude: -58.4396
+    },
+    GR: {
+      name: "Embassy",
+      address: "Mariscal Ramón Castilla 2952",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/argentina.html",
+      latitude: -34.580099704,
+      longitude: -58.4030399
+    },
+    HU: {
+      name: "Embassy",
+      address: "Suipacha 1111 9.",
+      phone: "+54 11 4312 6830",
+      website: "https://buenosaires.mfa.gov.hu/",
+      latitude: -34.595027777,
+      longitude: -58.379944444
+    },
+    IN: {
+      name: "Embassy",
+      address: "Torre Madero, 19th Floor, Avenida Eduardo Madero, 942, Buenos Aires - C1106ACW, Argentina",
+      phone: "+54-11-4393-4001",
+      website: "http://www.indembarg.gov.in/",
+      latitude: -34.5965,
+      longitude: -58.37071
+    },
+    IE: {
+      name: "Embassy",
+      address: "Avenida del Libertador 1068",
+      phone: "",
+      website: "https://www.ireland.ie/en/argentina/buenosaires/",
+      latitude: -34.5864,
+      longitude: -58.3868
+    },
+    IT: {
+      name: "Embassy",
+      address: "Calle Billinghurst 2577 - Capital Federal",
+      phone: "+54-11-4011-2100",
+      website: "https://ambbuenosaires.esteri.it",
+      latitude: -34.582222,
+      longitude: -58.4025
+    },
+    JP: {
+      name: "Embassy",
+      address: "Bouchard 547",
+      phone: "",
+      website: "https://www.ar.emb-japan.go.jp",
+      latitude: -34.60153,
+      longitude: -58.36881
+    },
+    NL: {
+      name: "Embassy",
+      address: "Olga Cossettini 831",
+      phone: "",
+      website: "",
+      latitude: -34.60702222,
+      longitude: -58.36412185
+    },
+    MX: {
+      name: "Embassy",
+      address: "Arcos 1650",
+      phone: "",
+      website: "https://embamex.sre.gob.mx/argentina/",
+      latitude: -34.56481,
+      longitude: -58.45045
+    },
+    NZ: {
+      name: "Embassy",
+      address: "Carlos Pellegrini, Buenos Aires",
+      phone: "+54-11-5070-0700",
+      website: "https://www.mfat.govt.nz/en/countries-and-regions/americas/argentina/new-zealand-embassy/",
+      latitude: -34.59115,
+      longitude: -58.381454
+    },
+    NO: {
+      name: "Embassy",
+      address: "Carlos Pellegrini 1427",
+      phone: "",
+      website: "https://www.norway.no/es/argentina",
+      latitude: -34.59115,
+      longitude: -58.381454
+    },
+    CN: {
+      name: "Embassy",
+      address: "Avenida Crisólogo Larralde 5349",
+      phone: "",
+      website: "http://ar.china-embassy.org",
+      latitude: -34.56288889,
+      longitude: -58.49608333
+    },
+    PL: {
+      name: "Embassy",
+      address: "Alejandro María de Aguado 2870",
+      phone: "",
+      website: "https://www.gov.pl/web/argentyna",
+      latitude: -34.579811111,
+      longitude: -58.402219444
+    },
+    PT: {
+      name: "Embassy",
+      address: "Maipú 942",
+      phone: "",
+      website: "https://buenosaires.embaixadaportugal.mne.gov.pt",
+      latitude: -34.5971,
+      longitude: -58.3771
+    },
+    KR: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/ar-es/index.do",
+      latitude: -34.5793,
+      longitude: -58.40516
+    },
+    ES: {
+      name: "Embassy",
+      address: "Avenida Presidente J. Figueroa Alcorta 3102",
+      phone: "",
+      website: "http://www.exteriores.gob.es/Embajadas/BUENOSAIRES",
+      latitude: -34.58164,
+      longitude: -58.40179
+    },
+    SE: {
+      name: "Embassy",
+      address: "Olga Cossettini 731, Buenos Aires",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/argentina-buenos-aires/",
+      latitude: -34.6056,
+      longitude: -58.3639
+    },
+    CH: {
+      name: "Embassy",
+      address: "",
+      phone: "",
+      website: "http://www.eda.admin.ch/ccrsudamerica",
+      latitude: -34.5954,
+      longitude: -58.3793
+    },
+    TH: {
+      name: "Embassy",
+      address: "Vuelta de Obligado 1947",
+      phone: "",
+      website: "http://www.thaiembargen.org/",
+      latitude: -34.56273,
+      longitude: -58.45431
+    },
+    TR: {
+      name: "Embassy",
+      address: "11 de Septiembre 1382",
+      phone: "",
+      website: "https://buenosaires-emb.mfa.gov.tr",
+      latitude: -34.565617,
+      longitude: -58.445567
+    },
+    GB: {
+      name: "Embassy",
+      address: "Dr Luis Agote 2412",
+      phone: "",
+      website: "https://www.gov.uk/government/world/organisations/british-embassy-buenos-aires/",
+      latitude: -34.585,
+      longitude: -58.396111111
+    },
+    US: {
+      name: "Embassy",
+      address: "Avenida Colombia 4300",
+      phone: "+54-11-5777-4533",
+      website: "https://ar.usembassy.gov",
+      latitude: -34.5766,
+      longitude: -58.4187
+    },
+    VN: {
+      name: "Embassy",
+      address: "11 de Septiembre de 1888 n°1442",
+      phone: "",
+      website: "",
+      latitude: -34.56512,
+      longitude: -58.4461
+    }
+  },
+  HR: {
+    AU: {
+      name: "Embassy",
+      address: "Centar Kaptol, Nova Ves 11",
+      phone: "",
+      website: "http://croatia.embassy.gov.au/",
+      latitude: 45.82019,
+      longitude: 15.97734
+    },
+    AT: {
+      name: "Embassy",
+      address: "Radnička cesta 80",
+      phone: "",
+      website: "https://www.bmeia.gv.at/oeb-agram/",
+      latitude: 45.8009,
+      longitude: 16.0071
+    },
+    BE: {
+      name: "Embassy",
+      address: "Pantovčak 125 D",
+      phone: "+385 1 457 89 01",
+      website: "http://croatia.diplomatie.belgium.be",
+      latitude: 45.8272,
+      longitude: 15.961
+    },
+    BR: {
+      name: "Embassy",
+      address: "Trg Drage Iblera, 10",
+      phone: "",
+      website: "http://zagreb.itamaraty.gov.br",
+      latitude: 45.813,
+      longitude: 15.9851
+    },
+    CA: {
+      name: "Embassy",
+      address: "Prilaz Gjure Deželića 4",
+      phone: "",
+      website: "https://www.international.gc.ca/country-pays/croatia-croatie/zagreb.aspx?lang=eng",
+      latitude: 45.8104499,
+      longitude: 15.9682814
+    },
+    CZ: {
+      name: "Embassy",
+      address: "Radnička cesta 47",
+      phone: "",
+      website: "https://www.mzv.cz/zagreb",
+      latitude: 45.80244,
+      longitude: 16.00566
+    },
+    FR: {
+      name: "Embassy",
+      address: "Hebrangova 2",
+      phone: "",
+      website: "http://www.ambafrance-hr.org/",
+      latitude: 45.809587,
+      longitude: 15.977259
+    },
+    DE: {
+      name: "Embassy",
+      address: "Ulica grada Vukovara 64",
+      phone: "+385-1-6300100",
+      website: "https://zagreb.diplo.de",
+      latitude: 45.79917,
+      longitude: 15.96934
+    },
+    GR: {
+      name: "Embassy",
+      address: "Opaticka 12",
+      phone: "",
+      website: "https://www.mfa.gr/missionsabroad/croatia.html",
+      latitude: 45.81738,
+      longitude: 15.97495
+    },
+    HU: {
+      name: "Embassy",
+      address: "Jabukovac 2.",
+      phone: "+385-1-4890-900",
+      website: "https://zagrab.mfa.gov.hu/",
+      latitude: 45.822055555,
+      longitude: 15.970277777
+    },
+    IN: {
+      name: "Embassy",
+      address: "Bijenik 152B",
+      phone: "",
+      website: "https://www.indianembassyzagreb.gov.in/",
+      latitude: 45.8454,
+      longitude: 15.9379
+    },
+    IE: {
+      name: "Embassy",
+      address: "Miramarska cesta 23",
+      phone: "+385-1-6278-920",
+      website: "https://www.ireland.ie/en/croatia/zagreb/",
+      latitude: 45.8022,
+      longitude: 15.9749
+    },
+    IT: {
+      name: "Embassy",
+      address: "Medulićeva Ulica, n. 22",
+      phone: "",
+      website: "https://ambzagabria.esteri.it",
+      latitude: 45.8109,
+      longitude: 15.9667
+    },
+    JP: {
+      name: "Embassy",
+      address: "Boškovićeva 2",
+      phone: "",
+      website: "https://www.hr.emb-japan.go.jp",
+      latitude: 45.809388888,
+      longitude: 15.979472222
+    },
+    DK: {
+      name: "Embassy",
+      address: "Trg N. Š. Zrinskog 10",
+      phone: "",
+      website: "https://kroatien.um.dk",
+      latitude: 45.80968,
+      longitude: 15.97938
+    },
+    NL: {
+      name: "Embassy",
+      address: "Ulica Augusta Cesarca 6",
+      phone: "",
+      website: "",
+      latitude: 45.8131,
+      longitude: 15.9795
+    },
+    NO: {
+      name: "Embassy",
+      address: "Hektorovićeva 2",
+      phone: "",
+      website: "https://www.norway.no/croatia",
+      latitude: 45.80442,
+      longitude: 15.99573
+    },
+    CN: {
+      name: "Embassy",
+      address: "Mlinovi 132",
+      phone: "",
+      website: "http://hr.china-embassy.org",
+      latitude: 45.85127,
+      longitude: 15.95964
+    },
+    PL: {
+      name: "Embassy",
+      address: "Miramarska cesta 23",
+      phone: "",
+      website: "https://www.gov.pl/web/chorwacja",
+      latitude: 45.8022,
+      longitude: 15.9749
+    },
+    PT: {
+      name: "Embassy",
+      address: "Ulica Ante Kovačića, 3/I",
+      phone: "",
+      website: "https://zagreb.embaixadaportugal.mne.gov.pt",
+      latitude: 45.8086,
+      longitude: 15.9754
+    },
+    KR: {
+      name: "Embassy",
+      address: "Ksaverska cesta 111/A-B",
+      phone: "",
+      website: "https://overseas.mofa.go.kr/hr-hr/",
+      latitude: 45.8400496,
+      longitude: 15.9751751
+    },
+    ES: {
+      name: "Embassy",
+      address: "Tuškanac, 21 A",
+      phone: "",
+      website: "http://www.exteriores.gob.es/embajadas/zagreb",
+      latitude: 45.8267,
+      longitude: 15.9713
+    },
+    SE: {
+      name: "Embassy",
+      address: "Strojarska cesta 20",
+      phone: "",
+      website: "https://www.swedenabroad.se/sv/utlandsmyndigheter/kroatien-zagreb/",
+      latitude: 45.811839,
+      longitude: 15.969639
+    },
+    CH: {
+      name: "Embassy",
+      address: "Ulica Augusta Cesarca 10, 10000 Zagreb",
+      phone: "",
+      website: "https://www.eda.admin.ch/zagreb",
+      latitude: 45.8131,
+      longitude: 15.9801
+    },
+    TR: {
+      name: "Embassy",
+      address: "Ulica Andrije Hebranga 32-34",
+      phone: "",
+      website: "https://zagreb-emb.mfa.gov.tr",
+      latitude: 45.8092,
+      longitude: 15.97322
+    },
+    GB: {
+      name: "Embassy",
+      address: "Ivana Lučića 4",
+      phone: "",
+      website: "https://www.gov.uk/world/organisations/british-embassy-zagreb",
+      latitude: 45.7978,
+      longitude: 15.97
+    },
+    US: {
+      name: "Embassy",
+      address: "Ulica Thomasa Jeffersona 2",
+      phone: "+385-1-661-2200",
+      website: "https://hr.usembassy.gov",
+      latitude: 45.74439,
+      longitude: 16.00307
     }
   }
 };

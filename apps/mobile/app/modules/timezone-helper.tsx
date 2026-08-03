@@ -4,12 +4,13 @@ import ModuleHeader from '../../src/components/app-header/ModuleHeader';
 import React, { useState, useEffect } from 'react';
 import { COUNTRIES } from '../../src/lib/countries';
 import { useTripStore } from '../../src/stores/trip-store';
-import { View, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';;
-import { Text, useTheme, Card, SegmentedButtons, Menu, IconButton, Switch } from 'react-native-paper';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Platform } from 'react-native';
+import { Text, useTheme, Card, Menu, IconButton, Switch, ThemeProvider } from 'react-native-paper';
 import { TimePicker, en, registerTranslation } from 'react-native-paper-dates';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { settingsRepo } from '../../src/repositories/settings-repository';
 import { useTranslation } from 'react-i18next';
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
 
 registerTranslation('en', en);
 
@@ -183,7 +184,7 @@ export default function TimezoneHelperScreen() {
                 }
               ]}
             >
-              <Text style={{ fontSize: 14, fontWeight: '500', color: theme.colors.onSurface }} numberOfLines={1}>{city}</Text>
+              <Text style={{ fontSize: 14,  color: theme.colors.onSurface }} numberOfLines={1}>{city}</Text>
               {timezones && timezones.length > 1 && (
                 <MaterialCommunityIcons name="chevron-down" size={16} color={theme.colors.onSurfaceVariant} style={{ marginLeft: 4 }} />
               )}
@@ -208,7 +209,7 @@ export default function TimezoneHelperScreen() {
           ))}
         </Menu>
         
-        <Text variant="headlineSmall" style={{ fontWeight: 'bold', color: theme.colors.onSurface, marginVertical: 8 }}>
+        <Text variant="headlineSmall" style={{  color: theme.colors.onSurface, marginVertical: 8 }}>
           {formatTime(time)}
         </Text>
         
@@ -262,7 +263,7 @@ export default function TimezoneHelperScreen() {
         </Card>
 
         <View style={styles.controlsRow}>
-          <Text variant="titleMedium" style={{ color: theme.colors.onSurface, fontWeight: 'bold' }}>{t("modules.timezoneHelper.timeSetting", "Time Setting")}</Text>
+          <Text variant="titleMedium" style={{ color: theme.colors.onSurface, }}>{t("modules.timezoneHelper.timeSetting", "Time Setting")}</Text>
           
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 14, marginRight: 8, color: !is24hMode ? theme.colors.primary : theme.colors.onSurfaceVariant, fontWeight: !is24hMode ? 'bold' : 'normal' }}>{t("modules.timezoneHelper.ampm", "AM/PM")}</Text>
@@ -276,18 +277,34 @@ export default function TimezoneHelperScreen() {
         </View>
         
         <View style={{ alignSelf: 'center', marginVertical: 8, paddingVertical: 4 }}>
-          <TimePicker 
-            hours={sliderHours}
-            minutes={sliderMinutes}
-            focused={clockFocused}
-            inputType="picker"
-            onFocusInput={(type) => setClockFocused(type)}
-            onChange={({ hours, minutes }) => {
-              setSliderHours(hours);
-              setSliderMinutes(minutes);
-            }}
-            use24HourClock={is24hMode}
-          />
+          <ThemeProvider theme={{ 
+            ...theme, 
+            colors: { ...theme.colors, surfaceVariant: '#EFE7DC' },
+            fonts: {
+              ...theme.fonts,
+              titleMedium: {
+                ...theme.fonts.titleMedium,
+                fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif',
+              },
+              displayLarge: {
+                ...theme.fonts.displayLarge,
+                fontFamily: Platform.OS === 'ios' ? 'System' : 'sans-serif',
+              }
+            }
+          }}>
+            <TimePicker 
+              hours={sliderHours}
+              minutes={sliderMinutes}
+              focused={clockFocused}
+              inputType="picker"
+              onFocusInput={(type) => setClockFocused(type)}
+              onChange={({ hours, minutes }) => {
+                setSliderHours(hours);
+                setSliderMinutes(minutes);
+              }}
+              use24HourClock={is24hMode}
+            />
+          </ThemeProvider>
         </View>
 
         <Button mode="outlined" onPress={() => {

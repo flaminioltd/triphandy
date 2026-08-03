@@ -1,0 +1,10 @@
+{
+  "android": {
+    "package": "com.flaminio.triphandyworkspace"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "b09ac812-7358-4283-993a-6434de929ed3"
+    }
+  }
+}

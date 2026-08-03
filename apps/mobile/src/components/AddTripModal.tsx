@@ -15,10 +15,20 @@ interface AddTripModalProps {
   onDismiss: () => void;
 }
 
+import ProUpgradeModal from './ProUpgradeModal';
+import { useAppStore } from '../stores/app-store';
+
 export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) {
   const theme = useTheme();
-  const { createTrip } = useTripStore();
+  const { createTrip, trips } = useTripStore();
+  const { settings } = useAppStore();
   const { t, i18n } = useTranslation();
+  
+  const isPremium = settings?.isPremium;
+  const today = new Date();
+  today.setHours(0,0,0,0);
+  const activeAndUpcomingTrips = trips.filter(t => !t.endDate || new Date(t.endDate) >= today);
+  const isLimitReached = !isPremium && activeAndUpcomingTrips.length >= 2;
   
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCountry, setSelectedCountry] = useState<any | null>(null);
@@ -74,8 +84,10 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
   };
 
   useEffect(() => {
-    db.select().from(countries).then(res => setAllCountries(res));
-  }, []);
+    if (visible && allCountries.length === 0) {
+      db.select().from(countries).then(res => setAllCountries(res));
+    }
+  }, [visible]);
 
   // Reset state when modal opens
   useEffect(() => {
@@ -126,6 +138,10 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
     Keyboard.dismiss();
   };
 
+  if (isLimitReached) {
+    return <ProUpgradeModal visible={visible} onDismiss={onDismiss} />;
+  }
+
   return (
     <Portal>
       <Modal 
@@ -138,7 +154,7 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
           <View style={styles.header}>
-            <Text variant="headlineSmall" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t('modals.addTrip.title', 'Plan New Trip')}</Text>
+            <Text variant="headlineSmall" style={{  color: theme.colors.onSurface }}>{t('modals.addTrip.title', 'Plan New Trip')}</Text>
             <Pressable onPress={onDismiss} style={styles.closeButton}>
               <MaterialIcons name="close" size={24} color={theme.colors.onSurfaceVariant} />
             </Pressable>
@@ -203,7 +219,7 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
                         </View>
                       )}
                       <View style={{ flex: 1 }}>
-                        <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, fontWeight: '500' }}>
+                        <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, }}>
                           {t(`countries.${item.code}`, item.name)}
                         </Text>
                         <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>
@@ -217,7 +233,7 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
             )}
 
             <View style={styles.datesSection}>
-              <Text variant="titleMedium" style={{ marginBottom: 12, fontWeight: 'bold' }}>{t('modals.addTrip.tripDates', 'Trip Dates')}</Text>
+              <Text variant="titleMedium" style={{ marginBottom: 12, }}>{t('modals.addTrip.tripDates', 'Trip Dates')}</Text>
               
               <View style={{ marginBottom: 8 }}>
                 <Pressable 
@@ -238,9 +254,9 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
                   ]}
                 >
                   <MaterialIcons name="date-range" size={20} color={theme.colors.primary} style={{ marginRight: 8 }} />
-                  <Text style={{ fontSize: 16, color: theme.colors.primary, fontWeight: '500' }}>
+                  <Text style={{ fontSize: 16, color: theme.colors.primary, }}>
                     {startDate && endDate 
-                      ? `${startDate.toLocaleDateString(i18n.language || 'en-US')} - ${endDate.toLocaleDateString(i18n.language || 'en-US')}`
+                      ? `${startDate.toLocaleDateString('en-GB')} - ${endDate.toLocaleDateString('en-GB')}`
                       : t('modals.addTrip.selectDateRange', 'Select Date Range')}
                   </Text>
                 </Pressable>
@@ -256,16 +272,18 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
 
                 <Portal>
                   <Modal visible={showPicker} onDismiss={() => setShowPicker(false)} contentContainerStyle={{ margin: 24, borderRadius: 16, overflow: 'hidden', backgroundColor: theme.colors.surface }}>
-                    <Calendar
-                      minDate={new Date().toISOString().split('T')[0]}
-                      markingType={'period'}
-                      markedDates={markedDates}
-                      onDayPress={handleDayPress}
-                      theme={{
-                        todayTextColor: theme.colors.primary,
-                        arrowColor: theme.colors.primary,
-                      }}
-                    />
+                    {showPicker && (
+                      <Calendar
+                        minDate={new Date().toISOString().split('T')[0]}
+                        markingType={'period'}
+                        markedDates={markedDates}
+                        onDayPress={handleDayPress}
+                        theme={{
+                          todayTextColor: theme.colors.primary,
+                          arrowColor: theme.colors.primary,
+                        }}
+                      />
+                    )}
                   </Modal>
                 </Portal>
               </View>
@@ -278,7 +296,7 @@ export default function AddTripModal({ visible, onDismiss }: AddTripModalProps) 
               disabled={!selectedCountry || (!notSetYet && (!startDate || !endDate))}
               style={styles.button}
               contentStyle={{ height: 56 }}
-              labelStyle={{ fontSize: 16, fontWeight: 'bold' }}
+              labelStyle={{ fontSize: 16, }}
             >
               {t('modals.addTrip.createTripButton', 'Create Trip')}
             </Button>

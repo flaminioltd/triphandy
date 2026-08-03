@@ -1,4 +1,5 @@
 import Button from '../../src/components/ui/Button';
+import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
 import ModuleHeader from '../../src/components/app-header/ModuleHeader';
 import React, { useState, useEffect } from 'react';
 import { COUNTRIES } from '../../src/lib/countries';
@@ -6,7 +7,7 @@ import { FLAG_IMAGES } from '../../src/lib/assets';
 import { View, Image, StyleSheet, SafeAreaView, ScrollView, Pressable } from 'react-native';
 import { Text, TextInput, Card, useTheme, SegmentedButtons, IconButton, Checkbox, Portal, Dialog } from 'react-native-paper';
 import { useRouter, useFocusEffect } from 'expo-router';
-import { calculateTip } from '@tripkit/shared';
+import { calculateTip } from '@triphandy/shared';
 import { db } from '../../src/db/client';
 import { trips, countries, expenses, exchangeRates, settings as dbSettings } from '../../src/db/schema';
 import { eq } from 'drizzle-orm';
@@ -193,11 +194,32 @@ export default function TipCalculatorScreen() {
   };
 
   const getButtons = () => {
+    const customButton = {
+      value: 'custom',
+      render: (isSelected: boolean) => tipPercentage === 'custom' && customTipValue !== null ? (
+        <View style={{ alignItems: 'center' }}>
+          <Text style={{ fontSize: 10, color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurfaceVariant }}>(Custom)</Text>
+          <Text style={{ 
+            color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurface,
+            
+            fontSize: 14
+          }}>
+            {confirmedCustomDisplay}
+          </Text>
+        </View>
+      ) : (
+        <Text style={{ color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurfaceVariant,  fontSize: 14 }}>
+          {t('modules.tipCalculator.customTip', 'Custom')}
+        </Text>
+      ),
+      style: { flex: 1.4 }
+    };
+
     if (!activeCountry) return [
       { value: '10', label: '10%' },
       { value: '15', label: '15%' },
       { value: '20', label: '20%' },
-      { value: 'custom', label: t('modules.tipCalculator.customTip', 'Custom') },
+      customButton,
     ];
     
     if (activeCountry.tippingType === 'none') {
@@ -205,21 +227,27 @@ export default function TipCalculatorScreen() {
         { value: '5', label: '5%' },
         { value: '10', label: '10%' },
         { value: '15', label: '15%' },
-        { value: 'custom', label: t('modules.tipCalculator.customTip', 'Custom') },
+        customButton,
       ];
     } else if (activeCountry.tippingType === 'round_up') {
       return [
-        { value: 'round_up', label: t('modules.tipCalculator.roundUpTip', 'Round Up'), style: { flex: 1.4 } },
+        { 
+          value: 'round_up', 
+          icon: 'refresh',
+          iconFamily: 'MaterialIcons',
+          iconSize: 18,
+          style: { flex: 1.4 } 
+        },
         { value: '5', label: '5%', style: { flex: 1 } },
         { value: '10', label: '10%', style: { flex: 1 } },
-        { value: 'custom', label: t('modules.tipCalculator.customTip', 'Custom'), style: { flex: 1.4 } },
+        customButton,
       ];
     } else {
       return [
         { value: '10', label: '10%' },
         { value: '15', label: '15%' },
         { value: '20', label: '20%' },
-        { value: 'custom', label: t('modules.tipCalculator.customTip', 'Custom') },
+        customButton,
       ];
     }
   };
@@ -249,7 +277,7 @@ export default function TipCalculatorScreen() {
 
         <Card style={styles.card} mode="contained">
           <Card.Content>
-            <TextInput
+            <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
               label={t("modules.tipCalculator.billAmountLabel", "Bill Amount ({{symbol}})", { symbol: currencySymbol })}
               value={billAmount}
               onChangeText={setBillAmount}
@@ -259,7 +287,7 @@ export default function TipCalculatorScreen() {
             />
 
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 16, marginBottom: 8 }}>
-              <Text variant="labelLarge">{t("modules.tipCalculator.tipPercentage", "Tip Percentage")}</Text>
+              <Text variant="labelLarge">{t("modules.tipCalculator.tipPercentage", "Tip Amount")}</Text>
               <Pressable 
                 onPress={() => setTipPercentage(tipPercentage === '0' ? (activeCountry?.tippingType === 'none' ? '5' : '15') : '0')}
                 style={{ flexDirection: 'row', alignItems: 'center' }}
@@ -274,67 +302,30 @@ export default function TipCalculatorScreen() {
                 </View>
               </Pressable>
             </View>
-            <View style={{ flexDirection: 'row', borderRadius: 24, overflow: 'hidden', borderWidth: 1, borderColor: theme.colors.outline, opacity: tipPercentage === '0' ? 0.5 : 1 }} pointerEvents={tipPercentage === '0' ? 'none' : 'auto'}>
-              {getButtons().map((btn, index, arr) => {
-                const isSelected = tipPercentage === btn.value;
-                const flexVal = (btn as any).style?.flex || (btn.value === 'custom' ? 1.4 : 1);
-                return (
-                  <React.Fragment key={btn.value}>
-                    <Pressable
-                      onPress={() => {
-                        if (btn.value === 'custom') {
-                          const p = customTipValue !== null ? customTipValue.toString() : '10';
-                          setCustomPercentStr(p);
-                          const b = parseFloat(billAmount) || 0;
-                          if (b > 0 && !isNaN(parseFloat(p))) {
-                            setCustomAmountStr(((b * parseFloat(p)) / 100).toFixed(2));
-                          } else {
-                            setCustomAmountStr('');
-                          }
-                          setIsCustomModalVisible(true);
-                        } else {
-                          setTipPercentage(btn.value);
-                        }
-                      }}
-                      style={({ pressed }) => ({
-                        flex: flexVal,
-                        backgroundColor: isSelected ? theme.colors.secondaryContainer : (pressed ? theme.colors.surfaceVariant : 'transparent'),
-                        paddingVertical: 12,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      })}
-                    >
-                      {btn.value === 'custom' && tipPercentage === 'custom' && customTipValue !== null ? (
-                        <View style={{ alignItems: 'center' }}>
-                          <Text style={{ fontSize: 10, color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurfaceVariant }}>(Custom)</Text>
-                          <Text style={{ 
-                            color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurface,
-                            fontWeight: '500',
-                            fontSize: 14
-                          }}>
-                            {confirmedCustomDisplay}
-                          </Text>
-                        </View>
-                      ) : (
-                        <Text style={{ 
-                          color: isSelected ? theme.colors.onSecondaryContainer : theme.colors.onSurface,
-                          fontWeight: '500',
-                          fontSize: 14
-                        }}>
-                          {btn.label}
-                        </Text>
-                      )}
-                    </Pressable>
-                    {index < arr.length - 1 && (
-                      <View style={{ width: 1, backgroundColor: theme.colors.outline }} />
-                    )}
-                  </React.Fragment>
-                );
-              })}
+            <View style={{ opacity: tipPercentage === '0' ? 0.5 : 1 }} pointerEvents={tipPercentage === '0' ? 'none' : 'auto'}>
+              <CustomSegmentedControl
+                value={tipPercentage}
+                onValueChange={(val) => {
+                  if (val === 'custom') {
+                    const p = customTipValue !== null ? customTipValue.toString() : '10';
+                    setCustomPercentStr(p);
+                    const b = parseFloat(billAmount) || 0;
+                    if (b > 0 && !isNaN(parseFloat(p))) {
+                      setCustomAmountStr(((b * parseFloat(p)) / 100).toFixed(2));
+                    } else {
+                      setCustomAmountStr('');
+                    }
+                    setIsCustomModalVisible(true);
+                  } else {
+                    setTipPercentage(val);
+                  }
+                }}
+                buttons={getButtons()}
+              />
             </View>
 
             <Text variant="labelLarge" style={{ marginTop: 16, marginBottom: 8 }}>{t("modules.tipCalculator.splitBetween", "Split Between (people)")}</Text>
-            <View style={[styles.counterContainer, { backgroundColor: theme.colors.surfaceVariant }]}>
+            <View style={[styles.counterContainer, { backgroundColor: '#F0F0F0' }]}>
               <IconButton 
                 icon="minus" 
                 mode="contained"
@@ -357,34 +348,34 @@ export default function TipCalculatorScreen() {
           <Card.Content style={styles.resultContent}>
             <View style={styles.resultRow}>
               <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.tipCalculator.suggestedTip", "Suggested Tip Amount")}</Text>
-              <Text variant="titleLarge" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{currencySymbol}{result.tipAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+              <Text variant="titleLarge" style={{  color: theme.colors.onSurface }}>{currencySymbol}{result.tipAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
             </View>
             <View style={styles.resultRow}>
               <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.tipCalculator.totalBill", "Total Bill")}</Text>
-              <Text variant="headlineSmall" style={{ fontWeight: 'bold', color: theme.colors.primary }}>{currencySymbol}{result.totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+              <Text variant="headlineSmall" style={{  color: theme.colors.primary }}>{currencySymbol}{result.totalAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
             </View>
             {splitCount > 1 && (
               <View style={[styles.resultRow, { marginTop: 8, paddingTop: 8, borderTopWidth: 1, borderTopColor: theme.colors.outline }]}>
                 <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>{t("modules.tipCalculator.perPerson", "Per Person")}</Text>
-                <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{currencySymbol}{result.perPersonAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
+                <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{currencySymbol}{result.perPersonAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</Text>
               </View>
             )}
           </Card.Content>
         </Card>
 
-        <View style={{ flexDirection: 'row', gap: 12, marginTop: 16 }}>
-          <Button mode="contained" onPress={handleSync} style={{ flex: 1 }} disabled={syncSuccess || !billAmount || parseFloat(billAmount) === 0}>
-            {syncSuccess ? t("modules.tipCalculator.synced", "Synced!") : t("modules.tipCalculator.syncToBudget", "Sync to Budget")}
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 16 }}>
+          <Button variant="alternative" onPress={handleReset}>
+            {t('common.reset', 'Reset')}
           </Button>
-          <Button mode="outlined" onPress={handleReset} style={{ flex: 1 }}>
-            Reset
+          <Button variant="main" onPress={handleSync} disabled={syncSuccess || !billAmount || parseFloat(billAmount) === 0}>
+            {syncSuccess ? t("modules.tipCalculator.synced", "Synced!") : t("modules.tipCalculator.syncToBudget", "Sync to Budget")}
           </Button>
         </View>
 
         {syncSuccess && (
           <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginTop: 12 }}>
             <MaterialIcons name="check-circle" size={20} color={theme.colors.primary} />
-            <Text style={{ marginLeft: 6, color: theme.colors.primary, fontWeight: '500' }}>{t("modules.tipCalculator.addedToExpenses", "Added to Expenses")}</Text>
+            <Text style={{ marginLeft: 6, color: theme.colors.primary, }}>{t("modules.tipCalculator.addedToExpenses", "Added to Expenses")}</Text>
           </View>
         )}
       </ScrollView>
@@ -394,16 +385,15 @@ export default function TipCalculatorScreen() {
           <Dialog.Title>{t("modules.tipCalculator.customTipTitle", "Custom Tip")}</Dialog.Title>
           <Dialog.Content>
             <View style={{ gap: 16 }}>
-              <SegmentedButtons
+              <CustomSegmentedControl
                 value={customTipType}
                 onValueChange={(v) => setCustomTipType(v as 'percentage' | 'amount')}
                 buttons={[
                   { value: 'percentage', label: t('modules.tipCalculator.percentageLabel', 'Percentage (%)') },
                   { value: 'amount', label: t('modules.tipCalculator.amountLabel', 'Amount ({{symbol}})', { symbol: currencySymbol }) },
                 ]}
-                style={{ backgroundColor: theme.colors.surface }}
               />
-              <TextInput
+              <TextInput placeholderTextColor="#B7B0AA" theme={{ colors: { onSurfaceVariant: "#B7B0AA" } }}
                 value={customTipType === 'percentage' ? customPercentStr : customAmountStr}
                 onChangeText={customTipType === 'percentage' ? handleCustomPercentChange : handleCustomAmountChange}
                 keyboardType="numeric"
@@ -430,7 +420,7 @@ const styles = StyleSheet.create({
   input: { backgroundColor: '#ffffff', marginBottom: 12 },
   segmented: { marginBottom: 12 },
   counterContainer: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 16, padding: 8, marginBottom: 8 },
-  counterText: { marginHorizontal: 24, fontWeight: 'bold' },
+  counterText: { marginHorizontal: 24, },
   resultCard: { elevation: 0 },
   resultContent: { gap: 12 },
   resultRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }

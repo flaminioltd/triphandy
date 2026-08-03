@@ -64,7 +64,7 @@ export default function ChangeHomeCountryModal({ visible, onDismiss }: ChangeHom
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         >
           <View style={styles.header}>
-            <Text variant="headlineSmall" style={{ flex: 1, fontWeight: 'bold', color: theme.colors.onSurface }}>{t("settingsScreen.changeHomeCountryTitle", "Change Home Country")}</Text>
+            <Text variant="headlineSmall" style={{ flex: 1,  color: theme.colors.onSurface }}>{t("settingsScreen.changeHomeCountryTitle", "Change Home Country")}</Text>
             <Pressable onPress={onDismiss} style={styles.closeButton}>
               <MaterialIcons name="close" size={24} color={theme.colors.onSurfaceVariant} />
             </Pressable>
@@ -119,7 +119,7 @@ export default function ChangeHomeCountryModal({ visible, onDismiss }: ChangeHom
                         </View>
                       )}
                       <View style={{ flex: 1 }}>
-                        <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, fontWeight: '500' }}>
+                        <Text variant="bodyLarge" style={{ color: theme.colors.onSurface, }}>
                           {t(`countries.${item.code}`, item.name)}
                         </Text>
                         <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>

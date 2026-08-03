@@ -60,7 +60,7 @@ export default function ConfirmationScreen() {
           onPress={handleEnter} 
           style={styles.button}
         >
-          {t('confirmationScreen.enterTripKitButton')}
+          {t('confirmationScreen.entertriphandyButton')}
         </Button>
       </View>
     </SafeAreaView>
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   header: { padding: 16, alignItems: 'center' },
   content: { flex: 1, padding: 24, justifyContent: 'center' },
   card: { backgroundColor: '#ffffff', marginBottom: 24 },
-  cardTitle: { fontWeight: 'bold', marginBottom: 16, textAlign: 'center' },
+  cardTitle: {  marginBottom: 16, textAlign: 'center' },
   note: { textAlign: 'center' },
   footer: { padding: 24, paddingBottom: 40 },
   button: { paddingVertical: 6 }

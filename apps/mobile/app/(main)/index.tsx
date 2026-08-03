@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, ScrollView, Pressable, Image, Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Text, useTheme, Menu } from 'react-native-paper';
+import { Text, useTheme, Menu, Portal, Dialog, Button as PaperButton } from 'react-native-paper';
+import Button from '../../src/components/ui/Button';
 import { MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useTripStore } from '../../src/stores/trip-store';
 import { useAppStore } from '../../src/stores/app-store';
 import { FLAG_IMAGES } from '../../src/lib/assets';
 import AddTripModal from '../../src/components/AddTripModal';
+import ProUpgradeModal from '../../src/components/ProUpgradeModal';
+import ProIcon from '../../src/components/ProIcon';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../src/i18n';
 
 import { LinearGradient } from 'expo-linear-gradient';
-import { FINANCE_MODULES, ESSENTIALS_MODULES, RedesignModuleProps } from '../../src/lib/modules';
+import { ALL_MODULES, DEFAULT_MODULE_ORDER, RedesignModuleProps } from '../../src/lib/modules';
+import { DragSortableView } from 'react-native-drag-sort';
+import { Dimensions } from 'react-native';
+
+const { width: screenWidth } = Dimensions.get('window');
 
 import { COUNTRIES } from '../../src/lib/countries';
 
@@ -28,11 +35,29 @@ export default function HomeScreen() {
   const theme = useTheme();
   const router = useRouter();
   const { trips, activeTrip, setActiveTrip, loadTrips } = useTripStore();
-  const { loadSettings } = useAppStore();
+  const { loadSettings, settings, updateSettings } = useAppStore();
+  const [isReordering, setIsReordering] = useState(false);
+  const [moduleOrder, setModuleOrder] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (settings?.moduleOrder) {
+      try {
+        setModuleOrder(JSON.parse(settings.moduleOrder));
+      } catch {
+        setModuleOrder(DEFAULT_MODULE_ORDER);
+      }
+    } else {
+      setModuleOrder(DEFAULT_MODULE_ORDER);
+    }
+  }, [settings?.moduleOrder]);
+
+  const sortedModules = moduleOrder.map(id => ALL_MODULES.find(m => m.id === id)).filter(Boolean) as RedesignModuleProps[];
   const { t } = useTranslation();
   const [menuVisible, setMenuVisible] = useState(false);
   const [activeCountryCode, setActiveCountryCode] = useState<string | null>(null);
   const [isAddTripVisible, setAddTripVisible] = useState(false);
+  const [isNoTripModalVisible, setNoTripModalVisible] = useState(false);
+  const [isPremiumModalVisible, setPremiumModalVisible] = useState(false);
 
   useEffect(() => {
     loadTrips();
@@ -75,15 +100,31 @@ export default function HomeScreen() {
     return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
   });
 
-  const renderModuleCard = (mod: RedesignModuleProps, idx: number) => {
+  const renderModuleCard = (mod: RedesignModuleProps, idx: number, reordering: boolean = false) => {
     const isFullWidth = mod.colSpan === 2;
     return (
       <Pressable
         key={idx}
-        onPress={() => router.push(mod.route as any)}
+        disabled={reordering}
+        onPress={() => {
+          if (mod.isPremium && !settings?.isPremium) {
+            setPremiumModalVisible(true);
+          } else if (!activeTrip) {
+            setNoTripModalVisible(true);
+          } else {
+            router.push(mod.route as any);
+          }
+        }}
         style={({ pressed }) => [
-          { width: isFullWidth ? '100%' : '50%', paddingHorizontal: 1, marginBottom: 2 },
-          pressed && styles.cardPressed
+          reordering ? {
+            width: screenWidth / 2 - 2,
+            height: 140,
+          } : { 
+            width: isFullWidth ? '100%' : '50%', 
+            paddingHorizontal: 1, 
+            marginBottom: 2 
+          },
+          pressed && !reordering && styles.cardPressed
         ]}
       >
         <View
@@ -95,41 +136,71 @@ export default function HomeScreen() {
               padding: 16,
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'space-between',
             }
           ]}
         >
-          <Text style={{ 
-            fontSize: 11, 
-            fontWeight: '600', 
-            color: 'rgba(0,0,0,0.4)', 
-            textTransform: 'uppercase', 
-            letterSpacing: 0.5,
-            alignSelf: 'flex-start'
-          }}>
-            {t(`categories.${mod.category}`, mod.category)}
-          </Text>
-
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            {mod.CustomIcon ? (
-              <mod.CustomIcon size={48} color={mod.color} />
-            ) : (
-              <MaterialIcons name={mod.fallbackIcon} size={48} color={mod.color} />
-            )}
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <View style={{ flexDirection: 'row', flex: 1, paddingRight: 8 }}>
+              <Text style={{ 
+                fontSize: 11, 
+                fontFamily: 'DMSans_700Bold',
+                 
+                color: '#FFFFFF', 
+                textTransform: 'capitalize', 
+                letterSpacing: 0.5,
+                flexShrink: 1,
+                paddingTop: 4
+              }}>
+                {t(`categories.${mod.category}`, mod.category)}
+              </Text>
+            </View>
+            
+            <View style={{ 
+              marginRight: -4, 
+              marginTop: -4,
+              backgroundColor: mod.iconShapeColor,
+              width: 48,
+              height: 48,
+              borderRadius: 24,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {mod.CustomIcon ? (
+                <mod.CustomIcon size={26} color="#FFFFFF" />
+              ) : (
+                <MaterialIcons name={mod.fallbackIcon} size={26} color="#FFFFFF" />
+              )}
+            </View>
           </View>
+
+
           
-          <Text 
-            numberOfLines={1}
-            adjustsFontSizeToFit
-            style={{ 
-              fontSize: 16,
-              fontWeight: '700', 
-              color: '#1A1A1A', 
-              textAlign: 'center',
-            }}
-          >
-            {t(`homeScreen.modules.${mod.id}.title`, mod.title)}
-          </Text>
+          {reordering && (
+            <View style={{ position: 'absolute', bottom: 8, right: 8 }}>
+              <MaterialCommunityIcons name="drag" size={24} color="rgba(0,0,0,0.3)" />
+            </View>
+          )}
+
+          <View style={{ flex: 1, justifyContent: 'flex-end', paddingLeft: 8, paddingBottom: 8 }}>
+            <Text 
+              numberOfLines={2}
+              adjustsFontSizeToFit
+              minimumFontScale={0.5}
+              style={{ 
+                fontSize: 18,
+                fontFamily: 'DMSans_700Bold',
+                 
+                color: '#FFFFFF', 
+                textAlign: 'left',
+                lineHeight: 22
+              }}
+            >
+              {t(`homeScreen.modules.${mod.id}.title`, mod.title).replace(' ', '\n')}
+              {mod.isPremium && !settings?.isPremium && (
+                <Text> <ProIcon size={16} color="#FFFFFF" /></Text>
+              )}
+            </Text>
+          </View>
         </View>
       </Pressable>
     );
@@ -137,11 +208,14 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView edges={['bottom', 'left', 'right']} style={{ flex: 1, backgroundColor: theme.colors.background }}>
-      <ScrollView style={[styles.container, { backgroundColor: theme.colors.background }]} contentContainerStyle={styles.content}>
+      <ScrollView scrollEnabled={!isReordering} style={[styles.container, { backgroundColor: theme.colors.background }]} contentContainerStyle={styles.content}>
         
         {/* Active Trip Strip */}
-        <View style={[styles.tripStripContainer, { flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingHorizontal: 14, marginTop: 12, gap: 12 }]}>
-          <Text style={{ fontSize: 13, fontWeight: 'bold', color: theme.colors.onSurfaceVariant, textTransform: 'uppercase', letterSpacing: 0.5 }}>{t('tripsScreen.activeTripLabel', 'Active Trip:')}</Text>
+        <View style={[styles.tripStripContainer, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 14, marginTop: 12, width: '100%' }]}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+            <Text style={{ fontSize: 13, fontFamily: 'DMSans_400Regular',  color: theme.colors.onSurfaceVariant, textTransform: 'capitalize', letterSpacing: 0.5 }}>
+              {t('tripsScreen.activeTripLabel', 'Active Trip').toLowerCase()}:
+            </Text>
           <Menu
             visible={menuVisible}
             onDismiss={() => setMenuVisible(false)}
@@ -176,7 +250,7 @@ export default function HomeScreen() {
                 {activeCountryCode && FLAG_IMAGES[activeCountryCode] && (
                   <Image source={FLAG_IMAGES[activeCountryCode]} style={{ width: 20, height: 20, borderRadius: 10 }} />
                 )}
-                <Text style={{ fontSize: 14, fontWeight: '500', color: theme.colors.onSurface }}>
+                <Text style={{ fontSize: 14,  color: theme.colors.onSurface }}>
                   {activeTrip ? (() => {
                     const activeCode = COUNTRIES.find(c => c.name === activeTrip.destinationCountry)?.code;
                     return activeCode ? t(`countries.${activeCode}`, activeTrip.destinationCountry) : activeTrip.destinationCountry;
@@ -236,20 +310,93 @@ export default function HomeScreen() {
               leadingIcon="plus"
             />
           </Menu>
+          </View>
+          <Pressable 
+            onPress={() => {
+              if (isReordering) {
+                updateSettings({ moduleOrder: JSON.stringify(moduleOrder) });
+                setIsReordering(false);
+              } else {
+                setIsReordering(true);
+              }
+            }}
+            style={{ padding: 8, backgroundColor: isReordering ? theme.colors.primaryContainer : 'transparent', borderRadius: 8, marginLeft: 'auto' }}
+          >
+            <MaterialIcons name={isReordering ? "check" : "grid-view"} size={20} color={isReordering ? theme.colors.onPrimaryContainer : theme.colors.onSurfaceVariant} />
+          </Pressable>
         </View>
 
         {/* Modules Grid */}
         <View style={{ marginBottom: 0 }}>
-          <View style={styles.grid}>
-            {[...FINANCE_MODULES, ...ESSENTIALS_MODULES].map((mod, idx) => renderModuleCard(mod, idx))}
-          </View>
+          {isReordering ? (
+            <View style={{ marginHorizontal: -1, width: screenWidth }}>
+              <DragSortableView
+                dataSource={sortedModules}
+                parentWidth={screenWidth}
+                childrenWidth={screenWidth / 2 - 2}
+                childrenHeight={140}
+                marginChildrenTop={0}
+                marginChildrenBottom={2}
+                marginChildrenLeft={1}
+                marginChildrenRight={1}
+                onDataChange={(data) => {
+                  setModuleOrder(data.map((d: any) => d.id));
+                }}
+                keyExtractor={(item) => item.id}
+                onClickItem={() => {}}
+                renderItem={(item, index) => renderModuleCard(item, index, true)}
+                sortable={true}
+              />
+            </View>
+          ) : (
+            <View style={styles.grid}>
+              {sortedModules.map((mod, idx) => renderModuleCard(mod, idx, false))}
+            </View>
+          )}
         </View>
 
       </ScrollView>
 
+      <Portal>
+        <Dialog visible={isNoTripModalVisible} onDismiss={() => setNoTripModalVisible(false)} style={{ backgroundColor: theme.colors.surface }}>
+          <Dialog.Title>{t('modals.noTrip.title', 'No Active Trip')}</Dialog.Title>
+          <Dialog.Content>
+            <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>
+              {t('modals.noTrip.message', 'Please set an active trip or add a new trip to access the modules.')}
+            </Text>
+          </Dialog.Content>
+          <Dialog.Actions style={{ paddingHorizontal: 24, paddingBottom: 24, paddingTop: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Button 
+              variant="alternative"
+              onPress={() => setNoTripModalVisible(false)}
+            >
+              {t('common.close', 'Close')}
+            </Button>
+            {trips.length === 0 && (
+              <Button 
+                variant="main" 
+                contentStyle={{ paddingHorizontal: 0 }}
+                labelStyle={{ marginHorizontal: 8 }}
+                onPress={() => {
+                  setNoTripModalVisible(false);
+                  setAddTripVisible(true);
+                }}
+              >
+                {t('modals.noTrip.addTripButton', 'Add Trip')}
+              </Button>
+            )}
+          </Dialog.Actions>
+        </Dialog>
+      </Portal>
+
       <AddTripModal 
         visible={isAddTripVisible} 
         onDismiss={() => setAddTripVisible(false)} 
+      />
+      
+      <ProUpgradeModal 
+        visible={isPremiumModalVisible} 
+        onDismiss={() => setPremiumModalVisible(false)} 
       />
     </SafeAreaView>
   );
@@ -290,7 +437,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   tripText: {
-    fontWeight: '600',
+    
   },
   grid: {
     flexDirection: 'row',

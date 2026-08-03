@@ -11,6 +11,8 @@ import { COUNTRIES } from '../../src/lib/countries';
 import { COVER_IMAGES } from '../../src/lib/assets';
 import AddTripModal from '../../src/components/AddTripModal';
 import PastTripSummaryModal from '../../src/components/PastTripSummaryModal';
+import ProUpgradeModal from '../../src/components/ProUpgradeModal';
+import ProIcon from '../../src/components/ProIcon';
 import { useTranslation } from 'react-i18next';
 
 export default function TripsScreen() {
@@ -29,6 +31,7 @@ export default function TripsScreen() {
   const [budgetViewMode, setBudgetViewMode] = useState<'total' | 'daily'>('total');
   const [summaryTrip, setSummaryTrip] = useState<any>(null);
   const [isSummaryVisible, setIsSummaryVisible] = useState(false);
+  const [isPremiumModalVisible, setPremiumModalVisible] = useState(false);
   
   const [editTempStart, setEditTempStart] = useState<string | null>(null);
   const [editMarkedDates, setEditMarkedDates] = useState<any>({});
@@ -213,15 +216,20 @@ export default function TripsScreen() {
     return '#F44336'; // Red
   };
 
+  const miniButtonContentStyle = { height: 24 };
+  const miniButtonLabelStyle = { fontSize: 10, marginHorizontal: 12, marginVertical: 2 };
+
   return (
     <>
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       {/* Header */}
-      <View style={styles.header}>
-        <Text variant="headlineLarge" style={{ color: theme.colors.onSurface, fontWeight: 'bold' }}>{t('tripsScreen.headerTitle')}</Text>
-        <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant, marginTop: 4 }}>
-          {t('tripsScreen.headerSubtitle')}
-        </Text>
+      <View style={[styles.header, { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }]}>
+        <View>
+          <Text variant="headlineLarge" style={{ color: theme.colors.onSurface, }}>{t('tripsScreen.headerTitle')}</Text>
+          <Text variant="bodyLarge" style={{ color: theme.colors.onSurfaceVariant, marginTop: 4 }}>
+            {t('tripsScreen.headerSubtitle')}
+          </Text>
+        </View>
       </View>
 
       {/* Plan New Trip */}
@@ -237,7 +245,7 @@ export default function TripsScreen() {
           <MaterialIcons name="add" size={24} color={theme.colors.primary} />
         </View>
         <View style={{ marginLeft: 16 }}>
-          <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{t('tripsScreen.planNewTripTitle')}</Text>
+          <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{t('tripsScreen.planNewTripTitle')}</Text>
           <Text variant="bodySmall" style={{ color: theme.colors.onSurfaceVariant }}>{t('tripsScreen.planNewTripSubtitle')}</Text>
         </View>
       </Pressable>
@@ -263,7 +271,7 @@ export default function TripsScreen() {
                 <View style={[styles.badge, { backgroundColor: theme.colors.primary }]}>
                   <Text style={[styles.badgeText, { color: theme.colors.onPrimary }]}>{statusInfo.title.toUpperCase()}</Text>
                 </View>
-                <Text variant="headlineMedium" style={{ color: '#fff', fontWeight: 'bold' }}>
+                <Text variant="headlineMedium" style={{ color: '#fff', }}>
                   {(() => {
                     const code = COUNTRIES.find(c => c.name === activeTrip.destinationCountry)?.code;
                     return code ? t(`countries.${code}`, activeTrip.destinationCountry) : activeTrip.destinationCountry;
@@ -283,7 +291,7 @@ export default function TripsScreen() {
                   <MaterialIcons name="calendar-today" size={20} color={theme.colors.primary} />
                 </View>
                 <View>
-                  <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{statusInfo.title}</Text>
+                  <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>{statusInfo.title}</Text>
                   <Text variant="bodyMedium" style={{ color: theme.colors.onSurfaceVariant }}>{statusInfo.subtitle}</Text>
                 </View>
               </View>
@@ -301,22 +309,29 @@ export default function TripsScreen() {
                   <Button 
                     variant="alternative"
                     compact
-                    onPress={() => router.push('/modules/budget-tracker')}
-                    contentStyle={{ height: 26 }}
-                    labelStyle={{ fontSize: 11, marginHorizontal: 8, marginVertical: 4 }}
+                    onPress={() => {
+                      if (!settings?.isPremium) {
+                        setPremiumModalVisible(true);
+                      } else {
+                        router.push('/modules/budget-tracker');
+                      }
+                    }}
+                    icon={!settings?.isPremium ? () => <ProIcon size={14} /> : undefined}
+                    contentStyle={[miniButtonContentStyle, !settings?.isPremium && { flexDirection: 'row-reverse' }]}
+                    labelStyle={miniButtonLabelStyle}
                   >
                     {(!activeTrip.budget || activeTrip.budget <= 0) ? t('tripsScreen.budgetSet') : t('tripsScreen.budgetAdjust')}
                   </Button>
                     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
                       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 12, marginRight: 8, color: budgetViewMode === 'daily' ? theme.colors.onSurface : theme.colors.onSurfaceVariant, fontWeight: budgetViewMode === 'daily' ? 'bold' : 'normal' }}>{t('tripsScreen.budgetDaily')}</Text>
+                        <Text style={{ fontSize: 12, marginRight: 0, color: budgetViewMode === 'daily' ? theme.colors.onSurface : theme.colors.onSurfaceVariant, fontWeight: budgetViewMode === 'daily' ? 'bold' : 'normal' }}>{t('tripsScreen.budgetDaily')}</Text>
                         <Switch 
                           value={budgetViewMode === 'total'} 
                           onValueChange={(val) => setBudgetViewMode(val ? 'total' : 'daily')} 
                           color={theme.colors.primary}
-                          style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
+                          style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }], marginHorizontal: -4 }}
                         />
-                        <Text style={{ fontSize: 12, marginLeft: 8, color: budgetViewMode === 'total' ? theme.colors.onSurface : theme.colors.onSurfaceVariant, fontWeight: budgetViewMode === 'total' ? 'bold' : 'normal' }}>{t('tripsScreen.budgetTrip')}</Text>
+                        <Text style={{ fontSize: 12, marginLeft: 0, color: budgetViewMode === 'total' ? theme.colors.onSurface : theme.colors.onSurfaceVariant, fontWeight: budgetViewMode === 'total' ? 'bold' : 'normal' }}>{t('tripsScreen.budgetTrip')}</Text>
                       </View>
                     </View>
                 </View>
@@ -326,25 +341,29 @@ export default function TripsScreen() {
                   <View style={[styles.progressBar, { backgroundColor: theme.colors.surfaceVariant, flex: 1, marginRight: 12 }]}>
                     <View style={[styles.progressFill, { backgroundColor: getProgressColor(currentProgress), width: `${currentProgressPercent}%` }]} />
                   </View>
-                  <Text variant="bodySmall" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>{currentProgressPercent}%</Text>
+                  <Text variant="bodySmall" style={{  color: theme.colors.onSurface }}>{currentProgressPercent}%</Text>
                 </View>
               </View>
 
               <Divider style={{ marginVertical: 16 }} />
 
               {/* Action Buttons */}
-              <View style={{ flexDirection: 'row', gap: 12 }}>
+              <View style={{ flexDirection: 'row', gap: 12, justifyContent: 'flex-start' }}>
                 <Button 
                   variant="alternative"
+                  compact
                   onPress={() => openEditModal(activeTrip)} 
-                  style={{ flex: 1 }}
+                  contentStyle={miniButtonContentStyle}
+                  labelStyle={miniButtonLabelStyle}
                 >
                   {t('tripsScreen.editTripButton')}
                 </Button>
                 <Button 
                   variant="destructive"
+                  compact
                   onPress={() => handleDelete(activeTrip.id, activeTrip.destinationCountry)} 
-                  style={{ flex: 1 }}
+                  contentStyle={miniButtonContentStyle}
+                  labelStyle={miniButtonLabelStyle}
                 >
                   {t('tripsScreen.deleteTripButton')}
                 </Button>
@@ -367,29 +386,30 @@ export default function TripsScreen() {
             return (
               <View key={trip.id} style={[styles.tripCard, { borderColor: theme.colors.outlineVariant, backgroundColor: theme.colors.surface }]}>
                 {countryCode && COVER_IMAGES[countryCode] ? (
-                  <ImageBackground 
-                    source={COVER_IMAGES[countryCode]} 
-                    style={styles.tripCardImagePlaceholder}
-                    imageStyle={{ resizeMode: 'cover' }}
-                  >
+                  <View style={styles.tripCardImagePlaceholder}>
+                    <Image 
+                      source={COVER_IMAGES[countryCode]} 
+                      style={[StyleSheet.absoluteFillObject, { width: '100%', height: '100%' }]}
+                      resizeMode="cover"
+                    />
                     <View style={styles.tripCardOverlay}>
-                      <Text variant="titleLarge" style={{ fontWeight: 'bold', color: '#fff' }}>
+                      <Text variant="titleLarge" style={{  color: '#fff' }}>
                         {countryCode ? t(`countries.${countryCode}`, trip.destinationCountry) : trip.destinationCountry}
                       </Text>
                     </View>
-                  </ImageBackground>
+                  </View>
                 ) : (
                   <View style={[styles.tripCardImagePlaceholder, { backgroundColor: theme.colors.surfaceVariant }]}>
                     <View style={styles.tripCardOverlay}>
                       <MaterialIcons name="image" size={32} color={theme.colors.onSurfaceVariant} style={{ position: 'absolute', alignSelf: 'center', top: '40%' }} />
-                      <Text variant="titleLarge" style={{ fontWeight: 'bold', color: theme.colors.onSurfaceVariant }}>
+                      <Text variant="titleLarge" style={{  color: theme.colors.onSurfaceVariant }}>
                         {countryCode ? t(`countries.${countryCode}`, trip.destinationCountry) : trip.destinationCountry}
                       </Text>
                     </View>
                   </View>
                 )}
                 <View style={styles.tripCardContent}>
-                  <Text variant="labelMedium" style={{ color: theme.colors.primary, fontWeight: 'bold', marginBottom: 12 }}>
+                  <Text variant="labelMedium" style={{ color: theme.colors.primary,  marginBottom: 12 }}>
                     {trip.startDate && trip.endDate ? formatDateRange(trip.startDate, trip.endDate) : t('tripsScreen.tbd', 'TBD')}
                   </Text>
                   
@@ -399,8 +419,8 @@ export default function TripsScreen() {
                         variant="alternative"
                         compact
                         onPress={() => openEditModal(trip)} 
-                        style={{ width: 85 }}
-                        labelStyle={{ marginHorizontal: 0, fontSize: 12 }}
+                        contentStyle={miniButtonContentStyle}
+                        labelStyle={miniButtonLabelStyle}
                       >
                         {t('tripsScreen.editButton')}
                       </Button>
@@ -408,8 +428,8 @@ export default function TripsScreen() {
                         variant="destructive"
                         compact
                         onPress={() => handleDelete(trip.id, trip.destinationCountry)} 
-                        style={{ width: 85 }}
-                        labelStyle={{ marginHorizontal: 0, fontSize: 12 }}
+                        contentStyle={miniButtonContentStyle}
+                        labelStyle={miniButtonLabelStyle}
                       >
                         {t('tripsScreen.deleteButton')}
                       </Button>
@@ -418,8 +438,8 @@ export default function TripsScreen() {
                       variant="main"
                       compact
                       onPress={() => useTripStore.getState().setActiveTrip(trip.id)} 
-                      style={{ width: 85 }}
-                      labelStyle={{ marginHorizontal: 0, fontSize: 12 }}
+                      contentStyle={miniButtonContentStyle}
+                      labelStyle={miniButtonLabelStyle}
                     >
                       {t('tripsScreen.setActiveButton')}
                     </Button>
@@ -446,7 +466,7 @@ export default function TripsScreen() {
                 idx !== pastTrips.length - 1 && { borderBottomWidth: 1, borderBottomColor: theme.colors.outlineVariant }
               ]}>
                 <View style={styles.listItemContent}>
-                  <Text variant="titleMedium" style={{ fontWeight: 'bold', color: theme.colors.onSurface }}>
+                  <Text variant="titleMedium" style={{  color: theme.colors.onSurface }}>
                     {(() => {
                       const pastCode = COUNTRIES.find(c => c.name === trip.destinationCountry)?.code;
                       return pastCode ? t(`countries.${pastCode}`, trip.destinationCountry) : trip.destinationCountry;
@@ -476,7 +496,7 @@ export default function TripsScreen() {
       <Modal visible={!!editingTrip} onDismiss={() => setEditingTrip(null)} contentContainerStyle={{ backgroundColor: theme.colors.surface, margin: 24, padding: 24, borderRadius: 16 }}>
         {editingTrip && (
           <View>
-            <Text variant="titleLarge" style={{ fontWeight: 'bold', marginBottom: 16 }}>{t('tripsScreen.editTripModalTitle', { country: (() => {
+            <Text variant="titleLarge" style={{  marginBottom: 16 }}>{t('tripsScreen.editTripModalTitle', { country: (() => {
               const editCode = COUNTRIES.find(c => c.name === editingTrip.destinationCountry)?.code;
               return editCode ? t(`countries.${editCode}`, editingTrip.destinationCountry) : editingTrip.destinationCountry;
             })() })}</Text>
@@ -501,9 +521,9 @@ export default function TripsScreen() {
                   ]}
                 >
                   <MaterialIcons name="date-range" size={20} color={theme.colors.primary} style={{ marginRight: 8 }} />
-                  <Text style={{ fontSize: 16, color: theme.colors.primary, fontWeight: '500' }}>
+                  <Text style={{ fontSize: 16, color: theme.colors.primary, }}>
                     {editStartDate && editEndDate 
-                      ? `${editStartDate.toLocaleDateString()} - ${editEndDate.toLocaleDateString()}`
+                      ? `${editStartDate.toLocaleDateString('en-GB')} - ${editEndDate.toLocaleDateString('en-GB')}`
                       : t('tripsScreen.selectDateRange')}
                   </Text>
                 </Pressable>
@@ -531,16 +551,18 @@ export default function TripsScreen() {
 
             <Portal>
               <Modal visible={showPicker} onDismiss={() => setShowPicker(false)} contentContainerStyle={{ margin: 24, borderRadius: 16, overflow: 'hidden', backgroundColor: theme.colors.surface }}>
-                <Calendar
-                  minDate={new Date().toISOString().split('T')[0]}
-                  markingType={'period'}
-                  markedDates={editMarkedDates}
-                  onDayPress={handleEditDayPress}
-                  theme={{
-                    todayTextColor: theme.colors.primary,
-                    arrowColor: theme.colors.primary,
-                  }}
-                />
+                {showPicker && (
+                  <Calendar
+                    minDate={new Date().toISOString().split('T')[0]}
+                    markingType={'period'}
+                    markedDates={editMarkedDates}
+                    onDayPress={handleEditDayPress}
+                    theme={{
+                      todayTextColor: theme.colors.primary,
+                      arrowColor: theme.colors.primary,
+                    }}
+                  />
+                )}
               </Modal>
             </Portal>
           </View>
@@ -557,6 +579,11 @@ export default function TripsScreen() {
       visible={isSummaryVisible} 
       trip={summaryTrip} 
       onDismiss={() => setIsSummaryVisible(false)} 
+    />
+    
+    <ProUpgradeModal 
+      visible={isPremiumModalVisible} 
+      onDismiss={() => setPremiumModalVisible(false)} 
     />
     </>
   );
@@ -583,7 +610,7 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   sectionTitle: {
-    fontWeight: 'bold',
+    
   },
   combinedCard: {
     borderRadius: 16,
@@ -615,7 +642,7 @@ const styles = StyleSheet.create({
   },
   badgeText: {
     fontSize: 10,
-    fontWeight: 'bold',
+    
   },
   statusCard: {
     borderRadius: 16,

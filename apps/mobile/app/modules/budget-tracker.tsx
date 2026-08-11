@@ -9,7 +9,7 @@ import { View, Image, StyleSheet, FlatList, Pressable, ScrollView, Alert } from 
 import { Text, Card, useTheme, IconButton, FAB, Avatar, Portal, Dialog, TextInput, ProgressBar, Switch, RadioButton } from 'react-native-paper';
 import { Svg, G, Path, Circle } from 'react-native-svg';
 import Button from '../../src/components/ui/Button';
-import { useRouter, useFocusEffect } from 'expo-router';
+import { useRouter, useFocusEffect, useLocalSearchParams } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { db } from '../../src/db/client';
 import { exchangeRates, countries, settings as dbSettings } from '../../src/db/schema';
@@ -30,6 +30,7 @@ export default function BudgetTrackerScreen() {
   const theme = useTheme();
   const { t, i18n } = useTranslation();
   const router = useRouter();
+  const { openModal } = useLocalSearchParams<{ openModal?: string }>();
   const { activeTrip, expenses, updateTrip, addExpense, updateExpense, removeExpense } = useTripStore();
   
   const activeCountryCode = activeTrip ? COUNTRIES.find((c: any) => c.name === activeTrip.destinationCountry)?.code : null;
@@ -200,6 +201,12 @@ export default function BudgetTrackerScreen() {
     setModalInputCurrency('local');
     setIsModalVisible(true);
   };
+
+  useEffect(() => {
+    if (openModal === 'true') {
+      openAddModal();
+    }
+  }, [openModal]);
 
   const openEditModal = (expense: any) => {
     setEditingExpenseId(expense.id);

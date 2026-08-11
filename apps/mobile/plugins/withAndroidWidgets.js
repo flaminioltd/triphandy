@@ -246,10 +246,10 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
-import es.dionisiocaceres.HomeWidgetPlugin
+import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class ActiveTripOverviewWidget : AppWidgetProvider() {
-    override function onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
             val widgetData = HomeWidgetPlugin.getData(context)
             val views = RemoteViews(context.packageName, R.layout.active_trip_overview_widget).apply {
@@ -269,10 +269,10 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
-import es.dionisiocaceres.HomeWidgetPlugin
+import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class QuickLocalInfoWidget : AppWidgetProvider() {
-    override function onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
             val widgetData = HomeWidgetPlugin.getData(context)
             val country = widgetData.getString("local_country", "France")
@@ -298,10 +298,10 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
-import es.dionisiocaceres.HomeWidgetPlugin
+import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class BudgetWidget : AppWidgetProvider() {
-    override function onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         for (appWidgetId in appWidgetIds) {
             val widgetData = HomeWidgetPlugin.getData(context)
             val views = RemoteViews(context.packageName, R.layout.budget_widget).apply {

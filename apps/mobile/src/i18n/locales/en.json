@@ -742,5 +742,13 @@
   "common": {
     "close": "Close",
     "reset": "Reset"
+  },
+  "notifications": {
+    "adapterTitle": "Outlet Adapter Reminder 🔌",
+    "adapterBody": "Don't forget to pack an outlet adapter for {{country}}! (Types: {{types}})",
+    "holidayTitle": "Upcoming Local Holidays 🗓️",
+    "holidayBody": "Local holidays during your trip in {{country}}: {{holidays}}",
+    "vatTitle": "VAT Refund Reminder 🧾",
+    "vatBody": "Don't forget to prepare your purchased items and receipts for VAT refund submission!"
   }
 }

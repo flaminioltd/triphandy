@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { tripRepo } from '../repositories/trip-repository';
 import { budgetRepo } from '../repositories/budget-repository';
 import type { trips, expenses } from '../db/schema';
+import { syncTripNotifications } from '../services/notification-service';
 
 type Trip = typeof trips.$inferSelect;
 type Expense = typeof expenses.$inferSelect;
@@ -75,6 +76,7 @@ export const useTripStore = create<TripState>((set, get) => ({
   setActiveTrip: async (tripId) => {
     if (!tripId) {
       set({ activeTrip: null, expenses: [] });
+      syncTripNotifications(null);
       return;
     }
     
@@ -84,6 +86,7 @@ export const useTripStore = create<TripState>((set, get) => ({
       if (trip) {
         const tripExpenses = await budgetRepo.getExpensesForTrip(tripId);
         set({ activeTrip: trip, expenses: tripExpenses });
+        syncTripNotifications(trip);
       }
     } catch (error) {
       console.error('Failed to set active trip:', error);
@@ -121,9 +124,11 @@ export const useTripStore = create<TripState>((set, get) => ({
       if (updatedTrips && updatedTrips.length > 0) {
         set((state) => {
           const newTrips = state.trips.map(t => t.id === tripId ? updatedTrips[0] : t);
+          const newActive = state.activeTrip?.id === tripId ? updatedTrips[0] : state.activeTrip;
+          syncTripNotifications(newActive);
           return {
             trips: newTrips,
-            activeTrip: state.activeTrip?.id === tripId ? updatedTrips[0] : state.activeTrip,
+            activeTrip: newActive,
           };
         });
       }

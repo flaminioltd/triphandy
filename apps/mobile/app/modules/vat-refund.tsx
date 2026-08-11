@@ -16,6 +16,7 @@ import * as Crypto from 'expo-crypto';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import CustomSegmentedControl from '../../src/components/ui/CustomSegmentedControl';
+import { syncTripNotifications } from '../../src/services/notification-service';
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥', 'AUD': 'A$', 'CAD': 'C$',
@@ -177,6 +178,7 @@ export default function VatRefundScreen() {
       }
       
       setIsModalVisible(false);
+      syncTripNotifications(activeTrip);
     } catch (e) {
       console.error("Failed to save VAT purchase:", e);
     }
@@ -186,6 +188,7 @@ export default function VatRefundScreen() {
     try {
       await db.delete(vatPurchases).where(eq(vatPurchases.id, id));
       setPurchases(prev => prev.filter(p => p.id !== id));
+      syncTripNotifications(activeTrip);
     } catch (e) {
       console.error("Failed to delete purchase:", e);
     }

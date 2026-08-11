@@ -745,5 +745,13 @@
   "common": {
     "close": "Chiudi",
     "reset": "Reimposta"
+  },
+  "notifications": {
+    "adapterTitle": "Promemoria Adattatore Presa 🔌",
+    "adapterBody": "Non dimenticare di portare un adattatore per {{country}}! (Tipi: {{types}})",
+    "holidayTitle": "Prossime Festività Locali 🗓️",
+    "holidayBody": "Festività locali durante il tuo viaggio in {{country}}: {{holidays}}",
+    "vatTitle": "Promemoria Rimborso IVA 🧾",
+    "vatBody": "Non dimenticare di preparare gli articoli acquistati e le ricevute per la richiesta di rimborso IVA!"
   }
 }

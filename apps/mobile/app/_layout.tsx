@@ -6,6 +6,8 @@ import { en, registerTranslation } from 'react-native-paper-dates';
 import NetInfo from '@react-native-community/netinfo';
 import '../src/i18n';
 
+import { initNotifications, requestNotificationPermissions } from '../src/services/notification-service';
+
 registerTranslation('en', en);
 import { seedDatabase } from '../src/db/seed';
 import { updateExchangeRates, shouldUpdateRates } from '../src/services/exchangeRates';
@@ -38,6 +40,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     seedDatabase().catch(console.error);
+    initNotifications().then(() => requestNotificationPermissions()).catch(console.error);
 
     // Initialize Qonversion
     try {

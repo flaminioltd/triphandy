@@ -8,6 +8,9 @@ import { countries } from '../db/schema';
 import { useAppStore } from '../stores/app-store';
 import { useTranslation } from 'react-i18next';
 
+import { useTripStore } from '../stores/trip-store';
+import { syncTripNotifications } from '../services/notification-service';
+
 interface ChangeHomeCountryModalProps {
   visible: boolean;
   onDismiss: () => void;
@@ -17,6 +20,7 @@ export default function ChangeHomeCountryModal({ visible, onDismiss }: ChangeHom
   const theme = useTheme();
   const { t } = useTranslation();
   const { updateSettings } = useAppStore();
+  const { activeTrip } = useTripStore();
   
   const [searchQuery, setSearchQuery] = useState('');
   const [allCountries, setAllCountries] = useState<any[]>([]);
@@ -49,6 +53,7 @@ export default function ChangeHomeCountryModal({ visible, onDismiss }: ChangeHom
   const handleSelectCountry = async (country: any) => {
     Keyboard.dismiss();
     await updateSettings({ homeCountry: country.code, homeCurrency: country.currencyCode });
+    syncTripNotifications(activeTrip);
     onDismiss();
   };
 

@@ -745,5 +745,13 @@
   "common": {
     "close": "Fermer",
     "reset": "Réinitialiser"
+  },
+  "notifications": {
+    "adapterTitle": "Rappel d'adaptateur 🔌",
+    "adapterBody": "N'oubliez pas d'emporter un adaptateur pour la destination {{country}} ! (Types: {{types}})",
+    "holidayTitle": "Jours fériés à venir 🗓️",
+    "holidayBody": "Jours fériés pendant votre séjour en {{country}} : {{holidays}}",
+    "vatTitle": "Rappel pour le remboursement de la TVA 🧾",
+    "vatBody": "N'oubliez pas de préparer vos articles achetés et vos reçus pour la demande de remboursement de la TVA !"
   }
 }

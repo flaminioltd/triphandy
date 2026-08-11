@@ -751,5 +751,13 @@
   "common": {
     "close": "Schließen",
     "reset": "Zurücksetzen"
+  },
+  "notifications": {
+    "adapterTitle": "Steckeradapter-Erinnerung 🔌",
+    "adapterBody": "Vergiss nicht, einen Steckeradapter für {{country}} einzupacken! (Typen: {{types}})",
+    "holidayTitle": "Kommende Feiertage 🗓️",
+    "holidayBody": "Feiertage während deiner Reise in {{country}}: {{holidays}}",
+    "vatTitle": "Erinnerung zur MwSt.-Rückerstattung 🧾",
+    "vatBody": "Vergiss nicht, deine gekauften Artikel und Belege für die MwSt.-Rückerstattung vorzubereiten!"
   }
 }

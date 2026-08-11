@@ -745,5 +745,13 @@
   "common": {
     "close": "Fechar",
     "reset": "Redefinir"
+  },
+  "notifications": {
+    "adapterTitle": "Lembrete de Adaptador de Tomada 🔌",
+    "adapterBody": "Não se esqueça de levar um adaptador para {{country}}! (Tipos: {{types}})",
+    "holidayTitle": "Próximos Feriados Locais 🗓️",
+    "holidayBody": "Feriados locais durante sua viagem para {{country}}: {{holidays}}",
+    "vatTitle": "Lembrete de Reembolso de IVA 🧾",
+    "vatBody": "Não se esqueça de preparar os itens comprados e recibos para o pedido de reembolso de IVA!"
   }
 }

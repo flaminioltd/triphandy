@@ -751,5 +751,13 @@
   "common": {
     "close": "Cerrar",
     "reset": "Restablecer"
+  },
+  "notifications": {
+    "adapterTitle": "Recordatorio de Adaptador 🔌",
+    "adapterBody": "¡No olvides empacar un adaptador para {{country}}! (Tipos: {{types}})",
+    "holidayTitle": "Próximos Días Festivos 🗓️",
+    "holidayBody": "Días festivos durante tu viaje en {{country}}: {{holidays}}",
+    "vatTitle": "Recordatorio de Reembolso de IVA 🧾",
+    "vatBody": "¡No olvides preparar tus artículos comprados y recibos para la presentación de reembolso de IVA!"
   }
 }

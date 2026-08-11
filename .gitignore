@@ -1,7 +1,9 @@
-﻿node_modules/
+node_modules/
 dist/
 coverage/
 .expo/
+android/
+ios/
 **/.env.local
 **/.env.production
 **/.env.staging

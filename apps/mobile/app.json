@@ -35,7 +35,19 @@
       "expo-font",
       "@react-native-community/datetimepicker",
       "expo-sqlite",
-      "expo-notifications"
+      "expo-notifications",
+      "./plugins/withAndroidWidgets.js",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "newArchEnabled": false
+          },
+          "ios": {
+            "newArchEnabled": false
+          }
+        }
+      ]
     ],
     "extra": {
       "router": {

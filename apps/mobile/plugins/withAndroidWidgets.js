@@ -15,7 +15,7 @@ const ACTIVE_TRIP_XML_INFO = `<?xml version="1.0" encoding="utf-8"?>
 const LOCAL_INFO_XML_INFO = `<?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="250dp"
-    android:minHeight="70dp"
+    android:minHeight="180dp"
     android:updatePeriodMillis="1800000"
     android:initialLayout="@layout/quick_local_info_widget"
     android:resizeMode="horizontal|vertical"
@@ -90,135 +90,178 @@ const LOCAL_INFO_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#1E293B"
-    android:gravity="center_vertical"
-    android:padding="8dp">
+    android:gravity="top"
+    android:padding="12dp">
 
+    <!-- Row 1: Destination Name and Flag -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginEnd="12dp">
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/trip_flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🌍"
+            android:textSize="14sp"
+            android:layout_marginEnd="6dp" />
         <TextView
             android:id="@+id/local_country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="France"
             android:textColor="#F8FAFC"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
-        <TextView
-            android:id="@+id/upcoming_holiday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No upcoming holidays"
-            android:textColor="#94A3B8"
-            android:textSize="9sp" />
     </LinearLayout>
 
+    <!-- Row 2: Emergency Pills -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center">
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="@drawable/pill_red"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="4dp"
-            android:layout_marginEnd="4dp">
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginBottom="4dp">
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/ic_police"
-                android:layout_marginEnd="2dp" />
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Police"
+                android:textColor="#EF4444"
+                android:textSize="11sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/emerg_police"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="17"
                 android:textColor="#EF4444"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="@drawable/pill_blue"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="4dp"
-            android:layout_marginEnd="4dp">
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginBottom="4dp">
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/ic_ambulance"
-                android:layout_marginEnd="2dp" />
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Ambulance"
+                android:textColor="#3B82F6"
+                android:textSize="11sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/emerg_ambulance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="15"
                 android:textColor="#3B82F6"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="@drawable/pill_orange"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="4dp"
-            android:layout_marginEnd="4dp">
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginBottom="4dp">
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/ic_fire"
-                android:layout_marginEnd="2dp" />
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Fire"
+                android:textColor="#F59E0B"
+                android:textSize="11sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/emerg_fire"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="18"
                 android:textColor="#F59E0B"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
             android:background="@drawable/pill_green"
-            android:paddingHorizontal="6dp"
-            android:paddingVertical="4dp">
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp">
             <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
                 android:src="@drawable/ic_general"
-                android:layout_marginEnd="2dp" />
+                android:layout_marginEnd="6dp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="General"
+                android:textColor="#10B981"
+                android:textSize="11sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/emerg_general"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="112"
                 android:textColor="#10B981"
-                android:textSize="10sp"
+                android:textSize="11sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
+    <!-- Row 3: Upcoming Holidays -->
+    <TextView
+        android:id="@+id/upcoming_holiday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No upcoming holidays"
+        android:textColor="#94A3B8"
+        android:textSize="10sp"
+        android:layout_marginTop="8dp" />
 </LinearLayout>`;
 
 const BUDGET_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
@@ -354,6 +397,7 @@ class QuickLocalInfoWidget : AppWidgetProvider() {
 
         for (appWidgetId in appWidgetIds) {
             val country = prefs.getString("local_country", null) ?: prefsData.getString("local_country", "France")
+            val flagCode = prefs.getString("trip_flag", null) ?: prefsData.getString("trip_flag", "🌍")
             val police = prefs.getString("emerg_police", null) ?: prefsData.getString("emerg_police", "17")
             val ambulance = prefs.getString("emerg_ambulance", null) ?: prefsData.getString("emerg_ambulance", "15")
             val fire = prefs.getString("emerg_fire", null) ?: prefsData.getString("emerg_fire", "18")
@@ -362,6 +406,7 @@ class QuickLocalInfoWidget : AppWidgetProvider() {
 
             val views = RemoteViews(context.packageName, R.layout.quick_local_info_widget).apply {
                 setTextViewText(R.id.local_country, country)
+                setTextViewText(R.id.trip_flag, flagCode)
                 setTextViewText(R.id.emerg_police, police)
                 setTextViewText(R.id.emerg_ambulance, ambulance)
                 setTextViewText(R.id.emerg_fire, fire)

@@ -57,6 +57,15 @@ function formatExpenseDate(dateInput: any): string {
   return '';
 }
 
+function getFlagEmoji(countryCode: string) {
+  if (!countryCode) return '';
+  const codePoints = countryCode
+    .toUpperCase()
+    .split('')
+    .map(char => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
 /**
  * Sync data to all 3 native home screen widgets
  */
@@ -69,9 +78,33 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
         hw.setItem('trip_destination', 'No Active Trip'),
         hw.setItem('trip_days_left', 'Plan a trip'),
         hw.setItem('trip_date_range', ''),
-        hw.setItem('trip_exchange_rate', '')
+        hw.setItem('trip_exchange_rate', ''),
+        
+        hw.setItem('local_country', 'No trip selected'),
+        hw.setItem('trip_flag', ''),
+        hw.setItem('emerg_police', '-'),
+        hw.setItem('emerg_ambulance', '-'),
+        hw.setItem('emerg_fire', '-'),
+        hw.setItem('emerg_general', '-'),
+        hw.setItem('upcoming_holiday', ''),
+        
+        hw.setItem('budget_spent', '0'),
+        hw.setItem('budget_remaining', '0 remaining'),
+        hw.setItem('budget_total', '0'),
+        hw.setItem('budget_percent', '0'),
+        hw.setItem('expense_1_name', ''),
+        hw.setItem('expense_1_date', ''),
+        hw.setItem('expense_1_amount', ''),
+        hw.setItem('expense_2_name', ''),
+        hw.setItem('expense_2_date', ''),
+        hw.setItem('expense_2_amount', ''),
+        hw.setItem('expense_3_name', ''),
+        hw.setItem('expense_3_date', ''),
+        hw.setItem('expense_3_amount', '')
       ]);
       await hw.updateWidget?.('ActiveTripOverviewWidget');
+      await hw.updateWidget?.('QuickLocalInfoWidget');
+      await hw.updateWidget?.('BudgetWidget');
       return;
     }
 
@@ -138,7 +171,7 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
     // ----------------------------------------------------
     await Promise.all([
       hw.setItem('trip_destination', activeTrip.destinationCountry || ''),
-      hw.setItem('trip_flag', destCode),
+      hw.setItem('trip_flag', getFlagEmoji(destCode)),
       hw.setItem('trip_days_left', daysLeftText),
       hw.setItem('trip_date_range', dateRangeText),
       hw.setItem('trip_exchange_rate', `1 ${homeCurrency} = ${convertedFx} ${destCurrency}`)

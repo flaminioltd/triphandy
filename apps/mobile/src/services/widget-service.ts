@@ -1,3 +1,4 @@
+// @ts-ignore
 import HomeWidget from 'react-native-home-widget';
 import { db } from '../db/client';
 import { settings as dbSettings, exchangeRates } from '../db/schema';
@@ -62,23 +63,30 @@ function formatExpenseDate(dateInput: any): string {
  */
 export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = []) {
   try {
+    if (!hw.setItem) return;
+
     if (!activeTrip) {
-      await hw.setItem?.('trip_destination', 'No Active Trip');
-      await hw.setItem?.('trip_days_left', 'Plan a trip');
-      await hw.setItem?.('trip_date_range', '');
-      await hw.setItem?.('trip_exchange_rate', '');
+      await Promise.all([
+        hw.setItem('trip_destination', 'No Active Trip'),
+        hw.setItem('trip_days_left', 'Plan a trip'),
+        hw.setItem('trip_date_range', ''),
+        hw.setItem('trip_exchange_rate', '')
+      ]);
       await hw.updateWidget?.({ androidName: 'ActiveTripOverviewWidget', name: 'ActiveTripOverviewWidget' });
       return;
     }
 
     // 1. Load settings & rates
-    const settingsRes = await db.select().from(dbSettings).limit(1);
+    const [settingsRes, ratesRes] = await Promise.all([
+      db.select().from(dbSettings).limit(1),
+      db.select().from(exchangeRates)
+    ]);
+    
     let homeCurrency = 'USD';
     if (settingsRes.length > 0 && settingsRes[0]?.homeCurrency) {
       homeCurrency = settingsRes[0].homeCurrency;
     }
 
-    const ratesRes = await db.select().from(exchangeRates);
     const ratesMap: Record<string, number> = {};
     ratesRes.forEach((r: any) => {
       if (r && r.currencyCode) {
@@ -129,53 +137,54 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
     // ----------------------------------------------------
     // WIDGET 1: Active Trip Overview (2x1 Grid)
     // ----------------------------------------------------
-    if (hw.setItem) {
-      await hw.setItem('trip_destination', activeTrip.destinationCountry || '');
-      await hw.setItem('trip_flag', destCode);
-      await hw.setItem('trip_days_left', daysLeftText);
-      await hw.setItem('trip_date_range', dateRangeText);
-      await hw.setItem('trip_exchange_rate', `1 ${homeCurrency} = ${convertedFx} ${destCurrency}`);
-      await hw.updateWidget({ androidName: 'ActiveTripOverviewWidget', name: 'ActiveTripOverviewWidget' });
-    }
+    await Promise.all([
+      hw.setItem('trip_destination', activeTrip.destinationCountry || ''),
+      hw.setItem('trip_flag', destCode),
+      hw.setItem('trip_days_left', daysLeftText),
+      hw.setItem('trip_date_range', dateRangeText),
+      hw.setItem('trip_exchange_rate', `1 ${homeCurrency} = ${convertedFx} ${destCurrency}`)
+    ]);
+    await hw.updateWidget({ androidName: 'ActiveTripOverviewWidget', name: 'ActiveTripOverviewWidget' });
 
     // ----------------------------------------------------
     // WIDGET 2: Quick Local Info (2x2 Grid)
     // ----------------------------------------------------
     const emergData = EMERGENCY_NUMBERS[destCode] || { police: '112', ambulance: '112', fire: '112', general: '112' };
-    if (hw.setItem) {
-      await hw.setItem('local_country', activeTrip.destinationCountry || '');
-      await hw.setItem('emerg_police', emergData.police);
-      await hw.setItem('emerg_ambulance', emergData.ambulance);
-      await hw.setItem('emerg_fire', emergData.fire);
-      await hw.setItem('emerg_general', emergData.general);
+    
+    // Find upcoming holiday during trip
+    let holidayText = 'No upcoming local holidays';
+    const holidaysByYear = PUBLIC_HOLIDAYS[destCode];
+    if (holidaysByYear && activeTrip.startDate) {
+      const tripStartTs = new Date(activeTrip.startDate).getTime();
+      const tripEndTs = activeTrip.endDate ? new Date(activeTrip.endDate).getTime() : tripStartTs;
 
-      // Find upcoming holiday during trip
-      let holidayText = 'No upcoming local holidays';
-      const holidaysByYear = PUBLIC_HOLIDAYS[destCode];
-      if (holidaysByYear && activeTrip.startDate) {
-        const tripStartTs = new Date(activeTrip.startDate).getTime();
-        const tripEndTs = activeTrip.endDate ? new Date(activeTrip.endDate).getTime() : tripStartTs;
-
-        const matched: PublicHoliday[] = [];
-        Object.values(holidaysByYear).forEach((yHolidays) => {
-          yHolidays.forEach((h) => {
-            const parts = h.date.split('-');
-            if (parts.length === 3) {
-              const hDate = new Date(parseInt(parts[0] || '2026', 10), parseInt(parts[1] || '1', 10) - 1, parseInt(parts[2] || '1', 10));
-              if (hDate.getTime() >= tripStartTs && hDate.getTime() <= tripEndTs) {
-                matched.push(h);
-              }
+      const matched: PublicHoliday[] = [];
+      Object.values(holidaysByYear).forEach((yHolidays) => {
+        yHolidays.forEach((h) => {
+          const parts = h.date.split('-');
+          if (parts.length === 3) {
+            const hDate = new Date(parseInt(parts[0] || '2026', 10), parseInt(parts[1] || '1', 10) - 1, parseInt(parts[2] || '1', 10));
+            if (hDate.getTime() >= tripStartTs && hDate.getTime() <= tripEndTs) {
+              matched.push(h);
             }
-          });
+          }
         });
+      });
 
-        if (matched.length > 0 && matched[0]) {
-          holidayText = formatHolidayShort(matched[0], 'en');
-        }
+      if (matched.length > 0 && matched[0]) {
+        holidayText = formatHolidayShort(matched[0], 'en');
       }
-      await hw.setItem('upcoming_holiday', holidayText);
-      await hw.updateWidget({ androidName: 'QuickLocalInfoWidget', name: 'QuickLocalInfoWidget' });
     }
+
+    await Promise.all([
+      hw.setItem('local_country', activeTrip.destinationCountry || ''),
+      hw.setItem('emerg_police', emergData.police),
+      hw.setItem('emerg_ambulance', emergData.ambulance),
+      hw.setItem('emerg_fire', emergData.fire),
+      hw.setItem('emerg_general', emergData.general),
+      hw.setItem('upcoming_holiday', holidayText)
+    ]);
+    await hw.updateWidget({ androidName: 'QuickLocalInfoWidget', name: 'QuickLocalInfoWidget' });
 
     // ----------------------------------------------------
     // WIDGET 3: Budget & Expenses (2x4 Grid)
@@ -189,34 +198,39 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
     const remaining = Math.max(0, budgetNum - totalSpent);
     const percent = budgetNum > 0 ? Math.min(1.0, totalSpent / budgetNum) : 0;
 
-    if (hw.setItem) {
-      await hw.setItem('budget_spent', `${activeSym}${totalSpent.toFixed(0)}`);
-      await hw.setItem('budget_remaining', `${activeSym}${remaining.toFixed(0)} remaining of ${activeSym}${budgetNum.toFixed(0)}`);
-      await hw.setItem('budget_total', `${activeSym}${budgetNum.toFixed(0)}`);
-      await hw.setItem('budget_percent', percent.toFixed(2));
+    const budgetPromises = [
+      hw.setItem('budget_spent', `${activeSym}${totalSpent.toFixed(0)}`),
+      hw.setItem('budget_remaining', `${activeSym}${remaining.toFixed(0)} remaining of ${activeSym}${budgetNum.toFixed(0)}`),
+      hw.setItem('budget_total', `${activeSym}${budgetNum.toFixed(0)}`),
+      hw.setItem('budget_percent', percent.toFixed(2))
+    ];
 
-      // Sort recent expenses desc by date
-      const sortedExp = [...expenses].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
+    // Sort recent expenses desc by date
+    const sortedExp = [...expenses].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
 
-      for (let i = 0; i < 3; i++) {
-        const idx = i + 1;
-        if (i < sortedExp.length && sortedExp[i]) {
-          const item = sortedExp[i];
-          const icon = CATEGORY_ICONS[item.category] || '💸';
-          const amtVal = trackCurrency === 'home' ? (item.convertedAmount || item.localAmount) : item.localAmount;
-
-          await hw.setItem(`expense_${idx}_name`, `${icon} ${item.title}`);
-          await hw.setItem(`expense_${idx}_date`, formatExpenseDate(item.date));
-          await hw.setItem(`expense_${idx}_amount`, `${activeSym}${amtVal.toFixed(2)}`);
-        } else {
-          await hw.setItem(`expense_${idx}_name`, '');
-          await hw.setItem(`expense_${idx}_date`, '');
-          await hw.setItem(`expense_${idx}_amount`, '');
-        }
+    for (let i = 0; i < 3; i++) {
+      const idx = i + 1;
+      if (i < sortedExp.length && sortedExp[i]) {
+        const item = sortedExp[i];
+        const icon = CATEGORY_ICONS[item.category] || '💸';
+        const amtVal = trackCurrency === 'home' ? (item.convertedAmount || item.localAmount) : item.localAmount;
+        budgetPromises.push(
+          hw.setItem(`expense_${idx}_name`, `${icon} ${item.title}`),
+          hw.setItem(`expense_${idx}_date`, formatExpenseDate(item.date)),
+          hw.setItem(`expense_${idx}_amount`, `${activeSym}${amtVal.toFixed(2)}`)
+        );
+      } else {
+        budgetPromises.push(
+          hw.setItem(`expense_${idx}_name`, ''),
+          hw.setItem(`expense_${idx}_date`, ''),
+          hw.setItem(`expense_${idx}_amount`, '')
+        );
       }
-
-      await hw.updateWidget({ androidName: 'BudgetWidget', name: 'BudgetWidget' });
     }
+
+    await Promise.all(budgetPromises);
+    await hw.updateWidget({ androidName: 'BudgetWidget', name: 'BudgetWidget' });
+
   } catch (error) {
     console.error('Failed to sync widgets:', error);
   }

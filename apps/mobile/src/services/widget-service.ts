@@ -62,7 +62,7 @@ function formatExpenseDate(dateInput: any): string {
  */
 export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = []) {
   try {
-    if (!hw.setItem) return;
+    if (!hw || !hw.setItem) return;
 
     if (!activeTrip) {
       await Promise.all([

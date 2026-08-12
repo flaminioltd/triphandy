@@ -25,7 +25,7 @@ const LOCAL_INFO_XML_INFO = `<?xml version="1.0" encoding="utf-8"?>
 const BUDGET_XML_INFO = `<?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:minWidth="180dp"
-    android:minHeight="320dp"
+    android:minHeight="180dp"
     android:updatePeriodMillis="1800000"
     android:initialLayout="@layout/budget_widget"
     android:resizeMode="horizontal|vertical"
@@ -107,24 +107,32 @@ const LOCAL_INFO_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="12dp">
         <TextView
             android:id="@+id/emerg_police"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Police: 17"
+            android:background="@drawable/pill_red"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="🚓 17"
             android:textColor="#EF4444"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/emerg_ambulance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Amb: 15"
+            android:background="@drawable/pill_blue"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginStart="6dp"
+            android:text="🚑 15"
             android:textColor="#3B82F6"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -132,24 +140,32 @@ const LOCAL_INFO_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="4dp">
+        android:layout_marginTop="12dp">
         <TextView
             android:id="@+id/emerg_fire"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Fire: 18"
+            android:background="@drawable/pill_orange"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginEnd="6dp"
+            android:text="🚒 18"
             android:textColor="#F59E0B"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/emerg_general"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="General: 112"
+            android:background="@drawable/pill_green"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="6dp"
+            android:layout_marginStart="6dp"
+            android:text="📞 112"
             android:textColor="#10B981"
-            android:textSize="11sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -171,64 +187,71 @@ const BUDGET_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
     android:background="#1E293B"
     android:padding="12dp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Trip Budget &amp; Expenses"
-        android:textColor="#F8FAFC"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/budget_spent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="€504 spent"
-        android:textColor="#10B981"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginTop="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trip Budget &amp; Expenses"
+            android:textColor="#F8FAFC"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/budget_remaining"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="€696 remaining of €1,200"
-        android:textColor="#94A3B8"
-        android:textSize="11sp" />
+        <TextView
+            android:id="@+id/budget_spent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="€504 spent"
+            android:textColor="#10B981"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="4dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="RECENT EXPENSES"
-        android:textColor="#94A3B8"
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginTop="10dp" />
+        <TextView
+            android:id="@+id/budget_remaining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="€696 remaining of €1,200"
+            android:textColor="#94A3B8"
+            android:textSize="11sp" />
 
-    <TextView
-        android:id="@+id/expense_1_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#F1F5F9"
-        android:textSize="11sp"
-        android:layout_marginTop="4dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RECENT EXPENSES"
+            android:textColor="#94A3B8"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp" />
 
-    <TextView
-        android:id="@+id/expense_2_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#F1F5F9"
-        android:textSize="11sp"
-        android:layout_marginTop="2dp" />
+        <TextView
+            android:id="@+id/expense_1_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F1F5F9"
+            android:textSize="11sp"
+            android:layout_marginTop="4dp" />
 
-    <TextView
-        android:id="@+id/expense_3_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#F1F5F9"
-        android:textSize="11sp"
-        android:layout_marginTop="2dp" />
+        <TextView
+            android:id="@+id/expense_2_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F1F5F9"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+
+        <TextView
+            android:id="@+id/expense_3_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#F1F5F9"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/add_expense_btn"
@@ -236,8 +259,7 @@ const BUDGET_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
         android:layout_height="wrap_content"
         android:text="+ Add Expense"
         android:backgroundTint="#8B5CF6"
-        android:textColor="#FFFFFF"
-        android:layout_marginTop="10dp" />
+        android:textColor="#FFFFFF" />
 </LinearLayout>`;
 
 const JAVA_HOME_WIDGET_PROVIDER = `package com.reactnativehomewidget;
@@ -298,10 +320,10 @@ class QuickLocalInfoWidget : AppWidgetProvider() {
 
             val views = RemoteViews(context.packageName, R.layout.quick_local_info_widget).apply {
                 setTextViewText(R.id.local_country, "Local Info · $country")
-                setTextViewText(R.id.emerg_police, "Police: $police")
-                setTextViewText(R.id.emerg_ambulance, "Amb: $ambulance")
-                setTextViewText(R.id.emerg_fire, "Fire: $fire")
-                setTextViewText(R.id.emerg_general, "General: $general")
+                setTextViewText(R.id.emerg_police, "🚓 $police")
+                setTextViewText(R.id.emerg_ambulance, "🚑 $ambulance")
+                setTextViewText(R.id.emerg_fire, "🚒 $fire")
+                setTextViewText(R.id.emerg_general, "📞 $general")
                 setTextViewText(R.id.upcoming_holiday, holiday)
             }
             appWidgetManager.updateAppWidget(appWidgetId, views)
@@ -434,9 +456,11 @@ function withAndroidWidgets(config) {
 
       const xmlDir = path.join(resDir, 'xml');
       const layoutDir = path.join(resDir, 'layout');
+      const drawableDir = path.join(resDir, 'drawable');
 
       fs.mkdirSync(xmlDir, { recursive: true });
       fs.mkdirSync(layoutDir, { recursive: true });
+      fs.mkdirSync(drawableDir, { recursive: true });
       fs.mkdirSync(javaDir, { recursive: true });
       fs.mkdirSync(homeWidgetModuleDir, { recursive: true });
 
@@ -449,6 +473,16 @@ function withAndroidWidgets(config) {
       fs.writeFileSync(path.join(layoutDir, 'active_trip_overview_widget.xml'), ACTIVE_TRIP_LAYOUT);
       fs.writeFileSync(path.join(layoutDir, 'quick_local_info_widget.xml'), LOCAL_INFO_LAYOUT);
       fs.writeFileSync(path.join(layoutDir, 'budget_widget.xml'), BUDGET_LAYOUT);
+      
+      // Write drawable files
+      const pillRed = `<?xml version="1.0" encoding="utf-8"?>\n<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">\n    <corners android:radius="16dp" />\n    <solid android:color="#33EF4444" />\n</shape>`;
+      const pillBlue = `<?xml version="1.0" encoding="utf-8"?>\n<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">\n    <corners android:radius="16dp" />\n    <solid android:color="#333B82F6" />\n</shape>`;
+      const pillOrange = `<?xml version="1.0" encoding="utf-8"?>\n<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">\n    <corners android:radius="16dp" />\n    <solid android:color="#33F59E0B" />\n</shape>`;
+      const pillGreen = `<?xml version="1.0" encoding="utf-8"?>\n<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">\n    <corners android:radius="16dp" />\n    <solid android:color="#3310B981" />\n</shape>`;
+      fs.writeFileSync(path.join(drawableDir, 'pill_red.xml'), pillRed);
+      fs.writeFileSync(path.join(drawableDir, 'pill_blue.xml'), pillBlue);
+      fs.writeFileSync(path.join(drawableDir, 'pill_orange.xml'), pillOrange);
+      fs.writeFileSync(path.join(drawableDir, 'pill_green.xml'), pillGreen);
 
       // Write Kotlin Provider classes
       fs.writeFileSync(path.join(javaDir, 'ActiveTripOverviewWidget.kt'), KOTLIN_ACTIVE_TRIP_WIDGET);

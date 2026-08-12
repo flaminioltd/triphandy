@@ -240,23 +240,36 @@ const BUDGET_LAYOUT = `<?xml version="1.0" encoding="utf-8"?>
         android:layout_marginTop="10dp" />
 </LinearLayout>`;
 
+const JAVA_HOME_WIDGET_PROVIDER = `package com.reactnativehomewidget;
+
+import android.appwidget.AppWidgetProvider;
+
+public class HomeWidgetProvider extends AppWidgetProvider {
+}`;
+
 const KOTLIN_ACTIVE_TRIP_WIDGET = `package com.triphandy.app
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
-import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class ActiveTripOverviewWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+        val prefs = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)
+        val prefsData = context.getSharedPreferences("DATA", Context.MODE_PRIVATE)
+
         for (appWidgetId in appWidgetIds) {
-            val widgetData = HomeWidgetPlugin.getData(context)
+            val destination = prefs.getString("trip_destination", null) ?: prefsData.getString("trip_destination", "No Active Trip")
+            val daysLeft = prefs.getString("trip_days_left", null) ?: prefsData.getString("trip_days_left", "Plan a trip")
+            val dateRange = prefs.getString("trip_date_range", null) ?: prefsData.getString("trip_date_range", "")
+            val rate = prefs.getString("trip_exchange_rate", null) ?: prefsData.getString("trip_exchange_rate", "")
+
             val views = RemoteViews(context.packageName, R.layout.active_trip_overview_widget).apply {
-                setTextViewText(R.id.trip_destination, widgetData.getString("trip_destination", "No Active Trip"))
-                setTextViewText(R.id.trip_days_left, widgetData.getString("trip_days_left", "Plan a trip"))
-                setTextViewText(R.id.trip_date_range, widgetData.getString("trip_date_range", ""))
-                setTextViewText(R.id.trip_exchange_rate, widgetData.getString("trip_exchange_rate", ""))
+                setTextViewText(R.id.trip_destination, destination)
+                setTextViewText(R.id.trip_days_left, daysLeft)
+                setTextViewText(R.id.trip_date_range, dateRange)
+                setTextViewText(R.id.trip_exchange_rate, rate)
             }
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -269,20 +282,27 @@ import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
 import android.widget.RemoteViews
-import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class QuickLocalInfoWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+        val prefs = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)
+        val prefsData = context.getSharedPreferences("DATA", Context.MODE_PRIVATE)
+
         for (appWidgetId in appWidgetIds) {
-            val widgetData = HomeWidgetPlugin.getData(context)
-            val country = widgetData.getString("local_country", "France")
+            val country = prefs.getString("local_country", null) ?: prefsData.getString("local_country", "France")
+            val police = prefs.getString("emerg_police", null) ?: prefsData.getString("emerg_police", "17")
+            val ambulance = prefs.getString("emerg_ambulance", null) ?: prefsData.getString("emerg_ambulance", "15")
+            val fire = prefs.getString("emerg_fire", null) ?: prefsData.getString("emerg_fire", "18")
+            val general = prefs.getString("emerg_general", null) ?: prefsData.getString("emerg_general", "112")
+            val holiday = prefs.getString("upcoming_holiday", null) ?: prefsData.getString("upcoming_holiday", "No upcoming holidays")
+
             val views = RemoteViews(context.packageName, R.layout.quick_local_info_widget).apply {
                 setTextViewText(R.id.local_country, "Local Info · $country")
-                setTextViewText(R.id.emerg_police, "Police: " + widgetData.getString("emerg_police", "17"))
-                setTextViewText(R.id.emerg_ambulance, "Amb: " + widgetData.getString("emerg_ambulance", "15"))
-                setTextViewText(R.id.emerg_fire, "Fire: " + widgetData.getString("emerg_fire", "18"))
-                setTextViewText(R.id.emerg_general, "General: " + widgetData.getString("emerg_general", "112"))
-                setTextViewText(R.id.upcoming_holiday, widgetData.getString("upcoming_holiday", "No upcoming holidays"))
+                setTextViewText(R.id.emerg_police, "Police: $police")
+                setTextViewText(R.id.emerg_ambulance, "Amb: $ambulance")
+                setTextViewText(R.id.emerg_fire, "Fire: $fire")
+                setTextViewText(R.id.emerg_general, "General: $general")
+                setTextViewText(R.id.upcoming_holiday, holiday)
             }
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
@@ -298,30 +318,34 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.widget.RemoteViews
-import es.dionisiocaceres.home_widget.HomeWidgetPlugin
 
 class BudgetWidget : AppWidgetProvider() {
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+        val prefs = context.getSharedPreferences("HomeWidgetPreferences", Context.MODE_PRIVATE)
+        val prefsData = context.getSharedPreferences("DATA", Context.MODE_PRIVATE)
+
         for (appWidgetId in appWidgetIds) {
-            val widgetData = HomeWidgetPlugin.getData(context)
+            val spent = prefs.getString("budget_spent", null) ?: prefsData.getString("budget_spent", "€0 spent")
+            val remaining = prefs.getString("budget_remaining", null) ?: prefsData.getString("budget_remaining", "€0 remaining")
+
+            val exp1Name = prefs.getString("expense_1_name", "") ?: ""
+            val exp1Date = prefs.getString("expense_1_date", "") ?: ""
+            val exp1Amount = prefs.getString("expense_1_amount", "") ?: ""
+            val line1 = if (exp1Name.isNotEmpty()) "$exp1Name  [$exp1Date]  $exp1Amount" else ""
+
+            val exp2Name = prefs.getString("expense_2_name", "") ?: ""
+            val exp2Date = prefs.getString("expense_2_date", "") ?: ""
+            val exp2Amount = prefs.getString("expense_2_amount", "") ?: ""
+            val line2 = if (exp2Name.isNotEmpty()) "$exp2Name  [$exp2Date]  $exp2Amount" else ""
+
+            val exp3Name = prefs.getString("expense_3_name", "") ?: ""
+            val exp3Date = prefs.getString("expense_3_date", "") ?: ""
+            val exp3Amount = prefs.getString("expense_3_amount", "") ?: ""
+            val line3 = if (exp3Name.isNotEmpty()) "$exp3Name  [$exp3Date]  $exp3Amount" else ""
+
             val views = RemoteViews(context.packageName, R.layout.budget_widget).apply {
-                setTextViewText(R.id.budget_spent, widgetData.getString("budget_spent", "€0 spent"))
-                setTextViewText(R.id.budget_remaining, widgetData.getString("budget_remaining", "€0 remaining"))
-
-                val exp1Name = widgetData.getString("expense_1_name", "")
-                val exp1Date = widgetData.getString("expense_1_date", "")
-                val exp1Amount = widgetData.getString("expense_1_amount", "")
-                val line1 = if (exp1Name.isNotEmpty()) "$exp1Name  [$exp1Date]  $exp1Amount" else ""
-
-                val exp2Name = widgetData.getString("expense_2_name", "")
-                val exp2Date = widgetData.getString("expense_2_date", "")
-                val exp2Amount = widgetData.getString("expense_2_amount", "")
-                val line2 = if (exp2Name.isNotEmpty()) "$exp2Name  [$exp2Date]  $exp2Amount" else ""
-
-                val exp3Name = widgetData.getString("expense_3_name", "")
-                val exp3Date = widgetData.getString("expense_3_date", "")
-                val exp3Amount = widgetData.getString("expense_3_amount", "")
-                val line3 = if (exp3Name.isNotEmpty()) "$exp3Name  [$exp3Date]  $exp3Amount" else ""
+                setTextViewText(R.id.budget_spent, spent)
+                setTextViewText(R.id.budget_remaining, remaining)
 
                 setTextViewText(R.id.expense_1_name, line1)
                 setTextViewText(R.id.expense_2_name, line2)
@@ -406,6 +430,7 @@ function withAndroidWidgets(config) {
       const projectRoot = config.modRequest.projectRoot;
       const resDir = path.join(projectRoot, 'android', 'app', 'src', 'main', 'res');
       const javaDir = path.join(projectRoot, 'android', 'app', 'src', 'main', 'java', 'com', 'triphandy', 'app');
+      const homeWidgetModuleDir = path.join(projectRoot, 'android', 'app', 'src', 'main', 'java', 'com', 'reactnativehomewidget');
 
       const xmlDir = path.join(resDir, 'xml');
       const layoutDir = path.join(resDir, 'layout');
@@ -413,6 +438,7 @@ function withAndroidWidgets(config) {
       fs.mkdirSync(xmlDir, { recursive: true });
       fs.mkdirSync(layoutDir, { recursive: true });
       fs.mkdirSync(javaDir, { recursive: true });
+      fs.mkdirSync(homeWidgetModuleDir, { recursive: true });
 
       // Write xml info files
       fs.writeFileSync(path.join(xmlDir, 'active_trip_overview_widget_info.xml'), ACTIVE_TRIP_XML_INFO);
@@ -423,6 +449,9 @@ function withAndroidWidgets(config) {
       fs.writeFileSync(path.join(layoutDir, 'active_trip_overview_widget.xml'), ACTIVE_TRIP_LAYOUT);
       fs.writeFileSync(path.join(layoutDir, 'quick_local_info_widget.xml'), LOCAL_INFO_LAYOUT);
       fs.writeFileSync(path.join(layoutDir, 'budget_widget.xml'), BUDGET_LAYOUT);
+
+      // Write HomeWidgetProvider dummy class for react-native-home-widget compatibility
+      fs.writeFileSync(path.join(homeWidgetModuleDir, 'HomeWidgetProvider.java'), JAVA_HOME_WIDGET_PROVIDER);
 
       // Write Kotlin Provider classes
       fs.writeFileSync(path.join(javaDir, 'ActiveTripOverviewWidget.kt'), KOTLIN_ACTIVE_TRIP_WIDGET);

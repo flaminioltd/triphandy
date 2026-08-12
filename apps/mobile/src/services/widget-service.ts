@@ -1,11 +1,10 @@
-// @ts-ignore
-import HomeWidget from 'react-native-home-widget';
+import ExpoWidgetUpdaterModule from '../../modules/expo-widget-updater/src/ExpoWidgetUpdaterModule';
 import { db } from '../db/client';
 import { settings as dbSettings, exchangeRates } from '../db/schema';
 import { COUNTRIES } from '../lib/countries';
 import { EMERGENCY_NUMBERS, PUBLIC_HOLIDAYS, PublicHoliday } from '../lib/local-info-data';
 
-const hw = HomeWidget as any;
+const hw = ExpoWidgetUpdaterModule as any;
 
 const CURRENCY_SYMBOLS: Record<string, string> = {
   'USD': '$', 'EUR': '€', 'GBP': '£', 'JPY': '¥', 'AUD': 'A$', 'CAD': 'C$',
@@ -72,7 +71,7 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
         hw.setItem('trip_date_range', ''),
         hw.setItem('trip_exchange_rate', '')
       ]);
-      await hw.updateWidget?.({ androidName: 'ActiveTripOverviewWidget', name: 'ActiveTripOverviewWidget' });
+      await hw.updateWidget?.('ActiveTripOverviewWidget');
       return;
     }
 
@@ -144,7 +143,7 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
       hw.setItem('trip_date_range', dateRangeText),
       hw.setItem('trip_exchange_rate', `1 ${homeCurrency} = ${convertedFx} ${destCurrency}`)
     ]);
-    await hw.updateWidget({ androidName: 'ActiveTripOverviewWidget', name: 'ActiveTripOverviewWidget' });
+    await hw.updateWidget?.('ActiveTripOverviewWidget');
 
     // ----------------------------------------------------
     // WIDGET 2: Quick Local Info (2x2 Grid)
@@ -184,7 +183,7 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
       hw.setItem('emerg_general', emergData.general),
       hw.setItem('upcoming_holiday', holidayText)
     ]);
-    await hw.updateWidget({ androidName: 'QuickLocalInfoWidget', name: 'QuickLocalInfoWidget' });
+    await hw.updateWidget?.('QuickLocalInfoWidget');
 
     // ----------------------------------------------------
     // WIDGET 3: Budget & Expenses (2x4 Grid)
@@ -229,7 +228,7 @@ export async function syncAllWidgets(activeTrip: any | null, expenses: any[] = [
     }
 
     await Promise.all(budgetPromises);
-    await hw.updateWidget({ androidName: 'BudgetWidget', name: 'BudgetWidget' });
+    await hw.updateWidget?.('BudgetWidget');
 
   } catch (error) {
     console.error('Failed to sync widgets:', error);

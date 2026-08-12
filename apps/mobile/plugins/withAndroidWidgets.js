@@ -450,44 +450,6 @@ function withAndroidWidgets(config) {
       fs.writeFileSync(path.join(layoutDir, 'quick_local_info_widget.xml'), LOCAL_INFO_LAYOUT);
       fs.writeFileSync(path.join(layoutDir, 'budget_widget.xml'), BUDGET_LAYOUT);
 
-      // Write HomeWidgetProvider dummy class for react-native-home-widget compatibility
-      fs.writeFileSync(path.join(homeWidgetModuleDir, 'HomeWidgetProvider.java'), JAVA_HOME_WIDGET_PROVIDER);
-
-      // Patch node_modules/react-native-home-widget Java module if needed
-      const searchPaths = [
-        path.join(projectRoot, 'node_modules', 'react-native-home-widget', 'android', 'src', 'main', 'java', 'com', 'reactnativehomewidget', 'ReactNativeHomeWidgetModule.java'),
-        path.join(projectRoot, '..', '..', 'node_modules', 'react-native-home-widget', 'android', 'src', 'main', 'java', 'com', 'reactnativehomewidget', 'ReactNativeHomeWidgetModule.java')
-      ];
-
-      for (const targetModulePath of searchPaths) {
-        if (fs.existsSync(targetModulePath)) {
-          let content = fs.readFileSync(targetModulePath, 'utf-8');
-          let modified = false;
-
-          // 1. Add missing import
-          if (!content.includes('import com.reactnativehomewidget.widget.HomeWidgetProvider;')) {
-            content = content.replace(
-              'package com.reactnativehomewidget;',
-              'package com.reactnativehomewidget;\n\nimport com.reactnativehomewidget.widget.HomeWidgetProvider;'
-            );
-            modified = true;
-          }
-
-          // 2. Comment out deleteAppWidget which causes compile error
-          if (content.includes('appWidgetManager.deleteAppWidget(appWidgetId);')) {
-            content = content.replace(
-              /appWidgetManager\.deleteAppWidget\(appWidgetId\);/g,
-              '// appWidgetManager.deleteAppWidget(appWidgetId);'
-            );
-            modified = true;
-          }
-
-          if (modified) {
-            fs.writeFileSync(targetModulePath, content, 'utf-8');
-          }
-        }
-      }
-
       // Write Kotlin Provider classes
       fs.writeFileSync(path.join(javaDir, 'ActiveTripOverviewWidget.kt'), KOTLIN_ACTIVE_TRIP_WIDGET);
       fs.writeFileSync(path.join(javaDir, 'QuickLocalInfoWidget.kt'), KOTLIN_LOCAL_INFO_WIDGET);

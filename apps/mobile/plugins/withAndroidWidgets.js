@@ -462,11 +462,27 @@ function withAndroidWidgets(config) {
       for (const targetModulePath of searchPaths) {
         if (fs.existsSync(targetModulePath)) {
           let content = fs.readFileSync(targetModulePath, 'utf-8');
+          let modified = false;
+
+          // 1. Add missing import
           if (!content.includes('import com.reactnativehomewidget.widget.HomeWidgetProvider;')) {
             content = content.replace(
               'package com.reactnativehomewidget;',
               'package com.reactnativehomewidget;\n\nimport com.reactnativehomewidget.widget.HomeWidgetProvider;'
             );
+            modified = true;
+          }
+
+          // 2. Comment out deleteAppWidget which causes compile error
+          if (content.includes('appWidgetManager.deleteAppWidget(appWidgetId);')) {
+            content = content.replace(
+              /appWidgetManager\.deleteAppWidget\(appWidgetId\);/g,
+              '// appWidgetManager.deleteAppWidget(appWidgetId);'
+            );
+            modified = true;
+          }
+
+          if (modified) {
             fs.writeFileSync(targetModulePath, content, 'utf-8');
           }
         }

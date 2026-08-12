@@ -3,7 +3,6 @@ import { tripRepo } from '../repositories/trip-repository';
 import { budgetRepo } from '../repositories/budget-repository';
 import type { trips, expenses } from '../db/schema';
 import { syncTripNotifications } from '../services/notification-service';
-import { syncAllWidgets } from '../services/widget-service';
 
 type Trip = typeof trips.$inferSelect;
 type Expense = typeof expenses.$inferSelect;
@@ -78,7 +77,6 @@ export const useTripStore = create<TripState>((set, get) => ({
     if (!tripId) {
       set({ activeTrip: null, expenses: [] });
       syncTripNotifications(null);
-      syncAllWidgets(null, []);
       return;
     }
     
@@ -89,7 +87,6 @@ export const useTripStore = create<TripState>((set, get) => ({
         const tripExpenses = await budgetRepo.getExpensesForTrip(tripId);
         set({ activeTrip: trip, expenses: tripExpenses });
         syncTripNotifications(trip);
-        syncAllWidgets(trip, tripExpenses);
       }
     } catch (error) {
       console.error('Failed to set active trip:', error);
@@ -116,7 +113,6 @@ export const useTripStore = create<TripState>((set, get) => ({
       if (newExpenses && newExpenses.length > 0) {
         set((state) => {
           const updated = [...state.expenses, newExpenses[0]];
-          syncAllWidgets(state.activeTrip, updated);
           return { expenses: updated };
         });
       }
@@ -133,7 +129,6 @@ export const useTripStore = create<TripState>((set, get) => ({
           const newTrips = state.trips.map(t => t.id === tripId ? updatedTrips[0] : t);
           const newActive = state.activeTrip?.id === tripId ? updatedTrips[0] : state.activeTrip;
           syncTripNotifications(newActive);
-          syncAllWidgets(newActive, state.expenses);
           return {
             trips: newTrips,
             activeTrip: newActive,
@@ -151,7 +146,6 @@ export const useTripStore = create<TripState>((set, get) => ({
       if (updatedExpenses && updatedExpenses.length > 0) {
         set((state) => {
           const updated = state.expenses.map(e => e.id === id ? updatedExpenses[0] : e);
-          syncAllWidgets(state.activeTrip, updated);
           return { expenses: updated };
         });
       }
@@ -165,7 +159,6 @@ export const useTripStore = create<TripState>((set, get) => ({
       await budgetRepo.deleteExpense(id);
       set((state) => {
         const updated = state.expenses.filter(e => e.id !== id);
-        syncAllWidgets(state.activeTrip, updated);
         return { expenses: updated };
       });
     } catch (error) {

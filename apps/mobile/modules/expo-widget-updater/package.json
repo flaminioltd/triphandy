@@ -1,9 +1,0 @@
-{
-  "name": "expo-widget-updater",
-  "version": "0.1.0",
-  "description": "A local expo module to update Android widgets",
-  "main": "src/ExpoWidgetUpdaterModule.ts",
-  "peerDependencies": {
-    "expo": "*"
-  }
-}

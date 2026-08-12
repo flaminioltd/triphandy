@@ -14,7 +14,6 @@ import { updateExchangeRates, shouldUpdateRates } from '../src/services/exchange
 import { useFonts, DMSans_900Black, DMSans_700Bold, DMSans_400Regular } from '@expo-google-fonts/dm-sans';
 import { useAppStore } from '../src/stores/app-store';
 import { useTripStore } from '../src/stores/trip-store';
-import { syncAllWidgets } from '../src/services/widget-service';
 import { Text, View, ScrollView } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import Qonversion, { QonversionConfigBuilder, LaunchMode } from 'react-native-qonversion';
@@ -42,10 +41,7 @@ export default function RootLayout() {
 
   useEffect(() => {
     seedDatabase().then(() => {
-      useTripStore.getState().loadTrips().then(() => {
-        const state = useTripStore.getState();
-        syncAllWidgets(state.activeTrip, state.expenses);
-      }).catch(console.error);
+      useTripStore.getState().loadTrips().catch(console.error);
     }).catch(console.error);
     initNotifications().then(() => requestNotificationPermissions()).catch(console.error);
 

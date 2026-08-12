@@ -36,7 +36,6 @@
       "@react-native-community/datetimepicker",
       "expo-sqlite",
       "expo-notifications",
-      "./plugins/withAndroidWidgets.js",
       [
         "expo-build-properties",
         {

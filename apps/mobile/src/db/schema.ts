@@ -31,6 +31,7 @@ export const settings = sqliteTable('settings', {
   systemLanguage: text('system_language'),
   exchangeRateSyncPreference: text('exchange_rate_sync_preference').default('wifi_only'),
   isPremium: integer('is_premium', { mode: 'boolean' }).default(false).notNull(),
+  firstLaunchDate: integer('first_launch_date', { mode: 'timestamp' }),
   moduleOrder: text('module_order'),
   updatedAt: integer('updated_at', { mode: 'timestamp' }),
 });

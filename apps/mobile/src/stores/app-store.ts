@@ -56,7 +56,7 @@ export const useAppStore = create<AppState>((set) => ({
       }
 
       // 4. Hardcoded Admin mode flag (TEMPORARY)
-      const ADMIN_MODE = true; // TODO: Revert to false after admin build
+      const ADMIN_MODE = false;
 
       // 5. Final premium state override in memory
       if (data) {

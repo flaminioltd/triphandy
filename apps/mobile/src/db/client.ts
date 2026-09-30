@@ -49,11 +49,6 @@ try {
     updated_at INTEGER
   );
 
-  try {
-    sqliteClient.execSync(`ALTER TABLE settings ADD COLUMN first_launch_date INTEGER;`);
-  } catch (e) {
-    // Column likely already exists
-  }
 
   CREATE TABLE IF NOT EXISTS trips (
     id TEXT PRIMARY KEY,
@@ -137,6 +132,9 @@ try {
 } catch (e) {}
 try {
   sqliteClient?.execSync("ALTER TABLE settings ADD COLUMN module_order TEXT;");
+} catch (e) {}
+try {
+  sqliteClient?.execSync("ALTER TABLE settings ADD COLUMN first_launch_date INTEGER;");
 } catch (e) {}
 
 try {

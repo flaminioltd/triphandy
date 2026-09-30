@@ -54,7 +54,7 @@ export const useAppStore = create<AppState>((set) => ({
       // 3. Qonversion purchase check
       let hasPurchased = data?.isPremium || false;
       try {
-        const entitlements = await Qonversion.checkEntitlements();
+        const entitlements = await Qonversion.getSharedInstance().checkEntitlements();
         const premiumEntitlement = entitlements.get('premium_access');
         if (premiumEntitlement && premiumEntitlement.isActive) {
           hasPurchased = true;

@@ -67,7 +67,7 @@ export const useAppStore = create<AppState>((set) => ({
       }
 
       // 4. Hardcoded Admin mode flag (TEMPORARY)
-      const ADMIN_MODE = true;
+      const ADMIN_MODE = false;
 
       // 5. Final premium state override in memory
       data = applyPremiumOverrides(data, ADMIN_MODE);
@@ -88,7 +88,7 @@ export const useAppStore = create<AppState>((set) => ({
       const result = await settingsRepo.saveSettings(data);
       if (result && result.length > 0) {
         // TEMPORARY ADMIN MODE FLAG
-        const ADMIN_MODE = true;
+        const ADMIN_MODE = false;
         const modifiedData = applyPremiumOverrides(result[0], ADMIN_MODE);
         set({ settings: modifiedData });
         if (data.systemLanguage) {

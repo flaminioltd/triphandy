@@ -13,6 +13,17 @@ interface AppState {
   updateSettings: (data: Partial<typeof settings.$inferInsert>) => Promise<void>;
   setSyncing: (isSyncing: boolean) => void;
 }
+  
+const applyPremiumOverrides = (data: Settings | null, adminMode: boolean = false): Settings | null => {
+  if (!data) return data;
+  let hasActiveTrial = false;
+  if (data.firstLaunchDate) {
+    const trialEnd = new Date(data.firstLaunchDate).getTime() + (7 * 24 * 60 * 60 * 1000);
+    hasActiveTrial = Date.now() < trialEnd;
+  }
+  data.isPremium = adminMode || data.isPremium || hasActiveTrial;
+  return data;
+};
 
 export const useAppStore = create<AppState>((set) => ({
   settings: null,
@@ -44,7 +55,7 @@ export const useAppStore = create<AppState>((set) => ({
       let hasPurchased = data?.isPremium || false;
       try {
         const entitlements = await Qonversion.checkEntitlements();
-        const premiumEntitlement = entitlements.get('premium');
+        const premiumEntitlement = entitlements.get('premium_access');
         if (premiumEntitlement && premiumEntitlement.isActive) {
           hasPurchased = true;
           if (!data?.isPremium) {
@@ -56,12 +67,10 @@ export const useAppStore = create<AppState>((set) => ({
       }
 
       // 4. Hardcoded Admin mode flag (TEMPORARY)
-      const ADMIN_MODE = false;
+      const ADMIN_MODE = true; 
 
       // 5. Final premium state override in memory
-      if (data) {
-        data.isPremium = ADMIN_MODE || hasPurchased || hasActiveTrial;
-      }
+      data = applyPremiumOverrides(data, ADMIN_MODE);
 
       set({ settings: data });
       if (data?.systemLanguage) {
@@ -78,7 +87,10 @@ export const useAppStore = create<AppState>((set) => ({
     try {
       const result = await settingsRepo.saveSettings(data);
       if (result && result.length > 0) {
-        set({ settings: result[0] });
+        // TEMPORARY ADMIN MODE FLAG
+        const ADMIN_MODE = true;
+        const modifiedData = applyPremiumOverrides(result[0], ADMIN_MODE);
+        set({ settings: modifiedData });
         if (data.systemLanguage) {
           import('../i18n').then((i18n) => i18n.default.changeLanguage(data.systemLanguage!));
         }

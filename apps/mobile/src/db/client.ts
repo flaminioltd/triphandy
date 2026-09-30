@@ -44,13 +44,16 @@ try {
     system_language TEXT,
     exchange_rate_sync_preference TEXT DEFAULT 'wifi_only',
     is_premium INTEGER NOT NULL DEFAULT 0,
+    first_launch_date INTEGER,
     module_order TEXT,
     updated_at INTEGER
   );
 
-  -- Handle migration for existing settings table (ignoring errors if column already exists)
-  -- SQLite does not support IF NOT EXISTS for ALTER TABLE ADD COLUMN, so it may fail if it exists.
-  -- We just rely on fresh install or catching error in a real migration tool later.
+  try {
+    sqliteClient.execSync(`ALTER TABLE settings ADD COLUMN first_launch_date INTEGER;`);
+  } catch (e) {
+    // Column likely already exists
+  }
 
   CREATE TABLE IF NOT EXISTS trips (
     id TEXT PRIMARY KEY,
